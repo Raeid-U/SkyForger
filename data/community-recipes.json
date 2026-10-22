@@ -1,0 +1,2002 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "file": "table.html",
+    "sha256": "ebed82155751bbbcfc94d895a72bd9c7036e0b9d93a8833b42f32191710cce05",
+    "origin": "User-supplied community snapshot; original URL and capture date unknown"
+  },
+  "status": "unverified; excluded from production calculations",
+  "recipes": [
+    {
+      "name": "Amber Material",
+      "method": "forge",
+      "durationSeconds": 25200,
+      "hotmLevel": 6,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Fine Amber Gemstone",
+          "quantity": 12,
+          "kind": "item"
+        },
+        {
+          "name": "Golden Plate",
+          "quantity": 1,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "6",
+      "sourceDuration": "7"
+    },
+    {
+      "name": "Amber-polished Drill Engine",
+      "method": "forge",
+      "durationSeconds": 180000,
+      "hotmLevel": 7,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Flawless Amber Gemstone",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Robotron Reflector",
+          "quantity": 50,
+          "kind": "item"
+        },
+        {
+          "name": "Ruby-polished Drill Engine",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Sapphire-polished Drill Engine",
+          "quantity": 1,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "7",
+      "sourceDuration": "50"
+    },
+    {
+      "name": "Ammonite",
+      "method": "forge",
+      "durationSeconds": 1036800,
+      "hotmLevel": 3,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Coins",
+          "quantity": 300000,
+          "kind": "coins"
+        },
+        {
+          "name": "Helix",
+          "quantity": 1,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "3",
+      "sourceDuration": "288"
+    },
+    {
+      "name": "Beacon II",
+      "method": "forge",
+      "durationSeconds": 72000,
+      "hotmLevel": 2,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Beacon I",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Refined Mithril",
+          "quantity": 5,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "2",
+      "sourceDuration": "20"
+    },
+    {
+      "name": "Beacon III",
+      "method": "forge",
+      "durationSeconds": 108000,
+      "hotmLevel": 3,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Beacon II",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Refined Mithril",
+          "quantity": 10,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "3",
+      "sourceDuration": "30"
+    },
+    {
+      "name": "Beacon IV",
+      "method": "forge",
+      "durationSeconds": 144000,
+      "hotmLevel": 4,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Beacon III",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Plasma",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Refined Mithril",
+          "quantity": 20,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "4",
+      "sourceDuration": "40"
+    },
+    {
+      "name": "Beacon V",
+      "method": "forge",
+      "durationSeconds": 180000,
+      "hotmLevel": 5,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Beacon IV",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Plasma",
+          "quantity": 5,
+          "kind": "item"
+        },
+        {
+          "name": "Refined Mithril",
+          "quantity": 40,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "5",
+      "sourceDuration": "50"
+    },
+    {
+      "name": "Bejeweled Collar",
+      "method": "forge",
+      "durationSeconds": 7200,
+      "hotmLevel": 2,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Bejeweled Handle",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Refined Mithril",
+          "quantity": 4,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "2",
+      "sourceDuration": "2"
+    },
+    {
+      "name": "Bejeweled Handle",
+      "method": "forge",
+      "durationSeconds": 1800,
+      "hotmLevel": 2,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Glacite Jewel",
+          "quantity": 3,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "2",
+      "sourceDuration": "0.5"
+    },
+    {
+      "name": "Blue Cheese Goblin Omelette",
+      "method": "forge",
+      "durationSeconds": 72000,
+      "hotmLevel": 6,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Blue Goblin Egg",
+          "quantity": 99,
+          "kind": "item"
+        },
+        {
+          "name": "Perfect Sapphire Gemstone",
+          "quantity": 1,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "6",
+      "sourceDuration": "20"
+    },
+    {
+      "name": "Boots of Divan",
+      "method": "forge",
+      "durationSeconds": 82800,
+      "hotmLevel": 6,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Divan Fragment",
+          "quantity": 4,
+          "kind": "item"
+        },
+        {
+          "name": "Flawless Ruby Gemstone",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Gemstone Mixture",
+          "quantity": 10,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "6",
+      "sourceDuration": "23"
+    },
+    {
+      "name": "Chestplate of Divan",
+      "method": "forge",
+      "durationSeconds": 82800,
+      "hotmLevel": 6,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Divan Fragment",
+          "quantity": 8,
+          "kind": "item"
+        },
+        {
+          "name": "Flawless Ruby Gemstone",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Gemstone Mixture",
+          "quantity": 10,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "6",
+      "sourceDuration": "23"
+    },
+    {
+      "name": "Diamonite",
+      "method": "forge",
+      "durationSeconds": 21600,
+      "hotmLevel": 2,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Refined Diamond",
+          "quantity": 3,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "2",
+      "sourceDuration": "6"
+    },
+    {
+      "name": "Divan's Drill",
+      "method": "forge",
+      "durationSeconds": 216000,
+      "hotmLevel": 7,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Coins",
+          "quantity": 50000000,
+          "kind": "coins"
+        },
+        {
+          "name": "Divan's Alloy",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Titanium Drill DR-X655",
+          "quantity": 1,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "7",
+      "sourceDuration": "60"
+    },
+    {
+      "name": "Drill Engine",
+      "method": "forge",
+      "durationSeconds": 108000,
+      "hotmLevel": 3,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Iron Ingot",
+          "quantity": 25600,
+          "kind": "item"
+        },
+        {
+          "name": "Enchanted Redstone Block",
+          "quantity": 3,
+          "kind": "item"
+        },
+        {
+          "name": "Golden Plate",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Refined Diamond",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Treasurite",
+          "quantity": 10,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "3",
+      "sourceDuration": "30"
+    },
+    {
+      "name": "Fine Amber Gemstone",
+      "method": "crafting",
+      "durationSeconds": 0,
+      "hotmLevel": 0,
+      "collectionRequirement": {
+        "name": "Gemstone",
+        "level": 5
+      },
+      "ingredients": [
+        {
+          "name": "Flawed Amber Gemstone",
+          "quantity": 80,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "0\n+ Gemstone 5",
+      "sourceDuration": "Crafting"
+    },
+    {
+      "name": "Fine Amethyst Gemstone",
+      "method": "crafting",
+      "durationSeconds": 0,
+      "hotmLevel": 0,
+      "collectionRequirement": {
+        "name": "Gemstone",
+        "level": 5
+      },
+      "ingredients": [
+        {
+          "name": "Flawed Amethyst Gemstone",
+          "quantity": 80,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "0\n+ Gemstone 5",
+      "sourceDuration": "Crafting"
+    },
+    {
+      "name": "Fine Jade Gemstone",
+      "method": "crafting",
+      "durationSeconds": 0,
+      "hotmLevel": 0,
+      "collectionRequirement": {
+        "name": "Gemstone",
+        "level": 5
+      },
+      "ingredients": [
+        {
+          "name": "Flawed Jade Gemstone",
+          "quantity": 80,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "0\n+ Gemstone 5",
+      "sourceDuration": "Crafting"
+    },
+    {
+      "name": "Fine Jasper Gemstone",
+      "method": "crafting",
+      "durationSeconds": 0,
+      "hotmLevel": 0,
+      "collectionRequirement": {
+        "name": "Gemstone",
+        "level": 5
+      },
+      "ingredients": [
+        {
+          "name": "Flawed Jasper Gemstone",
+          "quantity": 80,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "0\n+ Gemstone 5",
+      "sourceDuration": "Crafting"
+    },
+    {
+      "name": "Fine Ruby Gemstone",
+      "method": "crafting",
+      "durationSeconds": 0,
+      "hotmLevel": 0,
+      "collectionRequirement": {
+        "name": "Gemstone",
+        "level": 5
+      },
+      "ingredients": [
+        {
+          "name": "Flawed Ruby Gemstone",
+          "quantity": 80,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "0\n+ Gemstone 5",
+      "sourceDuration": "Crafting"
+    },
+    {
+      "name": "Fine Sapphire Gemstone",
+      "method": "crafting",
+      "durationSeconds": 0,
+      "hotmLevel": 0,
+      "collectionRequirement": {
+        "name": "Gemstone",
+        "level": 5
+      },
+      "ingredients": [
+        {
+          "name": "Flawed Sapphire Gemstone",
+          "quantity": 80,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "0\n+ Gemstone 5",
+      "sourceDuration": "Crafting"
+    },
+    {
+      "name": "Fine Topaz Gemstone",
+      "method": "crafting",
+      "durationSeconds": 0,
+      "hotmLevel": 0,
+      "collectionRequirement": {
+        "name": "Gemstone",
+        "level": 5
+      },
+      "ingredients": [
+        {
+          "name": "Flawed Topaz Gemstone",
+          "quantity": 80,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "0\n+ Gemstone 5",
+      "sourceDuration": "Crafting"
+    },
+    {
+      "name": "Flawless Amber Gemstone",
+      "method": "crafting",
+      "durationSeconds": 0,
+      "hotmLevel": 0,
+      "collectionRequirement": {
+        "name": "Gemstone",
+        "level": 9
+      },
+      "ingredients": [
+        {
+          "name": "Fine Amber Gemstone",
+          "quantity": 80,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "0\n+ Gemstone 9",
+      "sourceDuration": "Crafting"
+    },
+    {
+      "name": "Flawless Amethyst Gemstone",
+      "method": "crafting",
+      "durationSeconds": 0,
+      "hotmLevel": 0,
+      "collectionRequirement": {
+        "name": "Gemstone",
+        "level": 9
+      },
+      "ingredients": [
+        {
+          "name": "Fine Amethyst Gemstone",
+          "quantity": 80,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "0\n+ Gemstone 9",
+      "sourceDuration": "Crafting"
+    },
+    {
+      "name": "Flawless Jade Gemstone",
+      "method": "crafting",
+      "durationSeconds": 0,
+      "hotmLevel": 0,
+      "collectionRequirement": {
+        "name": "Gemstone",
+        "level": 9
+      },
+      "ingredients": [
+        {
+          "name": "Fine Jade Gemstone",
+          "quantity": 80,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "0\n+ Gemstone 9",
+      "sourceDuration": "Crafting"
+    },
+    {
+      "name": "Flawless Jasper Gemstone",
+      "method": "crafting",
+      "durationSeconds": 0,
+      "hotmLevel": 0,
+      "collectionRequirement": {
+        "name": "Gemstone",
+        "level": 9
+      },
+      "ingredients": [
+        {
+          "name": "Fine Jasper Gemstone",
+          "quantity": 80,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "0\n+ Gemstone 9",
+      "sourceDuration": "Crafting"
+    },
+    {
+      "name": "Flawless Ruby Gemstone",
+      "method": "crafting",
+      "durationSeconds": 0,
+      "hotmLevel": 0,
+      "collectionRequirement": {
+        "name": "Gemstone",
+        "level": 9
+      },
+      "ingredients": [
+        {
+          "name": "Fine Ruby Gemstone",
+          "quantity": 80,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "0\n+ Gemstone 9",
+      "sourceDuration": "Crafting"
+    },
+    {
+      "name": "Flawless Sapphire Gemstone",
+      "method": "crafting",
+      "durationSeconds": 0,
+      "hotmLevel": 0,
+      "collectionRequirement": {
+        "name": "Gemstone",
+        "level": 9
+      },
+      "ingredients": [
+        {
+          "name": "Fine Sapphire Gemstone",
+          "quantity": 80,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "0\n+ Gemstone 9",
+      "sourceDuration": "Crafting"
+    },
+    {
+      "name": "Flawless Topaz Gemstone",
+      "method": "crafting",
+      "durationSeconds": 0,
+      "hotmLevel": 0,
+      "collectionRequirement": {
+        "name": "Gemstone",
+        "level": 9
+      },
+      "ingredients": [
+        {
+          "name": "Fine Topaz Gemstone",
+          "quantity": 80,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "0\n+ Gemstone 9",
+      "sourceDuration": "Crafting"
+    },
+    {
+      "name": "Fuel Tank",
+      "method": "forge",
+      "durationSeconds": 36000,
+      "hotmLevel": 2,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Enchanted Block of Coal",
+          "quantity": 2,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "2",
+      "sourceDuration": "10"
+    },
+    {
+      "name": "Gemstone Chamber",
+      "method": "forge",
+      "durationSeconds": 14400,
+      "hotmLevel": 5,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Coins",
+          "quantity": 25000,
+          "kind": "coins"
+        },
+        {
+          "name": "Gemstone Mixture",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Worm Membrane",
+          "quantity": 100,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "5",
+      "sourceDuration": "4"
+    },
+    {
+      "name": "Gemstone Drill LT-522",
+      "method": "forge",
+      "durationSeconds": 30,
+      "hotmLevel": 4,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Gemstone Mixture",
+          "quantity": 3,
+          "kind": "item"
+        },
+        {
+          "name": "Ruby Drill TX-15",
+          "quantity": 1,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "4",
+      "sourceDuration": "30 secs"
+    },
+    {
+      "name": "Gemstone Fuel Tank",
+      "method": "forge",
+      "durationSeconds": 108000,
+      "hotmLevel": 5,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Control Switch",
+          "quantity": 30,
+          "kind": "item"
+        },
+        {
+          "name": "Gemstone Mixture",
+          "quantity": 10,
+          "kind": "item"
+        },
+        {
+          "name": "Titanium-Infused Fuel Tank",
+          "quantity": 1,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "5",
+      "sourceDuration": "30"
+    },
+    {
+      "name": "Gemstone Mixture",
+      "method": "forge",
+      "durationSeconds": 14400,
+      "hotmLevel": 4,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Fine Amber Gemstone",
+          "quantity": 4,
+          "kind": "item"
+        },
+        {
+          "name": "Fine Amethyst Gemstone",
+          "quantity": 4,
+          "kind": "item"
+        },
+        {
+          "name": "Fine Jade Gemstone",
+          "quantity": 4,
+          "kind": "item"
+        },
+        {
+          "name": "Fine Sapphire Gemstone",
+          "quantity": 4,
+          "kind": "item"
+        },
+        {
+          "name": "Sludge Juice",
+          "quantity": 320,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "4",
+      "sourceDuration": "4"
+    },
+    {
+      "name": "Goblin Omelette",
+      "method": "forge",
+      "durationSeconds": 64800,
+      "hotmLevel": 4,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Goblin Egg",
+          "quantity": 99,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "4",
+      "sourceDuration": "18"
+    },
+    {
+      "name": "Golden Plate",
+      "method": "forge",
+      "durationSeconds": 21600,
+      "hotmLevel": 3,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Enchanted Gold Block",
+          "quantity": 2,
+          "kind": "item"
+        },
+        {
+          "name": "Glacite Jewel",
+          "quantity": 5,
+          "kind": "item"
+        },
+        {
+          "name": "Refined Diamond",
+          "quantity": 1,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "3",
+      "sourceDuration": "6"
+    },
+    {
+      "name": "Helmet of Divan",
+      "method": "forge",
+      "durationSeconds": 82800,
+      "hotmLevel": 6,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Divan Fragment",
+          "quantity": 5,
+          "kind": "item"
+        },
+        {
+          "name": "Flawless Ruby Gemstone",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Gemstone Mixture",
+          "quantity": 10,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "6",
+      "sourceDuration": "23"
+    },
+    {
+      "name": "Hot Stuff",
+      "method": "forge",
+      "durationSeconds": 86400,
+      "hotmLevel": 4,
+      "collectionRequirement": {
+        "name": "Hard Stone",
+        "level": 4
+      },
+      "ingredients": [
+        {
+          "name": "Hard Stone",
+          "quantity": 128,
+          "kind": "item"
+        },
+        {
+          "name": "Rough Amber Gemstone",
+          "quantity": 64,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "4\n+ Hard Stone 4",
+      "sourceDuration": "24"
+    },
+    {
+      "name": "Jasper Drill X",
+      "method": "forge",
+      "durationSeconds": 30,
+      "hotmLevel": 6,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Flawless Jasper Gemstone",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Topaz Drill KGR-12",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Treasurite",
+          "quantity": 100,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "6",
+      "sourceDuration": "30 secs"
+    },
+    {
+      "name": "Leggings of Divan",
+      "method": "forge",
+      "durationSeconds": 82800,
+      "hotmLevel": 6,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Divan Fragment",
+          "quantity": 7,
+          "kind": "item"
+        },
+        {
+          "name": "Flawless Ruby Gemstone",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Gemstone Mixture",
+          "quantity": 10,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "6",
+      "sourceDuration": "23"
+    },
+    {
+      "name": "Mithril Drill SX-R226",
+      "method": "forge",
+      "durationSeconds": 14400,
+      "hotmLevel": 3,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Drill Engine",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Fuel Tank",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Refined Mithril",
+          "quantity": 3,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "3",
+      "sourceDuration": "4"
+    },
+    {
+      "name": "Mithril Drill SX-R326",
+      "method": "forge",
+      "durationSeconds": 30,
+      "hotmLevel": 4,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Golden Plate",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Mithril Drill SX-R226",
+          "quantity": 5,
+          "kind": "item"
+        },
+        {
+          "name": "Mithril Plate",
+          "quantity": 2,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "4",
+      "sourceDuration": "30 secs"
+    },
+    {
+      "name": "Mithril Pickaxe",
+      "method": "forge",
+      "durationSeconds": 2700,
+      "hotmLevel": 2,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Bejeweled Handle",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Enchanted Gold",
+          "quantity": 10,
+          "kind": "item"
+        },
+        {
+          "name": "Enchanted Mithril",
+          "quantity": 30,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "2",
+      "sourceDuration": "0.75"
+    },
+    {
+      "name": "Mithril Plate",
+      "method": "forge",
+      "durationSeconds": 64800,
+      "hotmLevel": 3,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Iron Ingot",
+          "quantity": 25600,
+          "kind": "item"
+        },
+        {
+          "name": "Golden Plate",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Refined Mithril",
+          "quantity": 5,
+          "kind": "item"
+        },
+        {
+          "name": "Refined Titanium",
+          "quantity": 1,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "3",
+      "sourceDuration": "18"
+    },
+    {
+      "name": "Mithril-Infused Fuel Tank",
+      "method": "forge",
+      "durationSeconds": 36000,
+      "hotmLevel": 3,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Fuel Tank",
+          "quantity": 5,
+          "kind": "item"
+        },
+        {
+          "name": "Refined Diamond",
+          "quantity": 5,
+          "kind": "item"
+        },
+        {
+          "name": "Refined Mithril",
+          "quantity": 10,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "3",
+      "sourceDuration": "10"
+    },
+    {
+      "name": "Mithril-Plated Drill Engine",
+      "method": "forge",
+      "durationSeconds": 54000,
+      "hotmLevel": 3,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Drill Engine",
+          "quantity": 2,
+          "kind": "item"
+        },
+        {
+          "name": "Mithril Plate",
+          "quantity": 3,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "3",
+      "sourceDuration": "15"
+    },
+    {
+      "name": "Perfect Amber Gemstone",
+      "method": "forge",
+      "durationSeconds": 72000,
+      "hotmLevel": 5,
+      "collectionRequirement": {
+        "name": "Gemstone",
+        "level": 10
+      },
+      "ingredients": [
+        {
+          "name": "Amber Crystal",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Flawless Amber Gemstone",
+          "quantity": 5,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "5\n+ Gemstone 10",
+      "sourceDuration": "20"
+    },
+    {
+      "name": "Perfect Amethyst Gemstone",
+      "method": "forge",
+      "durationSeconds": 72000,
+      "hotmLevel": 5,
+      "collectionRequirement": {
+        "name": "Gemstone",
+        "level": 10
+      },
+      "ingredients": [
+        {
+          "name": "Amethyst Crystal",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Flawless Amethyst Gemstone",
+          "quantity": 5,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "5\n+ Gemstone 10",
+      "sourceDuration": "20"
+    },
+    {
+      "name": "Perfect Jade Gemstone",
+      "method": "forge",
+      "durationSeconds": 72000,
+      "hotmLevel": 5,
+      "collectionRequirement": {
+        "name": "Gemstone",
+        "level": 10
+      },
+      "ingredients": [
+        {
+          "name": "Flawless Jade Gemstone",
+          "quantity": 5,
+          "kind": "item"
+        },
+        {
+          "name": "Jade Crystal",
+          "quantity": 1,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "5\n+ Gemstone 10",
+      "sourceDuration": "20"
+    },
+    {
+      "name": "Perfect Jasper Gemstone",
+      "method": "forge",
+      "durationSeconds": 72000,
+      "hotmLevel": 5,
+      "collectionRequirement": {
+        "name": "Gemstone",
+        "level": 10
+      },
+      "ingredients": [
+        {
+          "name": "Flawless Jasper Gemstone",
+          "quantity": 5,
+          "kind": "item"
+        },
+        {
+          "name": "Jasper Crystal",
+          "quantity": 1,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "5\n+ Gemstone 10",
+      "sourceDuration": "20"
+    },
+    {
+      "name": "Perfect Opal Gemstone",
+      "method": "forge",
+      "durationSeconds": 72000,
+      "hotmLevel": 5,
+      "collectionRequirement": {
+        "name": "Gemstone",
+        "level": 10
+      },
+      "ingredients": [
+        {
+          "name": "Flawless Opal Gemstone",
+          "quantity": 5,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "5\n+ Gemstone 10",
+      "sourceDuration": "20"
+    },
+    {
+      "name": "Perfect Ruby Gemstone",
+      "method": "forge",
+      "durationSeconds": 72000,
+      "hotmLevel": 5,
+      "collectionRequirement": {
+        "name": "Gemstone",
+        "level": 10
+      },
+      "ingredients": [
+        {
+          "name": "Flawless Ruby Gemstone",
+          "quantity": 5,
+          "kind": "item"
+        },
+        {
+          "name": "Ruby Crystal",
+          "quantity": 1,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "5\n+ Gemstone 10",
+      "sourceDuration": "20"
+    },
+    {
+      "name": "Perfect Sapphire Gemstone",
+      "method": "forge",
+      "durationSeconds": 72000,
+      "hotmLevel": 5,
+      "collectionRequirement": {
+        "name": "Gemstone",
+        "level": 10
+      },
+      "ingredients": [
+        {
+          "name": "Flawless Sapphire Gemstone",
+          "quantity": 5,
+          "kind": "item"
+        },
+        {
+          "name": "Sapphire Crystal",
+          "quantity": 1,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "5\n+ Gemstone 10",
+      "sourceDuration": "20"
+    },
+    {
+      "name": "Perfect Topaz Gemstone",
+      "method": "forge",
+      "durationSeconds": 72000,
+      "hotmLevel": 5,
+      "collectionRequirement": {
+        "name": "Gemstone",
+        "level": 10
+      },
+      "ingredients": [
+        {
+          "name": "Flawless Topaz Gemstone",
+          "quantity": 5,
+          "kind": "item"
+        },
+        {
+          "name": "Topaz Crystal",
+          "quantity": 1,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "5\n+ Gemstone 10",
+      "sourceDuration": "20"
+    },
+    {
+      "name": "Perfectly-Cut Fuel Tank",
+      "method": "forge",
+      "durationSeconds": 180000,
+      "hotmLevel": 7,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Gemstone Fuel Tank",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Gemstone Mixture",
+          "quantity": 25,
+          "kind": "item"
+        },
+        {
+          "name": "Synthetic Heart",
+          "quantity": 70,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "7",
+      "sourceDuration": "50"
+    },
+    {
+      "name": "Pesto Goblin Omelette",
+      "method": "forge",
+      "durationSeconds": 72000,
+      "hotmLevel": 4,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Fine Jade Gemstone",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Green Goblin Egg",
+          "quantity": 99,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "4",
+      "sourceDuration": "20"
+    },
+    {
+      "name": "Petrified Starfall",
+      "method": "forge",
+      "durationSeconds": 50400,
+      "hotmLevel": 3,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Starfall",
+          "quantity": 512,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "3",
+      "sourceDuration": "14"
+    },
+    {
+      "name": "Power Crystal",
+      "method": "forge",
+      "durationSeconds": 7200,
+      "hotmLevel": 2,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Starfall",
+          "quantity": 256,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "2",
+      "sourceDuration": "2"
+    },
+    {
+      "name": "Pure Mithril",
+      "method": "forge",
+      "durationSeconds": 43200,
+      "hotmLevel": 3,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Refined Mithril",
+          "quantity": 2,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "3",
+      "sourceDuration": "12"
+    },
+    {
+      "name": "Refined Diamond",
+      "method": "forge",
+      "durationSeconds": 28800,
+      "hotmLevel": 2,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Enchanted Diamond Block",
+          "quantity": 2,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "2",
+      "sourceDuration": "8"
+    },
+    {
+      "name": "Refined Mithril",
+      "method": "forge",
+      "durationSeconds": 21600,
+      "hotmLevel": 2,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Enchanted Mithril",
+          "quantity": 160,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "2",
+      "sourceDuration": "6"
+    },
+    {
+      "name": "Refined Mithril Pickaxe",
+      "method": "forge",
+      "durationSeconds": 79200,
+      "hotmLevel": 3,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Bejeweled Handle",
+          "quantity": 2,
+          "kind": "item"
+        },
+        {
+          "name": "Enchanted Gold",
+          "quantity": 30,
+          "kind": "item"
+        },
+        {
+          "name": "Refined Diamond",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Refined Mithril",
+          "quantity": 3,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "3",
+      "sourceDuration": "22"
+    },
+    {
+      "name": "Refined Titanium",
+      "method": "forge",
+      "durationSeconds": 43200,
+      "hotmLevel": 2,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Enchanted Titanium",
+          "quantity": 16,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "2",
+      "sourceDuration": "12"
+    },
+    {
+      "name": "Rock Gemstone",
+      "method": "forge",
+      "durationSeconds": 79200,
+      "hotmLevel": 3,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Enchanted Cobblestone",
+          "quantity": 128,
+          "kind": "item"
+        },
+        {
+          "name": "Treasurite",
+          "quantity": 64,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "3",
+      "sourceDuration": "22"
+    },
+    {
+      "name": "Ruby Drill TX-15",
+      "method": "forge",
+      "durationSeconds": 3600,
+      "hotmLevel": 3,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Drill Engine",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Fine Ruby Gemstone",
+          "quantity": 6,
+          "kind": "item"
+        },
+        {
+          "name": "Fuel Tank",
+          "quantity": 1,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "3",
+      "sourceDuration": "1"
+    },
+    {
+      "name": "Ruby-polished Drill Engine",
+      "method": "forge",
+      "durationSeconds": 72000,
+      "hotmLevel": 5,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Fine Ruby Gemstone",
+          "quantity": 10,
+          "kind": "item"
+        },
+        {
+          "name": "Mithril-Plated Drill Engine",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Superlite Motor",
+          "quantity": 10,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "5",
+      "sourceDuration": "20"
+    },
+    {
+      "name": "Sapphire-polished Drill Engine",
+      "method": "forge",
+      "durationSeconds": 72000,
+      "hotmLevel": 6,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Electron Transmitter",
+          "quantity": 25,
+          "kind": "item"
+        },
+        {
+          "name": "FTX 3070",
+          "quantity": 25,
+          "kind": "item"
+        },
+        {
+          "name": "Fine Sapphire Gemstone",
+          "quantity": 20,
+          "kind": "item"
+        },
+        {
+          "name": "Titanium-Plated Drill Engine",
+          "quantity": 1,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "6",
+      "sourceDuration": "20"
+    },
+    {
+      "name": "Spicy Goblin Omelette",
+      "method": "forge",
+      "durationSeconds": 72000,
+      "hotmLevel": 5,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Flawless Ruby Gemstone",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Red Goblin Egg",
+          "quantity": 99,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "5",
+      "sourceDuration": "20"
+    },
+    {
+      "name": "Sunny Side Goblin Omelette",
+      "method": "forge",
+      "durationSeconds": 72000,
+      "hotmLevel": 6,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Fine Topaz Gemstone",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Yellow Goblin Egg",
+          "quantity": 99,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "6",
+      "sourceDuration": "20"
+    },
+    {
+      "name": "Titanium Artifact",
+      "method": "forge",
+      "durationSeconds": 129600,
+      "hotmLevel": 4,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Refined Titanium",
+          "quantity": 12,
+          "kind": "item"
+        },
+        {
+          "name": "Titanium Ring",
+          "quantity": 1,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "4",
+      "sourceDuration": "36"
+    },
+    {
+      "name": "Titanium Drill DR-X355",
+      "method": "forge",
+      "durationSeconds": 230400,
+      "hotmLevel": 5,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Drill Engine",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Fuel Tank",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Golden Plate",
+          "quantity": 6,
+          "kind": "item"
+        },
+        {
+          "name": "Refined Mithril",
+          "quantity": 10,
+          "kind": "item"
+        },
+        {
+          "name": "Refined Titanium",
+          "quantity": 10,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "5",
+      "sourceDuration": "64"
+    },
+    {
+      "name": "Titanium Drill DR-X455",
+      "method": "forge",
+      "durationSeconds": 30,
+      "hotmLevel": 5,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Mithril Plate",
+          "quantity": 6,
+          "kind": "item"
+        },
+        {
+          "name": "Refined Diamond",
+          "quantity": 10,
+          "kind": "item"
+        },
+        {
+          "name": "Refined Titanium",
+          "quantity": 16,
+          "kind": "item"
+        },
+        {
+          "name": "Titanium Drill DR-X355",
+          "quantity": 1,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "5",
+      "sourceDuration": "30 secs"
+    },
+    {
+      "name": "Titanium Drill DR-X555",
+      "method": "forge",
+      "durationSeconds": 30,
+      "hotmLevel": 5,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Iron Ingot",
+          "quantity": 51200,
+          "kind": "item"
+        },
+        {
+          "name": "Mithril Plate",
+          "quantity": 15,
+          "kind": "item"
+        },
+        {
+          "name": "Plasma",
+          "quantity": 20,
+          "kind": "item"
+        },
+        {
+          "name": "Refined Diamond",
+          "quantity": 20,
+          "kind": "item"
+        },
+        {
+          "name": "Refined Titanium",
+          "quantity": 32,
+          "kind": "item"
+        },
+        {
+          "name": "Titanium Drill DR-X455",
+          "quantity": 1,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "5",
+      "sourceDuration": "30 secs"
+    },
+    {
+      "name": "Titanium Drill DR-X655",
+      "method": "forge",
+      "durationSeconds": 30,
+      "hotmLevel": 6,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Corleonite",
+          "quantity": 30,
+          "kind": "item"
+        },
+        {
+          "name": "Flawless Ruby Gemstone",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Gemstone Mixture",
+          "quantity": 16,
+          "kind": "item"
+        },
+        {
+          "name": "Mithril Plate",
+          "quantity": 5,
+          "kind": "item"
+        },
+        {
+          "name": "Refined Diamond",
+          "quantity": 5,
+          "kind": "item"
+        },
+        {
+          "name": "Refined Titanium",
+          "quantity": 12,
+          "kind": "item"
+        },
+        {
+          "name": "Titanium Drill DR-X555",
+          "quantity": 1,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "6",
+      "sourceDuration": "30 secs"
+    },
+    {
+      "name": "Titanium Relic",
+      "method": "forge",
+      "durationSeconds": 259200,
+      "hotmLevel": 5,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Refined Titanium",
+          "quantity": 20,
+          "kind": "item"
+        },
+        {
+          "name": "Titanium Artifact",
+          "quantity": 1,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "5",
+      "sourceDuration": "72"
+    },
+    {
+      "name": "Titanium Ring",
+      "method": "forge",
+      "durationSeconds": 72000,
+      "hotmLevel": 3,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Refined Titanium",
+          "quantity": 6,
+          "kind": "item"
+        },
+        {
+          "name": "Titanium Talisman",
+          "quantity": 1,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "3",
+      "sourceDuration": "20"
+    },
+    {
+      "name": "Titanium Talisman",
+      "method": "forge",
+      "durationSeconds": 50400,
+      "hotmLevel": 2,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Refined Titanium",
+          "quantity": 2,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "2",
+      "sourceDuration": "14"
+    },
+    {
+      "name": "Titanium-Infused Fuel Tank",
+      "method": "forge",
+      "durationSeconds": 90000,
+      "hotmLevel": 5,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Fuel Tank",
+          "quantity": 5,
+          "kind": "item"
+        },
+        {
+          "name": "Mithril-Infused Fuel Tank",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Refined Diamond",
+          "quantity": 5,
+          "kind": "item"
+        },
+        {
+          "name": "Refined Titanium",
+          "quantity": 10,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "5",
+      "sourceDuration": "25"
+    },
+    {
+      "name": "Titanium-Plated Drill Engine",
+      "method": "forge",
+      "durationSeconds": 108000,
+      "hotmLevel": 4,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Drill Engine",
+          "quantity": 10,
+          "kind": "item"
+        },
+        {
+          "name": "Mithril Plate",
+          "quantity": 4,
+          "kind": "item"
+        },
+        {
+          "name": "Plasma",
+          "quantity": 5,
+          "kind": "item"
+        },
+        {
+          "name": "Refined Titanium",
+          "quantity": 5,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "4",
+      "sourceDuration": "30"
+    },
+    {
+      "name": "Topaz Drill KGR-12",
+      "method": "forge",
+      "durationSeconds": 30,
+      "hotmLevel": 5,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Flawless Topaz Gemstone",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Gemstone Drill LT-522",
+          "quantity": 1,
+          "kind": "item"
+        },
+        {
+          "name": "Gemstone Mixture",
+          "quantity": 3,
+          "kind": "item"
+        },
+        {
+          "name": "Magma Core",
+          "quantity": 5,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "5",
+      "sourceDuration": "30 secs"
+    },
+    {
+      "name": "Travel Scroll to the Dwarven Forge",
+      "method": "forge",
+      "durationSeconds": 18000,
+      "hotmLevel": 2,
+      "collectionRequirement": null,
+      "ingredients": [
+        {
+          "name": "Coins",
+          "quantity": 25000,
+          "kind": "coins"
+        },
+        {
+          "name": "Ender Pearl",
+          "quantity": 320,
+          "kind": "item"
+        },
+        {
+          "name": "Mithril",
+          "quantity": 48,
+          "kind": "item"
+        },
+        {
+          "name": "Titanium",
+          "quantity": 80,
+          "kind": "item"
+        }
+      ],
+      "verification": "pending",
+      "sourceRequirements": "2",
+      "sourceDuration": "5"
+    }
+  ]
+}
