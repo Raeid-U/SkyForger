@@ -82,3 +82,111 @@ test("tracker key stays in the server header and out of the URL and response", a
   assert.equal(result.code, 200);
   assert.ok(!JSON.stringify(result.body).includes("test-server-secret"));
 });
+
+test("IGN lookup accepts hyphenated profile IDs and returns derived settings without raw member data", async (t) => {
+  const old = process.env.HYPIXEL_API_KEY;
+  process.env.HYPIXEL_API_KEY = "test-server-secret";
+  t.after(() => {
+    if (old === undefined) delete process.env.HYPIXEL_API_KEY;
+    else process.env.HYPIXEL_API_KEY = old;
+  });
+  const profileId = "abcdef01-2345-6789-abcd-ef0123456789";
+  t.mock.method(
+    globalThis,
+    "fetch",
+    async (input: string | URL | Request, options?: RequestInit) => {
+      const url = String(input);
+      if (url.includes("api.mojang.com")) {
+        assert.equal(
+          (options?.headers as Record<string, string> | undefined)?.["API-Key"],
+          undefined,
+        );
+        return new Response(JSON.stringify({ id: uuid, name: "ExampleIGN" }));
+      }
+      if (url.includes("resources/skyblock/election"))
+        return new Response(
+          JSON.stringify({
+            success: true,
+            mayor: { name: "Cole", perks: [{ name: "Molten Forge" }] },
+          }),
+        );
+      assert.equal(
+        (options?.headers as Record<string, string>)["API-Key"],
+        "test-server-secret",
+      );
+      return new Response(
+        JSON.stringify({
+          success: true,
+          profiles: [
+            {
+              profile_id: profileId,
+              cute_name: "Kiwi",
+              members: {
+                [uuid]: {
+                  skill_tree: {
+                    experience: { mining: 347000 },
+                    nodes: { mining: { forge_time: 20 } },
+                  },
+                  player_data: {
+                    unlocked_coll_tiers: ["GEMSTONE_COLLECTION_11"],
+                  },
+                  inventory: { sacks_counts: { REFINED_MITHRIL: 4 } },
+                  private_marker: "do-not-expose-raw-member-data",
+                },
+              },
+            },
+          ],
+        }),
+      );
+    },
+  );
+  const { result, res } = response();
+  await handler(
+    {
+      method: "GET",
+      query: { player: "ExampleIGN", profile: profileId },
+    } as unknown as NextApiRequest,
+    res,
+  );
+  assert.equal(result.code, 200);
+  const body = result.body as {
+    progression: { settings: { hotm: number } };
+    inventory: { items: Record<string, number> };
+    environment: { moltenForge: boolean };
+  };
+  assert.equal(body.progression.settings.hotm, 7);
+  assert.equal(body.inventory.items["refined-mithril"], 4);
+  assert.equal(body.environment.moltenForge, true);
+  assert.ok(!JSON.stringify(result.body).includes("test-server-secret"));
+  assert.ok(
+    !JSON.stringify(result.body).includes("do-not-expose-raw-member-data"),
+  );
+});
+
+test("profile lookup reports rate limits and rejected keys without exposing upstream details", async (t) => {
+  const old = process.env.HYPIXEL_API_KEY;
+  process.env.HYPIXEL_API_KEY = "test-server-secret";
+  t.after(() => {
+    if (old === undefined) delete process.env.HYPIXEL_API_KEY;
+    else process.env.HYPIXEL_API_KEY = old;
+  });
+  for (const [upstream, expected] of [
+    [429, 429],
+    [403, 503],
+    [500, 502],
+  ]) {
+    const mock = t.mock.method(
+      globalThis,
+      "fetch",
+      async () => new Response("private-upstream-detail", { status: upstream }),
+    );
+    const { result, res } = response();
+    await handler(
+      { method: "GET", query: { player: uuid } } as unknown as NextApiRequest,
+      res,
+    );
+    assert.equal(result.code, expected);
+    assert.ok(!JSON.stringify(result.body).includes("private-upstream-detail"));
+    mock.mock.restore();
+  }
+});

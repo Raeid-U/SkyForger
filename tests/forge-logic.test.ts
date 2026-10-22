@@ -146,11 +146,13 @@ test("Quick Forge has its level-20 jump and reductions stack additively", () => 
     45,
   );
 });
-test("slot unlocks include Peak of the Mountain", () => {
+test("forge slots follow current HOTM tiers and cap at seven", () => {
   assert.equal(forgeSlots(settings({ hotm: 1, peak: 0 })), 0);
   assert.equal(forgeSlots(settings({ hotm: 2, peak: 0 })), 2);
   assert.equal(forgeSlots(settings({ hotm: 4, peak: 0 })), 4);
-  assert.equal(forgeSlots(settings({ hotm: 4, peak: 2 })), 5);
+  assert.equal(forgeSlots(settings({ hotm: 4, peak: 2 })), 4);
+  assert.equal(forgeSlots(settings({ hotm: 7 })), 7);
+  assert.equal(forgeSlots(settings({ hotm: 10 })), 7);
 });
 test("owned inventory is allocated once across shared recipe branches", () => {
   const owned = { "golden-plate": 1 };

@@ -7,20 +7,33 @@ import {
   useContext,
   useEffect,
   useState,
+  useMemo,
+  useRef,
+  type FormEvent,
   type ReactNode,
 } from "react";
 import { parseBazaar, type BazaarSnapshot } from "../lib/bazaar";
-import { items, recipes } from "../lib/forge/catalog";
+import { items } from "../lib/forge/catalog";
 import {
   defaultSettings,
   forgeSlots,
   settingsSchema,
+  preferencesSchema,
+  type Preferences,
   type Settings,
 } from "../lib/forge/settings";
 
+import { trackerResultSchema, type TrackerResult } from "../lib/forge/tracker";
+
 const Context = createContext<{
   settings: Settings;
-  update: (value: Partial<Settings>) => void;
+  update: (value: Partial<Preferences>) => void;
+  account: TrackerResult | null;
+  accountName: string;
+  accountLoading: boolean;
+  accountError: string;
+  loadAccount: (player: string, profile?: string) => Promise<void>;
+  disconnect: () => void;
   snapshot: BazaarSnapshot | null;
   loading: boolean;
   error: string;
@@ -28,27 +41,135 @@ const Context = createContext<{
 } | null>(null);
 
 export function WorkspaceProvider({ children }: { children: ReactNode }) {
-  const [settings, setSettings] = useState(defaultSettings);
+  const [preferences, setPreferences] = useState(() =>
+    preferencesSchema.parse(defaultSettings),
+  );
+  const [account, setAccount] = useState<TrackerResult | null>(null);
+  const [accountName, setAccountName] = useState("");
+  const [accountLoading, setAccountLoading] = useState(false);
+  const [accountError, setAccountError] = useState("");
+  const accountRequest = useRef<AbortController | null>(null);
+  const identity = useRef({ uuid: "", name: "" });
+  const settings = useMemo(
+    () =>
+      settingsSchema.parse({
+        ...defaultSettings,
+        hotm: 0,
+        ...preferences,
+        ...account?.progression?.settings,
+        moltenForge: account?.environment.moltenForge ?? false,
+      }),
+    [preferences, account],
+  );
+  const loadAccount = useCallback(async (player: string, profile?: string) => {
+    accountRequest.current?.abort();
+    const controller = new AbortController();
+    accountRequest.current = controller;
+    setAccountLoading(true);
+    setAccountError("");
+    const timeout = setTimeout(() => controller.abort(), 20000);
+    try {
+      const query = new URLSearchParams({ player: player.trim() });
+      if (profile) query.set("profile", profile);
+      const response = await fetch(`/api/forge?${query}`, {
+        signal: controller.signal,
+      });
+      const body = await response.json();
+      if (!response.ok)
+        throw new Error(body.error ?? "Could not load profile.");
+      const parsed = trackerResultSchema.safeParse(body);
+      if (!parsed.success)
+        throw new Error("Profile response was incomplete. Try again.");
+      const result = parsed.data;
+      if (accountRequest.current !== controller) return;
+      const name = /^[a-fA-F0-9-]{32,36}$/.test(player)
+        ? identity.current.uuid === result.uuid
+          ? identity.current.name
+          : result.uuid
+        : player.trim();
+      identity.current = { uuid: result.uuid, name };
+      setAccount(result);
+      setAccountName(name);
+      try {
+        localStorage.setItem(
+          "skyforger:account:v1",
+          JSON.stringify({
+            player: result.uuid,
+            profile: result.selectedProfileId,
+            name,
+          }),
+        );
+      } catch {}
+    } catch (cause) {
+      if (accountRequest.current !== controller) return;
+      setAccountError(
+        controller.signal.aborted
+          ? "Profile lookup timed out. Try again."
+          : cause instanceof Error
+            ? cause.message
+            : "Could not load profile.",
+      );
+    } finally {
+      clearTimeout(timeout);
+      if (accountRequest.current === controller) setAccountLoading(false);
+    }
+  }, []);
+  const disconnect = () => {
+    accountRequest.current?.abort();
+    accountRequest.current = null;
+    identity.current = { uuid: "", name: "" };
+    setAccount(null);
+    setAccountName("");
+    setAccountError("");
+    setAccountLoading(false);
+    try {
+      localStorage.removeItem("skyforger:account:v1");
+    } catch {}
+  };
   const [ready, setReady] = useState(false);
   const [snapshot, setSnapshot] = useState<BazaarSnapshot | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   useEffect(() => {
     try {
-      const stored = settingsSchema.safeParse(
+      const stored = preferencesSchema.safeParse(
         JSON.parse(localStorage.getItem("skyforger:settings:v1") ?? "null"),
       );
-      if (stored.success) setSettings(stored.data);
+      if (stored.success) setPreferences(stored.data);
+    } catch {}
+    try {
+      const saved = JSON.parse(
+        localStorage.getItem("skyforger:account:v1") ?? "null",
+      );
+      if (
+        typeof saved?.name === "string" &&
+        typeof saved?.player === "string"
+      ) {
+        identity.current = { uuid: saved.player, name: saved.name };
+        setAccountName(saved.name);
+      }
+      if (typeof saved?.player === "string")
+        void loadAccount(
+          saved.player,
+          typeof saved.profile === "string" ? saved.profile : undefined,
+        );
     } catch {}
     setReady(true);
-  }, []);
+    return () => {
+      accountRequest.current?.abort();
+      accountRequest.current = null;
+    };
+  }, [loadAccount]);
   useEffect(() => {
     if (ready) {
       try {
-        localStorage.setItem("skyforger:settings:v1", JSON.stringify(settings));
+        localStorage.setItem(
+          "skyforger:settings:v1",
+          JSON.stringify(preferences),
+        );
       } catch {}
     }
-  }, [settings, ready]);
+  }, [preferences, ready]);
   const refresh = useCallback(async () => {
     setLoading(true);
     setError("");
@@ -75,9 +196,15 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
       value={{
         settings,
         update: (value) =>
-          setSettings((previous) =>
-            settingsSchema.parse({ ...previous, ...value }),
+          setPreferences((previous) =>
+            preferencesSchema.parse({ ...previous, ...value }),
           ),
+        account,
+        accountName,
+        accountLoading,
+        accountError,
+        loadAccount,
+        disconnect,
         snapshot,
         loading,
         error,
@@ -169,7 +296,8 @@ export function Workspace({
           {snapshot && Date.now() - snapshot.lastUpdated > 180000 && (
             <p className="notice">Market snapshot is over 3 minutes old.</p>
           )}
-          <PlayerSettings />
+          <AccountSettings />
+          <MarketSettings />
           {children}
         </main>
         <footer>SkyForger · Independent Hypixel SkyBlock companion</footer>
@@ -178,110 +306,132 @@ export function Workspace({
   );
 }
 
-function PlayerSettings() {
-  const { settings, update } = useWorkspace();
-  const collections = [
-    ...new Set(
-      recipes.flatMap((recipe) =>
-        recipe.requirements
-          .filter((req) => req.kind === "collection")
-          .map((req) => req.collection!),
-      ),
-    ),
-  ].sort();
-  const manual = recipes.flatMap((recipe) =>
-    recipe.requirements.filter((req) => req.kind === "manual"),
+function AccountSettings() {
+  const {
+    settings,
+    account,
+    accountName,
+    accountLoading,
+    accountError,
+    loadAccount,
+    disconnect,
+  } = useWorkspace();
+  const [player, setPlayer] = useState("");
+  const submit = (event: FormEvent) => {
+    event.preventDefault();
+    void loadAccount(player);
+  };
+  return (
+    <section className="panel account-panel" aria-label="SkyBlock account">
+      <form className="toolbar" onSubmit={submit}>
+        <input
+          aria-label="Minecraft username or UUID"
+          placeholder="Minecraft IGN"
+          value={player}
+          onChange={(event) => setPlayer(event.target.value)}
+          required
+        />
+        <button className="primary" disabled={accountLoading}>
+          {accountLoading ? "Loading profile…" : "Load account"}
+        </button>
+        {account && account.profiles.length > 0 && (
+          <>
+            <label>
+              Profile
+              <select
+                aria-label="SkyBlock profile"
+                value={account.selectedProfileId ?? ""}
+                disabled={accountLoading}
+                onChange={(event) =>
+                  void loadAccount(account.uuid, event.target.value)
+                }
+              >
+                {account.profiles.map((profile) => (
+                  <option key={profile.id} value={profile.id}>
+                    {profile.name}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <button
+              type="button"
+              disabled={accountLoading}
+              onClick={() =>
+                void loadAccount(
+                  account.uuid,
+                  account.selectedProfileId ?? undefined,
+                )
+              }
+            >
+              Refresh profile
+            </button>
+          </>
+        )}
+        {account && (
+          <button type="button" onClick={disconnect}>
+            Disconnect
+          </button>
+        )}
+      </form>
+      {accountError && (
+        <p className="error" role="alert">
+          {accountError}
+        </p>
+      )}
+      {account?.availability === "no-profiles" && (
+        <p className="notice">No SkyBlock profiles found.</p>
+      )}
+      {account?.progression && (
+        <>
+          <div className="account-summary">
+            <strong>{accountName}</strong>
+            <span>HOTM {settings.hotm}</span>
+            <span>{forgeSlots(settings)} forge slots</span>
+            <span>Quick Forge {settings.quickForge}</span>
+            <span>Bazaar tax {Number((settings.tax * 100).toFixed(3))}%</span>
+            <span>
+              {account.environment.mayor ?? "Mayor unavailable"}
+              {settings.moltenForge ? " · Molten Forge active" : ""}
+            </span>
+          </div>
+          <details>
+            <summary>Profile details</summary>
+            <p className="notice">
+              {Object.entries(settings.collections)
+                .map(([name, level]) => `${name} ${level}`)
+                .join(" · ")}
+            </p>
+            <p className="notice">
+              {settings.unlocks.length} additional recipe unlocks · Updated{" "}
+              {new Date(account.fetchedAt).toLocaleTimeString()}
+            </p>
+          </details>
+          {[
+            ...account.progression.warnings,
+            ...account.environment.warnings,
+          ].map((warning) => (
+            <p key={warning} className="notice">
+              {warning}
+            </p>
+          ))}
+        </>
+      )}
+      {!account && !accountError && (
+        <p className="notice">
+          Load your IGN and select a profile to use your progression across all
+          three tools.
+        </p>
+      )}
+    </section>
   );
-  const number = (value: string, max: number) =>
-    Math.min(max, Math.max(0, Math.floor(Number(value))));
+}
+
+function MarketSettings() {
+  const { settings, update } = useWorkspace();
   return (
     <details className="settings">
-      <summary>
-        Player settings{" "}
-        <span>
-          HOTM {settings.hotm} · {forgeSlots(settings)} slots
-        </span>
-      </summary>
+      <summary>Market settings</summary>
       <div className="settings-grid">
-        <label>
-          HOTM level
-          <input
-            type="number"
-            min={0}
-            max={10}
-            value={settings.hotm}
-            onChange={(event) =>
-              update({ hotm: number(event.target.value, 10) })
-            }
-          />
-        </label>
-        <label>
-          Peak of the Mountain
-          <input
-            type="number"
-            min={0}
-            max={10}
-            value={settings.peak}
-            onChange={(event) =>
-              update({ peak: number(event.target.value, 10) })
-            }
-          />
-        </label>
-        <label>
-          Quick Forge level
-          <input
-            type="number"
-            min={0}
-            max={20}
-            value={settings.quickForge}
-            onChange={(event) =>
-              update({ quickForge: number(event.target.value, 20) })
-            }
-          />
-        </label>
-        <label>
-          Bazaar tax
-          <select
-            value={
-              [0.0125, 0.01125, 0.01].includes(settings.tax)
-                ? settings.tax
-                : "custom"
-            }
-            onChange={(event) =>
-              update({
-                tax:
-                  event.target.value === "custom"
-                    ? 0
-                    : Number(event.target.value),
-              })
-            }
-          >
-            <option value={0.0125}>1.25%</option>
-            <option value={0.01125}>1.125%</option>
-            <option value={0.01}>1%</option>
-            <option value="custom">Custom</option>
-          </select>
-        </label>
-        {![0.0125, 0.01125, 0.01].includes(settings.tax) && (
-          <label>
-            Custom tax %
-            <input
-              type="number"
-              min={0}
-              max={20}
-              step={0.001}
-              value={settings.tax * 100}
-              onChange={(event) =>
-                update({
-                  tax: Math.min(
-                    0.2,
-                    Math.max(0, Number(event.target.value) / 100),
-                  ),
-                })
-              }
-            />
-          </label>
-        )}
         <label>
           Buy ingredients
           <select
@@ -306,56 +456,8 @@ function PlayerSettings() {
             <option value="offer">Sell offer</option>
           </select>
         </label>
-        {collections.map((collection) => (
-          <label key={collection}>
-            {collection} collection
-            <input
-              type="number"
-              min={0}
-              max={20}
-              value={settings.collections[collection] ?? 0}
-              onChange={(event) =>
-                update({
-                  collections: {
-                    ...settings.collections,
-                    [collection]: number(event.target.value, 20),
-                  },
-                })
-              }
-            />
-          </label>
-        ))}
       </div>
-      <label className="check">
-        <input
-          type="checkbox"
-          checked={settings.moltenForge}
-          onChange={(event) => update({ moltenForge: event.target.checked })}
-        />{" "}
-        Molten Forge for planned jobs (−25%)
-      </label>
       <PriceSettings />
-      <details>
-        <summary>Additional unlocks</summary>
-        <div className="unlock-list">
-          {manual.map((req) => (
-            <label key={req.key} className="check">
-              <input
-                type="checkbox"
-                checked={settings.unlocks.includes(req.key!)}
-                onChange={(event) =>
-                  update({
-                    unlocks: event.target.checked
-                      ? [...settings.unlocks, req.key!]
-                      : settings.unlocks.filter((key) => key !== req.key),
-                  })
-                }
-              />
-              {req.description}
-            </label>
-          ))}
-        </div>
-      </details>
     </details>
   );
 }

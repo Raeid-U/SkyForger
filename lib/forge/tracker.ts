@@ -1,12 +1,22 @@
 import { z } from "zod";
+import {
+  extractProgression,
+  progressionSchema,
+  inventoryResultSchema,
+  environmentSchema,
+  type Progression,
+  type Environment,
+} from "./profile";
 import { itemByApiId, recipeByOutput } from "./catalog";
 
-const profileSchema = z.object({
-  profile_id: z.string(),
-  cute_name: z.string().optional(),
-  selected: z.boolean().optional(),
-  members: z.record(z.string(), z.unknown()),
-});
+const profileSchema = z
+  .object({
+    profile_id: z.string(),
+    cute_name: z.string().optional(),
+    selected: z.boolean().optional(),
+    members: z.record(z.string(), z.unknown()),
+  })
+  .passthrough();
 const payloadSchema = z.object({
   success: z.literal(true),
   profiles: z.array(profileSchema).nullable(),
@@ -30,6 +40,9 @@ export type TrackerResult = {
   jobs: TrackedJob[];
   availability: "available" | "missing-data" | "no-profiles";
   fetchedAt: number;
+  progression: Progression | null;
+  environment: Environment;
+  inventory: z.infer<typeof inventoryResultSchema> | null;
 };
 
 export function normalizeProfiles(
@@ -49,13 +62,23 @@ export function normalizeProfiles(
     jobs: [],
     availability: "no-profiles",
     fetchedAt: Date.now(),
+    progression: null,
+    inventory: null,
+    environment: { mayor: null, moltenForge: false, warnings: [] },
   };
   if (!profiles.length) return result;
   const selected = profileId
-    ? profiles.find((profile) => profile.profile_id === profileId)
+    ? profiles.find(
+        (profile) =>
+          profile.profile_id.replaceAll("-", "").toLowerCase() ===
+          profileId.replaceAll("-", "").toLowerCase(),
+      )
     : (profiles.find((profile) => profile.selected) ?? profiles[0]);
   if (!selected) throw new Error("Profile not found.");
   result.selectedProfileId = selected.profile_id;
+  if (!selected.members[uuid])
+    throw new Error("Player is not a member of this profile.");
+  result.progression = extractProgression(selected, uuid);
   const member = z
     .object({
       forge: z
@@ -100,3 +123,23 @@ export function normalizeProfiles(
     });
   return { ...result, availability: "available", jobs };
 }
+
+export const trackerResultSchema = z.object({
+  uuid: z.string(),
+  selectedProfileId: z.string().nullable(),
+  profiles: z.array(z.object({ id: z.string(), name: z.string() })),
+  jobs: z.array(
+    z.object({
+      slot: z.number().int().nonnegative(),
+      apiItemId: z.string(),
+      itemId: z.string().nullable(),
+      startedAt: z.number(),
+      baseDuration: z.number().nullable(),
+    }),
+  ),
+  availability: z.enum(["available", "missing-data", "no-profiles"]),
+  fetchedAt: z.number(),
+  progression: progressionSchema.nullable(),
+  inventory: inventoryResultSchema.nullable(),
+  environment: environmentSchema,
+});

@@ -46,12 +46,7 @@ export function durationSeconds(
       );
 }
 export function forgeSlots(settings: Settings) {
-  return settings.hotm < 2
-    ? 0
-    : 2 +
-        Number(settings.hotm >= 3) +
-        Number(settings.hotm >= 4) +
-        Number(settings.peak >= 2);
+  return settings.hotm < 2 ? 0 : Math.min(settings.hotm, 7);
 }
 export function missingRequirements(
   recipe: Recipe,
@@ -76,3 +71,11 @@ export function isRecipePlanningAllowed(recipe: Recipe) {
     /^(rough|flawed)-.+-gemstone$/.test(input.itemId),
   );
 }
+
+export const preferencesSchema = settingsSchema.pick({
+  market: true,
+  buyMode: true,
+  sellMode: true,
+  prices: true,
+});
+export type Preferences = z.infer<typeof preferencesSchema>;

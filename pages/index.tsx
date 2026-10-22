@@ -13,9 +13,9 @@ import type { Settings } from "../lib/forge/settings";
 import { rankRecipe } from "../lib/forge/pricing";
 
 export default function Flips() {
-  const { settings, snapshot, update } = useWorkspace();
+  const { settings, snapshot, update, account } = useWorkspace();
   const [search, setSearch] = useState("");
-  const [eligible, setEligible] = useState(false);
+  const [eligible, setEligible] = useState(true);
   const [sort, setSort] = useState<"perHour" | "profit" | "category">(
     "perHour",
   );
@@ -24,7 +24,7 @@ export default function Flips() {
     .filter(
       (row) =>
         matchesMarket(row.recipe.outputId, settings.market) &&
-        (!eligible || !row.locked.length) &&
+        (!eligible || !account?.progression || !row.locked.length) &&
         itemById
           .get(row.recipe.outputId)!
           .name.toLowerCase()
@@ -72,7 +72,8 @@ export default function Flips() {
         <label className="check">
           <input
             type="checkbox"
-            checked={eligible}
+            disabled={!account?.progression}
+            checked={eligible && !!account?.progression}
             onChange={(event) => setEligible(event.target.checked)}
           />{" "}
           Unlocked only

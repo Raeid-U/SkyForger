@@ -12,7 +12,7 @@ cp .env.example .env.local
 npm run dev
 ```
 
-`HYPIXEL_API_KEY` is required only for account tracking. Keep it server-side.
+`HYPIXEL_API_KEY` enables profile lookup and account tracking. Keep it server-side.
 
 ## Pages
 
@@ -20,9 +20,11 @@ npm run dev
 - `/planner` — recursive craft trees, owned materials, shopping lists, and slot schedules.
 - `/tracker` — SkyBlock profile selection and estimated forge countdowns.
 
-Settings and owned materials are stored locally. Market books are fetched through `/api/bazaar`; account lookups use `/api/forge`. Missing prices stay unresolved. Order fills and forge completion times are estimates.
+Enter an IGN and select a profile on any page. HOTM, mining perks, collection unlocks, Bazaar tax, fossil donations, forge jobs, and available materials are imported through `/api/forge`. The selected profile is shared across pages and restored on reload. Market choices and optional material adjustments are stored locally; adjustments are isolated by player and profile.
 
-The planner assumes free forge slots and immediate material availability. It models Quick Forge and Molten Forge; active-job estimates cannot observe Kinetic reductions. Account username resolution uses Mojang's API; UUIDs bypass that lookup.
+Market books are fetched through `/api/bazaar`. Missing prices stay unresolved. Order fills and forge completion times are estimates.
+
+The planner assumes free forge slots and immediate material availability. It models Quick Forge and the reported current Molten Forge perk. Active-job estimates cannot observe historical mayor eligibility or Kinetic reductions. Account username resolution uses Mojang's API; UUIDs bypass that lookup.
 
 ## Catalog
 
@@ -41,4 +43,4 @@ npm run test:live
 
 ## Vercel
 
-Use the Next.js preset and Node.js 22.x. Add `HYPIXEL_API_KEY` to the server environment to enable tracking. Use the default build and output settings.
+Use the Next.js preset and Node.js 22.x. Add `HYPIXEL_API_KEY` to the server environment to enable profile lookup. Use the default build and output settings.

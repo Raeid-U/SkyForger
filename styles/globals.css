@@ -509,3 +509,17 @@ td.category-cell,
 th.category-cell {
   text-align: left;
 }
+.account-panel .toolbar {
+  margin-bottom: 0;
+}
+.account-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  margin: 20px 0 12px;
+}
+.account-summary span {
+  color: var(--muted);
+  font-size: 12px;
+}

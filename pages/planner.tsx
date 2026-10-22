@@ -45,13 +45,17 @@ function Tree({ node }: { node: PlanNode }) {
 
 export default function Planner() {
   const router = useRouter();
-  const { settings, snapshot } = useWorkspace();
+  const { settings, snapshot, account } = useWorkspace();
   const [selected, setSelected] = useState("refined-mithril");
   const [quantity, setQuantity] = useState(1);
   const [strategy, setStrategy] = useState<"forge" | "cheapest">("forge");
   const [inventory, setInventory] = useState<Record<string, number>>({});
   const [inventoryReady, setInventoryReady] = useState(false);
+  const [loadedInventoryKey, setLoadedInventoryKey] = useState("");
   const [stockItem, setStockItem] = useState("refined-mithril");
+  const inventoryKey = account?.selectedProfileId
+    ? `skyforger:inventory:${account.uuid}:${account.selectedProfileId}`
+    : "skyforger:inventory";
   useEffect(() => {
     if (
       typeof router.query.item === "string" &&
@@ -60,10 +64,10 @@ export default function Planner() {
       setSelected(router.query.item);
   }, [router.query.item]);
   useEffect(() => {
+    setInventoryReady(false);
+    setInventory({});
     try {
-      const saved = JSON.parse(
-        localStorage.getItem("skyforger:inventory") ?? "{}",
-      );
+      const saved = JSON.parse(localStorage.getItem(inventoryKey) ?? "{}");
       if (
         saved &&
         typeof saved === "object" &&
@@ -77,25 +81,24 @@ export default function Planner() {
       )
         setInventory(saved);
     } catch {}
+    setLoadedInventoryKey(inventoryKey);
     setInventoryReady(true);
-  }, []);
+  }, [inventoryKey]);
   useEffect(() => {
-    if (inventoryReady)
+    if (inventoryReady && loadedInventoryKey === inventoryKey)
       try {
-        localStorage.setItem("skyforger:inventory", JSON.stringify(inventory));
+        localStorage.setItem(inventoryKey, JSON.stringify(inventory));
       } catch {}
-  }, [inventory, inventoryReady]);
+  }, [inventory, inventoryReady, inventoryKey, loadedInventoryKey]);
+  const importedInventory = account?.inventory?.items ?? {};
+  const owned = {
+    ...importedInventory,
+    ...(loadedInventoryKey === inventoryKey ? inventory : {}),
+  };
   let plan: ReturnType<typeof buildPlan> | null = null,
     error = "";
   try {
-    plan = buildPlan(
-      selected,
-      quantity,
-      inventory,
-      settings,
-      snapshot,
-      strategy,
-    );
+    plan = buildPlan(selected, quantity, owned, settings, snapshot, strategy);
   } catch (cause) {
     error = cause instanceof Error ? cause.message : "Could not build plan.";
   }
@@ -157,8 +160,21 @@ export default function Planner() {
       <details className="panel">
         <summary>
           Owned materials{" "}
-          <span className="muted">{Object.keys(inventory).length} items</span>
+          <span className="muted">
+            {Object.values(owned).filter((amount) => amount > 0).length} items
+          </span>
         </summary>
+        {account?.inventory && (
+          <p className="notice">
+            Imported from this profile’s inventory, storage, sacks, and
+            available quest crystals. Edits apply only to this profile.
+          </p>
+        )}
+        {account?.inventory?.warnings.map((warning) => (
+          <p className="notice" key={warning}>
+            {warning}
+          </p>
+        ))}
         <div className="toolbar">
           <select
             aria-label="Inventory item"
@@ -177,7 +193,7 @@ export default function Planner() {
             onClick={() =>
               setInventory({
                 ...inventory,
-                [stockItem]: inventory[stockItem] ?? 1,
+                [stockItem]: owned[stockItem] ?? 1,
               })
             }
           >
@@ -185,38 +201,41 @@ export default function Planner() {
           </button>
         </div>
         <div className="price-grid">
-          {Object.entries(inventory).map(([id, amount]) => (
-            <label key={id}>
-              {itemById.get(id)?.name ?? id}
-              <div className="inline">
-                <input
-                  type="number"
-                  min={0}
-                  max={1000000000}
-                  value={amount}
-                  onChange={(event) =>
-                    setInventory({
-                      ...inventory,
-                      [id]: Math.min(
-                        1000000000,
-                        Math.max(0, Math.floor(Number(event.target.value))),
-                      ),
-                    })
-                  }
-                />
-                <button
-                  aria-label={`Remove ${itemById.get(id)?.name}`}
-                  onClick={() => {
-                    const next = { ...inventory };
-                    delete next[id];
-                    setInventory(next);
-                  }}
-                >
-                  ×
-                </button>
-              </div>
-            </label>
-          ))}
+          {Object.entries(owned)
+            .filter(([, amount]) => amount > 0)
+            .map(([id, amount]) => (
+              <label key={id}>
+                {itemById.get(id)?.name ?? id}
+                <div className="inline">
+                  <input
+                    type="number"
+                    min={0}
+                    max={1000000000}
+                    value={amount}
+                    onChange={(event) =>
+                      setInventory({
+                        ...inventory,
+                        [id]: Math.min(
+                          1000000000,
+                          Math.max(0, Math.floor(Number(event.target.value))),
+                        ),
+                      })
+                    }
+                  />
+                  <button
+                    aria-label={`Remove ${itemById.get(id)?.name}`}
+                    onClick={() => {
+                      const next = { ...inventory };
+                      if (importedInventory[id] !== undefined) next[id] = 0;
+                      else delete next[id];
+                      setInventory(next);
+                    }}
+                  >
+                    ×
+                  </button>
+                </div>
+              </label>
+            ))}
         </div>
       </details>
       {error && (

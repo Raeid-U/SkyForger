@@ -1,5 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { z } from "zod";
+import { extractInventory } from "../../lib/server/inventory";
+import { currentEnvironment } from "../../lib/forge/profile";
 import { normalizeProfiles } from "../../lib/forge/tracker";
 
 const querySchema = z.object({
@@ -10,7 +12,9 @@ const querySchema = z.object({
     ),
   profile: z
     .string()
-    .regex(/^[a-fA-F0-9]{32}$/)
+    .regex(
+      /^(?:[a-fA-F0-9]{32}|[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})$/,
+    )
     .optional(),
 });
 export default async function handler(
@@ -31,7 +35,7 @@ export default async function handler(
   if (!key)
     return res
       .status(503)
-      .json({ error: "Account tracking is not configured on this server." });
+      .json({ error: "Profile lookup is not configured on this server." });
   try {
     let uuid = query.data.player.replaceAll("-", "").toLowerCase();
     if (!/^[a-f0-9]{32}$/.test(uuid)) {
@@ -70,12 +74,28 @@ export default async function handler(
       return res
         .status(502)
         .json({ error: "Hypixel profiles are unavailable." });
-    return res
-      .status(200)
-      .json(normalizeProfiles(await response.json(), uuid, query.data.profile));
-  } catch {
+    const payload = await response.json();
+    const result = normalizeProfiles(payload, uuid, query.data.profile);
+    if (result.progression) {
+      result.environment = await currentEnvironment();
+      const selected = payload.profiles.find(
+        (profile: { profile_id: string }) =>
+          profile.profile_id === result.selectedProfileId,
+      );
+      result.inventory = extractInventory(selected.members[uuid]);
+    }
+    return res.status(200).json(result);
+  } catch (cause) {
+    if (
+      cause instanceof Error &&
+      [
+        "Profile not found.",
+        "Player is not a member of this profile.",
+      ].includes(cause.message)
+    )
+      return res.status(404).json({ error: cause.message });
     return res
       .status(502)
-      .json({ error: "Could not read forge data. Try again shortly." });
+      .json({ error: "Could not read profile data. Try again shortly." });
   }
 }
