@@ -9,10 +9,37 @@ The announcement states that the official wiki has closed. HTTP 200 from that
 redirect is not recipe verification. No entry is verified, and completeness has
 not been established. The community snapshot must not feed production calculations yet.
 
-Alternative community sources at `hypixel-skyblock.wiki` and
-`hypixel-skyblock.fandom.com` require sandbox network approval. Once available,
-record their provenance explicitly as community sources. Archived official pages
-may be useful for historical comparisons but cannot establish current game rules.
+Fandom's article HTML returns a Cloudflare challenge, but its MediaWiki API works.
+Use its API to read community sources; do not treat them as official verification.
+Archived official pages may be useful for historical comparisons but cannot
+establish current game rules. No additional domain approval is required for the
+current Fandom-based audit.
+
+## Initial Fandom comparison
+
+Retrieved October 22, 2026 using `action=parse&prop=wikitext&format=json` at
+`https://hypixel-skyblock.fandom.com/api.php`, pages `The Forge` (page ID 76696)
+and `The Forge/Table` (page ID 100610). These are initial discrepancy findings,
+not a completed row-by-row verification or a production-ready catalog.
+
+| Entry | Supplied snapshot | Fandom table |
+|---|---|---|
+| Bejeweled Handle | 30 minutes | 30 seconds |
+| Perfect Opal | 5 Flawless Opal | Also requires 1 Opal Crystal |
+| Mithril Drill SX-R326 | 5 SX-R226, 1 Golden Plate, 2 Mithril Plate | 1 SX-R226, 5 Golden Plate, 1 Mithril Plate |
+| Mithril Plate | 25,600 Iron Ingots | 1 Enchanted Iron Block instead of raw iron |
+| Drill Engine | Includes Refined Diamond and raw iron | Listed as Drill Motor; 1 Enchanted Iron Block, 3 Enchanted Redstone Block, 1 Golden Plate, 10 Treasurite |
+| Perfect Plate | Missing | 1 Umber Plate, 1 Tungsten Plate, 1 Mithril Plate; 30 minutes; HOTM 10 |
+
+The Fandom table contains 114 Slot rows versus 67 forge entries in the snapshot;
+aliases, renamed items, and duplicates still need reconciliation before treating
+that difference as a count of missing recipes. Some Fandom requirements explicitly
+contain `InfoNeeded`, so the table alone cannot establish every unlock.
+
+The main Forge page says forge slots also depend on Peak of the Mountain level 2,
+not just HOTM. It describes a separate Cole Molten Forge reduction and dynamic
+Quick Forge timing. These mechanics need explicit player settings and further
+verification before scheduling is implemented.
 
 ## Supplied snapshot
 

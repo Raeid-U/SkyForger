@@ -16,8 +16,9 @@ export const bazaarSchema = z.object({
 
 export type BazaarSnapshot = z.infer<typeof bazaarSchema>;
 
-// Keep both sides of the order book. Instant buying consumes sell_summary;
-// instant selling consumes buy_summary. quick_status averages are not quotes.
+// Hypixel names these from the instant transaction's perspective:
+// instant buying consumes buy_summary; instant selling consumes sell_summary.
+// quick_status prices average the top 2% of orders by volume, not executable quotes.
 export function parseBazaar(value: unknown): BazaarSnapshot {
   return bazaarSchema.parse(value);
 }

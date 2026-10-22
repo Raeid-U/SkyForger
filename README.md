@@ -31,6 +31,9 @@ and caches successful responses at the CDN for 60 seconds with 120 seconds of
 stale-while-revalidate. The upstream market timestamp is returned unchanged.
 Failed requests return HTTP 502 and are not cached. Full books are retained for
 future depth-aware calculations; summary averages are not treated as trade quotes.
+See [the API reference check](docs/bazaar-api.md) for order-book semantics.
+An optional [.env.example](.env.example) documents that no runtime secrets are
+needed; copy it to `.env.local` when adding future configuration.
 
 ## Validation
 
@@ -40,12 +43,14 @@ npm run typecheck
 npm run build
 ```
 
+Run `npm run test:live` separately to validate a real Hypixel Bazaar snapshot.
+
 ## Current milestone
 
 Deployable two-tab dashboard foundation with an on-demand Bazaar snapshot check.
 Profit calculations, player settings, and recipe planning are not implemented yet.
-The official wiki now redirects to its closure announcement. Recipe verification
-needs alternative sources; the imported catalog is not production data. See
+The official wiki now redirects to its closure announcement. Fandom's MediaWiki
+API is available for community cross-checks; the imported catalog is not production data. See
 [the audit](docs/recipe-audit.md).
 
 ## Implementation sequence

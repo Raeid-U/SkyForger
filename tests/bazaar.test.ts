@@ -21,3 +21,17 @@ test("retains empty books rather than inventing a zero price", () => {
   const parsed = parseBazaar({ success: true, lastUpdated: 1700000000000, products: { X: { ...book, buy_summary: [], sell_summary: [] } } });
   assert.deepEqual(parsed.products.X.buy_summary, []);
 });
+
+test("accepts the official reference example with instant-buy prices above instant-sell prices", () => {
+  // https://api.hypixel.net/#tag/SkyBlock/paths/~1v2~1skyblock~1bazaar/get
+  const parsed = parseBazaar({ success: true, lastUpdated: 1590854517479, products: {
+    "INK_SACK:3": {
+      product_id: "INK_SACK:3",
+      sell_summary: [{ amount: 20569, pricePerUnit: 4.2, orders: 1 }, { amount: 140326, pricePerUnit: 3.8, orders: 2 }],
+      buy_summary: [{ amount: 640, pricePerUnit: 4.8, orders: 1 }, { amount: 640, pricePerUnit: 4.9, orders: 1 }, { amount: 25957, pricePerUnit: 5, orders: 3 }],
+      quick_status: { sellPrice: 4.2, buyPrice: 4.99260315136572 },
+    },
+  } });
+  assert.equal(parsed.products["INK_SACK:3"].buy_summary[0].pricePerUnit, 4.8);
+  assert.equal(parsed.products["INK_SACK:3"].sell_summary[0].pricePerUnit, 4.2);
+});

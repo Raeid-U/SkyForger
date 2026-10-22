@@ -10,7 +10,8 @@
     "build": "next build",
     "start": "next start --hostname 0.0.0.0",
     "typecheck": "tsc --noEmit",
-    "test": "tsx --test tests/*.test.ts"
+    "test": "tsx --test tests/*.test.ts",
+    "test:live": "tsx --test tests/integration/*.test.ts"
   },
   "dependencies": {
     "next": "^16.4.2",
