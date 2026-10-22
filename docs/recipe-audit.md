@@ -2,9 +2,17 @@
 
 ## Status
 
-Official verification is pending. The official wiki request returned HTTP 403:
-`Approval required for wiki.hypixel.net:443.` No entry is verified, and completeness
-has not been established. The community snapshot must not feed production calculations yet.
+Official verification is pending. On October 22, 2026, access to the official wiki
+was restored, but both The Forge page and the MediaWiki API redirected to Hypixel's
+[July 21, 2026 closure announcement](https://hypixel.net/threads/end-of-the-official-hypixel-wiki-july-2026.6112020/).
+The announcement states that the official wiki has closed. HTTP 200 from that
+redirect is not recipe verification. No entry is verified, and completeness has
+not been established. The community snapshot must not feed production calculations yet.
+
+Alternative community sources at `hypixel-skyblock.wiki` and
+`hypixel-skyblock.fandom.com` require sandbox network approval. Once available,
+record their provenance explicitly as community sources. Archived official pages
+may be useful for historical comparisons but cannot establish current game rules.
 
 ## Supplied snapshot
 

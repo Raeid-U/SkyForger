@@ -4,11 +4,49 @@ A planned Next.js companion for Hypixel SkyBlock forge profitability and recipe
 planning. The two tabs will share player settings, verified recipes, and market
 calculations.
 
+## Run locally
+
+Requires Node.js 22. Python is only used for offline recipe import tooling and is
+not part of the app or API runtime.
+
+```sh
+npm ci
+npm run dev
+```
+
+Open http://localhost:3000. The Next.js Pages Router serves the SPA and TypeScript
+API routes. `pages/api/bazaar.ts` maps to `/api/bazaar`; `pages/api/health.ts` maps
+to `/api/health`. The Bazaar endpoint is public and requires no API key. The app
+does not require a separate API service, database, or Python process.
+
+## Deploy to Vercel
+
+Import this repository into Vercel, select the Next.js framework preset, and use
+Node.js 22.x. Keep the default build command (`npm run build`) and framework-managed
+output directory. No environment variables are needed for this milestone. API
+routes run as Vercel functions; this app must not be exported as a static site.
+
+The Bazaar route validates upstream JSON, uses an eight-second request timeout,
+and caches successful responses at the CDN for 60 seconds with 120 seconds of
+stale-while-revalidate. The upstream market timestamp is returned unchanged.
+Failed requests return HTTP 502 and are not cached. Full books are retained for
+future depth-aware calculations; summary averages are not treated as trade quotes.
+
+## Validation
+
+```sh
+npm test
+npm run typecheck
+npm run build
+```
+
 ## Current milestone
 
-Community recipe import and audit preparation. No application has been scaffolded
-yet. Official wiki verification is pending network access; the candidate catalog is
-not production data. See [the audit](docs/recipe-audit.md).
+Deployable two-tab dashboard foundation with an on-demand Bazaar snapshot check.
+Profit calculations, player settings, and recipe planning are not implemented yet.
+The official wiki now redirects to its closure announcement. Recipe verification
+needs alternative sources; the imported catalog is not production data. See
+[the audit](docs/recipe-audit.md).
 
 ## Implementation sequence
 
