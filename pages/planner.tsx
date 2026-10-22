@@ -56,7 +56,14 @@ export default function Planner() {
   const [inventoryError, setInventoryError] = useState("");
   const [warnings, setWarnings] = useState<string[]>([]);
   const request = useRef<AbortController | null>(null);
-  const inventoryKey = JSON.stringify([account?.uuid, account?.selectedProfileId, selected, quantity, strategy, settings]);
+  const inventoryKey = JSON.stringify([
+    account?.uuid,
+    account?.selectedProfileId,
+    selected,
+    quantity,
+    strategy,
+    settings,
+  ]);
   useEffect(() => {
     if (
       typeof router.query.item === "string" &&
@@ -78,18 +85,32 @@ export default function Planner() {
     setChecking(true);
     setInventoryError("");
     try {
-      const query = new URLSearchParams({ player: account.uuid, profile: account.selectedProfileId, craft: selected });
-      const response = await fetch(`/api/forge?${query}`, { signal: AbortSignal.any([controller.signal, AbortSignal.timeout(20000)]) });
+      const query = new URLSearchParams({
+        player: account.uuid,
+        profile: account.selectedProfileId,
+        craft: selected,
+      });
+      const response = await fetch(`/api/forge?${query}`, {
+        signal: AbortSignal.any([
+          controller.signal,
+          AbortSignal.timeout(20000),
+        ]),
+      });
       const body = await response.json();
-      if (!response.ok) throw new Error(body.error ?? "Could not check materials.");
+      if (!response.ok)
+        throw new Error(body.error ?? "Could not check materials.");
       const result = trackerResultSchema.parse(body);
-      if (!result.inventory) throw new Error("Materials are unavailable for this profile.");
+      if (!result.inventory)
+        throw new Error("Materials are unavailable for this profile.");
       if (controller.signal.aborted) return;
       setInventory(result.inventory.items);
       setWarnings(result.inventory.warnings);
       setCheckedKey(inventoryKey);
     } catch (cause) {
-      if (!controller.signal.aborted) setInventoryError(cause instanceof Error ? cause.message : "Could not check materials.");
+      if (!controller.signal.aborted)
+        setInventoryError(
+          cause instanceof Error ? cause.message : "Could not check materials.",
+        );
     } finally {
       if (!controller.signal.aborted) setChecking(false);
     }
@@ -106,7 +127,7 @@ export default function Planner() {
   const total = plan?.cost ?? null;
   return (
     <Workspace title="Craft planner">
-      <div className="toolbar">
+      <div className="toolbar planner-controls">
         <label className="grow">
           Recipe
           <select
@@ -158,23 +179,62 @@ export default function Planner() {
           </select>
         </label>
       </div>
-      <section className="panel">
-        <div className="toolbar">
-          <strong>Owned materials</strong>
-          <button disabled={!account?.selectedProfileId || checking} onClick={() => void checkMaterials()}>
-            {checking ? "Checking…" : hasChecked ? "Recheck materials" : "Check owned materials"}
-          </button>
-          {hasChecked && <button onClick={() => setCheckedKey("")}>Ignore owned materials</button>}
+      <section className="owned-materials" aria-labelledby="owned-heading">
+        <div className="section-heading">
+          <h2 id="owned-heading">Owned materials</h2>
+          <div className="section-actions">
+            <button
+              disabled={!account?.selectedProfileId || checking}
+              onClick={() => void checkMaterials()}
+            >
+              {checking
+                ? "Checking…"
+                : hasChecked
+                  ? "Recheck materials"
+                  : "Check owned materials"}
+            </button>
+            {hasChecked && (
+              <button onClick={() => setCheckedKey("")}>
+                Ignore owned materials
+              </button>
+            )}
+          </div>
         </div>
-        {!account && <p className="muted">Load a profile to check materials for this craft.</p>}
-        {inventoryError && <p className="notice" role="status">{inventoryError}</p>}
-        {hasChecked && <>
-          {warnings.map((warning) => <p className="notice" key={warning}>{warning}</p>)}
-          {Object.keys(owned).length === 0 ? <p className="muted">No matching materials found.</p> :
-            <details><summary>Matching materials ({Object.keys(owned).length})</summary>
-              <ul>{Object.entries(owned).map(([id, amount]) => <li key={id}>{itemById.get(id)?.name}: {coins(amount)}</li>)}</ul>
-            </details>}
-        </>}
+        {!account && (
+          <p className="muted">
+            Load a profile to check materials for this craft.
+          </p>
+        )}
+        {inventoryError && (
+          <p className="notice" role="status">
+            {inventoryError}
+          </p>
+        )}
+        {hasChecked && (
+          <>
+            {warnings.map((warning) => (
+              <p className="notice" key={warning}>
+                {warning}
+              </p>
+            ))}
+            {Object.keys(owned).length === 0 ? (
+              <p className="muted">No matching materials found.</p>
+            ) : (
+              <details>
+                <summary>
+                  Matching materials ({Object.keys(owned).length})
+                </summary>
+                <ul>
+                  {Object.entries(owned).map(([id, amount]) => (
+                    <li key={id}>
+                      {itemById.get(id)?.name}: {coins(amount)}
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            )}
+          </>
+        )}
       </section>
       {error && (
         <p className="notice" role="status">
@@ -200,13 +260,13 @@ export default function Planner() {
             </div>
           </div>
           <div className="planner-grid">
-            <section className="panel">
+            <section className="work-section">
               <h2>Craft tree</h2>
               <ul className="tree">
                 <Tree node={plan.tree} />
               </ul>
             </section>
-            <section className="panel">
+            <section className="work-section">
               <h2>Buy / gather</h2>
               {!plan.materials.length && (
                 <p className="muted">All materials accounted for.</p>
@@ -245,10 +305,12 @@ export default function Planner() {
             </section>
           </div>
           {plan.jobs.length > 0 && (
-            <section className="panel">
+            <section className="work-section schedule-section">
               <h2>
                 Forge schedule{" "}
-                <small className="muted">from now, all slots free</small>
+                <small className="muted">
+                  from now · all slots free · materials available
+                </small>
               </h2>
               <div className="table-wrap">
                 <table>

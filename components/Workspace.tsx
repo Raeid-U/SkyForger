@@ -1,4 +1,6 @@
 import Head from "next/head";
+import { Modal } from "./Modal";
+import { Appearance } from "./Appearance";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import {
@@ -240,15 +242,63 @@ export function Workspace({
   children: ReactNode;
 }) {
   const router = useRouter();
-  const { snapshot, loading, error, refresh } = useWorkspace();
+  const {
+    snapshot,
+    loading,
+    error,
+    refresh,
+    account,
+    accountName,
+    accountLoading,
+    accountError,
+    settings,
+    update,
+  } = useWorkspace();
+  const [modal, setModal] = useState<"account" | "market" | "about" | null>(
+    null,
+  );
+  const [now, setNow] = useState(0);
+  useEffect(() => {
+    setNow(Date.now());
+    const interval = setInterval(() => setNow(Date.now()), 30000);
+    return () => clearInterval(interval);
+  }, []);
+  const profile = account?.profiles.find(
+    (profile) => profile.id === account.selectedProfileId,
+  );
+  const isMarketPage = router.pathname !== "/tracker";
+  const stale = snapshot && now - snapshot.lastUpdated > 180000;
   return (
     <>
       <Head>
         <title>{title} · SkyForger</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#18191a" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
       </Head>
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
       <div className="workspace">
-        <header>
+        <header className="site-header">
           <Link className="brand" href="/">
             <span className="mark" aria-hidden="true">
               S
@@ -270,38 +320,203 @@ export function Workspace({
               </Link>
             ))}
           </nav>
+          <button
+            className="account-trigger"
+            onClick={() => setModal("account")}
+            aria-haspopup="dialog"
+          >
+            <span
+              className={`status-dot ${account?.progression ? "connected" : ""}`}
+              aria-hidden="true"
+            />
+            {accountLoading
+              ? "Loading profile…"
+              : account
+                ? `${accountName}${profile ? ` · ${profile.name}` : ""}`
+                : "Connect profile"}
+            <span aria-hidden="true">↗</span>
+          </button>
         </header>
-        <main>
+        <main id="main" tabIndex={-1}>
           <div className="page-heading">
-            <h1>{title}</h1>
-            <div className="market-bar">
-              <span>
-                {loading
-                  ? "Updating…"
-                  : snapshot
-                    ? `Prices ${new Date(snapshot.lastUpdated).toLocaleTimeString()}`
-                    : "No prices loaded"}
-              </span>
-              <button onClick={refresh} disabled={loading}>
-                Refresh prices
-              </button>
+            <div>
+              <h1>{title}</h1>
+              <p className="page-description">
+                {router.pathname === "/"
+                  ? "Make the most of every forge slot."
+                  : router.pathname === "/planner"
+                    ? "Every dependency, accounted for."
+                    : "Know what’s finishing next."}
+              </p>
             </div>
+            {isMarketPage && (
+              <div className="market-bar">
+                <span role="status">
+                  {loading
+                    ? "Updating Bazaar…"
+                    : snapshot
+                      ? `Bazaar ${new Date(snapshot.lastUpdated).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", timeZoneName: "short" })}${stale ? " · stale" : ""}`
+                      : "No prices loaded"}
+                </span>
+                <button onClick={() => void refresh()} disabled={loading}>
+                  Refresh prices
+                </button>
+              </div>
+            )}
           </div>
-          {error && (
+          <div className="context-bar">
+            <button
+              className="text-button"
+              onClick={() => setModal("account")}
+              aria-haspopup="dialog"
+            >
+              {account?.progression
+                ? `HOTM ${settings.hotm} · ${forgeSlots(settings)} slots · Quick Forge ${settings.quickForge}`
+                : "Connect a profile to check recipe unlocks"}
+              <span aria-hidden="true"> ↗</span>
+            </button>
+            {isMarketPage && (
+              <div className="inline-market" aria-label="Pricing strategy">
+                <label>
+                  Buy
+                  <select
+                    aria-label="Ingredient pricing"
+                    value={settings.buyMode}
+                    onChange={(event) =>
+                      update({
+                        buyMode: event.target.value as Settings["buyMode"],
+                      })
+                    }
+                  >
+                    <option value="instant">Instant buy</option>
+                    <option value="order">Buy order</option>
+                  </select>
+                </label>
+                <span className="market-arrow" aria-hidden="true">
+                  →
+                </span>
+                <label>
+                  Sell
+                  <select
+                    aria-label="Sale pricing"
+                    value={settings.sellMode}
+                    onChange={(event) =>
+                      update({
+                        sellMode: event.target.value as Settings["sellMode"],
+                      })
+                    }
+                  >
+                    <option value="instant">Instant sell</option>
+                    <option value="offer">Sell offer</option>
+                  </select>
+                </label>
+                <button
+                  className="market-trigger"
+                  onClick={() => setModal("market")}
+                  aria-haspopup="dialog"
+                  aria-label="Market settings"
+                >
+                  <span className="market-settings-label">Market </span>Settings
+                  {Object.keys(settings.prices).length > 0
+                    ? ` · ${Object.keys(settings.prices).length}`
+                    : ""}
+                </button>
+              </div>
+            )}
+          </div>
+          {accountError && (
+            <p className="error" role="alert">
+              {accountError}{" "}
+              <button onClick={() => setModal("account")}>
+                Open account settings
+              </button>
+            </p>
+          )}
+          {isMarketPage && error && (
             <p className="error" role="alert">
               {error}
               {snapshot && " Previous snapshot retained."}
             </p>
           )}
-          {snapshot && Date.now() - snapshot.lastUpdated > 180000 && (
-            <p className="notice">Market snapshot is over 3 minutes old.</p>
+          {isMarketPage && stale && (
+            <p className="notice" role="status">
+              Market snapshot is over 3 minutes old.
+            </p>
           )}
-          <AccountSettings />
-          <MarketSettings />
           {children}
         </main>
-        <footer>SkyForger · Independent Hypixel SkyBlock companion</footer>
+        <footer>
+          <span>
+            SkyForger <span aria-hidden="true">/</span> Independent SkyBlock
+            companion
+          </span>
+          <div className="footer-controls">
+            <Appearance />
+            <button className="text-button" onClick={() => setModal("about")}>
+              Assets & attribution
+            </button>
+          </div>
+        </footer>
       </div>
+      <Modal
+        open={modal === "account"}
+        onClose={() => setModal(null)}
+        title="SkyBlock account"
+      >
+        <AccountSettings />
+      </Modal>
+      <Modal
+        open={modal === "market"}
+        onClose={() => setModal(null)}
+        title="Market settings"
+      >
+        <MarketSettings />
+      </Modal>
+      <Modal
+        open={modal === "about"}
+        onClose={() => setModal(null)}
+        title="Assets & attribution"
+      >
+        <p>
+          SkyForger is an independent community tool for Hypixel SkyBlock
+          players and is not affiliated with or endorsed by Hypixel.
+        </p>
+        <h3>Hypixel SkyBlock assets</h3>
+        <p>
+          <strong>Copyright © 2026 Hypixel Inc. All rights reserved.</strong>
+        </p>
+        <p>
+          Use of this file is governed by the{" "}
+          <a
+            className="inline-link"
+            href="https://hypixelskyblock.minecraft.wiki/w/Template:License/SkyBlockResourcePack/Text"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Hypixel SkyBlock Resource Pack License
+          </a>{" "}
+          and is not officially endorsed by Hypixel.
+        </p>
+        <h3>Typography</h3>
+        <p>
+          Instrument Sans, IBM Plex Mono, and Pixelify Sans are distributed
+          under the SIL Open Font License 1.1.
+        </p>
+        <ul className="license-links">
+          {["instrumentsans", "ibmplexmono", "pixelifysans"].map((font) => (
+            <li key={font}>
+              <a className="inline-link" href={`/fonts/${font}-OFL.txt`}>
+                {font === "instrumentsans"
+                  ? "Instrument Sans"
+                  : font === "ibmplexmono"
+                    ? "IBM Plex Mono"
+                    : "Pixelify Sans"}{" "}
+                license
+              </a>
+            </li>
+          ))}
+        </ul>
+      </Modal>
     </>
   );
 }
@@ -322,7 +537,7 @@ function AccountSettings() {
     void loadAccount(player);
   };
   return (
-    <section className="panel account-panel" aria-label="SkyBlock account">
+    <section className="account-panel" aria-label="SkyBlock account">
       <form className="toolbar" onSubmit={submit}>
         <input
           aria-label="Minecraft username or UUID"
@@ -429,8 +644,10 @@ function AccountSettings() {
 function MarketSettings() {
   const { settings, update } = useWorkspace();
   return (
-    <details className="settings">
-      <summary>Market settings</summary>
+    <section className="settings-content">
+      <p className="muted">
+        Choose the assumptions used for costs and sale proceeds.
+      </p>
       <div className="settings-grid">
         <label>
           Buy ingredients
@@ -457,8 +674,15 @@ function MarketSettings() {
           </select>
         </label>
       </div>
+      <p className="notice">
+        Order prices assume a fill at the current best price. Fill times are not
+        predicted.
+      </p>
+      <p className="notice">
+        Auction House prices are manual overrides and exclude AH fees.
+      </p>
       <PriceSettings />
-    </details>
+    </section>
   );
 }
 
@@ -472,6 +696,7 @@ function PriceSettings() {
         <label>
           Item
           <select
+            aria-label="Override item"
             value={selected}
             onChange={(event) => setSelected(event.target.value)}
           >
