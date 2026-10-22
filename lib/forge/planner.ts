@@ -24,6 +24,20 @@ export type ScheduledJob = {
   start: number;
   finish: number;
 };
+export function craftMaterialIds(itemId: string, settings: Settings): Set<string> {
+  const relevant = new Set<string>();
+  function visit(id: string) {
+    if (relevant.has(id)) return;
+    relevant.add(id);
+    const recipe = recipeByOutput.get(id);
+    if (!recipe || !isRecipePlanningAllowed(recipe) || missingRequirements(recipe, settings).length) return;
+    for (const input of recipe.inputs) visit(input.itemId);
+  }
+  visit(itemId);
+  relevant.delete(itemId);
+  return relevant;
+}
+
 export function buildPlan(
   itemId: string,
   quantity: number,

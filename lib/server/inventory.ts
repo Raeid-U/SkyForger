@@ -7,7 +7,7 @@ const record = (value: unknown): Record<string, unknown> =>
     ? (value as Record<string, unknown>)
     : {};
 
-export function extractInventory(raw: unknown) {
+export function extractInventory(raw: unknown, allowed?: ReadonlySet<string>) {
   const member = record(raw),
     inventory = record(member.inventory);
   const items: Record<string, number> = {};
@@ -21,7 +21,7 @@ export function extractInventory(raw: unknown) {
     )
       return;
     const item = itemByApiId.get(apiId);
-    if (item) items[item.id] = (items[item.id] ?? 0) + amount;
+    if (item && (!allowed || allowed.has(item.id))) items[item.id] = (items[item.id] ?? 0) + amount;
   }
   for (const [id, count] of Object.entries(record(inventory.sacks_counts)))
     add(id, count);
@@ -68,6 +68,7 @@ export function extractInventory(raw: unknown) {
     const id = key.replaceAll("_", "-");
     if (
       record(value).state === "FOUND" &&
+      (!allowed || allowed.has(id)) &&
       itemById.get(id)?.market === "untradeable"
     )
       items[id] = 1;

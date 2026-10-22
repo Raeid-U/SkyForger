@@ -457,3 +457,23 @@ test("unpriced Fine gemstones stay unresolved rather than using lower tiers or o
     );
   }
 });
+
+test("craft material scope includes partial dependencies but excludes finished targets and rough gemstones", async () => {
+  const { craftMaterialIds } = await import("../lib/forge/planner");
+  const { extractInventory } = await import("../lib/server/inventory");
+  const scope = craftMaterialIds("perfect-ruby-gemstone", settings());
+  assert.ok(scope.has("flawless-ruby-gemstone"));
+  assert.ok(scope.has("fine-ruby-gemstone"));
+  assert.ok(!scope.has("flawed-ruby-gemstone"));
+  assert.ok(!scope.has("rough-ruby-gemstone"));
+  assert.ok(!scope.has("perfect-ruby-gemstone"));
+  assert.ok(!scope.has("refined-mithril"));
+  const stock = extractInventory({ inventory: { sacks_counts: {
+    FLAWLESS_RUBY_GEM: 2, FINE_RUBY_GEM: 10, ROUGH_RUBY_GEM: 1000,
+    REFINED_MITHRIL: 4, PERFECT_RUBY_GEM: 1,
+  } } }, scope);
+  assert.deepEqual(stock.items, { "flawless-ruby-gemstone": 2, "fine-ruby-gemstone": 10 });
+  const full = buildPlan("perfect-ruby-gemstone", 1, {}, settings(), null);
+  const partial = buildPlan("perfect-ruby-gemstone", 1, stock.items, settings(), null);
+  assert.ok(partial.materials.find((item) => item.itemId === "fine-ruby-gemstone")!.quantity < full.materials.find((item) => item.itemId === "fine-ruby-gemstone")!.quantity);
+});

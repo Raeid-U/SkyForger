@@ -4,12 +4,17 @@ import { extractInventory } from "../../lib/server/inventory";
 import { currentEnvironment } from "../../lib/forge/profile";
 import { normalizeProfiles } from "../../lib/forge/tracker";
 
+import { defaultSettings } from "../../lib/forge/settings";
+import { forgeRecipes } from "../../lib/forge/catalog";
+import { craftMaterialIds } from "../../lib/forge/planner";
+
 const querySchema = z.object({
   player: z
     .string()
     .regex(
       /^(?:[a-zA-Z0-9_]{3,16}|[a-fA-F0-9]{32}|[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})$/,
     ),
+  craft: z.string().refine((id) => forgeRecipes.some((recipe) => recipe.outputId === id)).optional(),
   profile: z
     .string()
     .regex(
@@ -82,7 +87,12 @@ export default async function handler(
         (profile: { profile_id: string }) =>
           profile.profile_id === result.selectedProfileId,
       );
-      result.inventory = extractInventory(selected.members[uuid]);
+      if (query.data.craft) {
+        result.inventory = extractInventory(
+          selected.members[uuid],
+          craftMaterialIds(query.data.craft, { ...defaultSettings, ...result.progression.settings }),
+        );
+      }
     }
     return res.status(200).json(result);
   } catch (cause) {

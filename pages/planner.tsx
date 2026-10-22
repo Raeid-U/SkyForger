@@ -1,5 +1,5 @@
 import { ItemIcon } from "../components/ItemIcon";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import {
   Workspace,
@@ -8,7 +8,8 @@ import {
   duration,
   useWorkspace,
 } from "../components/Workspace";
-import { forgeRecipes, itemById, items } from "../lib/forge/catalog";
+import { forgeRecipes, itemById } from "../lib/forge/catalog";
+import { trackerResultSchema } from "../lib/forge/tracker";
 import { buildPlan, type PlanNode } from "../lib/forge/planner";
 
 function Tree({ node }: { node: PlanNode }) {
@@ -50,12 +51,12 @@ export default function Planner() {
   const [quantity, setQuantity] = useState(1);
   const [strategy, setStrategy] = useState<"forge" | "cheapest">("forge");
   const [inventory, setInventory] = useState<Record<string, number>>({});
-  const [inventoryReady, setInventoryReady] = useState(false);
-  const [loadedInventoryKey, setLoadedInventoryKey] = useState("");
-  const [stockItem, setStockItem] = useState("refined-mithril");
-  const inventoryKey = account?.selectedProfileId
-    ? `skyforger:inventory:${account.uuid}:${account.selectedProfileId}`
-    : "skyforger:inventory";
+  const [checkedKey, setCheckedKey] = useState("");
+  const [checking, setChecking] = useState(false);
+  const [inventoryError, setInventoryError] = useState("");
+  const [warnings, setWarnings] = useState<string[]>([]);
+  const request = useRef<AbortController | null>(null);
+  const inventoryKey = JSON.stringify([account?.uuid, account?.selectedProfileId, selected, quantity, strategy, settings]);
   useEffect(() => {
     if (
       typeof router.query.item === "string" &&
@@ -64,37 +65,37 @@ export default function Planner() {
       setSelected(router.query.item);
   }, [router.query.item]);
   useEffect(() => {
-    setInventoryReady(false);
-    setInventory({});
-    try {
-      const saved = JSON.parse(localStorage.getItem(inventoryKey) ?? "{}");
-      if (
-        saved &&
-        typeof saved === "object" &&
-        !Array.isArray(saved) &&
-        Object.values(saved).every(
-          (value) =>
-            typeof value === "number" &&
-            Number.isSafeInteger(value) &&
-            value >= 0,
-        )
-      )
-        setInventory(saved);
-    } catch {}
-    setLoadedInventoryKey(inventoryKey);
-    setInventoryReady(true);
+    request.current?.abort();
+    setChecking(false);
+    setInventoryError("");
+    return () => request.current?.abort();
   }, [inventoryKey]);
-  useEffect(() => {
-    if (inventoryReady && loadedInventoryKey === inventoryKey)
-      try {
-        localStorage.setItem(inventoryKey, JSON.stringify(inventory));
-      } catch {}
-  }, [inventory, inventoryReady, inventoryKey, loadedInventoryKey]);
-  const importedInventory = account?.inventory?.items ?? {};
-  const owned = {
-    ...importedInventory,
-    ...(loadedInventoryKey === inventoryKey ? inventory : {}),
-  };
+  async function checkMaterials() {
+    if (!account?.selectedProfileId) return;
+    request.current?.abort();
+    const controller = new AbortController();
+    request.current = controller;
+    setChecking(true);
+    setInventoryError("");
+    try {
+      const query = new URLSearchParams({ player: account.uuid, profile: account.selectedProfileId, craft: selected });
+      const response = await fetch(`/api/forge?${query}`, { signal: AbortSignal.any([controller.signal, AbortSignal.timeout(20000)]) });
+      const body = await response.json();
+      if (!response.ok) throw new Error(body.error ?? "Could not check materials.");
+      const result = trackerResultSchema.parse(body);
+      if (!result.inventory) throw new Error("Materials are unavailable for this profile.");
+      if (controller.signal.aborted) return;
+      setInventory(result.inventory.items);
+      setWarnings(result.inventory.warnings);
+      setCheckedKey(inventoryKey);
+    } catch (cause) {
+      if (!controller.signal.aborted) setInventoryError(cause instanceof Error ? cause.message : "Could not check materials.");
+    } finally {
+      if (!controller.signal.aborted) setChecking(false);
+    }
+  }
+  const hasChecked = checkedKey === inventoryKey;
+  const owned = hasChecked ? inventory : {};
   let plan: ReturnType<typeof buildPlan> | null = null,
     error = "";
   try {
@@ -157,87 +158,24 @@ export default function Planner() {
           </select>
         </label>
       </div>
-      <details className="panel">
-        <summary>
-          Owned materials{" "}
-          <span className="muted">
-            {Object.values(owned).filter((amount) => amount > 0).length} items
-          </span>
-        </summary>
-        {account?.inventory && (
-          <p className="notice">
-            Imported from this profile’s inventory, storage, sacks, and
-            available quest crystals. Edits apply only to this profile.
-          </p>
-        )}
-        {account?.inventory?.warnings.map((warning) => (
-          <p className="notice" key={warning}>
-            {warning}
-          </p>
-        ))}
+      <section className="panel">
         <div className="toolbar">
-          <select
-            aria-label="Inventory item"
-            value={stockItem}
-            onChange={(event) => setStockItem(event.target.value)}
-          >
-            {[...items]
-              .sort((a, b) => a.name.localeCompare(b.name))
-              .map((item) => (
-                <option key={item.id} value={item.id}>
-                  {item.name}
-                </option>
-              ))}
-          </select>
-          <button
-            onClick={() =>
-              setInventory({
-                ...inventory,
-                [stockItem]: owned[stockItem] ?? 1,
-              })
-            }
-          >
-            Add item
+          <strong>Owned materials</strong>
+          <button disabled={!account?.selectedProfileId || checking} onClick={() => void checkMaterials()}>
+            {checking ? "Checking…" : hasChecked ? "Recheck materials" : "Check owned materials"}
           </button>
+          {hasChecked && <button onClick={() => setCheckedKey("")}>Ignore owned materials</button>}
         </div>
-        <div className="price-grid">
-          {Object.entries(owned)
-            .filter(([, amount]) => amount > 0)
-            .map(([id, amount]) => (
-              <label key={id}>
-                {itemById.get(id)?.name ?? id}
-                <div className="inline">
-                  <input
-                    type="number"
-                    min={0}
-                    max={1000000000}
-                    value={amount}
-                    onChange={(event) =>
-                      setInventory({
-                        ...inventory,
-                        [id]: Math.min(
-                          1000000000,
-                          Math.max(0, Math.floor(Number(event.target.value))),
-                        ),
-                      })
-                    }
-                  />
-                  <button
-                    aria-label={`Remove ${itemById.get(id)?.name}`}
-                    onClick={() => {
-                      const next = { ...inventory };
-                      if (importedInventory[id] !== undefined) next[id] = 0;
-                      else delete next[id];
-                      setInventory(next);
-                    }}
-                  >
-                    ×
-                  </button>
-                </div>
-              </label>
-            ))}
-        </div>
-      </details>
+        {!account && <p className="muted">Load a profile to check materials for this craft.</p>}
+        {inventoryError && <p className="notice" role="status">{inventoryError}</p>}
+        {hasChecked && <>
+          {warnings.map((warning) => <p className="notice" key={warning}>{warning}</p>)}
+          {Object.keys(owned).length === 0 ? <p className="muted">No matching materials found.</p> :
+            <details><summary>Matching materials ({Object.keys(owned).length})</summary>
+              <ul>{Object.entries(owned).map(([id, amount]) => <li key={id}>{itemById.get(id)?.name}: {coins(amount)}</li>)}</ul>
+            </details>}
+        </>}
+      </section>
       {error && (
         <p className="notice" role="status">
           {error}

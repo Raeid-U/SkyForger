@@ -30,6 +30,7 @@ test("tracker rejects invalid input and non-GET requests", async () => {
   for (const [method, query, code] of [
     ["POST", {}, 405],
     ["GET", { player: "bad/input" }, 400],
+    ["GET", { player: uuid, craft: "not-a-recipe" }, 400],
   ] as const) {
     const { result, res } = response();
     await handler({ method, query } as NextApiRequest, res);
@@ -155,7 +156,11 @@ test("IGN lookup accepts hyphenated profile IDs and returns derived settings wit
     environment: { moltenForge: boolean };
   };
   assert.equal(body.progression.settings.hotm, 7);
-  assert.equal(body.inventory.items["refined-mithril"], 4);
+  assert.equal(body.inventory, null);
+  const checked = response();
+  await handler({ method: "GET", query: { player: uuid, profile: profileId, craft: "refined-mithril" } } as unknown as NextApiRequest, checked.res);
+  assert.equal(checked.result.code, 200);
+  assert.deepEqual((checked.result.body as typeof body).inventory.items, {});
   assert.equal(body.environment.moltenForge, true);
   assert.ok(!JSON.stringify(result.body).includes("test-server-secret"));
   assert.ok(

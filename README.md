@@ -20,7 +20,7 @@ npm run dev
 - `/planner` — recursive craft trees, owned materials, shopping lists, and slot schedules.
 - `/tracker` — SkyBlock profile selection and estimated forge countdowns.
 
-Enter an IGN and select a profile on any page. HOTM, mining perks, collection unlocks, Bazaar tax, fossil donations, forge jobs, and available materials are imported through `/api/forge`. The selected profile is shared across pages and restored on reload. Market choices and optional material adjustments are stored locally; adjustments are isolated by player and profile.
+Enter an IGN and select a profile on any page. HOTM, mining perks, collection unlocks, Bazaar tax, fossil donations, and forge jobs are imported through `/api/forge`. The selected profile is shared across pages and restored on reload. Market choices are stored locally. The planner checks inventory, storage, and sacks only when you click “Check owned materials,” and uses only dependencies for the selected craft. Checks reset when the craft or profile changes.
 
 Market books are fetched through `/api/bazaar`. Missing prices stay unresolved. Order fills and forge completion times are estimates.
 
