@@ -221,3 +221,29 @@ test("asset check rejects incorrect dimensions and orphan files", () => {
     rmSync(root, { recursive: true, force: true });
   }
 });
+
+test("every recipe has a category including dependency recipes absent from the import", () => {
+  assert.ok(
+    catalog.recipes.every((recipe) => recipe.category.trim().length > 0),
+  );
+  for (const [id, category] of [
+    ["refined-mithril", "Refining"],
+    ["perfect-ruby-gemstone", "Perfect Gemstones"],
+    ["ammonite", "Pets / Pet Items"],
+    ["tungsten-plate", "Refining"],
+    ["drill-motor", "Drill Upgrades/Parts"],
+  ])
+    assert.equal(recipeByOutput.get(id)?.category, category);
+  assert.equal(
+    changed((value) => {
+      value.recipes[0].category = "";
+    }),
+    false,
+  );
+  assert.equal(
+    changed((value) => {
+      value.items[0].acquisitionCost = -1;
+    }),
+    false,
+  );
+});

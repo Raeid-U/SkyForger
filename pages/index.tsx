@@ -16,7 +16,9 @@ export default function Flips() {
   const { settings, snapshot, update } = useWorkspace();
   const [search, setSearch] = useState("");
   const [eligible, setEligible] = useState(false);
-  const [sort, setSort] = useState<"perHour" | "profit">("perHour");
+  const [sort, setSort] = useState<"perHour" | "profit" | "category">(
+    "perHour",
+  );
   const rows = forgeRecipes
     .map((recipe) => rankRecipe(recipe, snapshot, settings))
     .filter(
@@ -28,7 +30,16 @@ export default function Flips() {
           .name.toLowerCase()
           .includes(search.toLowerCase()),
     )
-    .sort((a, b) => (b[sort] ?? -Infinity) - (a[sort] ?? -Infinity));
+    .sort((a, b) => {
+      if (sort === "category")
+        return (
+          a.recipe.category.localeCompare(b.recipe.category) ||
+          itemById
+            .get(a.recipe.outputId)!
+            .name.localeCompare(itemById.get(b.recipe.outputId)!.name)
+        );
+      return (b[sort] ?? -Infinity) - (a[sort] ?? -Infinity);
+    });
   return (
     <Workspace title="Forge flips">
       <div className="toolbar">
@@ -45,6 +56,7 @@ export default function Flips() {
         >
           <option value="perHour">Profit / hour</option>
           <option value="profit">Profit / item</option>
+          <option value="category">Category</option>
         </select>
         <select
           aria-label="Market"
@@ -86,6 +98,7 @@ export default function Flips() {
           <thead>
             <tr>
               <th>Recipe</th>
+              <th className="category-cell">Category</th>
               <th>Cost</th>
               <th>Sale proceeds</th>
               <th>Profit</th>
@@ -103,11 +116,6 @@ export default function Flips() {
                       {itemById.get(row.recipe.outputId)!.name}
                     </span>
                   </Link>
-                  <small className="muted">
-                    {itemMarket(row.recipe.outputId) === "bazaar"
-                      ? "Bazaar"
-                      : "Auction House · manual"}
-                  </small>
                   {row.locked.length > 0 && (
                     <small className="warning">{row.locked.join(" · ")}</small>
                   )}
@@ -120,6 +128,7 @@ export default function Flips() {
                     </small>
                   )}
                 </td>
+                <td className="category-cell">{row.recipe.category}</td>
                 <td>{coins(row.cost)}</td>
                 <td>{coins(row.revenue)}</td>
                 <td

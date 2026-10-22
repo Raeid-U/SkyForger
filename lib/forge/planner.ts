@@ -5,6 +5,7 @@ import {
   durationSeconds,
   forgeSlots,
   missingRequirements,
+  isRecipePlanningAllowed,
   type Settings,
 } from "./settings";
 
@@ -59,7 +60,11 @@ export function buildPlan(
     };
     if (!remaining) return { node: base, stock: nextStock };
     const recipe = recipeByOutput.get(id);
-    if (!recipe || missingRequirements(recipe, settings).length)
+    if (
+      !recipe ||
+      !isRecipePlanningAllowed(recipe) ||
+      missingRequirements(recipe, settings).length
+    )
       return { node: base, stock: nextStock };
     const batches = Math.ceil(remaining / recipe.quantity);
     let craftStock = { ...nextStock };

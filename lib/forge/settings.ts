@@ -70,3 +70,9 @@ export function missingRequirements(
     return [];
   });
 }
+
+export function isRecipePlanningAllowed(recipe: Recipe) {
+  return !recipe.inputs.some((input) =>
+    /^(rough|flawed)-.+-gemstone$/.test(input.itemId),
+  );
+}

@@ -6,8 +6,12 @@
 - `apiId`: verified Hypixel resource/Bazaar ID, or `null` when unresolved.
 - `aliases`: identifiers from the previous edition, accepted for forge job lookup. An alias does not certify a Bazaar product ID.
 - `market`: `bazaar`, `auction`, `untradeable`, or `unknown`. Bazaar membership was checked against the public API on 2026-10-22. Forge outputs absent from Bazaar are currently treated as AH items; auctionability still needs a separate audit.
+- `acquisitionCost`: optional per-unit buy/gather cost. The 12 quest gemstone crystals default to zero; explicit price overrides take precedence. They remain required materials in the planner.
+- Recipe `category`: the display and sorting group, imported from the updated recipe list. Dependency recipes absent from that list are grouped as Refining or Drill Upgrades/Parts.
 - `image`: local asset path, original dimensions, and source reference, or `null` for the shared fallback.
 - Recipe durations are base seconds. Coin costs are separate from ingredient quantities. Requirements use HOTM, collection levels, or explicit unlocks.
+
+Planning and cost comparisons stop at Fine gemstones. Flawless gemstones may be crafted from Fine when unlocked; Rough and Flawed recipes remain reference data and are excluded from expansion.
 
 The database retains all 119 in-game-reviewed forge recipes and 36 gemstone crafting steps. The previous edition's 109 recipes add item aliases but do not overwrite reviewed recipe values. Original research and the comparison are preserved in ignored `.agents/reports/catalog-consolidation/` with dates intact.
 
@@ -24,3 +28,5 @@ npm run catalog:check
 ```
 
 This offline check also runs before production builds. It rejects missing or orphaned images and mismatched image dimensions.
+
+`/_debug` shows all catalog items, image paths, missing or broken images, and wiki links.

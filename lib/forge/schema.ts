@@ -27,6 +27,7 @@ const itemSchema = z
     apiId: apiId.nullable(),
     aliases: z.array(apiId),
     market: z.enum(["bazaar", "auction", "untradeable", "unknown"]),
+    acquisitionCost: z.number().finite().nonnegative().optional(),
     image: z
       .object({
         src: z.string().regex(/^\/items\/[a-z0-9-]+\.(png|gif)$/),
@@ -46,6 +47,7 @@ const recipeSchema = z
     quantity: z.number().int().positive(),
     duration: z.number().int().nonnegative().nullable(),
     method: z.enum(["forge", "crafting"]),
+    category: z.string().trim().min(1),
     inputs: z
       .array(
         z

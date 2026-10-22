@@ -73,37 +73,37 @@ test("passive orders use matching best prices without pretending they are filled
 });
 test("missing prices remain unknown and explicit manual zero is preserved", () => {
   assert.equal(
-    marketQuote("sapphire-crystal", 1, "buy", null, settings()),
+    marketQuote("missing-material", 1, "buy", null, settings()),
     null,
   );
   assert.equal(
     marketQuote(
-      "sapphire-crystal",
+      "missing-material",
       1,
       "buy",
       null,
-      settings({ prices: { "sapphire-crystal": 0 } }),
+      settings({ prices: { "missing-material": 0 } }),
     ),
     0,
   );
 });
 test("gemstone crafting is cheaper only when the shared collection is unlocked", () => {
-  const prices = { "fine-ruby-gemstone": 100, "flawed-ruby-gemstone": 1 };
+  const prices = { "flawless-ruby-gemstone": 100, "fine-ruby-gemstone": 1 };
   assert.equal(
     materialCost(
-      "fine-ruby-gemstone",
+      "flawless-ruby-gemstone",
       2,
       null,
-      settings({ prices, collections: { Gemstone: 5 } }),
+      settings({ prices, collections: { Gemstone: 9 } }),
     ),
     160,
   );
   assert.equal(
     materialCost(
-      "fine-ruby-gemstone",
+      "flawless-ruby-gemstone",
       2,
       null,
-      settings({ prices, collections: { Gemstone: 4 } }),
+      settings({ prices, collections: { Gemstone: 8 } }),
     ),
     200,
   );
@@ -354,4 +354,104 @@ test("persisted settings migrate market preference and discard the old placement
   const parsed = settingsSchema.parse({ ...previous, orderFee: 0.02 });
   assert.equal(parsed.market, "both");
   assert.equal("orderFee" in parsed, false);
+});
+
+test("quest gemstone crystals cost zero without zeroing tradeable crystals", () => {
+  const value = settings();
+  const perfects = recipes.filter(
+    (recipe) => recipe.category === "Perfect Gemstones",
+  );
+  assert.equal(perfects.length, 12);
+  for (const recipe of perfects) {
+    const crystal = recipe.inputs.find((input) =>
+      input.itemId.endsWith("-crystal"),
+    )!;
+    assert.equal(marketQuote(crystal.itemId, 3, "buy", null, value), 0);
+    assert.equal(marketQuote(crystal.itemId, 1, "sell", null, value), null);
+    const prices = Object.fromEntries(
+      recipe.inputs
+        .filter((input) => input !== crystal)
+        .map((input) => [input.itemId, 100]),
+    );
+    const row = rankRecipe(recipe, null, settings({ prices }));
+    assert.equal(row.cost, 500);
+    assert.ok(!row.missing.includes(crystal.itemId));
+  }
+  assert.equal(marketQuote("power-crystal", 1, "buy", null, value), null);
+  assert.equal(marketQuote("gleaming-crystal", 1, "buy", null, value), null);
+  assert.equal(
+    marketQuote(
+      "ruby-crystal",
+      2,
+      "buy",
+      null,
+      settings({ prices: { "ruby-crystal": 25 } }),
+    ),
+    50,
+  );
+});
+test("perfect gemstone plans retain quest crystals at zero cost", () => {
+  const plan = buildPlan(
+    "perfect-ruby-gemstone",
+    1,
+    {},
+    settings({ prices: { "flawless-ruby-gemstone": 100 } }),
+    null,
+    "cheapest",
+  );
+  assert.equal(plan.cost, 500);
+  assert.deepEqual(
+    plan.materials.find((material) => material.itemId === "ruby-crystal"),
+    { itemId: "ruby-crystal", quantity: 1, cost: 0 },
+  );
+});
+
+test("Fine is the gemstone floor even with cheap Rough and Flawed prices", () => {
+  const value = settings({
+    prices: {
+      "rough-ruby-gemstone": 0.1,
+      "flawed-ruby-gemstone": 0.1,
+      "fine-ruby-gemstone": 100,
+      "flawless-ruby-gemstone": 10000,
+    },
+  });
+  assert.equal(materialCost("fine-ruby-gemstone", 2, null, value), 200);
+  assert.equal(materialCost("flawless-ruby-gemstone", 1, null, value), 8000);
+  const plan = buildPlan("perfect-ruby-gemstone", 1, {}, value, null);
+  assert.equal(plan.cost, 40000);
+  assert.deepEqual(
+    [...plan.materials].sort((a, b) => a.itemId.localeCompare(b.itemId)),
+    [
+      { itemId: "fine-ruby-gemstone", quantity: 400, cost: 40000 },
+      { itemId: "ruby-crystal", quantity: 1, cost: 0 },
+    ],
+  );
+});
+test("unpriced Fine gemstones stay unresolved rather than using lower tiers or owned Flawed", () => {
+  const value = settings({
+    prices: { "rough-ruby-gemstone": 0.1, "flawed-ruby-gemstone": 0.1 },
+  });
+  assert.equal(materialCost("fine-ruby-gemstone", 1, null, value), null);
+  for (const strategy of ["forge", "cheapest"] as const) {
+    const plan = buildPlan(
+      "perfect-ruby-gemstone",
+      1,
+      { "flawed-ruby-gemstone": 1000000, "fine-ruby-gemstone": 100 },
+      value,
+      null,
+      strategy,
+    );
+    assert.equal(plan.cost, null);
+    assert.deepEqual(
+      plan.materials.find(
+        (material) => material.itemId === "fine-ruby-gemstone",
+      ),
+      { itemId: "fine-ruby-gemstone", quantity: 300, cost: null },
+    );
+    assert.ok(
+      !plan.materials.some((material) =>
+        /^(flawed|rough)-/.test(material.itemId),
+      ),
+    );
+  }
 });

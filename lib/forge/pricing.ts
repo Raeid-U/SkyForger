@@ -4,6 +4,7 @@ import { itemById, recipeByOutput, type Recipe } from "./catalog";
 import {
   durationSeconds,
   missingRequirements,
+  isRecipePlanningAllowed,
   type Settings,
 } from "./settings";
 
@@ -17,7 +18,10 @@ export function marketQuote(
   if (quantity === 0) return 0;
   const override = settings.prices[itemId];
   if (override !== undefined) return override * quantity;
-  const apiId = itemById.get(itemId)?.apiId;
+  const item = itemById.get(itemId);
+  if (side === "buy" && item?.acquisitionCost !== undefined)
+    return item.acquisitionCost * quantity;
+  const apiId = item?.apiId;
   const book = apiId ? snapshot?.products[apiId] : undefined;
   if (!book) return null;
   const passive =
@@ -66,6 +70,7 @@ export function materialCost(
   if (
     !recipe ||
     recipe.method !== "crafting" ||
+    !isRecipePlanningAllowed(recipe) ||
     missingRequirements(recipe, settings).length ||
     path.has(itemId)
   )
