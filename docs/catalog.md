@@ -19,7 +19,7 @@ The database retains all 119 in-game-reviewed forge recipes and 36 gemstone craf
 
 193 images supplied with the previous edition are served from `public/items/`, named by stable application ID. Original download URLs were not supplied; their source is recorded as `legacy-assets`. Six GIFs retain their animation. Game artwork belongs to its respective owners; inclusion does not imply an original-art license.
 
-38 additional items currently use `public/items/unknown.svg`. To add an image, place a PNG or GIF in `public/items/`, then set the item's `image` metadata and cite a catalog source. For downloaded files, record the exact URL. Do not rename an application item to match an asset filename or infer an API ID from that filename.
+All 231 catalog items have local images: the original 193 plus 38 supplemental PNGs recorded as `supplemental-assets`. `public/items/unknown.svg` remains a fallback for missing assets or load failures. To add an image, place a PNG or GIF in `public/items/`, then set the item's `image` metadata and cite a catalog source. For downloaded files, record the exact URL. Do not rename an application item to match an asset filename or infer an API ID from that filename.
 
 `components/ItemIcon.tsx` displays catalog imagery across rankings, recipe trees, shopping lists, schedules, and forge tracking. It uses a fallback for unresolved assets or load failures.
 
@@ -28,5 +28,3 @@ npm run catalog:check
 ```
 
 This offline check also runs before production builds. It rejects missing or orphaned images and mismatched image dimensions.
-
-`/_debug` shows all catalog items, image paths, missing or broken images, and wiki links.

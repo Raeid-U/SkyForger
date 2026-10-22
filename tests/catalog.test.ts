@@ -192,12 +192,21 @@ test("API IDs and legacy aliases resolve to the same item without changing stabl
 
 test("local asset references match files and dimensions, and unknown imagery stays explicit", () => {
   checkAssets(catalog);
-  assert.equal(catalog.items.filter((item) => item.image).length, 193);
+  assert.equal(catalog.items.filter((item) => item.image).length, 231);
   assert.equal(
     itemById.get("titanium-drill-dr-x655")!.image!.src,
     "/items/titanium-drill-dr-x655.gif",
   );
-  assert.equal(itemById.get("rough-ruby-gemstone")!.image, null);
+  assert.equal(
+    itemById.get("rough-ruby-gemstone")!.image!.src,
+    "/items/rough-ruby-gemstone.png",
+  );
+  assert.equal(
+    changed((value) => {
+      value.items[0].image = null;
+    }),
+    true,
+  );
   assert.throws(
     () => imageSize(Buffer.from("<html>Forbidden</html>")),
     /PNG or GIF/,
