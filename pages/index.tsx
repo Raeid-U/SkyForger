@@ -1,54 +1,155 @@
-import Head from "next/head";
+import Link from "next/link";
 import { useState } from "react";
-import type { BazaarSnapshot } from "../lib/bazaar";
+import {
+  Workspace,
+  ManualPrice,
+  coins,
+  duration,
+  useWorkspace,
+} from "../components/Workspace";
+import { forgeRecipes, itemById } from "../lib/forge/catalog";
+import { rankRecipe } from "../lib/forge/pricing";
 
-export default function Home() {
-  const [tab, setTab] = useState<"profits" | "planner">("profits");
-  const [snapshot, setSnapshot] = useState<BazaarSnapshot | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-
-  async function checkPrices() {
-    setLoading(true);
-    setError("");
-    try {
-      const response = await fetch("/api/bazaar", { signal: AbortSignal.timeout(15000) });
-      if (!response.ok) throw new Error("Bazaar prices are unavailable. Please try again shortly.");
-      setSnapshot(await response.json());
-    } catch (cause) {
-      setError(cause instanceof Error ? cause.message : "Could not load prices.");
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  return <>
-    <Head>
-      <title>SkyForger — Your next forge starts here</title>
-      <meta name="description" content="Plan your Hypixel SkyBlock forge recipes and compare Bazaar prices." />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-    </Head>
-    <div className="workspace">
-      <header><a className="brand" href="/" aria-label="SkyForger home"><span className="mark" aria-hidden="true">S</span>SkyForger</a><span className="edition">HYPIXEL SKYBLOCK COMPANION</span></header>
-      <main>
-        <div className="eyebrow">LESS SPREADSHEET. MORE SKYBLOCK.</div>
-        <h1>Your next forge<br /><span>starts here.</span></h1>
-        <p className="intro">Find your next opportunity. Gather the right materials.<br />Make every forge slot count.</p>
-        <nav aria-label="Workspace"><button aria-current={tab === "profits" ? "page" : undefined} onClick={() => setTab("profits")}>Forge profits</button><button aria-current={tab === "planner" ? "page" : undefined} onClick={() => setTab("planner")}>Recipe planner</button></nav>
-        {tab === "profits" ? <section aria-labelledby="market-title" className="panel">
-          <div className="panel-heading"><div><span className="eyebrow">THE MARKET</span><h2 id="market-title">Start with a fresh price check.</h2></div><button className="primary" disabled={loading} onClick={checkPrices}>{loading ? "Checking prices…" : "Check Bazaar prices ↗"}</button></div>
-          <p>Pull the latest Bazaar order books to prepare your next forge comparison.</p>
-          <div role="status" aria-live="polite" className="market-status">{snapshot ? `${Object.keys(snapshot.products).length.toLocaleString()} products · Market snapshot ${new Date(snapshot.lastUpdated).toLocaleString()}` : "No market snapshot loaded yet."}</div>
-          {error && <p role="alert" className="error">{error}</p>}
-          <div className="notice">Recipe verification is in progress. Profit rankings will become available once ingredients, unlocks, and forge times have been checked.</div>
-        </section> : <section aria-labelledby="planner-title" className="panel">
-          <span className="eyebrow">THE LONG GAME</span><h2 id="planner-title">Big recipes. Clear next steps.</h2>
-          <p>The planner will turn forge dependencies into a material list and schedule for your available slots.</p>
-          <div className="notice">Recipe planning is coming after catalog verification. Your inventory, collection unlocks, and forge settings will shape each plan.</div>
-        </section>}
-        <div className="features"><div><span>01 / COMPARE</span><h3>Know the margin.</h3><p>Buying strategy, selling fees, and forge time belong in the same calculation.</p></div><div><span>02 / PLAN</span><h3>See the whole recipe.</h3><p>Follow every prerequisite, from raw materials to the final upgrade.</p></div><div><span>03 / FORGE</span><h3>Keep your slots moving.</h3><p>Plan around your unlocks and the time each ingredient needs.</p></div></div>
-      </main>
-      <footer><span>Built for the grind.</span><span>Independent project · Not affiliated with Hypixel</span></footer>
-    </div>
-  </>;
+export default function Flips() {
+  const { settings, snapshot } = useWorkspace();
+  const [search, setSearch] = useState("");
+  const [eligible, setEligible] = useState(true);
+  const [sort, setSort] = useState<"perHour" | "profit">("perHour");
+  const rows = forgeRecipes
+    .map((recipe) => rankRecipe(recipe, snapshot, settings))
+    .filter(
+      (row) =>
+        (!eligible || !row.locked.length) &&
+        itemById
+          .get(row.recipe.outputId)!
+          .name.toLowerCase()
+          .includes(search.toLowerCase()),
+    )
+    .sort((a, b) => (b[sort] ?? -Infinity) - (a[sort] ?? -Infinity));
+  const missing = [...new Set(rows.flatMap((row) => row.missing))];
+  return (
+    <Workspace title="Forge flips">
+      <div className="toolbar">
+        <input
+          aria-label="Search recipes"
+          placeholder="Search recipes…"
+          value={search}
+          onChange={(event) => setSearch(event.target.value)}
+        />
+        <select
+          aria-label="Sort recipes"
+          value={sort}
+          onChange={(event) => setSort(event.target.value as typeof sort)}
+        >
+          <option value="perHour">Profit / hour</option>
+          <option value="profit">Profit / item</option>
+        </select>
+        <label className="check">
+          <input
+            type="checkbox"
+            checked={eligible}
+            onChange={(event) => setEligible(event.target.checked)}
+          />{" "}
+          Unlocked only
+        </label>
+        <span className="muted">
+          {rows.filter((row) => row.profit !== null).length} priced /{" "}
+          {rows.length} recipes
+        </span>
+      </div>
+      {(settings.buyMode === "order" || settings.sellMode === "offer") && (
+        <p className="notice">
+          Order prices assume a fill at the current best price.
+        </p>
+      )}
+      <div className="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Recipe</th>
+              <th>Cost</th>
+              <th>Net sale</th>
+              <th>Profit</th>
+              <th>Profit / hour</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr key={row.recipe.id}>
+                <td>
+                  <Link href={`/planner?item=${row.recipe.outputId}`}>
+                    {itemById.get(row.recipe.outputId)!.name}
+                  </Link>
+                  {row.locked.length > 0 && (
+                    <small className="warning">{row.locked.join(" · ")}</small>
+                  )}
+                  {row.missing.length > 0 && (
+                    <small className="muted">
+                      Missing price or order-book depth
+                    </small>
+                  )}
+                </td>
+                <td>{coins(row.cost)}</td>
+                <td>{coins(row.revenue)}</td>
+                <td
+                  className={
+                    row.profit === null
+                      ? ""
+                      : row.profit >= 0
+                        ? "positive"
+                        : "negative"
+                  }
+                >
+                  {coins(row.profit)}
+                </td>
+                <td
+                  className={
+                    row.perHour !== null && row.perHour >= 0 ? "positive" : ""
+                  }
+                >
+                  {coins(row.perHour)}
+                </td>
+                <td>{duration(row.seconds)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        {!rows.length && (
+          <p className="empty">
+            No matching recipes. Adjust your search or player settings.
+          </p>
+        )}
+      </div>
+      {missing.length > 0 && (
+        <details className="panel">
+          <summary>
+            Manual prices{" "}
+            <span className="muted">{missing.length} unresolved items</span>
+          </summary>
+          <div className="price-grid">
+            {missing.map((id) => (
+              <label key={id}>
+                {itemById.get(id)?.name}
+                <ManualPrice itemId={id} />
+              </label>
+            ))}
+          </div>
+        </details>
+      )}
+      {Object.keys(settings.prices).length > 0 && (
+        <details className="panel">
+          <summary>Price overrides</summary>
+          <div className="price-grid">
+            {Object.keys(settings.prices).map((id) => (
+              <label key={id}>
+                {itemById.get(id)?.name}
+                <ManualPrice itemId={id} />
+              </label>
+            ))}
+          </div>
+        </details>
+      )}
+    </Workspace>
+  );
 }

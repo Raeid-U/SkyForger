@@ -1,69 +1,46 @@
 # SkyForger
 
-A planned Next.js companion for Hypixel SkyBlock forge profitability and recipe
-planning. The two tabs will share player settings, verified recipes, and market
-calculations.
+Hypixel SkyBlock forge pricing, recipe planning, and account tracking. Next.js, TypeScript, and Vercel functions.
 
-## Run locally
+## Development
 
-Requires Node.js 22. Python is only used for offline recipe import tooling and is
-not part of the app or API runtime.
+Node.js 22.
 
 ```sh
 npm ci
+cp .env.example .env.local
 npm run dev
 ```
 
-Open http://localhost:3000. The Next.js Pages Router serves the SPA and TypeScript
-API routes. `pages/api/bazaar.ts` maps to `/api/bazaar`; `pages/api/health.ts` maps
-to `/api/health`. The Bazaar endpoint is public and requires no API key. The app
-does not require a separate API service, database, or Python process.
+`HYPIXEL_API_KEY` is required only for account tracking. Keep it server-side.
 
-## Deploy to Vercel
+## Pages
 
-Import this repository into Vercel, select the Next.js framework preset, and use
-Node.js 22.x. Keep the default build command (`npm run build`) and framework-managed
-output directory. No environment variables are needed for this milestone. API
-routes run as Vercel functions; this app must not be exported as a static site.
+- `/` — forge flip rankings, taxes, order strategies, and manual price overrides.
+- `/planner` — recursive craft trees, owned materials, shopping lists, and slot schedules.
+- `/tracker` — SkyBlock profile selection and estimated forge countdowns.
 
-The Bazaar route validates upstream JSON, uses an eight-second request timeout,
-and caches successful responses at the CDN for 60 seconds with 120 seconds of
-stale-while-revalidate. The upstream market timestamp is returned unchanged.
-Failed requests return HTTP 502 and are not cached. Full books are retained for
-future depth-aware calculations; summary averages are not treated as trade quotes.
-See [the API reference check](docs/bazaar-api.md) for order-book semantics.
-An optional [.env.example](.env.example) documents that no runtime secrets are
-needed; copy it to `.env.local` when adding future configuration.
+Settings and owned materials are stored locally. Market books are fetched through `/api/bazaar`; account lookups use `/api/forge`. Missing prices stay unresolved. Order fills and forge completion times are estimates.
 
-## Validation
+The planner assumes free forge slots and immediate material availability. It models Quick Forge and Molten Forge; active-job estimates cannot observe Kinetic reductions. Account username resolution uses Mojang's API; UUIDs bypass that lookup.
+
+## Catalog
+
+`data/forge-catalog.json` contains the in-game-reviewed forge baseline plus gemstone crafting steps. API IDs are matched against Hypixel item resources. Unmatched items use manual pricing.
+
+```sh
+npm run catalog:prepare
+```
+
+## Checks
 
 ```sh
 npm test
 npm run typecheck
 npm run build
+npm run test:live
 ```
 
-Run `npm run test:live` separately to validate a real Hypixel Bazaar snapshot.
+## Vercel
 
-## Current milestone
-
-Deployable two-tab dashboard foundation with an on-demand Bazaar snapshot check.
-Profit calculations, player settings, and recipe planning are not implemented yet.
-The official wiki now redirects to its closure announcement. Fandom's MediaWiki
-API is available for community cross-checks; the imported catalog is not production data. See
-[the audit](docs/recipe-audit.md).
-
-## Implementation sequence
-
-1. Verify recipes, unlocks, forge slots, Quick Forge, and Bazaar fee rules.
-2. Scaffold Next.js, TypeScript, and the two-tab dashboard.
-3. Add locally persisted player settings: HOTM, forge slots, Quick Forge,
-   collection unlocks, and Bazaar tax presets (pending official verification).
-4. Integrate validated and cached Bazaar snapshots through a Route Handler.
-5. Calculate acquisition costs, sale proceeds, net profit, and profit per hour.
-6. Expand recipe dependencies, compare buying against crafting, and plan forge
-   jobs across available slots with manual inventory and missing-price handling.
-7. Validate calculations, improve accessibility and responsive layouts, and
-   document the deployment and architecture.
-
-Commit author: `Raeid-U <raeidus15@gmail.com>`.
+Use the Next.js preset and Node.js 22.x. Add `HYPIXEL_API_KEY` to the server environment to enable tracking. Use the default build and output settings.
