@@ -461,7 +461,6 @@ th.category-cell {
 td:not(:first-child):not(.category-cell),
 .number,
 .financial-breakdown dd,
-.countdown,
 .stats strong {
   font-family: var(--font-numeric);
   font-variant-numeric: tabular-nums;
@@ -701,30 +700,10 @@ tbody tr:hover {
   width: 140px;
   margin-top: 8px;
 }
-.forge-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
-}
-.forge-slot {
-  margin: 0;
-}
 .eyebrow {
   font-size: 12px;
   letter-spacing: 1px;
   color: var(--muted);
-}
-.forge-slot h2 {
-  margin: 16px 0 20px;
-}
-.countdown {
-  font-size: 23px;
-  font-weight: 400;
-  overflow-wrap: anywhere;
-}
-.forge-slot p {
-  font-size: 12px;
-  margin: 16px 0 0;
 }
 footer {
   display: flex;
@@ -1110,9 +1089,6 @@ footer > span > span {
   .tree {
     padding-left: 0;
   }
-  .forge-grid {
-    grid-template-columns: 1fr;
-  }
   .modal {
     width: 680px;
     max-width: calc(100% - 24px);
@@ -1157,5 +1133,270 @@ footer > span > span {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+}
+
+/* The forge is a bounded slot list; each row shares one reading order. */
+.forge-workspace {
+  width: 100%;
+}
+.forge-overview {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+.forge-overview p {
+  margin: 0;
+  font-size: 15px;
+}
+.forge-overview p span {
+  color: var(--muted);
+  font-size: 13px;
+}
+.forge-observation {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.forge-observation button {
+  padding-right: 0;
+  font-size: 13px;
+}
+.forge-estimate-note {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 4px 0 24px;
+}
+.forge-list-heading {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  color: var(--muted);
+  font-size: 12px;
+  padding: 0 0 12px;
+  border-bottom: 1px solid var(--line);
+}
+.forge-list-heading > span:first-child {
+  width: 40px;
+  flex: 0 0 auto;
+}
+.forge-list-heading > span:last-child {
+  margin-left: auto;
+  width: 230px;
+}
+.forge-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.forge-entry {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+.forge-job-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.forge-slot-id {
+  font-family: var(--font-numeric);
+  font-size: 15px;
+  color: var(--muted);
+  width: 40px;
+  flex: 0 0 auto;
+}
+.forge-job-identity {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  flex: 1;
+}
+.forge-job-identity > div {
+  min-width: 0;
+}
+.forge-job-identity .item-icon {
+  width: 40px;
+  height: 40px;
+}
+.forge-job-identity h2 {
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.forge-job-meta {
+  display: flex;
+  align-items: center;
+  gap: 4px 16px;
+  flex-wrap: wrap;
+}
+.forge-job-meta button {
+  min-height: 28px;
+  padding: 0;
+  color: var(--muted);
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.forge-started {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 0;
+}
+.forge-timing {
+  width: 230px;
+  flex: 0 0 auto;
+}
+.forge-time-note {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+}
+.forge-countdown {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  margin: 4px 0;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.35;
+}
+.time-prefix {
+  font-family: var(--font-ui);
+  color: var(--muted);
+  font-size: 13px;
+  white-space: nowrap;
+}
+.time-value {
+  font-family: var(--font-numeric);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.forge-countdown.ready-label {
+  font-size: 20px;
+  color: var(--accent);
+}
+.forge-time-note.positive {
+  color: var(--accent);
+}
+.forge-completion-window {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 32px;
+  margin: 12px 0;
+}
+.forge-completion-window dt {
+  margin-bottom: 4px;
+}
+.forge-completion-window dd {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-numeric);
+  line-height: 1.6;
+}
+.forge-vacancy {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 0;
+  color: var(--muted);
+}
+.forge-vacancy > span {
+  width: 40px;
+  flex: 0 0 auto;
+  font-family: var(--font-numeric);
+}
+.forge-vacancy strong {
+  font-size: 14px;
+  font-weight: 400;
+}
+.forge-vacancy p {
+  font-size: 12px;
+  margin: 4px 0 0;
+}
+.tracker-empty {
+  max-width: 600px;
+  padding: 32px 0;
+}
+.tracker-empty h2 {
+  margin-bottom: 8px;
+}
+.tracker-empty p {
+  margin: 0;
+  color: var(--muted);
+}
+.tracker-empty button {
+  margin-top: 12px;
+  padding-left: 0;
+}
+@media (max-width: 800px) {
+  .forge-overview {
+    align-items: flex-start;
+  }
+  .forge-observation {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .forge-estimate-note {
+    margin: 4px 0 20px;
+  }
+  .forge-list-heading {
+    display: none;
+  }
+  .forge-list {
+    border-top: 1px solid var(--line);
+  }
+  .forge-job-row {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .forge-slot-id {
+    width: 28px;
+    padding-top: 4px;
+    font-size: 13px;
+  }
+  .forge-job-identity {
+    flex: 1 1 calc(100% - 40px);
+    gap: 12px;
+  }
+  .forge-job-identity .item-icon {
+    width: 32px;
+    height: 32px;
+  }
+  .forge-job-identity h2 {
+    font-size: 15px;
+  }
+  .forge-job-meta {
+    margin-top: 4px;
+  }
+  .forge-job-meta button {
+    min-height: 44px;
+  }
+  .forge-timing {
+    width: auto;
+    flex: 1 1 100%;
+    padding-left: 40px;
+    margin-top: 4px;
+  }
+  .forge-countdown {
+    font-size: 24px;
+    margin: 2px 0;
+  }
+  .forge-completion-window {
+    flex-direction: column;
+  }
+  .forge-vacancy {
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .forge-vacancy > span {
+    width: 28px;
   }
 }
