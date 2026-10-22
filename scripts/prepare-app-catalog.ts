@@ -15,6 +15,20 @@ async function main() {
       items: z.array(z.object({ id: z.string(), name: z.string() })),
     })
     .parse(await response.json());
+  const bazaarResponse = await fetch(
+    "https://api.hypixel.net/v2/skyblock/bazaar",
+    {
+      signal: AbortSignal.timeout(15000),
+    },
+  );
+  if (!bazaarResponse.ok)
+    throw new Error(`Bazaar: HTTP ${bazaarResponse.status}`);
+  const bazaar = z
+    .object({
+      success: z.literal(true),
+      products: z.record(z.string(), z.unknown()),
+    })
+    .parse(await bazaarResponse.json());
   const normalize = (name: string) =>
     name
       .replace(/§./g, "")
@@ -80,6 +94,19 @@ async function main() {
       });
     }
   }
+  writeFileSync(
+    new URL("../data/bazaar-item-ids.json", import.meta.url),
+    JSON.stringify(
+      items
+        .filter(
+          (item) => item.apiId && Object.hasOwn(bazaar.products, item.apiId),
+        )
+        .map((item) => item.id)
+        .sort(),
+      null,
+      2,
+    ) + "\n",
+  );
   writeFileSync(
     new URL("../data/forge-catalog.json", import.meta.url),
     JSON.stringify({ reviewedOn: "2026-10-22", items, recipes }, null, 2) +

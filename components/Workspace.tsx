@@ -295,7 +295,7 @@ function PlayerSettings() {
           </select>
         </label>
         <label>
-          Sell products
+          Bazaar sales
           <select
             value={settings.sellMode}
             onChange={(event) =>
@@ -306,26 +306,6 @@ function PlayerSettings() {
             <option value="offer">Sell offer</option>
           </select>
         </label>
-        {settings.sellMode === "offer" && (
-          <label>
-            Offer setup fee %
-            <input
-              type="number"
-              min={0}
-              max={20}
-              step={0.01}
-              value={settings.orderFee * 100}
-              onChange={(event) =>
-                update({
-                  orderFee: Math.min(
-                    0.2,
-                    Math.max(0, Number(event.target.value) / 100),
-                  ),
-                })
-              }
-            />
-          </label>
-        )}
         {collections.map((collection) => (
           <label key={collection}>
             {collection} collection
@@ -354,6 +334,7 @@ function PlayerSettings() {
         />{" "}
         Molten Forge for planned jobs (−25%)
       </label>
+      <PriceSettings />
       <details>
         <summary>Additional unlocks</summary>
         <div className="unlock-list">
@@ -375,6 +356,52 @@ function PlayerSettings() {
           ))}
         </div>
       </details>
+    </details>
+  );
+}
+
+function PriceSettings() {
+  const { settings, update } = useWorkspace();
+  const [selected, setSelected] = useState(items[0].id);
+  return (
+    <details>
+      <summary>Price overrides ({Object.keys(settings.prices).length})</summary>
+      <div className="settings-grid">
+        <label>
+          Item
+          <select
+            value={selected}
+            onChange={(event) => setSelected(event.target.value)}
+          >
+            {[...items]
+              .sort((a, b) => a.name.localeCompare(b.name))
+              .map((item) => (
+                <option key={item.id} value={item.id}>
+                  {item.name}
+                </option>
+              ))}
+          </select>
+        </label>
+        <label>
+          Manual unit price
+          <ManualPrice itemId={selected} />
+        </label>
+      </div>
+      {Object.keys(settings.prices).map((id) => (
+        <div key={id} className="toolbar">
+          <span>{items.find((item) => item.id === id)?.name ?? id}</span>
+          <ManualPrice itemId={id} />
+          <button
+            onClick={() => {
+              const prices = { ...settings.prices };
+              delete prices[id];
+              update({ prices });
+            }}
+          >
+            Reset
+          </button>
+        </div>
+      ))}
     </details>
   );
 }

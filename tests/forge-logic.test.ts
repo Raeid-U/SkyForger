@@ -9,8 +9,11 @@ import {
   durationSeconds,
   forgeSlots,
   quickForgeReduction,
+  settingsSchema,
+  missingRequirements,
   type Settings,
 } from "../lib/forge/settings";
+import { itemMarket, matchesMarket } from "../lib/forge/markets";
 import { normalizeProfiles } from "../lib/forge/tracker";
 
 function settings(overrides: Partial<Settings> = {}): Settings {
@@ -105,7 +108,7 @@ test("gemstone crafting is cheaper only when the shared collection is unlocked",
     200,
   );
 });
-test("tax, offer fee, and per-hour profit are applied once", () => {
+test("Bazaar sales tax is applied once with no offer placement fee", () => {
   const recipe = recipeByOutput.get("refined-mithril")!;
   const row = rankRecipe(
     recipe,
@@ -113,14 +116,13 @@ test("tax, offer fee, and per-hour profit are applied once", () => {
     settings({
       prices: { "enchanted-mithril": 1, "refined-mithril": 1000 },
       tax: 0.01,
-      orderFee: 0.02,
       sellMode: "offer",
     }),
   );
   assert.equal(row.cost, 160);
-  assert.equal(row.revenue, 970);
-  assert.equal(row.profit, 810);
-  assert.equal(row.perHour, 135);
+  assert.equal(row.revenue, 990);
+  assert.equal(row.profit, 830);
+  assert.equal(row.perHour, 830 / 6);
 });
 test("known ingredient cost is displayed even when output has no price", () => {
   const row = rankRecipe(
@@ -152,7 +154,13 @@ test("slot unlocks include Peak of the Mountain", () => {
 });
 test("owned inventory is allocated once across shared recipe branches", () => {
   const owned = { "golden-plate": 1 };
-  const plan = buildPlan("mithril-plated-drill-engine", 1, owned, settings(), null);
+  const plan = buildPlan(
+    "mithril-plated-drill-engine",
+    1,
+    owned,
+    settings(),
+    null,
+  );
   const nodes: {
     owned: number;
     itemId: string;
@@ -169,7 +177,10 @@ test("owned inventory is allocated once across shared recipe branches", () => {
       .reduce((sum, node) => sum + node.owned, 0),
     1,
   );
-  assert.equal(nodes.filter(node => node.itemId === "golden-plate").length, 2);
+  assert.equal(
+    nodes.filter((node) => node.itemId === "golden-plate").length,
+    2,
+  );
   assert.deepEqual(owned, { "golden-plate": 1 });
 });
 test("slot schedules never overlap and parent jobs follow their prerequisites", () => {
@@ -224,7 +235,9 @@ test("planner rejects locked targets and invalid quantities", () => {
     );
 });
 test("application catalog has valid references, unique API mappings, and no cycles", () => {
-  const apiIds = [...itemById.values()].map(item => item.apiId).filter(Boolean);
+  const apiIds = [...itemById.values()]
+    .map((item) => item.apiId)
+    .filter(Boolean);
   assert.equal(new Set(apiIds).size, apiIds.length);
   for (const recipe of recipes) {
     assert.ok(itemById.has(recipe.outputId));
@@ -304,4 +317,40 @@ test("tracker retains unknown items, validates timestamps, and selects explicit 
   assert.throws(() =>
     normalizeProfiles({ success: true, profiles: [profile] }, uuid, "missing"),
   );
+});
+
+test("both markets include the four HOTM-gated metal recipes", () => {
+  for (const id of [
+    "tungsten-plate",
+    "umber-plate",
+    "refined-tungsten",
+    "refined-umber",
+  ]) {
+    const recipe = recipeByOutput.get(id)!;
+    assert.equal(recipe.method, "forge");
+    assert.equal(itemMarket(id), "bazaar");
+    assert.equal(matchesMarket(id, "both"), true);
+    assert.equal(matchesMarket(id, "bazaar"), true);
+    assert.equal(matchesMarket(id, "auction"), false);
+    assert.ok(missingRequirements(recipe, defaultSettings).length);
+    assert.deepEqual(missingRequirements(recipe, settings()), []);
+  }
+});
+test("AH outputs require manual pricing and do not incur Bazaar sales tax", () => {
+  const recipe = recipeByOutput.get("mithril-drill-sx-r226")!;
+  assert.equal(itemMarket(recipe.outputId), "auction");
+  assert.equal(matchesMarket(recipe.outputId, "auction"), true);
+  assert.equal(matchesMarket(recipe.outputId, "bazaar"), false);
+  assert.equal(rankRecipe(recipe, null, settings()).revenue, null);
+  assert.equal(
+    rankRecipe(recipe, null, settings({ prices: { [recipe.outputId]: 1000 } }))
+      .revenue,
+    1000,
+  );
+});
+test("persisted settings migrate market preference and discard the old placement fee", () => {
+  const { market, ...previous } = defaultSettings;
+  const parsed = settingsSchema.parse({ ...previous, orderFee: 0.02 });
+  assert.equal(parsed.market, "both");
+  assert.equal("orderFee" in parsed, false);
 });

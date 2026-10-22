@@ -2,23 +2,25 @@ import Link from "next/link";
 import { useState } from "react";
 import {
   Workspace,
-  ManualPrice,
   coins,
   duration,
   useWorkspace,
 } from "../components/Workspace";
 import { forgeRecipes, itemById } from "../lib/forge/catalog";
+import { itemMarket, matchesMarket } from "../lib/forge/markets";
+import type { Settings } from "../lib/forge/settings";
 import { rankRecipe } from "../lib/forge/pricing";
 
 export default function Flips() {
-  const { settings, snapshot } = useWorkspace();
+  const { settings, snapshot, update } = useWorkspace();
   const [search, setSearch] = useState("");
-  const [eligible, setEligible] = useState(true);
+  const [eligible, setEligible] = useState(false);
   const [sort, setSort] = useState<"perHour" | "profit">("perHour");
   const rows = forgeRecipes
     .map((recipe) => rankRecipe(recipe, snapshot, settings))
     .filter(
       (row) =>
+        matchesMarket(row.recipe.outputId, settings.market) &&
         (!eligible || !row.locked.length) &&
         itemById
           .get(row.recipe.outputId)!
@@ -26,7 +28,6 @@ export default function Flips() {
           .includes(search.toLowerCase()),
     )
     .sort((a, b) => (b[sort] ?? -Infinity) - (a[sort] ?? -Infinity));
-  const missing = [...new Set(rows.flatMap((row) => row.missing))];
   return (
     <Workspace title="Forge flips">
       <div className="toolbar">
@@ -43,6 +44,17 @@ export default function Flips() {
         >
           <option value="perHour">Profit / hour</option>
           <option value="profit">Profit / item</option>
+        </select>
+        <select
+          aria-label="Market"
+          value={settings.market}
+          onChange={(event) =>
+            update({ market: event.target.value as Settings["market"] })
+          }
+        >
+          <option value="both">Both markets</option>
+          <option value="bazaar">Bazaar</option>
+          <option value="auction">Auction House</option>
         </select>
         <label className="check">
           <input
@@ -62,13 +74,19 @@ export default function Flips() {
           Order prices assume a fill at the current best price.
         </p>
       )}
+      {settings.market !== "bazaar" && (
+        <p className="notice">
+          Auction House estimates use manual prices in settings and exclude AH
+          fees.
+        </p>
+      )}
       <div className="table-wrap">
         <table>
           <thead>
             <tr>
               <th>Recipe</th>
               <th>Cost</th>
-              <th>Net sale</th>
+              <th>Sale proceeds</th>
               <th>Profit</th>
               <th>Profit / hour</th>
               <th>Time</th>
@@ -81,12 +99,20 @@ export default function Flips() {
                   <Link href={`/planner?item=${row.recipe.outputId}`}>
                     {itemById.get(row.recipe.outputId)!.name}
                   </Link>
+                  <small className="muted">
+                    {itemMarket(row.recipe.outputId) === "bazaar"
+                      ? "Bazaar"
+                      : "Auction House · manual"}
+                  </small>
                   {row.locked.length > 0 && (
                     <small className="warning">{row.locked.join(" · ")}</small>
                   )}
                   {row.missing.length > 0 && (
                     <small className="muted">
-                      Missing price or order-book depth
+                      {itemMarket(row.recipe.outputId) === "auction" &&
+                      settings.prices[row.recipe.outputId] === undefined
+                        ? "Set sale price in settings"
+                        : "Missing ingredient price, sale price or market depth"}
                     </small>
                   )}
                 </td>
@@ -121,35 +147,6 @@ export default function Flips() {
           </p>
         )}
       </div>
-      {missing.length > 0 && (
-        <details className="panel">
-          <summary>
-            Manual prices{" "}
-            <span className="muted">{missing.length} unresolved items</span>
-          </summary>
-          <div className="price-grid">
-            {missing.map((id) => (
-              <label key={id}>
-                {itemById.get(id)?.name}
-                <ManualPrice itemId={id} />
-              </label>
-            ))}
-          </div>
-        </details>
-      )}
-      {Object.keys(settings.prices).length > 0 && (
-        <details className="panel">
-          <summary>Price overrides</summary>
-          <div className="price-grid">
-            {Object.keys(settings.prices).map((id) => (
-              <label key={id}>
-                {itemById.get(id)?.name}
-                <ManualPrice itemId={id} />
-              </label>
-            ))}
-          </div>
-        </details>
-      )}
     </Workspace>
   );
 }

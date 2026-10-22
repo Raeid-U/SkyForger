@@ -1,3 +1,4 @@
+import { itemMarket } from "./markets";
 import type { BazaarSnapshot } from "../bazaar";
 import { itemById, recipeByOutput, type Recipe } from "./catalog";
 import {
@@ -120,9 +121,7 @@ export function rankRecipe(
     gross === null
       ? null
       : gross *
-        (1 -
-          settings.tax -
-          (settings.sellMode === "offer" ? settings.orderFee : 0));
+        (1 - (itemMarket(recipe.outputId) === "bazaar" ? settings.tax : 0));
   const profit = cost === null || revenue === null ? null : revenue - cost;
   const seconds = durationSeconds(recipe, settings);
   return {
