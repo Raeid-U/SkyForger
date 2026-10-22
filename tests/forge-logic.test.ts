@@ -191,7 +191,8 @@ test("slot schedules never overlap and parent jobs follow their prerequisites", 
     settings({ hotm: 3, peak: 0 }),
     null,
   );
-  for (const slot of [0, 1, 2]) {
+  assert.ok(plan.jobs.every((job) => job.slot >= 1 && job.slot <= 3));
+  for (const slot of [1, 2, 3]) {
     const jobs = plan.jobs
       .filter((job) => job.slot === slot)
       .sort((a, b) => a.start - b.start);

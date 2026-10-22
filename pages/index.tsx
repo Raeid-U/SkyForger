@@ -1,3 +1,4 @@
+import { ItemIcon } from "../components/ItemIcon";
 import Link from "next/link";
 import { useState } from "react";
 import {
@@ -97,7 +98,10 @@ export default function Flips() {
               <tr key={row.recipe.id}>
                 <td>
                   <Link href={`/planner?item=${row.recipe.outputId}`}>
-                    {itemById.get(row.recipe.outputId)!.name}
+                    <span className="item-name">
+                      <ItemIcon itemId={row.recipe.outputId} />
+                      {itemById.get(row.recipe.outputId)!.name}
+                    </span>
                   </Link>
                   <small className="muted">
                     {itemMarket(row.recipe.outputId) === "bazaar"

@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { items, recipeByOutput } from "./catalog";
+import { itemByApiId, recipeByOutput } from "./catalog";
 
 const profileSchema = z.object({
   profile_id: z.string(),
@@ -87,7 +87,7 @@ export function normalizeProfiles(
         ...candidate,
         slot: candidate.slot ?? Number(slot),
       });
-      const item = items.find((item) => item.apiId === parsed.id);
+      const item = itemByApiId.get(parsed.id);
       return {
         slot: parsed.slot,
         apiItemId: parsed.id,

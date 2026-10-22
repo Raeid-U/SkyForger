@@ -128,7 +128,7 @@ export function buildPlan(
         finish = start + seconds;
       slots[slot] = finish;
       ready = Math.max(ready, finish);
-      jobs.push({ itemId: current.itemId, slot, start, finish });
+      jobs.push({ itemId: current.itemId, slot: slot + 1, start, finish });
     }
     return ready;
   }

@@ -1,3 +1,4 @@
+import { ItemIcon } from "../components/ItemIcon";
 import { useEffect, useState, type FormEvent } from "react";
 import { Workspace, duration, useWorkspace } from "../components/Workspace";
 import { itemById } from "../lib/forge/catalog";
@@ -135,8 +136,9 @@ export default function Tracker() {
               <div className="forge-grid">
                 {result.jobs.map((job) => (
                   <section className="panel forge-slot" key={job.slot}>
-                    <span className="eyebrow">SLOT {job.slot + 1}</span>
-                    <h2>
+                    <span className="eyebrow">SLOT {job.slot}</span>
+                    <h2 className="item-name">
+                      <ItemIcon itemId={job.itemId ?? job.apiItemId} />
                       {job.itemId
                         ? itemById.get(job.itemId)?.name
                         : job.apiItemId}

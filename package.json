@@ -12,8 +12,8 @@
     "typecheck": "tsc --noEmit",
     "test": "tsx --test tests/*.test.ts",
     "test:live": "tsx --test tests/integration/*.test.ts",
-    "catalog:build": "tsx scripts/build-forge-catalog.ts",
-    "catalog:prepare": "tsx scripts/prepare-app-catalog.ts"
+    "catalog:check": "tsx scripts/check-catalog.ts",
+    "prebuild": "npm run catalog:check"
   },
   "dependencies": {
     "next": "^16.4.2",

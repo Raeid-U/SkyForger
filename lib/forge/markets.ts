@@ -1,9 +1,8 @@
-import bazaarItems from "../../data/bazaar-item-ids.json";
+import { itemById } from "./catalog";
 import type { Settings } from "./settings";
 
-const bazaar = new Set(bazaarItems);
-export function itemMarket(itemId: string): "bazaar" | "auction" {
-  return bazaar.has(itemId) ? "bazaar" : "auction";
+export function itemMarket(itemId: string) {
+  return itemById.get(itemId)?.market ?? "unknown";
 }
 export function matchesMarket(itemId: string, market: Settings["market"]) {
   return market === "both" || itemMarket(itemId) === market;

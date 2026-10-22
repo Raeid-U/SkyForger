@@ -1,1160 +1,2925 @@
 {
+  "schemaVersion": 1,
   "reviewedOn": "2026-10-22",
   "items": [
     {
       "id": "amber-crystal",
       "name": "Amber Crystal",
-      "apiId": "AMBER_CRYSTAL"
+      "apiId": "AMBER_CRYSTAL",
+      "aliases": [],
+      "market": "untradeable",
+      "image": {
+        "src": "/items/amber-crystal.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "amber-material",
       "name": "Amber Material",
-      "apiId": "AMBER_MATERIAL"
+      "apiId": "AMBER_MATERIAL",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/amber-material.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "amber-necklace",
       "name": "Amber Necklace",
-      "apiId": "AMBER_NECKLACE"
+      "apiId": "AMBER_NECKLACE",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/amber-necklace.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "amber-polished-drill-engine",
       "name": "Amber-Polished Drill Engine",
-      "apiId": "AMBER_POLISHED_DRILL_ENGINE"
+      "apiId": "AMBER_POLISHED_DRILL_ENGINE",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/amber-polished-drill-engine.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "amethyst-crystal",
       "name": "Amethyst Crystal",
-      "apiId": "AMETHYST_CRYSTAL"
+      "apiId": "AMETHYST_CRYSTAL",
+      "aliases": [],
+      "market": "untradeable",
+      "image": {
+        "src": "/items/amethyst-crystal.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "amethyst-gauntlet",
       "name": "Amethyst Gauntlet",
-      "apiId": "AMETHYST_GAUNTLET"
+      "apiId": "AMETHYST_GAUNTLET",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/amethyst-gauntlet.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "ammonite",
       "name": "Ammonite",
-      "apiId": null
+      "apiId": null,
+      "aliases": [
+        "AMMONITE_PET"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/ammonite.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "ankylosaurus",
       "name": "Ankylosaurus",
-      "apiId": null
+      "apiId": null,
+      "aliases": [
+        "ANKYLOSAURUS_PET"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/ankylosaurus.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "aquamarine-crystal",
       "name": "Aquamarine Crystal",
-      "apiId": "AQUAMARINE_CRYSTAL"
+      "apiId": "AQUAMARINE_CRYSTAL",
+      "aliases": [],
+      "market": "untradeable",
+      "image": {
+        "src": "/items/aquamarine-crystal.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "artifact-of-power",
       "name": "Artifact of Power",
-      "apiId": "POWER_ARTIFACT"
+      "apiId": "POWER_ARTIFACT",
+      "aliases": [
+        "ARTIFACT_OF_POWER"
+      ],
+      "market": "unknown",
+      "image": {
+        "src": "/items/artifact-of-power.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "beacon-i",
       "name": "Beacon I",
-      "apiId": "BEACON_1"
+      "apiId": "BEACON_1",
+      "aliases": [
+        "BEACON_I"
+      ],
+      "market": "unknown",
+      "image": {
+        "src": "/items/beacon-i.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "beacon-ii",
       "name": "Beacon II",
-      "apiId": "BEACON_2"
+      "apiId": "BEACON_2",
+      "aliases": [
+        "BEACON_II"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/beacon-ii.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "beacon-iii",
       "name": "Beacon III",
-      "apiId": "BEACON_3"
+      "apiId": "BEACON_3",
+      "aliases": [
+        "BEACON_III"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/beacon-iii.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "beacon-iv",
       "name": "Beacon IV",
-      "apiId": "BEACON_4"
+      "apiId": "BEACON_4",
+      "aliases": [
+        "BEACON_IV"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/beacon-iv.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "beacon-v",
       "name": "Beacon V",
-      "apiId": "BEACON_5"
+      "apiId": "BEACON_5",
+      "aliases": [
+        "BEACON_V"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/beacon-v.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "bejeweled-collar",
       "name": "Bejeweled Collar",
-      "apiId": null
+      "apiId": null,
+      "aliases": [
+        "BEJEWELED_COLLAR"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/bejeweled-collar.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "bejeweled-handle",
       "name": "Bejeweled Handle",
-      "apiId": "BEJEWELED_HANDLE"
+      "apiId": "BEJEWELED_HANDLE",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/bejeweled-handle.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "blue-cheese-goblin-omelette",
       "name": "Blue Cheese Goblin Omelette",
-      "apiId": "GOBLIN_OMELETTE_BLUE_CHEESE"
+      "apiId": "GOBLIN_OMELETTE_BLUE_CHEESE",
+      "aliases": [
+        "BLUE_CHEESE_GOBLIN_OMELETTE"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/blue-cheese-goblin-omelette.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "blue-goblin-egg",
       "name": "Blue Goblin Egg",
-      "apiId": "GOBLIN_EGG_BLUE"
+      "apiId": "GOBLIN_EGG_BLUE",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/blue-goblin-egg.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "boots-of-divan",
       "name": "Boots of Divan",
-      "apiId": "DIVAN_BOOTS"
+      "apiId": "DIVAN_BOOTS",
+      "aliases": [
+        "BOOTS_OF_DIVAN"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/boots-of-divan.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "caged-wisp",
       "name": "Caged Wisp",
-      "apiId": "CAGED_WISP"
+      "apiId": "CAGED_WISP",
+      "aliases": [],
+      "market": "unknown",
+      "image": {
+        "src": "/items/caged-wisp.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "chestplate-of-divan",
       "name": "Chestplate of Divan",
-      "apiId": "DIVAN_CHESTPLATE"
+      "apiId": "DIVAN_CHESTPLATE",
+      "aliases": [
+        "CHESTPLATE_OF_DIVAN"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/chestplate-of-divan.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "chisel",
       "name": "Chisel",
-      "apiId": "CHISEL"
+      "apiId": "CHISEL",
+      "aliases": [],
+      "market": "unknown",
+      "image": {
+        "src": "/items/chisel.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "citrine-crystal",
       "name": "Citrine Crystal",
-      "apiId": "CITRINE_CRYSTAL"
+      "apiId": "CITRINE_CRYSTAL",
+      "aliases": [],
+      "market": "untradeable",
+      "image": {
+        "src": "/items/citrine-crystal.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "claw-fossil",
       "name": "Claw Fossil",
-      "apiId": "CLAW_FOSSIL"
+      "apiId": "CLAW_FOSSIL",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/claw-fossil.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "clubbed-fossil",
       "name": "Clubbed Fossil",
-      "apiId": "CLUBBED_FOSSIL"
+      "apiId": "CLUBBED_FOSSIL",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/clubbed-fossil.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "corleonite",
       "name": "Corleonite",
-      "apiId": "CORLEONITE"
+      "apiId": "CORLEONITE",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/corleonite.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "diamonite",
       "name": "Diamonite",
-      "apiId": "DIAMONITE"
+      "apiId": "DIAMONITE",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/diamonite.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "divan-fragment",
       "name": "Divan Fragment",
-      "apiId": "DIVAN_FRAGMENT"
+      "apiId": "DIVAN_FRAGMENT",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/divan-fragment.gif",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "divan-s-alloy",
       "name": "Divan's Alloy",
-      "apiId": "DIVAN_ALLOY"
+      "apiId": "DIVAN_ALLOY",
+      "aliases": [
+        "DIVAN_S_ALLOY"
+      ],
+      "market": "unknown",
+      "image": {
+        "src": "/items/divan-s-alloy.gif",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "divan-s-drill",
       "name": "Divan's Drill",
-      "apiId": "DIVAN_DRILL"
+      "apiId": "DIVAN_DRILL",
+      "aliases": [
+        "DIVAN_S_DRILL"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/divan-s-drill.gif",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "divan-s-powder-coating",
       "name": "Divan's Powder Coating",
-      "apiId": "DIVAN_POWDER_COATING"
+      "apiId": "DIVAN_POWDER_COATING",
+      "aliases": [
+        "DIVAN_S_POWDER_COATING"
+      ],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/divan-s-powder-coating.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "drill-motor",
       "name": "Drill Motor",
-      "apiId": "DRILL_ENGINE"
+      "apiId": "DRILL_ENGINE",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/drill-motor.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "dwarven-geode",
       "name": "Dwarven Geode",
-      "apiId": "ROCK_GEMSTONE"
+      "apiId": "ROCK_GEMSTONE",
+      "aliases": [
+        "DWARVEN_GEODE"
+      ],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/dwarven-geode.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "dwarven-handwarmers",
       "name": "Dwarven Handwarmers",
-      "apiId": "DWARVEN_HANDWARMERS"
+      "apiId": "DWARVEN_HANDWARMERS",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/dwarven-handwarmers.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "dwarven-lantern",
       "name": "Dwarven Lantern",
-      "apiId": "LANTERN"
+      "apiId": "LANTERN",
+      "aliases": [
+        "DWARVEN_LANTERN"
+      ],
+      "market": "unknown",
+      "image": {
+        "src": "/items/dwarven-lantern.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "dwarven-metal-talisman",
       "name": "Dwarven Metal Talisman",
-      "apiId": "DWARVEN_METAL"
+      "apiId": "DWARVEN_METAL",
+      "aliases": [
+        "DWARVEN_METAL_TALISMAN"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/dwarven-metal-talisman.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "enchanted-coal-block",
       "name": "Enchanted Coal Block",
-      "apiId": "ENCHANTED_COAL_BLOCK"
+      "apiId": "ENCHANTED_COAL_BLOCK",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "enchanted-cobblestone",
       "name": "Enchanted Cobblestone",
-      "apiId": "ENCHANTED_COBBLESTONE"
+      "apiId": "ENCHANTED_COBBLESTONE",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/enchanted-cobblestone.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "enchanted-diamond-block",
       "name": "Enchanted Diamond Block",
-      "apiId": "ENCHANTED_DIAMOND_BLOCK"
+      "apiId": "ENCHANTED_DIAMOND_BLOCK",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/enchanted-diamond-block.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "enchanted-emerald",
       "name": "Enchanted Emerald",
-      "apiId": "ENCHANTED_EMERALD"
+      "apiId": "ENCHANTED_EMERALD",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/enchanted-emerald.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "enchanted-emerald-block",
       "name": "Enchanted Emerald Block",
-      "apiId": "ENCHANTED_EMERALD_BLOCK"
+      "apiId": "ENCHANTED_EMERALD_BLOCK",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/enchanted-emerald-block.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "enchanted-ender-pearl",
       "name": "Enchanted Ender Pearl",
-      "apiId": "ENCHANTED_ENDER_PEARL"
+      "apiId": "ENCHANTED_ENDER_PEARL",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/enchanted-ender-pearl.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "enchanted-glacite",
       "name": "Enchanted Glacite",
-      "apiId": "ENCHANTED_GLACITE"
+      "apiId": "ENCHANTED_GLACITE",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "enchanted-gold-block",
       "name": "Enchanted Gold Block",
-      "apiId": "ENCHANTED_GOLD_BLOCK"
+      "apiId": "ENCHANTED_GOLD_BLOCK",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/enchanted-gold-block.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "enchanted-hard-stone",
       "name": "Enchanted Hard Stone",
-      "apiId": "ENCHANTED_HARD_STONE"
+      "apiId": "ENCHANTED_HARD_STONE",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/enchanted-hard-stone.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "enchanted-iron-block",
       "name": "Enchanted Iron Block",
-      "apiId": "ENCHANTED_IRON_BLOCK"
+      "apiId": "ENCHANTED_IRON_BLOCK",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/enchanted-iron-block.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "enchanted-lapis-lazuli",
       "name": "Enchanted Lapis Lazuli",
-      "apiId": "ENCHANTED_LAPIS_LAZULI"
+      "apiId": "ENCHANTED_LAPIS_LAZULI",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/enchanted-lapis-lazuli.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "enchanted-mithril",
       "name": "Enchanted Mithril",
-      "apiId": "ENCHANTED_MITHRIL"
+      "apiId": "ENCHANTED_MITHRIL",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/enchanted-mithril.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "enchanted-redstone-block",
       "name": "Enchanted Redstone Block",
-      "apiId": "ENCHANTED_REDSTONE_BLOCK"
+      "apiId": "ENCHANTED_REDSTONE_BLOCK",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "enchanted-titanium",
       "name": "Enchanted Titanium",
-      "apiId": "ENCHANTED_TITANIUM"
+      "apiId": "ENCHANTED_TITANIUM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/enchanted-titanium.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "enchanted-tungsten",
       "name": "Enchanted Tungsten",
-      "apiId": "ENCHANTED_TUNGSTEN"
+      "apiId": "ENCHANTED_TUNGSTEN",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/enchanted-tungsten.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "enchanted-umber",
       "name": "Enchanted Umber",
-      "apiId": "ENCHANTED_UMBER"
+      "apiId": "ENCHANTED_UMBER",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/enchanted-umber.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "everburning-flame",
       "name": "Everburning Flame",
-      "apiId": "EVERBURNING_FLAME"
+      "apiId": "EVERBURNING_FLAME",
+      "aliases": [],
+      "market": "unknown",
+      "image": {
+        "src": "/items/everburning-flame.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "fine-amber-gemstone",
       "name": "Fine Amber Gemstone",
-      "apiId": "FINE_AMBER_GEM"
+      "apiId": "FINE_AMBER_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/fine-amber-gemstone.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "fine-amethyst-gemstone",
       "name": "Fine Amethyst Gemstone",
-      "apiId": "FINE_AMETHYST_GEM"
+      "apiId": "FINE_AMETHYST_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "fine-aquamarine-gemstone",
       "name": "Fine Aquamarine Gemstone",
-      "apiId": "FINE_AQUAMARINE_GEM"
+      "apiId": "FINE_AQUAMARINE_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "fine-citrine-gemstone",
       "name": "Fine Citrine Gemstone",
-      "apiId": "FINE_CITRINE_GEM"
+      "apiId": "FINE_CITRINE_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "fine-jade-gemstone",
       "name": "Fine Jade Gemstone",
-      "apiId": "FINE_JADE_GEM"
+      "apiId": "FINE_JADE_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "fine-onyx-gemstone",
       "name": "Fine Onyx Gemstone",
-      "apiId": "FINE_ONYX_GEM"
+      "apiId": "FINE_ONYX_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "fine-peridot-gemstone",
       "name": "Fine Peridot Gemstone",
-      "apiId": "FINE_PERIDOT_GEM"
+      "apiId": "FINE_PERIDOT_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "fine-ruby-gemstone",
       "name": "Fine Ruby Gemstone",
-      "apiId": "FINE_RUBY_GEM"
+      "apiId": "FINE_RUBY_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/fine-ruby-gemstone.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "fine-sapphire-gemstone",
       "name": "Fine Sapphire Gemstone",
-      "apiId": "FINE_SAPPHIRE_GEM"
+      "apiId": "FINE_SAPPHIRE_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "flawless-amber-gemstone",
       "name": "Flawless Amber Gemstone",
-      "apiId": "FLAWLESS_AMBER_GEM"
+      "apiId": "FLAWLESS_AMBER_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/flawless-amber-gemstone.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "flawless-amethyst-gemstone",
       "name": "Flawless Amethyst Gemstone",
-      "apiId": "FLAWLESS_AMETHYST_GEM"
+      "apiId": "FLAWLESS_AMETHYST_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/flawless-amethyst-gemstone.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "flawless-aquamarine-gemstone",
       "name": "Flawless Aquamarine Gemstone",
-      "apiId": "FLAWLESS_AQUAMARINE_GEM"
+      "apiId": "FLAWLESS_AQUAMARINE_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/flawless-aquamarine-gemstone.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "flawless-citrine-gemstone",
       "name": "Flawless Citrine Gemstone",
-      "apiId": "FLAWLESS_CITRINE_GEM"
+      "apiId": "FLAWLESS_CITRINE_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/flawless-citrine-gemstone.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "flawless-jade-gemstone",
       "name": "Flawless Jade Gemstone",
-      "apiId": "FLAWLESS_JADE_GEM"
+      "apiId": "FLAWLESS_JADE_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/flawless-jade-gemstone.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "flawless-jasper-gemstone",
       "name": "Flawless Jasper Gemstone",
-      "apiId": "FLAWLESS_JASPER_GEM"
+      "apiId": "FLAWLESS_JASPER_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/flawless-jasper-gemstone.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "flawless-onyx-gemstone",
       "name": "Flawless Onyx Gemstone",
-      "apiId": "FLAWLESS_ONYX_GEM"
+      "apiId": "FLAWLESS_ONYX_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/flawless-onyx-gemstone.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "flawless-opal-gemstone",
       "name": "Flawless Opal Gemstone",
-      "apiId": "FLAWLESS_OPAL_GEM"
+      "apiId": "FLAWLESS_OPAL_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/flawless-opal-gemstone.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "flawless-peridot-gemstone",
       "name": "Flawless Peridot Gemstone",
-      "apiId": "FLAWLESS_PERIDOT_GEM"
+      "apiId": "FLAWLESS_PERIDOT_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/flawless-peridot-gemstone.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "flawless-ruby-gemstone",
       "name": "Flawless Ruby Gemstone",
-      "apiId": "FLAWLESS_RUBY_GEM"
+      "apiId": "FLAWLESS_RUBY_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/flawless-ruby-gemstone.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "flawless-sapphire-gemstone",
       "name": "Flawless Sapphire Gemstone",
-      "apiId": "FLAWLESS_SAPPHIRE_GEM"
+      "apiId": "FLAWLESS_SAPPHIRE_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/flawless-sapphire-gemstone.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "flawless-topaz-gemstone",
       "name": "Flawless Topaz Gemstone",
-      "apiId": "FLAWLESS_TOPAZ_GEM"
+      "apiId": "FLAWLESS_TOPAZ_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/flawless-topaz-gemstone.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "footprint-fossil",
       "name": "Footprint Fossil",
-      "apiId": "FOOTPRINT_FOSSIL"
+      "apiId": "FOOTPRINT_FOSSIL",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/footprint-fossil.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "frigid-husk",
       "name": "Frigid Husk",
-      "apiId": "FRIGID_HUSK"
+      "apiId": "FRIGID_HUSK",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/frigid-husk.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "fuel-canister",
       "name": "Fuel Canister",
-      "apiId": "FUEL_TANK"
+      "apiId": "FUEL_TANK",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/fuel-canister.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "gemstone-chamber",
       "name": "Gemstone Chamber",
-      "apiId": "GEMSTONE_CHAMBER"
+      "apiId": "GEMSTONE_CHAMBER",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/gemstone-chamber.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "gemstone-drill-lt-522",
       "name": "Gemstone Drill LT-522",
-      "apiId": "GEMSTONE_DRILL_2"
+      "apiId": "GEMSTONE_DRILL_2",
+      "aliases": [
+        "GEMSTONE_DRILL_LT_522"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/gemstone-drill-lt-522.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "gemstone-fuel-tank",
       "name": "Gemstone Fuel Tank",
-      "apiId": "GEMSTONE_FUEL_TANK"
+      "apiId": "GEMSTONE_FUEL_TANK",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/gemstone-fuel-tank.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "gemstone-mixture",
       "name": "Gemstone Mixture",
-      "apiId": "GEMSTONE_MIXTURE"
+      "apiId": "GEMSTONE_MIXTURE",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/gemstone-mixture.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "glacite-amalgamation",
       "name": "Glacite Amalgamation",
-      "apiId": "GLACITE_AMALGAMATION"
+      "apiId": "GLACITE_AMALGAMATION",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/glacite-amalgamation.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "glacite-jewel",
       "name": "Glacite Jewel",
-      "apiId": "GLACITE_JEWEL"
+      "apiId": "GLACITE_JEWEL",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/glacite-jewel.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "glacite-lantern",
       "name": "Glacite Lantern",
-      "apiId": "GLACITE_LANTERN"
+      "apiId": "GLACITE_LANTERN",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/glacite-lantern.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "glacite-plated-chisel",
       "name": "Glacite-Plated Chisel",
-      "apiId": "GLACITE_CHISEL"
+      "apiId": "GLACITE_CHISEL",
+      "aliases": [
+        "GLACITE_PLATED_CHISEL"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/glacite-plated-chisel.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "gleaming-crystal",
       "name": "Gleaming Crystal",
-      "apiId": "GLEAMING_CRYSTAL"
+      "apiId": "GLEAMING_CRYSTAL",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/gleaming-crystal.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "glossy-gemstone",
       "name": "Glossy Gemstone",
-      "apiId": "GLOSSY_GEMSTONE"
+      "apiId": "GLOSSY_GEMSTONE",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/glossy-gemstone.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "goblin",
       "name": "Goblin",
-      "apiId": null
+      "apiId": null,
+      "aliases": [
+        "GOBLIN_PET"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/goblin.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "goblin-egg",
       "name": "Goblin Egg",
-      "apiId": "GOBLIN_EGG"
+      "apiId": "GOBLIN_EGG",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/goblin-egg.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "goblin-omelette",
       "name": "Goblin Omelette",
-      "apiId": "GOBLIN_OMELETTE"
+      "apiId": "GOBLIN_OMELETTE",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/goblin-omelette.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "golden-plate",
       "name": "Golden Plate",
-      "apiId": "GOLDEN_PLATE"
+      "apiId": "GOLDEN_PLATE",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/golden-plate.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "green-goblin-egg",
       "name": "Green Goblin Egg",
-      "apiId": "GOBLIN_EGG_GREEN"
+      "apiId": "GOBLIN_EGG_GREEN",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/green-goblin-egg.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "helix-fossil",
       "name": "Helix Fossil",
-      "apiId": "HELIX"
+      "apiId": "HELIX",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/helix-fossil.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "helmet-of-divan",
       "name": "Helmet of Divan",
-      "apiId": "DIVAN_HELMET"
+      "apiId": "DIVAN_HELMET",
+      "aliases": [
+        "HELMET_OF_DIVAN"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/helmet-of-divan.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "jade-belt",
       "name": "Jade Belt",
-      "apiId": "JADE_BELT"
+      "apiId": "JADE_BELT",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/jade-belt.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "jade-crystal",
       "name": "Jade Crystal",
-      "apiId": "JADE_CRYSTAL"
+      "apiId": "JADE_CRYSTAL",
+      "aliases": [],
+      "market": "untradeable",
+      "image": {
+        "src": "/items/jade-crystal.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "jasper-crystal",
       "name": "Jasper Crystal",
-      "apiId": "JASPER_CRYSTAL"
+      "apiId": "JASPER_CRYSTAL",
+      "aliases": [],
+      "market": "untradeable",
+      "image": {
+        "src": "/items/jasper-crystal.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "jasper-drill-x",
       "name": "Jasper Drill X",
-      "apiId": "GEMSTONE_DRILL_4"
+      "apiId": "GEMSTONE_DRILL_4",
+      "aliases": [
+        "JASPER_DRILL_X"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/jasper-drill-x.gif",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "leggings-of-divan",
       "name": "Leggings of Divan",
-      "apiId": "DIVAN_LEGGINGS"
+      "apiId": "DIVAN_LEGGINGS",
+      "aliases": [
+        "LEGGINGS_OF_DIVAN"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/leggings-of-divan.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "magma-core",
       "name": "Magma Core",
-      "apiId": "MAGMA_CORE"
+      "apiId": "MAGMA_CORE",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/magma-core.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "mammoth",
       "name": "Mammoth",
-      "apiId": null
+      "apiId": null,
+      "aliases": [
+        "MAMMOTH_PET"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/mammoth.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "match-sticks",
       "name": "Match-Sticks",
-      "apiId": "MATCH_STICKS"
+      "apiId": "MATCH_STICKS",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/match-sticks.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "mithril",
       "name": "Mithril",
-      "apiId": "MITHRIL_ORE"
+      "apiId": "MITHRIL_ORE",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/mithril.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "mithril-belt",
       "name": "Mithril Belt",
-      "apiId": "MITHRIL_BELT"
+      "apiId": "MITHRIL_BELT",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/mithril-belt.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "mithril-cloak",
       "name": "Mithril Cloak",
-      "apiId": "MITHRIL_CLOAK"
+      "apiId": "MITHRIL_CLOAK",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/mithril-cloak.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "mithril-drill-sx-r226",
       "name": "Mithril Drill SX-R226",
-      "apiId": "MITHRIL_DRILL_1"
+      "apiId": "MITHRIL_DRILL_1",
+      "aliases": [
+        "MITHRIL_DRILL_SX_R226"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/mithril-drill-sx-r226.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "mithril-drill-sx-r326",
       "name": "Mithril Drill SX-R326",
-      "apiId": "MITHRIL_DRILL_2"
+      "apiId": "MITHRIL_DRILL_2",
+      "aliases": [
+        "MITHRIL_DRILL_SX_R326"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/mithril-drill-sx-r326.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "mithril-gauntlet",
       "name": "Mithril Gauntlet",
-      "apiId": "MITHRIL_GAUNTLET"
+      "apiId": "MITHRIL_GAUNTLET",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/mithril-gauntlet.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "mithril-infused-fuel-tank",
       "name": "Mithril-Infused Fuel Tank",
-      "apiId": "MITHRIL_FUEL_TANK"
+      "apiId": "MITHRIL_FUEL_TANK",
+      "aliases": [
+        "MITHRIL_INFUSED_FUEL_TANK"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/mithril-infused-fuel-tank.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "mithril-lantern",
       "name": "Mithril Lantern",
-      "apiId": "MITHRIL_LANTERN"
+      "apiId": "MITHRIL_LANTERN",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/mithril-lantern.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "mithril-necklace",
       "name": "Mithril Necklace",
-      "apiId": "MITHRIL_NECKLACE"
+      "apiId": "MITHRIL_NECKLACE",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/mithril-necklace.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "mithril-plate",
       "name": "Mithril Plate",
-      "apiId": "MITHRIL_PLATE"
+      "apiId": "MITHRIL_PLATE",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/mithril-plate.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "mithril-plated-drill-engine",
       "name": "Mithril-Plated Drill Engine",
-      "apiId": "MITHRIL_DRILL_ENGINE"
+      "apiId": "MITHRIL_DRILL_ENGINE",
+      "aliases": [
+        "MITHRIL_PLATED_DRILL_ENGINE"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/mithril-plated-drill-engine.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "mole",
       "name": "Mole",
-      "apiId": null
+      "apiId": null,
+      "aliases": [
+        "MOLE_PET"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/mole.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "onyx-crystal",
       "name": "Onyx Crystal",
-      "apiId": "ONYX_CRYSTAL"
+      "apiId": "ONYX_CRYSTAL",
+      "aliases": [],
+      "market": "untradeable",
+      "image": {
+        "src": "/items/onyx-crystal.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "opal-crystal",
       "name": "Opal Crystal",
-      "apiId": "OPAL_CRYSTAL"
+      "apiId": "OPAL_CRYSTAL",
+      "aliases": [],
+      "market": "untradeable",
+      "image": {
+        "src": "/items/opal-crystal.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "pendant-of-divan",
       "name": "Pendant of Divan",
-      "apiId": "DIVAN_PENDANT"
+      "apiId": "DIVAN_PENDANT",
+      "aliases": [
+        "PENDANT_OF_DIVAN"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/pendant-of-divan.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "penguin",
       "name": "Penguin",
-      "apiId": null
+      "apiId": null,
+      "aliases": [
+        "PENGUIN_PET"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/penguin.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "perfect-amber-gemstone",
       "name": "Perfect Amber Gemstone",
-      "apiId": "PERFECT_AMBER_GEM"
+      "apiId": "PERFECT_AMBER_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/perfect-amber-gemstone.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "perfect-amethyst-gemstone",
       "name": "Perfect Amethyst Gemstone",
-      "apiId": "PERFECT_AMETHYST_GEM"
+      "apiId": "PERFECT_AMETHYST_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/perfect-amethyst-gemstone.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "perfect-aquamarine-gemstone",
       "name": "Perfect Aquamarine Gemstone",
-      "apiId": "PERFECT_AQUAMARINE_GEM"
+      "apiId": "PERFECT_AQUAMARINE_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/perfect-aquamarine-gemstone.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "perfect-chisel",
       "name": "Perfect Chisel",
-      "apiId": "PERFECT_CHISEL"
+      "apiId": "PERFECT_CHISEL",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/perfect-chisel.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "perfect-citrine-gemstone",
       "name": "Perfect Citrine Gemstone",
-      "apiId": "PERFECT_CITRINE_GEM"
+      "apiId": "PERFECT_CITRINE_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/perfect-citrine-gemstone.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "perfect-jade-gemstone",
       "name": "Perfect Jade Gemstone",
-      "apiId": "PERFECT_JADE_GEM"
+      "apiId": "PERFECT_JADE_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/perfect-jade-gemstone.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "perfect-jasper-gemstone",
       "name": "Perfect Jasper Gemstone",
-      "apiId": "PERFECT_JASPER_GEM"
+      "apiId": "PERFECT_JASPER_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/perfect-jasper-gemstone.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "perfect-onyx-gemstone",
       "name": "Perfect Onyx Gemstone",
-      "apiId": "PERFECT_ONYX_GEM"
+      "apiId": "PERFECT_ONYX_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/perfect-onyx-gemstone.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "perfect-opal-gemstone",
       "name": "Perfect Opal Gemstone",
-      "apiId": "PERFECT_OPAL_GEM"
+      "apiId": "PERFECT_OPAL_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/perfect-opal-gemstone.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "perfect-peridot-gemstone",
       "name": "Perfect Peridot Gemstone",
-      "apiId": "PERFECT_PERIDOT_GEM"
+      "apiId": "PERFECT_PERIDOT_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/perfect-peridot-gemstone.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "perfect-plate",
       "name": "Perfect Plate",
-      "apiId": "PERFECT_PLATE"
+      "apiId": "PERFECT_PLATE",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/perfect-plate.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "perfect-ruby-gemstone",
       "name": "Perfect Ruby Gemstone",
-      "apiId": "PERFECT_RUBY_GEM"
+      "apiId": "PERFECT_RUBY_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/perfect-ruby-gemstone.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "perfect-sapphire-gemstone",
       "name": "Perfect Sapphire Gemstone",
-      "apiId": "PERFECT_SAPPHIRE_GEM"
+      "apiId": "PERFECT_SAPPHIRE_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/perfect-sapphire-gemstone.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "perfect-topaz-gemstone",
       "name": "Perfect Topaz Gemstone",
-      "apiId": "PERFECT_TOPAZ_GEM"
+      "apiId": "PERFECT_TOPAZ_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/perfect-topaz-gemstone.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "perfectly-cut-fuel-tank",
       "name": "Perfectly-Cut Fuel Tank",
-      "apiId": "PERFECTLY_CUT_FUEL_TANK"
+      "apiId": "PERFECTLY_CUT_FUEL_TANK",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/perfectly-cut-fuel-tank.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "peridot-crystal",
       "name": "Peridot Crystal",
-      "apiId": "PERIDOT_CRYSTAL"
+      "apiId": "PERIDOT_CRYSTAL",
+      "aliases": [],
+      "market": "untradeable",
+      "image": {
+        "src": "/items/peridot-crystal.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "pesto-goblin-omelette",
       "name": "Pesto Goblin Omelette",
-      "apiId": "GOBLIN_OMELETTE_PESTO"
+      "apiId": "GOBLIN_OMELETTE_PESTO",
+      "aliases": [
+        "PESTO_GOBLIN_OMELETTE"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/pesto-goblin-omelette.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "petrified-starfall",
       "name": "Petrified Starfall",
-      "apiId": "PETRIFIED_STARFALL"
+      "apiId": "PETRIFIED_STARFALL",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/petrified-starfall.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "plasma",
       "name": "Plasma",
-      "apiId": "PLASMA"
+      "apiId": "PLASMA",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/plasma.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "pocket-iceberg",
       "name": "Pocket Iceberg",
-      "apiId": "POCKET_ICEBERG"
+      "apiId": "POCKET_ICEBERG",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/pocket-iceberg.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "portable-campfire",
       "name": "Portable Campfire",
-      "apiId": "PORTABLE_CAMPFIRE"
+      "apiId": "PORTABLE_CAMPFIRE",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/portable-campfire.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "power-crystal",
       "name": "Power Crystal",
-      "apiId": "POWER_CRYSTAL"
+      "apiId": "POWER_CRYSTAL",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/power-crystal.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "precursor-apparatus",
       "name": "Precursor Apparatus",
-      "apiId": "PRECURSOR_APPARATUS"
+      "apiId": "PRECURSOR_APPARATUS",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/precursor-apparatus.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "pure-mithril",
       "name": "Pure Mithril",
-      "apiId": "PURE_MITHRIL"
+      "apiId": "PURE_MITHRIL",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/pure-mithril.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "red-goblin-egg",
       "name": "Red Goblin Egg",
-      "apiId": "GOBLIN_EGG_RED"
+      "apiId": "GOBLIN_EGG_RED",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/red-goblin-egg.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "refined-diamond",
       "name": "Refined Diamond",
-      "apiId": "REFINED_DIAMOND"
+      "apiId": "REFINED_DIAMOND",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/refined-diamond.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "refined-mineral",
       "name": "Refined Mineral",
-      "apiId": "REFINED_MINERAL"
+      "apiId": "REFINED_MINERAL",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/refined-mineral.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "refined-mithril",
       "name": "Refined Mithril",
-      "apiId": "REFINED_MITHRIL"
+      "apiId": "REFINED_MITHRIL",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/refined-mithril.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "refined-titanium",
       "name": "Refined Titanium",
-      "apiId": "REFINED_TITANIUM"
+      "apiId": "REFINED_TITANIUM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/refined-titanium.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "refined-tungsten",
       "name": "Refined Tungsten",
-      "apiId": "REFINED_TUNGSTEN"
+      "apiId": "REFINED_TUNGSTEN",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/refined-tungsten.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "refined-umber",
       "name": "Refined Umber",
-      "apiId": "REFINED_UMBER"
+      "apiId": "REFINED_UMBER",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/refined-umber.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "reinforced-chisel",
       "name": "Reinforced Chisel",
-      "apiId": "REINFORCED_CHISEL"
+      "apiId": "REINFORCED_CHISEL",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/reinforced-chisel.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "relic-of-power",
       "name": "Relic of Power",
-      "apiId": "POWER_RELIC"
+      "apiId": "POWER_RELIC",
+      "aliases": [
+        "RELIC_OF_POWER"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/relic-of-power.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "ruby-crystal",
       "name": "Ruby Crystal",
-      "apiId": "RUBY_CRYSTAL"
+      "apiId": "RUBY_CRYSTAL",
+      "aliases": [],
+      "market": "untradeable",
+      "image": {
+        "src": "/items/ruby-crystal.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "ruby-drill-tx-15",
       "name": "Ruby Drill TX-15",
-      "apiId": "GEMSTONE_DRILL_1"
+      "apiId": "GEMSTONE_DRILL_1",
+      "aliases": [
+        "RUBY_DRILL_TX_15"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/ruby-drill-tx-15.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "ruby-polished-drill-engine",
       "name": "Ruby-Polished Drill Engine",
-      "apiId": "RUBY_POLISHED_DRILL_ENGINE"
+      "apiId": "RUBY_POLISHED_DRILL_ENGINE",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/ruby-polished-drill-engine.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "sapphire-cloak",
       "name": "Sapphire Cloak",
-      "apiId": "SAPPHIRE_CLOAK"
+      "apiId": "SAPPHIRE_CLOAK",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/sapphire-cloak.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "sapphire-crystal",
       "name": "Sapphire Crystal",
-      "apiId": null
+      "apiId": null,
+      "aliases": [
+        "SAPPHIRE_CRYSTAL"
+      ],
+      "market": "untradeable",
+      "image": {
+        "src": "/items/sapphire-crystal.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "sapphire-polished-drill-engine",
       "name": "Sapphire-Polished Drill Engine",
-      "apiId": "SAPPHIRE_POLISHED_DRILL_ENGINE"
+      "apiId": "SAPPHIRE_POLISHED_DRILL_ENGINE",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/sapphire-polished-drill-engine.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "scorched-topaz",
       "name": "Scorched Topaz",
-      "apiId": "HOT_STUFF"
+      "apiId": "HOT_STUFF",
+      "aliases": [
+        "SCORCHED_TOPAZ"
+      ],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/scorched-topaz.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "secret-railroad-pass",
       "name": "Secret Railroad Pass",
-      "apiId": "SECRET_RAILROAD_PASS"
+      "apiId": "SECRET_RAILROAD_PASS",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/secret-railroad-pass.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "shattered-locket",
       "name": "Shattered Locket",
-      "apiId": "SHATTERED_PENDANT"
+      "apiId": "SHATTERED_PENDANT",
+      "aliases": [
+        "SHATTERED_LOCKET"
+      ],
+      "market": "unknown",
+      "image": {
+        "src": "/items/shattered-locket.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "skeleton-key",
       "name": "Skeleton Key",
-      "apiId": "SKELETON_KEY"
+      "apiId": "SKELETON_KEY",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/skeleton-key.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "sludge-juice",
       "name": "Sludge Juice",
-      "apiId": "SLUDGE_JUICE"
+      "apiId": "SLUDGE_JUICE",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "spicy-goblin-omelette",
       "name": "Spicy Goblin Omelette",
-      "apiId": "GOBLIN_OMELETTE_SPICY"
+      "apiId": "GOBLIN_OMELETTE_SPICY",
+      "aliases": [
+        "SPICY_GOBLIN_OMELETTE"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/spicy-goblin-omelette.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "spine-fossil",
       "name": "Spine Fossil",
-      "apiId": "SPINE_FOSSIL"
+      "apiId": "SPINE_FOSSIL",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/spine-fossil.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "spinosaurus",
       "name": "Spinosaurus",
-      "apiId": null
+      "apiId": null,
+      "aliases": [
+        "SPINOSAURUS_PET"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/spinosaurus.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "starfall",
       "name": "Starfall",
-      "apiId": "STARFALL"
+      "apiId": "STARFALL",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/starfall.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "starfall-seasoning",
       "name": "Starfall Seasoning",
-      "apiId": "STARFALL_SEASONING"
+      "apiId": "STARFALL_SEASONING",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/starfall-seasoning.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "sunny-side-goblin-omelette",
       "name": "Sunny Side Goblin Omelette",
-      "apiId": "GOBLIN_OMELETTE_SUNNY_SIDE"
+      "apiId": "GOBLIN_OMELETTE_SUNNY_SIDE",
+      "aliases": [
+        "SUNNY_SIDE_GOBLIN_OMELETTE"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/sunny-side-goblin-omelette.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "t-rex",
       "name": "T-Rex",
-      "apiId": null
+      "apiId": null,
+      "aliases": [
+        "T_REX_PET"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/t-rex.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "titanium",
       "name": "Titanium",
-      "apiId": "TITANIUM_ORE"
+      "apiId": "TITANIUM_ORE",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/titanium.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "titanium-artifact",
       "name": "Titanium Artifact",
-      "apiId": "TITANIUM_ARTIFACT"
+      "apiId": "TITANIUM_ARTIFACT",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/titanium-artifact.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "titanium-belt",
       "name": "Titanium Belt",
-      "apiId": "TITANIUM_BELT"
+      "apiId": "TITANIUM_BELT",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/titanium-belt.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "titanium-cloak",
       "name": "Titanium Cloak",
-      "apiId": "TITANIUM_CLOAK"
+      "apiId": "TITANIUM_CLOAK",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/titanium-cloak.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "titanium-drill-dr-x355",
       "name": "Titanium Drill DR-X355",
-      "apiId": "TITANIUM_DRILL_1"
+      "apiId": "TITANIUM_DRILL_1",
+      "aliases": [
+        "TITANIUM_DRILL_DR_X355"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/titanium-drill-dr-x355.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "titanium-drill-dr-x455",
       "name": "Titanium Drill DR-X455",
-      "apiId": "TITANIUM_DRILL_2"
+      "apiId": "TITANIUM_DRILL_2",
+      "aliases": [
+        "TITANIUM_DRILL_DR_X455"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/titanium-drill-dr-x455.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "titanium-drill-dr-x555",
       "name": "Titanium Drill DR-X555",
-      "apiId": "TITANIUM_DRILL_3"
+      "apiId": "TITANIUM_DRILL_3",
+      "aliases": [
+        "TITANIUM_DRILL_DR_X555"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/titanium-drill-dr-x555.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "titanium-drill-dr-x655",
       "name": "Titanium Drill DR-X655",
-      "apiId": "TITANIUM_DRILL_4"
+      "apiId": "TITANIUM_DRILL_4",
+      "aliases": [
+        "TITANIUM_DRILL_DR_X655"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/titanium-drill-dr-x655.gif",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "titanium-gauntlet",
       "name": "Titanium Gauntlet",
-      "apiId": "TITANIUM_GAUNTLET"
+      "apiId": "TITANIUM_GAUNTLET",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/titanium-gauntlet.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "titanium-infused-fuel-tank",
       "name": "Titanium-Infused Fuel Tank",
-      "apiId": "TITANIUM_FUEL_TANK"
+      "apiId": "TITANIUM_FUEL_TANK",
+      "aliases": [
+        "TITANIUM_INFUSED_FUEL_TANK"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/titanium-infused-fuel-tank.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "titanium-lantern",
       "name": "Titanium Lantern",
-      "apiId": "TITANIUM_LANTERN"
+      "apiId": "TITANIUM_LANTERN",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/titanium-lantern.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "titanium-necklace",
       "name": "Titanium Necklace",
-      "apiId": "TITANIUM_NECKLACE"
+      "apiId": "TITANIUM_NECKLACE",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/titanium-necklace.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "titanium-plated-drill-engine",
       "name": "Titanium-Plated Drill Engine",
-      "apiId": "TITANIUM_DRILL_ENGINE"
+      "apiId": "TITANIUM_DRILL_ENGINE",
+      "aliases": [
+        "TITANIUM_PLATED_DRILL_ENGINE"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/titanium-plated-drill-engine.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "titanium-relic",
       "name": "Titanium Relic",
-      "apiId": "TITANIUM_RELIC"
+      "apiId": "TITANIUM_RELIC",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/titanium-relic.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "titanium-ring",
       "name": "Titanium Ring",
-      "apiId": "TITANIUM_RING"
+      "apiId": "TITANIUM_RING",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/titanium-ring.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "titanium-talisman",
       "name": "Titanium Talisman",
-      "apiId": "TITANIUM_TALISMAN"
+      "apiId": "TITANIUM_TALISMAN",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/titanium-talisman.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "titanium-tesseract",
       "name": "Titanium Tesseract",
-      "apiId": "TITANIUM_TESSERACT"
+      "apiId": "TITANIUM_TESSERACT",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/titanium-tesseract.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "topaz-crystal",
       "name": "Topaz Crystal",
-      "apiId": "TOPAZ_CRYSTAL"
+      "apiId": "TOPAZ_CRYSTAL",
+      "aliases": [],
+      "market": "untradeable",
+      "image": {
+        "src": "/items/topaz-crystal.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "topaz-drill-kgr-12",
       "name": "Topaz Drill KGR-12",
-      "apiId": "GEMSTONE_DRILL_3"
+      "apiId": "GEMSTONE_DRILL_3",
+      "aliases": [
+        "TOPAZ_DRILL_KGR_12"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/topaz-drill-kgr-12.gif",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "topaz-rod",
       "name": "Topaz Rod",
-      "apiId": "POLISHED_TOPAZ_ROD"
+      "apiId": "POLISHED_TOPAZ_ROD",
+      "aliases": [
+        "TOPAZ_ROD"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/topaz-rod.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "travel-scroll-to-the-dwarven-base-camp",
       "name": "Travel Scroll to the Dwarven Base Camp",
-      "apiId": "BASE_CAMP_TRAVEL_SCROLL"
+      "apiId": "BASE_CAMP_TRAVEL_SCROLL",
+      "aliases": [
+        "TRAVEL_SCROLL_TO_THE_DWARVEN_BASE_CAMP"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/travel-scroll-to-the-dwarven-base-camp.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "travel-scroll-to-the-dwarven-forge",
       "name": "Travel Scroll to the Dwarven Forge",
-      "apiId": "FORGE_TRAVEL_SCROLL"
+      "apiId": "FORGE_TRAVEL_SCROLL",
+      "aliases": [
+        "TRAVEL_SCROLL_TO_THE_DWARVEN_FORGE"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/travel-scroll-to-the-dwarven-forge.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "treasurite",
       "name": "Treasurite",
-      "apiId": "TREASURITE"
+      "apiId": "TREASURITE",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/treasurite.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "tungsten-key",
       "name": "Tungsten Key",
-      "apiId": "TUNGSTEN_KEY"
+      "apiId": "TUNGSTEN_KEY",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/tungsten-key.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "tungsten-plate",
       "name": "Tungsten Plate",
-      "apiId": "TUNGSTEN_PLATE"
+      "apiId": "TUNGSTEN_PLATE",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/tungsten-plate.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "tungsten-regulator",
       "name": "Tungsten Regulator",
-      "apiId": "TUNGSTEN_KEYCHAIN"
+      "apiId": "TUNGSTEN_KEYCHAIN",
+      "aliases": [
+        "TUNGSTEN_REGULATOR"
+      ],
+      "market": "auction",
+      "image": {
+        "src": "/items/tungsten-regulator.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "tusk-fossil",
       "name": "Tusk Fossil",
-      "apiId": "TUSK_FOSSIL"
+      "apiId": "TUSK_FOSSIL",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/tusk-fossil.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "ugly-fossil",
       "name": "Ugly Fossil",
-      "apiId": "UGLY_FOSSIL"
+      "apiId": "UGLY_FOSSIL",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/ugly-fossil.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "umber-key",
       "name": "Umber Key",
-      "apiId": "UMBER_KEY"
+      "apiId": "UMBER_KEY",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/umber-key.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "umber-plate",
       "name": "Umber Plate",
-      "apiId": "UMBER_PLATE"
+      "apiId": "UMBER_PLATE",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/umber-plate.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "webbed-fossil",
       "name": "Webbed Fossil",
-      "apiId": "WEBBED_FOSSIL"
+      "apiId": "WEBBED_FOSSIL",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/webbed-fossil.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "will-o-wisp",
       "name": "Will-o'-wisp",
-      "apiId": "WILL_O_WISP"
+      "apiId": "WILL_O_WISP",
+      "aliases": [],
+      "market": "auction",
+      "image": {
+        "src": "/items/will-o-wisp.png",
+        "width": 64,
+        "height": 64,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "worm-membrane",
       "name": "Worm Membrane",
-      "apiId": "WORM_MEMBRANE"
+      "apiId": "WORM_MEMBRANE",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/worm-membrane.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "yellow-goblin-egg",
       "name": "Yellow Goblin Egg",
-      "apiId": "GOBLIN_EGG_YELLOW"
+      "apiId": "GOBLIN_EGG_YELLOW",
+      "aliases": [],
+      "market": "bazaar",
+      "image": {
+        "src": "/items/yellow-goblin-egg.png",
+        "width": 42,
+        "height": 42,
+        "source": "legacy-assets"
+      }
     },
     {
       "id": "flawed-ruby-gemstone",
       "name": "Flawed Ruby Gemstone",
-      "apiId": "FLAWED_RUBY_GEM"
+      "apiId": "FLAWED_RUBY_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "rough-ruby-gemstone",
       "name": "Rough Ruby Gemstone",
-      "apiId": "ROUGH_RUBY_GEM"
+      "apiId": "ROUGH_RUBY_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "flawed-amber-gemstone",
       "name": "Flawed Amber Gemstone",
-      "apiId": "FLAWED_AMBER_GEM"
+      "apiId": "FLAWED_AMBER_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "rough-amber-gemstone",
       "name": "Rough Amber Gemstone",
-      "apiId": "ROUGH_AMBER_GEM"
+      "apiId": "ROUGH_AMBER_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "flawed-jade-gemstone",
       "name": "Flawed Jade Gemstone",
-      "apiId": "FLAWED_JADE_GEM"
+      "apiId": "FLAWED_JADE_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "rough-jade-gemstone",
       "name": "Rough Jade Gemstone",
-      "apiId": "ROUGH_JADE_GEM"
+      "apiId": "ROUGH_JADE_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "flawed-sapphire-gemstone",
       "name": "Flawed Sapphire Gemstone",
-      "apiId": "FLAWED_SAPPHIRE_GEM"
+      "apiId": "FLAWED_SAPPHIRE_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "rough-sapphire-gemstone",
       "name": "Rough Sapphire Gemstone",
-      "apiId": "ROUGH_SAPPHIRE_GEM"
+      "apiId": "ROUGH_SAPPHIRE_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "flawed-amethyst-gemstone",
       "name": "Flawed Amethyst Gemstone",
-      "apiId": "FLAWED_AMETHYST_GEM"
+      "apiId": "FLAWED_AMETHYST_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "rough-amethyst-gemstone",
       "name": "Rough Amethyst Gemstone",
-      "apiId": "ROUGH_AMETHYST_GEM"
+      "apiId": "ROUGH_AMETHYST_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "flawed-topaz-gemstone",
       "name": "Flawed Topaz Gemstone",
-      "apiId": "FLAWED_TOPAZ_GEM"
+      "apiId": "FLAWED_TOPAZ_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "rough-topaz-gemstone",
       "name": "Rough Topaz Gemstone",
-      "apiId": "ROUGH_TOPAZ_GEM"
+      "apiId": "ROUGH_TOPAZ_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "fine-topaz-gemstone",
       "name": "Fine Topaz Gemstone",
-      "apiId": "FINE_TOPAZ_GEM"
+      "apiId": "FINE_TOPAZ_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "flawed-jasper-gemstone",
       "name": "Flawed Jasper Gemstone",
-      "apiId": "FLAWED_JASPER_GEM"
+      "apiId": "FLAWED_JASPER_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "rough-jasper-gemstone",
       "name": "Rough Jasper Gemstone",
-      "apiId": "ROUGH_JASPER_GEM"
+      "apiId": "ROUGH_JASPER_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "fine-jasper-gemstone",
       "name": "Fine Jasper Gemstone",
-      "apiId": "FINE_JASPER_GEM"
+      "apiId": "FINE_JASPER_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "flawed-opal-gemstone",
       "name": "Flawed Opal Gemstone",
-      "apiId": "FLAWED_OPAL_GEM"
+      "apiId": "FLAWED_OPAL_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "rough-opal-gemstone",
       "name": "Rough Opal Gemstone",
-      "apiId": "ROUGH_OPAL_GEM"
+      "apiId": "ROUGH_OPAL_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "fine-opal-gemstone",
       "name": "Fine Opal Gemstone",
-      "apiId": "FINE_OPAL_GEM"
+      "apiId": "FINE_OPAL_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "flawed-aquamarine-gemstone",
       "name": "Flawed Aquamarine Gemstone",
-      "apiId": "FLAWED_AQUAMARINE_GEM"
+      "apiId": "FLAWED_AQUAMARINE_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "rough-aquamarine-gemstone",
       "name": "Rough Aquamarine Gemstone",
-      "apiId": "ROUGH_AQUAMARINE_GEM"
+      "apiId": "ROUGH_AQUAMARINE_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "flawed-citrine-gemstone",
       "name": "Flawed Citrine Gemstone",
-      "apiId": "FLAWED_CITRINE_GEM"
+      "apiId": "FLAWED_CITRINE_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "rough-citrine-gemstone",
       "name": "Rough Citrine Gemstone",
-      "apiId": "ROUGH_CITRINE_GEM"
+      "apiId": "ROUGH_CITRINE_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "flawed-onyx-gemstone",
       "name": "Flawed Onyx Gemstone",
-      "apiId": "FLAWED_ONYX_GEM"
+      "apiId": "FLAWED_ONYX_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "rough-onyx-gemstone",
       "name": "Rough Onyx Gemstone",
-      "apiId": "ROUGH_ONYX_GEM"
+      "apiId": "ROUGH_ONYX_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "flawed-peridot-gemstone",
       "name": "Flawed Peridot Gemstone",
-      "apiId": "FLAWED_PERIDOT_GEM"
+      "apiId": "FLAWED_PERIDOT_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     },
     {
       "id": "rough-peridot-gemstone",
       "name": "Rough Peridot Gemstone",
-      "apiId": "ROUGH_PERIDOT_GEM"
+      "apiId": "ROUGH_PERIDOT_GEM",
+      "aliases": [],
+      "market": "bazaar",
+      "image": null
     }
   ],
   "recipes": [
@@ -1180,7 +2945,8 @@
           "kind": "hotm",
           "level": 6
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "amber-necklace",
@@ -1204,7 +2970,8 @@
           "kind": "hotm",
           "level": 5
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "amber-polished-drill-engine",
@@ -1240,7 +3007,8 @@
           "kind": "hotm",
           "level": 9
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "amethyst-gauntlet",
@@ -1264,7 +3032,8 @@
           "kind": "hotm",
           "level": 5
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "ammonite",
@@ -1284,7 +3053,8 @@
           "kind": "hotm",
           "level": 4
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "ankylosaurus",
@@ -1313,7 +3083,8 @@
           "key": "ankylosaurus-unlock-1",
           "description": "Donate Clubbed Fossil to Dr. Stone"
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "beacon-ii",
@@ -1337,7 +3108,8 @@
           "kind": "hotm",
           "level": 2
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "beacon-iii",
@@ -1361,7 +3133,8 @@
           "kind": "hotm",
           "level": 3
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "beacon-iv",
@@ -1389,7 +3162,8 @@
           "kind": "hotm",
           "level": 4
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "beacon-v",
@@ -1417,7 +3191,8 @@
           "kind": "hotm",
           "level": 5
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "bejeweled-collar",
@@ -1441,7 +3216,8 @@
           "kind": "hotm",
           "level": 2
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "bejeweled-handle",
@@ -1461,7 +3237,8 @@
           "kind": "hotm",
           "level": 2
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "blue-cheese-goblin-omelette",
@@ -1489,7 +3266,8 @@
           "kind": "hotm",
           "level": 5
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "boots-of-divan",
@@ -1517,7 +3295,8 @@
           "kind": "hotm",
           "level": 6
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "chestplate-of-divan",
@@ -1545,7 +3324,8 @@
           "kind": "hotm",
           "level": 6
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "diamonite",
@@ -1565,7 +3345,8 @@
           "kind": "hotm",
           "level": 2
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "divan-s-drill",
@@ -1589,7 +3370,8 @@
           "kind": "hotm",
           "level": 7
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "divan-s-powder-coating",
@@ -1621,7 +3403,8 @@
           "kind": "hotm",
           "level": 4
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "drill-motor",
@@ -1653,7 +3436,8 @@
           "kind": "hotm",
           "level": 3
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "dwarven-geode",
@@ -1677,7 +3461,8 @@
           "kind": "hotm",
           "level": 3
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "dwarven-handwarmers",
@@ -1709,7 +3494,8 @@
           "kind": "hotm",
           "level": 8
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "dwarven-metal-talisman",
@@ -1737,7 +3523,8 @@
           "kind": "hotm",
           "level": 8
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "frigid-husk",
@@ -1766,7 +3553,8 @@
           "collection": "Glacite",
           "level": 5
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "fuel-canister",
@@ -1786,7 +3574,8 @@
           "kind": "hotm",
           "level": 2
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "gemstone-chamber",
@@ -1810,7 +3599,8 @@
           "kind": "hotm",
           "level": 5
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "gemstone-drill-lt-522",
@@ -1834,7 +3624,8 @@
           "kind": "hotm",
           "level": 4
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "gemstone-fuel-tank",
@@ -1862,7 +3653,8 @@
           "kind": "hotm",
           "level": 7
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "gemstone-mixture",
@@ -1898,7 +3690,8 @@
           "kind": "hotm",
           "level": 4
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "glacite-amalgamation",
@@ -1939,7 +3732,8 @@
           "collection": "Glacite",
           "level": 3
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "glacite-lantern",
@@ -1967,7 +3761,8 @@
           "kind": "hotm",
           "level": 8
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "glacite-plated-chisel",
@@ -1999,7 +3794,8 @@
           "kind": "hotm",
           "level": 9
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "gleaming-crystal",
@@ -2027,7 +3823,8 @@
           "kind": "hotm",
           "level": 4
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "goblin",
@@ -2056,7 +3853,8 @@
           "key": "goblin-unlock-1",
           "description": "Donate Ugly Fossil to Dr. Stone"
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "goblin-omelette",
@@ -2076,7 +3874,8 @@
           "kind": "hotm",
           "level": 3
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "golden-plate",
@@ -2104,7 +3903,8 @@
           "kind": "hotm",
           "level": 3
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "helmet-of-divan",
@@ -2132,7 +3932,8 @@
           "kind": "hotm",
           "level": 6
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "jade-belt",
@@ -2156,7 +3957,8 @@
           "kind": "hotm",
           "level": 5
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "jasper-drill-x",
@@ -2188,7 +3990,8 @@
           "kind": "hotm",
           "level": 6
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "leggings-of-divan",
@@ -2216,7 +4019,8 @@
           "kind": "hotm",
           "level": 6
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "mammoth",
@@ -2245,7 +4049,8 @@
           "key": "mammoth-unlock-1",
           "description": "Donate Tusk Fossil to Dr. Stone"
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "mithril-belt",
@@ -2265,7 +4070,8 @@
           "kind": "hotm",
           "level": 2
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "mithril-cloak",
@@ -2285,7 +4091,8 @@
           "kind": "hotm",
           "level": 2
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "mithril-drill-sx-r226",
@@ -2313,7 +4120,8 @@
           "kind": "hotm",
           "level": 2
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "mithril-drill-sx-r326",
@@ -2341,7 +4149,8 @@
           "kind": "hotm",
           "level": 3
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "mithril-gauntlet",
@@ -2361,7 +4170,8 @@
           "kind": "hotm",
           "level": 2
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "mithril-lantern",
@@ -2389,7 +4199,8 @@
           "kind": "hotm",
           "level": 2
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "mithril-necklace",
@@ -2409,7 +4220,8 @@
           "kind": "hotm",
           "level": 2
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "mithril-plate",
@@ -2441,7 +4253,8 @@
           "kind": "hotm",
           "level": 3
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "mithril-infused-fuel-tank",
@@ -2469,7 +4282,8 @@
           "kind": "hotm",
           "level": 3
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "mithril-plated-drill-engine",
@@ -2493,7 +4307,8 @@
           "kind": "hotm",
           "level": 3
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "mole",
@@ -2513,7 +4328,8 @@
           "kind": "hotm",
           "level": 4
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "pendant-of-divan",
@@ -2541,7 +4357,8 @@
           "kind": "hotm",
           "level": 10
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "penguin",
@@ -2570,7 +4387,8 @@
           "key": "penguin-unlock-1",
           "description": "Donate Webbed Fossil to Dr. Stone"
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "perfect-amber-gemstone",
@@ -2599,7 +4417,8 @@
           "collection": "Gemstone",
           "level": 10
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "perfect-amethyst-gemstone",
@@ -2628,7 +4447,8 @@
           "collection": "Gemstone",
           "level": 10
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "perfect-aquamarine-gemstone",
@@ -2657,7 +4477,8 @@
           "collection": "Gemstone",
           "level": 10
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "perfect-chisel",
@@ -2685,7 +4506,8 @@
           "kind": "hotm",
           "level": 10
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "perfect-citrine-gemstone",
@@ -2714,7 +4536,8 @@
           "collection": "Gemstone",
           "level": 10
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "perfect-jade-gemstone",
@@ -2743,7 +4566,8 @@
           "collection": "Gemstone",
           "level": 10
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "perfect-jasper-gemstone",
@@ -2772,7 +4596,8 @@
           "collection": "Gemstone",
           "level": 10
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "perfect-onyx-gemstone",
@@ -2801,7 +4626,8 @@
           "collection": "Gemstone",
           "level": 10
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "perfect-opal-gemstone",
@@ -2830,7 +4656,8 @@
           "collection": "Gemstone",
           "level": 10
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "perfect-peridot-gemstone",
@@ -2859,7 +4686,8 @@
           "collection": "Gemstone",
           "level": 10
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "perfect-plate",
@@ -2887,7 +4715,8 @@
           "kind": "hotm",
           "level": 10
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "perfect-ruby-gemstone",
@@ -2916,7 +4745,8 @@
           "collection": "Gemstone",
           "level": 10
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "perfect-sapphire-gemstone",
@@ -2945,7 +4775,8 @@
           "collection": "Gemstone",
           "level": 10
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "perfect-topaz-gemstone",
@@ -2974,7 +4805,8 @@
           "collection": "Gemstone",
           "level": 10
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "perfectly-cut-fuel-tank",
@@ -3006,7 +4838,8 @@
           "kind": "hotm",
           "level": 8
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "pesto-goblin-omelette",
@@ -3034,7 +4867,8 @@
           "kind": "hotm",
           "level": 4
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "petrified-starfall",
@@ -3054,7 +4888,8 @@
           "kind": "hotm",
           "level": 3
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "pocket-iceberg",
@@ -3074,7 +4909,8 @@
           "kind": "hotm",
           "level": 2
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "portable-campfire",
@@ -3098,7 +4934,8 @@
           "kind": "hotm",
           "level": 8
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "power-crystal",
@@ -3118,7 +4955,8 @@
           "kind": "hotm",
           "level": 2
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "pure-mithril",
@@ -3138,7 +4976,8 @@
           "kind": "hotm",
           "level": 3
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "refined-diamond",
@@ -3158,7 +4997,8 @@
           "kind": "hotm",
           "level": 2
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "refined-mithril",
@@ -3178,7 +5018,8 @@
           "kind": "hotm",
           "level": 2
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "refined-titanium",
@@ -3198,7 +5039,8 @@
           "kind": "hotm",
           "level": 2
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "refined-tungsten",
@@ -3223,7 +5065,8 @@
           "collection": "Tungsten",
           "level": 3
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "refined-umber",
@@ -3248,7 +5091,8 @@
           "collection": "Umber",
           "level": 3
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "reinforced-chisel",
@@ -3280,7 +5124,8 @@
           "kind": "hotm",
           "level": 8
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "relic-of-power",
@@ -3308,7 +5153,8 @@
           "kind": "hotm",
           "level": 10
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "ruby-drill-tx-15",
@@ -3336,7 +5182,8 @@
           "kind": "hotm",
           "level": 4
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "ruby-polished-drill-engine",
@@ -3368,7 +5215,8 @@
           "kind": "hotm",
           "level": 7
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "sapphire-cloak",
@@ -3392,7 +5240,8 @@
           "kind": "hotm",
           "level": 5
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "sapphire-polished-drill-engine",
@@ -3428,7 +5277,8 @@
           "kind": "hotm",
           "level": 8
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "scorched-topaz",
@@ -3457,7 +5307,8 @@
           "collection": "Hard Stone",
           "level": 4
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "secret-railroad-pass",
@@ -3490,7 +5341,8 @@
           "key": "secret-railroad-pass-unlock-1",
           "description": "Talk to Dulin"
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "skeleton-key",
@@ -3514,7 +5366,8 @@
           "kind": "hotm",
           "level": 10
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "spicy-goblin-omelette",
@@ -3542,7 +5395,8 @@
           "kind": "hotm",
           "level": 5
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "spinosaurus",
@@ -3571,7 +5425,8 @@
           "key": "spinosaurus-unlock-1",
           "description": "Donate Spine Fossil to Dr. Stone"
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "starfall-seasoning",
@@ -3595,7 +5450,8 @@
           "kind": "hotm",
           "level": 2
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "sunny-side-goblin-omelette",
@@ -3623,7 +5479,8 @@
           "kind": "hotm",
           "level": 6
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "t-rex",
@@ -3652,7 +5509,8 @@
           "key": "t-rex-unlock-1",
           "description": "Donate Footprint Fossil to Dr. Stone"
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "titanium-artifact",
@@ -3676,7 +5534,8 @@
           "kind": "hotm",
           "level": 4
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "titanium-belt",
@@ -3704,7 +5563,8 @@
           "kind": "hotm",
           "level": 3
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "titanium-cloak",
@@ -3732,7 +5592,8 @@
           "kind": "hotm",
           "level": 3
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "titanium-drill-dr-x355",
@@ -3768,7 +5629,8 @@
           "kind": "hotm",
           "level": 5
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "titanium-drill-dr-x455",
@@ -3800,7 +5662,8 @@
           "kind": "hotm",
           "level": 5
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "titanium-drill-dr-x555",
@@ -3840,7 +5703,8 @@
           "kind": "hotm",
           "level": 5
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "titanium-drill-dr-x655",
@@ -3884,7 +5748,8 @@
           "kind": "hotm",
           "level": 6
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "titanium-gauntlet",
@@ -3912,7 +5777,8 @@
           "kind": "hotm",
           "level": 3
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "titanium-lantern",
@@ -3940,7 +5806,8 @@
           "kind": "hotm",
           "level": 5
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "titanium-necklace",
@@ -3968,7 +5835,8 @@
           "kind": "hotm",
           "level": 3
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "titanium-relic",
@@ -3992,7 +5860,8 @@
           "kind": "hotm",
           "level": 5
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "titanium-ring",
@@ -4016,7 +5885,8 @@
           "kind": "hotm",
           "level": 3
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "titanium-talisman",
@@ -4036,7 +5906,8 @@
           "kind": "hotm",
           "level": 2
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "titanium-tesseract",
@@ -4060,7 +5931,8 @@
           "kind": "hotm",
           "level": 3
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "titanium-infused-fuel-tank",
@@ -4092,7 +5964,8 @@
           "kind": "hotm",
           "level": 5
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "titanium-plated-drill-engine",
@@ -4120,7 +5993,8 @@
           "kind": "hotm",
           "level": 5
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "topaz-drill-kgr-12",
@@ -4152,7 +6026,8 @@
           "kind": "hotm",
           "level": 5
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "topaz-rod",
@@ -4176,7 +6051,8 @@
           "kind": "hotm",
           "level": 5
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "travel-scroll-to-the-dwarven-base-camp",
@@ -4200,7 +6076,8 @@
           "kind": "hotm",
           "level": 7
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "travel-scroll-to-the-dwarven-forge",
@@ -4228,7 +6105,8 @@
           "kind": "hotm",
           "level": 2
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "tungsten-key",
@@ -4257,7 +6135,8 @@
           "collection": "Tungsten",
           "level": 4
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "tungsten-plate",
@@ -4286,7 +6165,8 @@
           "collection": "Tungsten",
           "level": 6
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "tungsten-regulator",
@@ -4314,7 +6194,8 @@
           "kind": "hotm",
           "level": 8
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "umber-key",
@@ -4343,7 +6224,8 @@
           "collection": "Umber",
           "level": 4
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "umber-plate",
@@ -4372,7 +6254,8 @@
           "collection": "Umber",
           "level": 6
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "will-o-wisp",
@@ -4408,7 +6291,8 @@
           "kind": "hotm",
           "level": 10
         }
-      ]
+      ],
+      "source": "reviewed-forge-catalog"
     },
     {
       "id": "craft-flawed-ruby-gemstone",
@@ -4429,7 +6313,8 @@
           "collection": "Gemstone",
           "level": 2
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-fine-ruby-gemstone",
@@ -4450,7 +6335,8 @@
           "collection": "Gemstone",
           "level": 5
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-flawless-ruby-gemstone",
@@ -4471,7 +6357,8 @@
           "collection": "Gemstone",
           "level": 9
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-flawed-amber-gemstone",
@@ -4492,7 +6379,8 @@
           "collection": "Gemstone",
           "level": 2
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-fine-amber-gemstone",
@@ -4513,7 +6401,8 @@
           "collection": "Gemstone",
           "level": 5
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-flawless-amber-gemstone",
@@ -4534,7 +6423,8 @@
           "collection": "Gemstone",
           "level": 9
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-flawed-jade-gemstone",
@@ -4555,7 +6445,8 @@
           "collection": "Gemstone",
           "level": 2
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-fine-jade-gemstone",
@@ -4576,7 +6467,8 @@
           "collection": "Gemstone",
           "level": 5
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-flawless-jade-gemstone",
@@ -4597,7 +6489,8 @@
           "collection": "Gemstone",
           "level": 9
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-flawed-sapphire-gemstone",
@@ -4618,7 +6511,8 @@
           "collection": "Gemstone",
           "level": 2
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-fine-sapphire-gemstone",
@@ -4639,7 +6533,8 @@
           "collection": "Gemstone",
           "level": 5
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-flawless-sapphire-gemstone",
@@ -4660,7 +6555,8 @@
           "collection": "Gemstone",
           "level": 9
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-flawed-amethyst-gemstone",
@@ -4681,7 +6577,8 @@
           "collection": "Gemstone",
           "level": 2
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-fine-amethyst-gemstone",
@@ -4702,7 +6599,8 @@
           "collection": "Gemstone",
           "level": 5
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-flawless-amethyst-gemstone",
@@ -4723,7 +6621,8 @@
           "collection": "Gemstone",
           "level": 9
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-flawed-topaz-gemstone",
@@ -4744,7 +6643,8 @@
           "collection": "Gemstone",
           "level": 2
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-fine-topaz-gemstone",
@@ -4765,7 +6665,8 @@
           "collection": "Gemstone",
           "level": 5
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-flawless-topaz-gemstone",
@@ -4786,7 +6687,8 @@
           "collection": "Gemstone",
           "level": 9
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-flawed-jasper-gemstone",
@@ -4807,7 +6709,8 @@
           "collection": "Gemstone",
           "level": 2
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-fine-jasper-gemstone",
@@ -4828,7 +6731,8 @@
           "collection": "Gemstone",
           "level": 5
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-flawless-jasper-gemstone",
@@ -4849,7 +6753,8 @@
           "collection": "Gemstone",
           "level": 9
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-flawed-opal-gemstone",
@@ -4870,7 +6775,8 @@
           "collection": "Gemstone",
           "level": 2
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-fine-opal-gemstone",
@@ -4891,7 +6797,8 @@
           "collection": "Gemstone",
           "level": 5
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-flawless-opal-gemstone",
@@ -4912,7 +6819,8 @@
           "collection": "Gemstone",
           "level": 9
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-flawed-aquamarine-gemstone",
@@ -4933,7 +6841,8 @@
           "collection": "Gemstone",
           "level": 2
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-fine-aquamarine-gemstone",
@@ -4954,7 +6863,8 @@
           "collection": "Gemstone",
           "level": 5
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-flawless-aquamarine-gemstone",
@@ -4975,7 +6885,8 @@
           "collection": "Gemstone",
           "level": 9
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-flawed-citrine-gemstone",
@@ -4996,7 +6907,8 @@
           "collection": "Gemstone",
           "level": 2
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-fine-citrine-gemstone",
@@ -5017,7 +6929,8 @@
           "collection": "Gemstone",
           "level": 5
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-flawless-citrine-gemstone",
@@ -5038,7 +6951,8 @@
           "collection": "Gemstone",
           "level": 9
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-flawed-onyx-gemstone",
@@ -5059,7 +6973,8 @@
           "collection": "Gemstone",
           "level": 2
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-fine-onyx-gemstone",
@@ -5080,7 +6995,8 @@
           "collection": "Gemstone",
           "level": 5
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-flawless-onyx-gemstone",
@@ -5101,7 +7017,8 @@
           "collection": "Gemstone",
           "level": 9
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-flawed-peridot-gemstone",
@@ -5122,7 +7039,8 @@
           "collection": "Gemstone",
           "level": 2
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-fine-peridot-gemstone",
@@ -5143,7 +7061,8 @@
           "collection": "Gemstone",
           "level": 5
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
     },
     {
       "id": "craft-flawless-peridot-gemstone",
@@ -5164,7 +7083,29 @@
           "collection": "Gemstone",
           "level": 9
         }
-      ]
+      ],
+      "source": "gemstone-crafting"
+    }
+  ],
+  "sources": [
+    {
+      "id": "reviewed-forge-catalog",
+      "description": "In-game-reviewed forge recipes, reviewed 2026-10-22.",
+      "url": "https://hypixelskyblock.minecraft.wiki/w/Forging"
+    },
+    {
+      "id": "gemstone-crafting",
+      "description": "Gemstone tier crafting recipes.",
+      "url": "https://hypixel-skyblock.fandom.com/wiki/Gemstone"
+    },
+    {
+      "id": "legacy-assets",
+      "description": "193 item images supplied from a previous SkyForger edition. Original download URLs were not supplied."
+    },
+    {
+      "id": "fandom-wiki",
+      "description": "Additional item images resolved through the Fandom MediaWiki API on 2026-10-22.",
+      "url": "https://hypixel-skyblock.fandom.com/"
     }
   ]
 }

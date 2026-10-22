@@ -26,11 +26,9 @@ The planner assumes free forge slots and immediate material availability. It mod
 
 ## Catalog
 
-`data/forge-catalog.json` contains the in-game-reviewed forge baseline plus gemstone crafting steps. API IDs are matched against Hypixel item resources. Unmatched items use manual pricing.
+`data/forge-catalog.json` is the canonical database for 119 forge recipes, 36 gemstone crafting recipes, item identities, markets, and local image references. Edit it directly; `npm run catalog:check` validates it offline and runs before production builds. See [catalog maintenance](docs/catalog.md).
 
-```sh
-npm run catalog:prepare
-```
+Item images are served from `public/items/`. Missing images use a shared fallback. Auction House prices remain manual estimates and exclude AH fees.
 
 ## Checks
 

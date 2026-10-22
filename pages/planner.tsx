@@ -1,3 +1,4 @@
+import { ItemIcon } from "../components/ItemIcon";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import {
@@ -14,7 +15,8 @@ function Tree({ node }: { node: PlanNode }) {
   return (
     <li>
       <div>
-        <strong>
+        <strong className="item-name">
+          <ItemIcon itemId={node.itemId} />
           {node.quantity} × {itemById.get(node.itemId)?.name}
         </strong>
         <span className={`badge ${node.action}`}>
@@ -265,7 +267,10 @@ export default function Planner() {
                     {plan.materials.map((material) => (
                       <tr key={material.itemId}>
                         <td>
-                          {itemById.get(material.itemId)?.name}
+                          <span className="item-name">
+                            <ItemIcon itemId={material.itemId} />
+                            {itemById.get(material.itemId)?.name}
+                          </span>
                           {material.cost === null && (
                             <ManualPrice itemId={material.itemId} />
                           )}
@@ -303,8 +308,13 @@ export default function Planner() {
                       .sort((a, b) => a.start - b.start)
                       .map((job, index) => (
                         <tr key={index}>
-                          <td>{itemById.get(job.itemId)?.name}</td>
-                          <td>{job.slot + 1}</td>
+                          <td>
+                            <span className="item-name">
+                              <ItemIcon itemId={job.itemId} />
+                              {itemById.get(job.itemId)?.name}
+                            </span>
+                          </td>
+                          <td>{job.slot}</td>
                           <td>+{duration(job.start)}</td>
                           <td>+{duration(job.finish)}</td>
                         </tr>

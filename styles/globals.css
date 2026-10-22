@@ -491,3 +491,16 @@ footer {
       border-color 0.15s;
   }
 }
+
+.item-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.item-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+}
