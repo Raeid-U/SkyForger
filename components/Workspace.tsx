@@ -1,5 +1,9 @@
 import Head from "next/head";
 import {
+  BAZAAR_OUTDATED_MS,
+  AUCTION_OUTDATED_MS,
+} from "../lib/market-freshness";
+import {
   browserKeys,
   chooseStorage,
   clearOptionalStorage,
@@ -723,7 +727,8 @@ function MarketSettings() {
         predicted.
       </p>
       <p className="notice">
-        Auction House prices are manual overrides and exclude AH fees.
+        Auction House estimates use BIN asking prices or manual overrides. AH
+        fees are excluded.
       </p>
       <PriceSettings />
     </section>
@@ -811,14 +816,14 @@ function MarketStatus() {
       name: "Bazaar",
       busy: loading,
       stamp: snapshot?.lastUpdated,
-      limit: 300000,
+      limit: BAZAAR_OUTDATED_MS,
       failed: !!error,
     },
     {
       name: "Auction House",
       busy: auctions.loading,
       stamp: report?.sourceUpdatedAt,
-      limit: 1200000,
+      limit: AUCTION_OUTDATED_MS,
       failed:
         !!auctions.error ||
         auctions.response?.refresh.state === "refresh-failed",
@@ -872,11 +877,6 @@ function MarketStatus() {
             minute: "2-digit",
             second: "2-digit",
           })}
-        </small>
-      )}
-      {report && auctions.now >= report.expiresAt && (
-        <small className="muted market-expiry">
-          Auction quotes expired; automatic estimates paused until refreshed.
         </small>
       )}
     </div>

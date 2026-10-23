@@ -89,7 +89,11 @@ export function useAuctionPrices(remember: boolean) {
     if (remember && response) writeBrowserValue(browserKeys.auctions, response);
   }, [remember, response]);
   const context = useMemo(
-    () => ({ report: response?.report ?? null, now }),
+    () => ({
+      report: response?.report ?? null,
+      now,
+      allowStaleEstimates: true,
+    }),
     [response, now],
   );
   return {

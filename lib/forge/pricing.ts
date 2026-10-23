@@ -1,4 +1,9 @@
-import { resolveBinPrice, type AuctionPricingContext, type BinQuote } from "../auctions";
+import { BAZAAR_OUTDATED_MS, AUCTION_OUTDATED_MS } from "../market-freshness";
+import {
+  resolveBinPrice,
+  type AuctionPricingContext,
+  type BinQuote,
+} from "../auctions";
 import { itemMarket, isFlipOutput } from "./markets";
 import type { BazaarSnapshot } from "../bazaar";
 import { forgeRecipes, itemById, recipeByOutput, type Recipe } from "./catalog";
@@ -70,53 +75,158 @@ export type MarketPriceQuote = {
 };
 
 export function marketQuoteDetails(
-  itemId: string, quantity: number, side: "buy" | "sell",
-  snapshot: BazaarSnapshot | null, settings: Settings, auctions?: AuctionPricingContext,
+  itemId: string,
+  quantity: number,
+  side: "buy" | "sell",
+  snapshot: BazaarSnapshot | null,
+  settings: Settings,
+  auctions?: AuctionPricingContext,
 ): MarketPriceQuote {
   const item = itemById.get(itemId);
-  const auction = auctions?.report?.quotes.find((entry) => entry.itemId === itemId) ?? null;
+  const auction =
+    auctions?.report?.quotes.find((entry) => entry.itemId === itemId) ?? null;
   const base: MarketPriceQuote = {
-    amount: null, source: "unavailable", reason: null, warningCodes: [], auction,
-    sourceUpdatedAt: itemMarket(itemId) === "auction" ? auctions?.report?.sourceUpdatedAt ?? null : snapshot?.lastUpdated ?? null,
-    expiresAt: itemMarket(itemId) === "auction" ? auctions?.report?.expiresAt ?? null : null,
+    amount: null,
+    source: "unavailable",
+    reason: null,
+    warningCodes: [],
+    auction,
+    sourceUpdatedAt:
+      itemMarket(itemId) === "auction"
+        ? (auctions?.report?.sourceUpdatedAt ?? null)
+        : (snapshot?.lastUpdated ?? null),
+    expiresAt:
+      itemMarket(itemId) === "auction"
+        ? (auctions?.report?.expiresAt ?? null)
+        : snapshot
+          ? snapshot.lastUpdated + BAZAAR_OUTDATED_MS
+          : null,
   };
-  if (!Number.isSafeInteger(quantity) || quantity < 0) throw new Error("Invalid quote quantity.");
+  if (!Number.isSafeInteger(quantity) || quantity < 0)
+    throw new Error("Invalid quote quantity.");
   if (quantity === 0) return { ...base, amount: 0, source: "fixed" };
   const override = settings.prices[itemId];
-  if (override !== undefined) return { ...base, amount: override * quantity, source: "manual", warningCodes: ["manual-override", ...(itemMarket(itemId) === "auction" ? ["ah-fees-excluded"] : [])] };
+  if (override !== undefined)
+    return {
+      ...base,
+      amount: override * quantity,
+      source: "manual",
+      warningCodes: [
+        "manual-override",
+        ...(itemMarket(itemId) === "auction" ? ["ah-fees-excluded"] : []),
+      ],
+    };
   if (side === "buy" && item?.acquisitionCost !== undefined)
-    return { ...base, amount: item.acquisitionCost * quantity, source: "fixed" };
+    return {
+      ...base,
+      amount: item.acquisitionCost * quantity,
+      source: "fixed",
+    };
   if (itemMarket(itemId) !== "auction") {
     const amount = bazaarQuote(itemId, quantity, side, snapshot, settings);
-    return { ...base, amount, source: amount === null ? "unavailable" : "bazaar", reason: amount === null ? "market-unavailable" : null };
+    return {
+      ...base,
+      amount,
+      source: amount === null ? "unavailable" : "bazaar",
+      reason: amount === null ? "market-unavailable" : null,
+      warningCodes:
+        snapshot &&
+        (auctions?.now ?? Date.now()) - snapshot.lastUpdated >
+          BAZAAR_OUTDATED_MS
+          ? ["stale-bazaar-data"]
+          : [],
+    };
   }
-  if (!auctions?.report || !auction) return { ...base, reason: "no-auction-data" };
-  const resolved = resolveBinPrice(auctions.report, itemId, undefined, auctions.now ?? Date.now());
-  if (resolved.source === "stale") return { ...base, reason: "stale-auction-data", warningCodes: ["stale-auction-data"] };
-  if (resolved.unitPrice === null) return { ...base, reason: auction.status, warningCodes: auction.warningCodes };
-  const warningCodes = [...auction.warningCodes, "bin-asking-price", "ah-fees-excluded"];
-  if (side === "sell") return { ...base, amount: resolved.unitPrice * quantity, source: "auction", warningCodes };
+  if (!auctions?.report || !auction)
+    return { ...base, reason: "no-auction-data" };
+  const evaluatedAt = auctions.now ?? Date.now();
+  const resolved = resolveBinPrice(
+    auctions.report,
+    itemId,
+    undefined,
+    evaluatedAt,
+  );
+  const retained =
+    resolved.source === "stale" &&
+    auctions.allowStaleEstimates &&
+    evaluatedAt >= auctions.report.expiresAt &&
+    evaluatedAt >= auctions.report.sourceUpdatedAt - 30000;
+  if (resolved.source === "stale" && !retained)
+    return {
+      ...base,
+      reason: "stale-auction-data",
+      warningCodes: ["stale-auction-data"],
+    };
+  const snapshotWarnings = [
+    ...(retained ? ["cached-auction-estimate"] : []),
+    ...(evaluatedAt - auctions.report.sourceUpdatedAt > AUCTION_OUTDATED_MS
+      ? ["stale-auction-data"]
+      : []),
+  ];
+  const unitPrice = retained ? auction.unitPrice : resolved.unitPrice;
+  if (unitPrice === null)
+    return {
+      ...base,
+      reason: auction.status,
+      warningCodes: [...auction.warningCodes, ...snapshotWarnings],
+    };
+  const warningCodes = [
+    ...auction.warningCodes,
+    ...snapshotWarnings,
+    "bin-asking-price",
+    "ah-fees-excluded",
+  ];
+  if (side === "sell")
+    return {
+      ...base,
+      amount: unitPrice * quantity,
+      source: "auction",
+      warningCodes,
+    };
   // BIN stacks cannot be split. Find the cheapest covering subset among the retained offers.
   let costs = new Map<number, number>([[0, 0]]);
   for (const listing of auction.lowestListings) {
     const next = new Map(costs);
     for (const [units, cost] of costs) {
       const covered = Math.min(quantity, units + listing.quantity);
-      next.set(covered, Math.min(next.get(covered) ?? Infinity, cost + listing.totalPrice));
+      next.set(
+        covered,
+        Math.min(next.get(covered) ?? Infinity, cost + listing.totalPrice),
+      );
     }
     costs = next;
   }
   const amount = costs.get(quantity) ?? null;
-  return { ...base, amount, source: amount === null ? "unavailable" : "auction",
+  return {
+    ...base,
+    amount,
+    source: amount === null ? "unavailable" : "auction",
     reason: amount === null ? "insufficient-bin-depth" : null,
-    warningCodes: [...warningCodes, ...(amount === null ? ["insufficient-bin-depth"] : ["whole-listing-purchase"]) ] };
+    warningCodes: [
+      ...warningCodes,
+      ...(amount === null
+        ? ["insufficient-bin-depth"]
+        : ["whole-listing-purchase"]),
+    ],
+  };
 }
 
 export function marketQuote(
-  itemId: string, quantity: number, side: "buy" | "sell", snapshot: BazaarSnapshot | null,
-  settings: Settings, auctions?: AuctionPricingContext,
+  itemId: string,
+  quantity: number,
+  side: "buy" | "sell",
+  snapshot: BazaarSnapshot | null,
+  settings: Settings,
+  auctions?: AuctionPricingContext,
 ): number | null {
-  return marketQuoteDetails(itemId, quantity, side, snapshot, settings, auctions).amount;
+  return marketQuoteDetails(
+    itemId,
+    quantity,
+    side,
+    snapshot,
+    settings,
+    auctions,
+  ).amount;
 }
 
 export function materialCost(
@@ -127,8 +237,16 @@ export function materialCost(
   path = new Set<string>(),
   auctions?: AuctionPricingContext,
 ): number | null {
-  if (auctions && auctions.now === undefined) auctions = { ...auctions, now: Date.now() };
-  const buy = marketQuote(itemId, quantity, "buy", snapshot, settings, auctions);
+  if (auctions && auctions.now === undefined)
+    auctions = { ...auctions, now: Date.now() };
+  const buy = marketQuote(
+    itemId,
+    quantity,
+    "buy",
+    snapshot,
+    settings,
+    auctions,
+  );
   const recipe = recipeByOutput.get(itemId);
   if (
     !recipe ||
@@ -163,19 +281,45 @@ export function rankRecipe(
   settings: Settings,
   auctions?: AuctionPricingContext,
 ) {
-  if (auctions && auctions.now === undefined) auctions = { ...auctions, now: Date.now() };
+  if (auctions && auctions.now === undefined)
+    auctions = { ...auctions, now: Date.now() };
   const inputs = recipe.inputs.map((input) => ({
     ...input,
-    cost: materialCost(input.itemId, input.quantity, snapshot, settings, new Set(), auctions),
-    quote: marketQuoteDetails(input.itemId, input.quantity, "buy", snapshot, settings, auctions),
+    cost: materialCost(
+      input.itemId,
+      input.quantity,
+      snapshot,
+      settings,
+      new Set(),
+      auctions,
+    ),
+    quote: marketQuoteDetails(
+      input.itemId,
+      input.quantity,
+      "buy",
+      snapshot,
+      settings,
+      auctions,
+    ),
   }));
-  const inputMissing = inputs.filter((input) => input.cost === null).map((input) => input.itemId);
+  const inputMissing = inputs
+    .filter((input) => input.cost === null)
+    .map((input) => input.itemId);
   const missing = [...inputMissing];
   const flipEligible = isFlipOutput(recipe.outputId);
-  const outputPricing = marketQuoteDetails(recipe.outputId, recipe.quantity, "sell", snapshot, settings, auctions);
+  const outputPricing = marketQuoteDetails(
+    recipe.outputId,
+    recipe.quantity,
+    "sell",
+    snapshot,
+    settings,
+    auctions,
+  );
   const gross = flipEligible ? outputPricing.amount : null;
   if (gross === null) missing.push(recipe.outputId);
-  const cost = inputMissing.length ? null : recipe.coins + inputs.reduce((sum, input) => sum + (input.cost ?? 0), 0);
+  const cost = inputMissing.length
+    ? null
+    : recipe.coins + inputs.reduce((sum, input) => sum + (input.cost ?? 0), 0);
   const revenue =
     gross === null
       ? null
@@ -200,7 +344,14 @@ export function rankRecipe(
   };
 }
 
-export function rankForgeRecipes(snapshot: BazaarSnapshot | null, settings: Settings, auctions?: AuctionPricingContext) {
-  if (auctions && auctions.now === undefined) auctions = { ...auctions, now: Date.now() };
-  return forgeRecipes.filter((recipe) => isFlipOutput(recipe.outputId)).map((recipe) => rankRecipe(recipe, snapshot, settings, auctions));
+export function rankForgeRecipes(
+  snapshot: BazaarSnapshot | null,
+  settings: Settings,
+  auctions?: AuctionPricingContext,
+) {
+  if (auctions && auctions.now === undefined)
+    auctions = { ...auctions, now: Date.now() };
+  return forgeRecipes
+    .filter((recipe) => isFlipOutput(recipe.outputId))
+    .map((recipe) => rankRecipe(recipe, snapshot, settings, auctions));
 }

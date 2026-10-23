@@ -4,11 +4,11 @@
 npm run --silent auctions:prices > /tmp/skyforger-bin-prices.json
 ```
 
-Fetches Hypixel active auctions and writes JSON to stdout; progress/errors go to stderr. No API key or SkyCofl is required. The CLI collects a new snapshot each run. UI wiring is deferred; shared pricing functions now accept an optional auction context.
+Fetches Hypixel active auctions and writes JSON to stdout; progress/errors go to stderr. No API key or SkyCofl is required. The CLI collects a new snapshot each run. Frontend rankings, recipe details, and planning use the shared pricing functions with an optional auction context.
 
 ## Scope
 
-75 non-Bazaar forge outputs. Relic of Power and Secret Railroad Pass are excluded from the auction target set; their recipes remain available to planning. Existing UI rankings are unchanged pending integration. Bejeweled Collar matches `BEJEWELED_COLLAR`; pets match `PET` plus species, including `TYRANNOSAURUS` for T-Rex.
+75 non-Bazaar forge outputs. Relic of Power and Secret Railroad Pass are excluded from the auction target set; their recipes remain available to planning. Frontend rankings use the eligible forge-output helper. Bejeweled Collar matches `BEJEWELED_COLLAR`; pets match `PET` plus species, including `TYRANNOSAURUS` for T-Rex.
 
 - Only unclaimed, unexpired BIN listings without a recorded purchase are considered.
 - All eight forged pets are Legendary. Level 1 means `0 <= exp < 660`; skins, held items, candy, soulbinding, restrictions, and unknown value-bearing fields exclude a listing.
@@ -43,8 +43,14 @@ Sources: [Hypixel API reference](https://api.hypixel.net/), [item resources](htt
 
 The service coalesces concurrent requests and refreshes once per minute per warm function instance. It caches only normalized target listings, re-evaluates expiry on each request, and backs off 30 seconds on errors. A failed refresh may serve last-good data only within the five-minute source-age limit, marked `refresh-failed`. CDN caching is at most 30 seconds, bounded by report expiry/next refresh; no stale-while-revalidate is used. This is not a distributed lock: separate cold instances may each collect a snapshot. A large deployment should add shared persistence/locking before increasing traffic. No hosted scheduler or durable cache is installed.
 
-Pass `{ report, now? }` as the optional auction context to shared pricing/planning functions. `marketQuoteDetails` exposes source, reason, warning codes, source timestamps, and underlying listing/exclusion data. Manual overrides have priority. `rankForgeRecipes` excludes the two non-auctionable outputs without removing their planner recipes. Existing pages have not been connected to the endpoint.
+Pass `{ report, now? }` as the optional auction context to shared pricing/planning functions. `marketQuoteDetails` exposes source, reason, warning codes, source timestamps, and underlying listing/exclusion data. Manual overrides have priority. `rankForgeRecipes` excludes the two non-auctionable outputs without removing their planner recipes. Frontend pages consume the endpoint through an independent auction request and the shared pricing context.
 
 AH sale proceeds use the lowest comparable unit asking price, multiplied by output quantity, without Bazaar tax or AH fees. Buy estimates find the cheapest covering subset of the five retained listings and pay for whole stacks; they are conservative sampled estimates, not an exhaustive cheapest-purchase search. If those offers cannot cover the quantity, the price stays unresolved with `insufficient-bin-depth`, even if additional listings exist outside the sample.
 
 Stable warning codes include `sparse-listings`, `no-active-bin`, `no-comparable-bin`, `stale-auction-data`, `insufficient-bin-depth`, `manual-override`, `bin-asking-price`, `whole-listing-purchase`, and `ah-fees-excluded`. Refresh failure is separate response metadata. Neither market outages nor modified-only markets are presented as zero listings.
+
+## Frontend retained estimates
+
+The frontend explicitly passes `allowStaleEstimates: true` in its auction context. It keeps the last snapshot's numeric estimates visible after live expiry and marks them as cached (`cached-auction-estimate`); they are not current executable offers. After three hours from source time, `stale-auction-data` turns the price information control amber and the details dialog warns that prices might be outdated. Bazaar prices use a one-hour age threshold (`stale-bazaar-data`) and likewise remain visible until refreshed. Manual overrides retain priority and are not marked stale by snapshot age.
+
+Default shared-helper callers still reject expired automatic BIN quotes. The backend endpoint, collector validation, five-minute live cache policy, Retry-After, and server freshness requirements are unchanged. Browser snapshots are stored only with the user's optional storage consent; failed refreshes preserve the previous client snapshot. Listing availability, quantities, and profits from a retained estimate are not guaranteed.

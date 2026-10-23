@@ -180,3 +180,85 @@ test("one calculation uses one auction evaluation time even if the report expire
   assert.equal(clockCalls, 1);
   assert.equal(rows.find((row) => row.recipe.outputId === itemId)!.revenue, 100);
 });
+
+test("UI can retain expired BIN estimates without weakening strict API callers", () => {
+  const data = report();
+  const at = data.sourceUpdatedAt + 3 * 60 * 60 * 1000 + 1;
+  const strict = marketQuoteDetails(itemId, 1, "sell", null, settings, {
+    report: data,
+    now: at,
+  });
+  assert.equal(strict.amount, null);
+  const retained = marketQuoteDetails(itemId, 1, "sell", null, settings, {
+    report: data,
+    now: at,
+    allowStaleEstimates: true,
+  });
+  assert.equal(retained.amount, 100);
+  assert.ok(retained.warningCodes.includes("stale-auction-data"));
+  assert.ok(retained.warningCodes.includes("cached-auction-estimate"));
+  assert.equal(retained.sourceUpdatedAt, data.sourceUpdatedAt);
+  assert.equal(
+    marketQuoteDetails(itemId, 1, "buy", null, settings, {
+      report: data,
+      now: at,
+      allowStaleEstimates: true,
+    }).amount,
+    100,
+  );
+  const manual = marketQuoteDetails(
+    itemId,
+    1,
+    "sell",
+    null,
+    { ...settings, prices: { [itemId]: 42 } },
+    { report: data, now: at, allowStaleEstimates: true },
+  );
+  assert.equal(manual.amount, 42);
+  assert.equal(manual.warningCodes.includes("stale-auction-data"), false);
+  const missing = {
+    ...data,
+    quotes: data.quotes.map((entry) =>
+      entry.itemId === itemId
+        ? {
+            ...entry,
+            status: "no-active-bin" as const,
+            unitPrice: null,
+            lowestListings: [],
+          }
+        : entry,
+    ),
+  };
+  assert.equal(
+    marketQuoteDetails(itemId, 1, "sell", null, settings, {
+      report: missing,
+      now: at,
+      allowStaleEstimates: true,
+    }).amount,
+    null,
+  );
+  assert.equal(
+    marketQuoteDetails(itemId, 1, "sell", null, settings, {
+      report: data,
+      now: data.sourceUpdatedAt - 31000,
+      allowStaleEstimates: true,
+    }).amount,
+    null,
+  );
+});
+
+test("retained auction display uses a three-hour age threshold independently of live expiry", () => {
+  const data = report();
+  const exact = data.sourceUpdatedAt + 3 * 60 * 60 * 1000;
+  const context = { report: data, now: exact, allowStaleEstimates: true };
+  const quote = marketQuoteDetails(itemId, 1, "sell", null, settings, context);
+  assert.equal(quote.amount, 100);
+  assert.ok(quote.warningCodes.includes("cached-auction-estimate"));
+  assert.equal(quote.warningCodes.includes("stale-auction-data"), false);
+  assert.ok(
+    marketQuoteDetails(itemId, 1, "sell", null, settings, {
+      ...context,
+      now: exact + 1,
+    }).warningCodes.includes("stale-auction-data"),
+  );
+});

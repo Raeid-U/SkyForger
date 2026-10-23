@@ -477,3 +477,32 @@ test("craft material scope includes partial dependencies but excludes finished t
   const partial = buildPlan("perfect-ruby-gemstone", 1, stock.items, settings(), null);
   assert.ok(partial.materials.find((item) => item.itemId === "fine-ruby-gemstone")!.quantity < full.materials.find((item) => item.itemId === "fine-ruby-gemstone")!.quantity);
 });
+
+test("Bazaar estimates remain available past the one-hour outdated threshold", async () => {
+  const { marketQuoteDetails } = await import("../lib/forge/pricing");
+  const at = 1800000000000;
+  const item = itemById.get("refined-mithril")!;
+  const data: BazaarSnapshot = {
+    success: true,
+    lastUpdated: at,
+    products: {
+      [item.apiId!]: {
+        product_id: item.apiId!,
+        buy_summary: [{ amount: 10, pricePerUnit: 100, orders: 1 }],
+        sell_summary: [{ amount: 10, pricePerUnit: 90, orders: 1 }],
+      },
+    },
+  };
+  const exact = marketQuoteDetails(item.id, 1, "sell", data, defaultSettings, {
+    report: null,
+    now: at + 3600000,
+  });
+  assert.equal(exact.amount, 90);
+  assert.equal(exact.warningCodes.includes("stale-bazaar-data"), false);
+  const older = marketQuoteDetails(item.id, 1, "sell", data, defaultSettings, {
+    report: null,
+    now: at + 3600001,
+  });
+  assert.equal(older.amount, 90);
+  assert.ok(older.warningCodes.includes("stale-bazaar-data"));
+});

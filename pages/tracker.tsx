@@ -92,7 +92,11 @@ function Job({
           <span className="sr-only">Estimated time left</span>
           <strong className="forge-countdown">
             <span className="time-value">
-              {latest === null ? "--:--:--" : timeLeft((latest - now) / 1000)}
+              {latest === null
+                ? "--:--:--"
+                : pastEstimate
+                  ? "Done"
+                  : timeLeft((latest - now) / 1000)}
             </span>
           </strong>
           <span className="forge-time-note">

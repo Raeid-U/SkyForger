@@ -1,4 +1,8 @@
-import { PriceContext, AuctionAssumptions } from "../components/PriceContext";
+import {
+  PriceContext,
+  AuctionAssumptions,
+  isStalePrice,
+} from "../components/PriceContext";
 import { ItemIcon } from "../components/ItemIcon";
 import { RecipeInspector } from "../components/RecipeInspector";
 import { useState } from "react";
@@ -176,9 +180,11 @@ export default function Flips() {
                   (input) =>
                     itemMarket(input.itemId) === "auction" ||
                     input.quote.source === "manual" ||
-                    input.quote.reason,
+                    input.quote.reason ||
+                    isStalePrice(input.quote),
                 ) ||
-                row.pricing.output.source === "manual";
+                row.pricing.output.source === "manual" ||
+                isStalePrice(row.pricing.output);
               const status =
                 !hasPriceContext && row.missing.length ? "Unpriced" : null;
               return (
@@ -186,7 +192,11 @@ export default function Flips() {
                   key={row.recipe.id}
                   className="recipe-row"
                   onClick={(event) => {
-                    if (!(event.target as HTMLElement).closest("button, a, dialog")) {
+                    if (
+                      !(event.target as HTMLElement).closest(
+                        "button, a, dialog",
+                      )
+                    ) {
                       event.currentTarget.querySelector("button")?.focus();
                       setInspected(row.recipe.id);
                     }

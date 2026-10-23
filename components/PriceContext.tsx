@@ -6,6 +6,13 @@ import { Modal } from "./Modal";
 import { coins, ManualPrice, useWorkspace } from "./Workspace";
 
 type Entry = { itemId: string; quote: MarketPriceQuote };
+export function isStalePrice(quote: MarketPriceQuote) {
+  return (
+    quote.source !== "manual" &&
+    (quote.warningCodes.includes("stale-auction-data") ||
+      quote.warningCodes.includes("stale-bazaar-data"))
+  );
+}
 export function priceSummary(quote: MarketPriceQuote): string {
   if (quote.source === "manual") return "Manual override";
   switch (quote.reason) {
@@ -29,7 +36,7 @@ export function priceSummary(quote: MarketPriceQuote): string {
 }
 const explanations: Record<string, string> = {
   "no-active-bin":
-    "No current BIN listings found. Check historical prices elsewhere and enter a manual override.",
+    "No BIN listings were found in this snapshot. Check historical prices elsewhere and enter a manual override.",
   "no-comparable-bin":
     "BIN listings exist, but none match an unmodified item or level 1 pet. Enter a manual override if needed.",
   "insufficient-bin-depth":
@@ -44,6 +51,7 @@ function QuoteDetails({ itemId, quote }: Entry) {
   const manual = quote.source === "manual";
   const name = itemById.get(itemId)?.name ?? itemId;
   const auction = itemMarket(itemId) === "auction";
+  const stale = isStalePrice(quote);
   return (
     <section className="quote-section">
       <h3>{name}</h3>
@@ -99,7 +107,7 @@ function QuoteDetails({ itemId, quote }: Entry) {
         )}
         {quote.expiresAt !== null && (
           <div>
-            <dt>{manual ? "Automatic quote expires" : "Quote expires"}</dt>
+            <dt>{auction ? "Live snapshot valid until" : "Outdated after"}</dt>
             <dd>
               {new Date(quote.expiresAt).toLocaleString([], {
                 timeZoneName: "short",
@@ -108,6 +116,18 @@ function QuoteDetails({ itemId, quote }: Entry) {
           </div>
         )}
       </dl>
+      {stale && (
+        <p className="warning" role="note">
+          These prices might be outdated. The last saved snapshot is still used
+          for estimates; refresh prices before relying on them.
+        </p>
+      )}
+      {!manual && quote.warningCodes.includes("cached-auction-estimate") && (
+        <p className="muted">
+          Cached BIN estimate: the live snapshot has expired. Listings may have
+          changed or ended since it was collected.
+        </p>
+      )}
       {quote.reason && (
         <p className="warning">
           {explanations[quote.reason] ??
@@ -154,7 +174,8 @@ export function PriceContext({
     (entry) =>
       itemMarket(entry.itemId) === "auction" ||
       entry.quote.source === "manual" ||
-      entry.quote.reason,
+      entry.quote.reason ||
+      isStalePrice(entry.quote),
   );
   const auction =
     itemMarket(itemId) === "auction" ||
@@ -163,27 +184,46 @@ export function PriceContext({
     !auction &&
     quote.source !== "manual" &&
     quote.amount !== null &&
-    !relevant.length
+    !relevant.length &&
+    !isStalePrice(quote)
   )
     return null;
+  const stale =
+    isStalePrice(quote) || relevant.some((entry) => isStalePrice(entry.quote));
   const inputWarning = relevant.some(
     (entry) =>
       entry.quote.reason ||
-      entry.quote.warningCodes.includes("sparse-listings"),
+      entry.quote.warningCodes.includes("sparse-listings") ||
+      isStalePrice(entry.quote),
   );
+  const label =
+    priceSummary(quote) ||
+    (stale
+      ? "Market estimate"
+      : inputWarning
+        ? "Ingredient pricing"
+        : "Price context");
+  const name = itemById.get(itemId)?.name ?? itemId;
   return (
     <div className="price-context">
-      <span className="muted">
-        {priceSummary(quote) ||
-          (inputWarning ? "Ingredient price warning" : "Price context")}
-        {inputWarning && priceSummary(quote) ? " · Check ingredients" : ""}
-      </span>
       <button
-        className="text-button"
+        className={`price-info${stale ? " is-stale" : ""}`}
         aria-haspopup="dialog"
+        aria-label={`${label}: ${auction ? "auction" : "price"} details for ${name}${stale ? ", prices might be outdated" : ""}`}
         onClick={() => setOpen(true)}
       >
-        {auction ? "Auction details" : "Price details"}
+        <span>{label}</span>
+        <svg
+          className="info-icon"
+          viewBox="0 0 16 16"
+          width="13"
+          height="13"
+          aria-hidden="true"
+        >
+          <circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" />
+          <path d="M8 7v5" stroke="currentColor" strokeWidth="1.4" />
+          <circle cx="8" cy="4.5" r=".85" fill="currentColor" />
+        </svg>
       </button>
       <Modal
         open={open}
