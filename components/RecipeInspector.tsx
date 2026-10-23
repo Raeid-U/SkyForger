@@ -1,7 +1,8 @@
+import { PriceContext, AuctionAssumptions } from "./PriceContext";
 import Link from "next/link";
 import { Modal } from "./Modal";
 import { ItemIcon } from "./ItemIcon";
-import { coins, duration, ManualPrice, useWorkspace } from "./Workspace";
+import { coins, duration, useWorkspace } from "./Workspace";
 import { itemById, type Recipe } from "../lib/forge/catalog";
 import { materialCost, rankRecipe } from "../lib/forge/pricing";
 import { itemMarket } from "../lib/forge/markets";
@@ -13,8 +14,10 @@ export function RecipeInspector({
   recipe: Recipe | null;
   onClose: () => void;
 }) {
-  const { snapshot, settings, account } = useWorkspace();
-  const row = recipe ? rankRecipe(recipe, snapshot, settings) : null;
+  const { snapshot, settings, account, auctions } = useWorkspace();
+  const row = recipe
+    ? rankRecipe(recipe, snapshot, settings, auctions.context)
+    : null;
   return (
     <Modal open={!!recipe} title="Recipe details" onClose={onClose}>
       {recipe && row && (
@@ -43,6 +46,7 @@ export function RecipeInspector({
               Connect a profile to check your unlocks and apply Quick Forge.
             </p>
           )}
+          <PriceContext itemId={recipe.outputId} quote={row.pricing.output} />
           <h3>Unlock requirements</h3>
           {recipe.requirements.length ? (
             <ul className="requirement-list">
@@ -76,6 +80,14 @@ export function RecipeInspector({
                     {itemById.get(input.itemId)?.name}
                   </span>
                   <small className="muted">× {coins(input.quantity)}</small>
+                  <PriceContext
+                    itemId={input.itemId}
+                    quote={
+                      row.pricing.inputs.find(
+                        (entry) => entry.itemId === input.itemId,
+                      )!.quote
+                    }
+                  />
                 </div>
                 <span className="number">
                   {coins(
@@ -84,6 +96,8 @@ export function RecipeInspector({
                       input.quantity,
                       snapshot,
                       settings,
+                      new Set(),
+                      auctions.context,
                     ),
                   )}
                 </span>
@@ -143,13 +157,7 @@ export function RecipeInspector({
               ? ` · ${Number((settings.tax * 100).toFixed(3))}% Bazaar tax`
               : ""}
           </p>
-          {itemMarket(recipe.outputId) === "auction" && (
-            <label>
-              Manual AH unit sale price
-              <ManualPrice itemId={recipe.outputId} />
-              <span>AH fees excluded.</span>
-            </label>
-          )}
+          <AuctionAssumptions />
           {(settings.buyMode === "order" || settings.sellMode === "offer") && (
             <p className="notice">
               Orders assume a fill at the current best price; fill times are not

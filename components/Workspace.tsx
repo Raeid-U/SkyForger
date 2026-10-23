@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useAuctionPrices } from "./useAuctionPrices";
 import { Modal } from "./Modal";
 import { Appearance } from "./Appearance";
 import Link from "next/link";
@@ -28,6 +29,7 @@ import {
 import { trackerResultSchema, type TrackerResult } from "../lib/forge/tracker";
 
 const Context = createContext<{
+  auctions: ReturnType<typeof useAuctionPrices>;
   settings: Settings;
   update: (value: Partial<Preferences>) => void;
   account: TrackerResult | null;
@@ -43,6 +45,7 @@ const Context = createContext<{
 } | null>(null);
 
 export function WorkspaceProvider({ children }: { children: ReactNode }) {
+  const auctions = useAuctionPrices();
   const [preferences, setPreferences] = useState(() =>
     preferencesSchema.parse(defaultSettings),
   );
@@ -196,6 +199,7 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
   return (
     <Context.Provider
       value={{
+        auctions,
         settings,
         update: (value) =>
           setPreferences((previous) =>
@@ -369,6 +373,7 @@ export function Workspace({
               </div>
             )}
           </div>
+          {isMarketPage && <AuctionStatus />}
           <div className="context-bar">
             <button
               className="text-button"
@@ -771,5 +776,46 @@ export function ManualPrice({ itemId }: { itemId: string }) {
         update({ prices });
       }}
     />
+  );
+}
+
+function AuctionStatus() {
+  const { auctions } = useWorkspace();
+  const report = auctions.response?.report;
+  const expired = report && auctions.now >= report.expiresAt;
+  const failed =
+    auctions.error || auctions.response?.refresh.state === "refresh-failed";
+  return (
+    <div className="auction-status">
+      <span role="status">
+        {auctions.loading
+          ? "Loading Auction House prices… This may take a few minutes."
+          : report
+            ? `Auction House · ${expired ? "Expired · " : ""}Source ${new Date(report.sourceUpdatedAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", timeZoneName: "short" })}`
+            : "Auction House prices unavailable"}
+        {failed &&
+          report &&
+          !expired &&
+          " · Refresh failed. Showing the last available snapshot."}
+        {expired && " · Refresh prices or enter a manual override."}
+        {auctions.error && (!report || expired) && ` · ${auctions.error}`}
+      </span>
+      <button
+        disabled={!auctions.canRefresh}
+        onClick={() => void auctions.refresh()}
+      >
+        Refresh auction prices
+      </button>
+      {!auctions.canRefresh && !auctions.loading && (
+        <small className="muted">
+          Available after{" "}
+          {new Date(auctions.retryAt).toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+          })}
+        </small>
+      )}
+    </div>
   );
 }

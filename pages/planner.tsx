@@ -1,9 +1,9 @@
+import { PriceContext, AuctionAssumptions } from "../components/PriceContext";
 import { ItemIcon } from "../components/ItemIcon";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import {
   Workspace,
-  ManualPrice,
   coins,
   duration,
   useWorkspace,
@@ -46,7 +46,7 @@ function Tree({ node }: { node: PlanNode }) {
 
 export default function Planner() {
   const router = useRouter();
-  const { settings, snapshot, account } = useWorkspace();
+  const { settings, snapshot, account, auctions } = useWorkspace();
   const [selected, setSelected] = useState("refined-mithril");
   const [quantity, setQuantity] = useState(1);
   const [strategy, setStrategy] = useState<"forge" | "cheapest">("forge");
@@ -120,7 +120,15 @@ export default function Planner() {
   let plan: ReturnType<typeof buildPlan> | null = null,
     error = "";
   try {
-    plan = buildPlan(selected, quantity, owned, settings, snapshot, strategy);
+    plan = buildPlan(
+      selected,
+      quantity,
+      owned,
+      settings,
+      snapshot,
+      strategy,
+      auctions.context,
+    );
   } catch (cause) {
     error = cause instanceof Error ? cause.message : "Could not build plan.";
   }
@@ -288,9 +296,10 @@ export default function Planner() {
                             <ItemIcon itemId={material.itemId} />
                             {itemById.get(material.itemId)?.name}
                           </span>
-                          {material.cost === null && (
-                            <ManualPrice itemId={material.itemId} />
-                          )}
+                          <PriceContext
+                            itemId={material.itemId}
+                            quote={material.pricing}
+                          />
                         </td>
                         <td>{coins(material.quantity)}</td>
                         <td>{coins(material.cost)}</td>
@@ -299,6 +308,10 @@ export default function Planner() {
                   </tbody>
                 </table>
               </div>
+              <details className="pricing-notes">
+                <summary>Auction pricing assumptions</summary>
+                <AuctionAssumptions />
+              </details>
               {plan.coins > 0 && (
                 <p className="muted">Forge fees: {coins(plan.coins)} coins</p>
               )}

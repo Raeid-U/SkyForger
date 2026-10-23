@@ -1391,3 +1391,34 @@ footer > span > span {
     width: 28px;
   }
 }
+
+.auction-status {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  padding: 8px 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+.price-context {
+  font-size: 12px;
+  max-width: 52ch;
+  white-space: normal;
+}
+.price-context p {
+  margin: 4px 0;
+}
+.price-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+}
+.price-context small {
+  display: block;
+}
+.recipe-label small {
+  display: block;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}

@@ -1,3 +1,4 @@
+import { priceSummary, AuctionAssumptions } from "../components/PriceContext";
 import { ItemIcon } from "../components/ItemIcon";
 import { RecipeInspector } from "../components/RecipeInspector";
 import { useState } from "react";
@@ -9,18 +10,17 @@ import {
 } from "../components/Workspace";
 import { forgeRecipes, itemById } from "../lib/forge/catalog";
 import { itemMarket, matchesMarket } from "../lib/forge/markets";
-import { rankRecipe } from "../lib/forge/pricing";
+import { rankForgeRecipes } from "../lib/forge/pricing";
 
 export default function Flips() {
-  const { settings, snapshot, update, account } = useWorkspace();
+  const { settings, snapshot, update, account, auctions } = useWorkspace();
   const [search, setSearch] = useState("");
   const [eligible, setEligible] = useState(true);
   const [sort, setSort] = useState<"perHour" | "profit" | "category">(
     "perHour",
   );
   const [inspected, setInspected] = useState<string | null>(null);
-  const rows = forgeRecipes
-    .map((recipe) => rankRecipe(recipe, snapshot, settings))
+  const rows = rankForgeRecipes(snapshot, settings, auctions.context)
     .filter(
       (row) =>
         matchesMarket(row.recipe.outputId, settings.market) &&
@@ -115,9 +115,10 @@ export default function Flips() {
         <p>
           Profit per hour is theoretical per-slot throughput: immediate
           restarts, available materials, and market fills are assumed. Order
-          prices assume a fill at the current best price. Auction House prices
-          are manual and exclude AH fees.
+          prices assume a fill at the current best price. Auction House
+          estimates use current BIN asking prices or saved manual overrides.
         </p>
+        <AuctionAssumptions />
       </details>
       <div className="table-wrap flips-table-wrap">
         <table className={`flips-table metric-${metric}`}>
@@ -162,12 +163,24 @@ export default function Flips() {
           <tbody>
             {rows.map((row) => {
               const name = itemById.get(row.recipe.outputId)!.name;
-              const status = row.missing.length
-                ? itemMarket(row.recipe.outputId) === "auction" &&
-                  settings.prices[row.recipe.outputId] === undefined
-                  ? "Manual AH price needed"
-                  : "Unpriced"
-                : null;
+              const outputStatus = priceSummary(row.pricing.output);
+              const inputStatus = row.pricing.inputs
+                .map((input) => ({
+                  name: itemById.get(input.itemId)?.name,
+                  message: priceSummary(input.quote),
+                }))
+                .filter((input) => input.message);
+              const status = [
+                outputStatus,
+                ...inputStatus.map(
+                  (input) => `${input.name}: ${input.message}`,
+                ),
+                row.missing.length && !outputStatus && !inputStatus.length
+                  ? "Unpriced"
+                  : null,
+              ]
+                .filter(Boolean)
+                .join(" · ");
               return (
                 <tr
                   key={row.recipe.id}
