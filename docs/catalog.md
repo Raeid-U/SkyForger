@@ -5,7 +5,7 @@
 - `id`: stable application key used by saved prices, inventory, and planner URLs.
 - `apiId`: verified Hypixel resource/Bazaar ID, or `null` when unresolved.
 - `aliases`: identifiers from the previous edition, accepted for forge job lookup. An alias does not certify a Bazaar product ID.
-- `market`: `bazaar`, `auction`, `untradeable`, or `unknown`. Bazaar membership was checked against the public API on 2026-10-22. Forge outputs absent from Bazaar are currently treated as AH items; auctionability still needs a separate audit.
+- `market`: `bazaar`, `auction`, `untradeable`, or `unknown`. Bazaar membership was checked against the public API on 2026-10-22. Market classification is separate from flip eligibility. The auction matcher targets 75 non-Bazaar forge outputs; Relic of Power and Secret Railroad Pass remain in the planner but are excluded from flip rankings and auction collection. See [auction pricing](auction-pricing.md).
 - `acquisitionCost`: optional per-unit buy/gather cost. The 12 quest gemstone crystals default to zero; explicit price overrides take precedence. They remain required materials in the planner.
 - Recipe `category`: the display and sorting group, imported from the updated recipe list. Dependency recipes absent from that list are grouped as Refining or Drill Upgrades/Parts.
 - `image`: local asset path, original dimensions, and source reference, or `null` for the shared fallback.

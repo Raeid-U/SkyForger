@@ -1,4 +1,4 @@
-# Bazaar API reference check
+# Bazaar API
 
 Checked against the [Hypixel API reference](https://api.hypixel.net/#tag/SkyBlock/paths/~1v2~1skyblock~1bazaar/get)
 and a live response on October 22, 2026.
@@ -21,3 +21,7 @@ and a live response on October 22, 2026.
 `npm run test:live` checks the real public endpoint and validates every returned
 product using the same schema as `/api/bazaar`. It is deliberately separate from
 the offline unit tests so network failures do not masquerade as code regressions.
+
+## Application route
+
+`GET /api/bazaar` returns the normalized market snapshot used by shared pricing functions. Successful responses use `public, s-maxage=60, stale-while-revalidate=120`; failed responses are uncached 502 errors with an `error` message. Unsupported methods return 405. Upstream requests have an eight-second timeout. CDN caching reduces upstream work when deployed; the route has no shared application cache or client rate limiter of its own.

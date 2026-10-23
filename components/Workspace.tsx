@@ -348,11 +348,34 @@ export function Workspace({
   const profile = account?.profiles.find(
     (profile) => profile.id === account.selectedProfileId,
   );
+  const description = router.pathname === "/planner"
+    ? "Plan Hypixel SkyBlock forge recipes with crafting trees, shopping lists, owned materials, and slot schedules."
+    : router.pathname === "/tracker"
+      ? "Track your Hypixel SkyBlock forge jobs and keep favourite recipes close with SkyForger."
+      : "Compare Hypixel SkyBlock forge profits using Bazaar order books and comparable Auction House BIN prices.";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
+  const pageUrl = siteUrl ? `${siteUrl}${router.pathname}` : undefined;
+  const shareImage = siteUrl ? `${siteUrl}/social-card.png` : undefined;
   const isMarketPage = router.pathname !== "/tracker";
   return (
     <>
       <Head>
         <title>{title} · SkyForger</title>
+        <meta name="description" content={description} key="description" />
+        <meta property="og:site_name" content="SkyForger" key="og:site_name" />
+        <meta property="og:type" content="website" key="og:type" />
+        <meta property="og:title" content={`${title} · SkyForger`} key="og:title" />
+        <meta property="og:description" content={description} key="og:description" />
+        <meta name="twitter:card" content="summary_large_image" key="twitter:card" />
+        <meta name="twitter:title" content={`${title} · SkyForger`} key="twitter:title" />
+        <meta name="twitter:description" content={description} key="twitter:description" />
+        {pageUrl && <link rel="canonical" href={pageUrl} key="canonical" />}
+        {pageUrl && <meta property="og:url" content={pageUrl} key="og:url" />}
+        {shareImage && <meta property="og:image" content={shareImage} key="og:image" />}
+        {shareImage && <meta property="og:image:width" content="1200" key="og:image:width" />}
+        {shareImage && <meta property="og:image:height" content="630" key="og:image:height" />}
+        {shareImage && <meta property="og:image:alt" content="SkyForger | A forge helper for Hypixel Skyblock." key="og:image:alt" />}
+        {shareImage && <meta name="twitter:image" content={shareImage} key="twitter:image" />}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#18191a" />
         <link rel="icon" href="/favicon.ico" sizes="any" />

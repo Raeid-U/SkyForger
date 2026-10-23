@@ -1,10 +1,35 @@
 # SkyForger
 
-Hypixel SkyBlock forge pricing, recipe planning, and account tracking. Next.js, TypeScript, and Vercel functions.
+A forge companion for Hypixel SkyBlock: compare what to forge, plan a long crafting tree, and keep track of your forge slots.
 
-## Development
+SkyBlock forging combines live market prices, progression gates, nested recipes, and hours of waiting. SkyForger brings those decisions into one focused workspace instead of spreading them across spreadsheets and calculators.
 
-Node.js 22.
+## The tools
+
+- **Forge flips** — rank recipes by estimated profit per item or per hour, compare Bazaar order strategies, and use current comparable Auction House BIN listings for non-Bazaar items. Price details expose sparse listings, missing data, and manual overrides.
+- **Craft planner** — expand a recipe into dependencies, a shopping list, and a forge-slot schedule. An explicit **Check owned materials** action checks available inventory, storage, and sacks only for the selected craft.
+- **My Forge** — enter an IGN, select a profile, and see active forge countdowns. Save favourite recipes for a quick ingredient reference.
+
+Profile import supplies HOTM, mining perks, collection unlocks, Bazaar tax, and recipe unlocks. Browser persistence is optional: profile selection, preferences, cached market snapshots, and favourites are saved only with storage consent. Profile selection is shared across the three pages.
+
+## Design choices
+
+The app uses Next.js Pages Router, React, TypeScript, and Zod. API routes keep the Hypixel profile key server-side; market pricing and planning live in shared, testable modules.
+
+- **Market evidence over invented prices.** Bazaar estimates use order-book summaries. Auction estimates use comparable, unmodified BIN listings, with stricter level-one matching for pets. Missing prices remain unresolved; manual overrides are explicit.
+- **A maintained catalog.** `data/forge-catalog.json` contains 119 forge recipes, 36 gemstone crafting recipes, item identities, unlocks, and local image references. Validation checks references, dependency cycles, and image consistency before builds.
+- **Progression from the account.** Users select an IGN and profile instead of transcribing progression settings. Inventory decoding happens only on request.
+- **Visible uncertainty.** Asking prices are not completed sales. Sparse listings, sampled auction depth, cached estimates, and unavailable inventory are surfaced in the interface.
+
+Auction proceeds exclude AH fees. The planner assumes free slots and immediate material availability; active forge timing cannot reconstruct historical mayor eligibility or Kinetic reductions. Market fills and completion times remain estimates.
+
+## Development story
+
+The project grew from recipe research and an initial scaffold into a canonical catalog, shared pricing/planning logic, profile-derived settings, and explicit inventory lookup. A subsequent UI overhaul organized the three workflows; auction snapshot collection and comparable-listing policies then added automatic BIN estimates. Favourites and ingredient references completed the account workflow. Current work focuses on documentation, public-release safeguards, and deployment validation.
+
+## Run locally
+
+Node.js 22 is required.
 
 ```sh
 npm ci
@@ -12,39 +37,26 @@ cp .env.example .env.local
 npm run dev
 ```
 
-`HYPIXEL_API_KEY` enables profile lookup and account tracking. Keep it server-side.
-
-## Pages
-
-- `/` — forge flip rankings, taxes, order strategies, and manual price overrides.
-- `/planner` — recursive craft trees, owned materials, shopping lists, and slot schedules.
-- `/tracker` — SkyBlock profile selection and estimated forge countdowns.
-
-Enter an IGN and select a profile on any page. HOTM, mining perks, collection unlocks, Bazaar tax, fossil donations, and forge jobs are imported through `/api/forge`. The selected profile is shared across pages and restored on reload. Market choices are stored locally. The planner checks inventory, storage, and sacks only when you click “Check owned materials,” and uses only dependencies for the selected craft. Checks reset when the craft or profile changes.
-
-Market books are fetched through `/api/bazaar`. Missing prices stay unresolved. Order fills and forge completion times are estimates.
-
-The planner assumes free forge slots and immediate material availability. It models Quick Forge and the reported current Molten Forge perk. Active-job estimates cannot observe historical mayor eligibility or Kinetic reductions. Account username resolution uses Mojang's API; UUIDs bypass that lookup.
-
-## Catalog
-
-`data/forge-catalog.json` is the canonical database for 119 forge recipes, 36 gemstone crafting recipes, item identities, markets, and local image references. Edit it directly; `npm run catalog:check` validates it offline and runs before production builds. See [catalog maintenance](docs/catalog.md).
-
-Item images are served from `public/items/`. Missing images use a shared fallback. Auction House prices remain manual estimates and exclude AH fees.
-
-## Internal auction tooling
-
-`npm run --silent auctions:prices` exports current comparable BIN quotes without an API key. `/api/auctions` serves cached reports; shared pricing/planning functions accept them as an optional context. Frontend wiring is deferred. See [auction pricing](docs/auction-pricing.md).
-
-## Checks
+Set `HYPIXEL_API_KEY` for profile lookup and tracking. Bazaar and auction pricing do not require a key. Keep the key server-side. Set `NEXT_PUBLIC_SITE_URL` to the production origin to enable canonical URLs and absolute social-card links; leave it unset for local or preview builds.
 
 ```sh
 npm test
 npm run typecheck
 npm run build
-npm run test:live
 ```
 
-## Vercel
+The build includes catalog validation. `npm run test:live` runs separate network-dependent checks. `npm run --silent auctions:prices` exports a fresh comparable-BIN report as JSON.
 
-Use the Next.js preset and Node.js 22.x. Add `HYPIXEL_API_KEY` to the server environment to enable profile lookup. Use the default build and output settings.
+## Reference
+
+- [Profile API](docs/profile-api.md)
+- [Bazaar API and order-book semantics](docs/bazaar-api.md)
+- [Auction matching, caching, and pricing policies](docs/auction-pricing.md)
+- [Catalog and image maintenance](docs/catalog.md)
+- [Asset attribution and licensing](docs/attribution.md)
+
+## License
+
+Original project code is available under the [MIT License](LICENSE). Third-party game artwork and fonts retain their own rights and terms; see [attribution](docs/attribution.md).
+
+SkyForger is an independent community project and is not affiliated with or endorsed by Hypixel or Mojang.

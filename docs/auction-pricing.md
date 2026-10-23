@@ -1,4 +1,4 @@
-# Internal auction pricing
+# Auction pricing API and tooling
 
 ```sh
 npm run --silent auctions:prices > /tmp/skyforger-bin-prices.json
@@ -41,7 +41,7 @@ Sources: [Hypixel API reference](https://api.hypixel.net/), [item resources](htt
 
 `GET /api/auctions` returns `{ report, refresh: { state, nextRefreshAt } }`, validated by `auctionResponseSchema` in `lib/auctions.ts`. Errors are uncached 429/503 responses with a safe `error`, `code`, and `Retry-After`. The endpoint has a 180-second execution budget for bounded snapshot retries.
 
-The service coalesces concurrent requests and refreshes once per minute per warm function instance. It caches only normalized target listings, re-evaluates expiry on each request, and backs off 30 seconds on errors. A failed refresh may serve last-good data only within the five-minute source-age limit, marked `refresh-failed`. CDN caching is at most 30 seconds, bounded by report expiry/next refresh; no stale-while-revalidate is used. This is not a distributed lock: separate cold instances may each collect a snapshot. A large deployment should add shared persistence/locking before increasing traffic. No hosted scheduler or durable cache is installed.
+The service coalesces concurrent requests and refreshes once per minute per warm function instance. It caches only normalized target listings, re-evaluates expiry on each request, and backs off 30 seconds on errors. A failed refresh may serve last-good data only within the five-minute source-age limit, marked `refresh-failed`. CDN caching is at most 30 seconds, bounded by report expiry/next refresh; no stale-while-revalidate is used. This is not a distributed lock: separate cold instances may each collect a snapshot. Per-client rate limits can reduce repeated requests, but do not coordinate refreshes across instances. Use preview measurements to decide whether shared snapshot persistence and a refresh lock are needed before exposing the app to wider traffic. No hosted scheduler or durable cache is installed.
 
 Pass `{ report, now? }` as the optional auction context to shared pricing/planning functions. `marketQuoteDetails` exposes source, reason, warning codes, source timestamps, and underlying listing/exclusion data. Manual overrides have priority. `rankForgeRecipes` excludes the two non-auctionable outputs without removing their planner recipes. Frontend pages consume the endpoint through an independent auction request and the shared pricing context.
 
