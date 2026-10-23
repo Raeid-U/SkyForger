@@ -8,6 +8,7 @@ import { ItemIcon } from "./ItemIcon";
 import { FavouriteToggle, FavouriteStar } from "./FavouriteToggle";
 import { RecipeInspector } from "./RecipeInspector";
 import { PriceContext } from "./PriceContext";
+import { Modal } from "./Modal";
 
 export function Favourites() {
   const {
@@ -20,6 +21,7 @@ export function Favourites() {
     account,
   } = useWorkspace();
   const [inspected, setInspected] = useState<string | null>(null);
+  const [showHelp, setShowHelp] = useState(false);
   const savedRecipes = favouriteIds.flatMap((id) => {
     const recipe = forgeRecipes.find((recipe) => recipe.id === id);
     return recipe ? [recipe] : [];
@@ -37,15 +39,41 @@ export function Favourites() {
             <span className="muted favourites-count">
               {savedRecipes.length || ""}
             </span>
+            <button
+              className="favourites-help text-button"
+              aria-label="About favourites and profit calculations"
+              aria-haspopup="dialog"
+              onClick={() => setShowHelp(true)}
+            >
+              <span aria-hidden="true">(?)</span>
+            </button>
           </h2>
-          <p className="muted">
-            Your saved recipes, ready for the next free slot.
-          </p>
         </div>
-        <Link className="inline-link" href="/">
+      </div>
+      <Modal
+        open={showHelp}
+        onClose={() => setShowHelp(false)}
+        title="About favourites"
+      >
+        <p>Your saved recipes, ready for the next free slot.</p>
+        <p>
+          Profit per item is estimated sale proceeds minus ingredient costs and
+          the forge fee, divided by the batch output. Uses your buy/sell
+          settings, manual prices and cheaper eligible ingredient crafting.
+        </p>
+        <p>Bazaar tax is deducted; auction fees are excluded.</p>
+        <p>
+          Ingredient prices are market totals for one forge batch, before any
+          crafting savings.
+        </p>
+        <Link
+          className="inline-link"
+          href="/"
+          onClick={() => setShowHelp(false)}
+        >
           Browse recipes <span aria-hidden="true">↗</span>
         </Link>
-      </div>
+      </Modal>
       {consent !== "allow" ? (
         <div className="favourites-empty">
           <p>
@@ -116,6 +144,41 @@ export function Favourites() {
                         quote: input.quote,
                       }))}
                     />
+                  </div>
+                  <div className="favourite-ingredients">
+                    <small className="muted">Ingredients / batch</small>
+                    <ul aria-label={`${name} ingredient costs`}>
+                      {row.pricing.inputs.map((input) => (
+                        <li key={input.itemId}>
+                          <span>
+                            {coins(input.quantity)} ×{" "}
+                            {itemById.get(input.itemId)?.name ?? input.itemId}
+                            <small className="muted">
+                              {input.quote.source === "manual"
+                                ? "Manual"
+                                : input.quote.source === "fixed"
+                                  ? "Fixed"
+                                  : itemMarket(input.itemId) === "auction"
+                                    ? "AH"
+                                    : "BZ"}
+                            </small>
+                          </span>
+                          <span className="number">
+                            {coins(input.quote.amount)}{" "}
+                            <small className="muted">coins</small>
+                          </span>
+                        </li>
+                      ))}
+                      {recipe.coins > 0 && (
+                        <li>
+                          <span className="muted">Forge fee</span>
+                          <span className="number">
+                            {coins(recipe.coins)}{" "}
+                            <small className="muted">coins</small>
+                          </span>
+                        </li>
+                      )}
+                    </ul>
                   </div>
                   <div className="favourite-profit">
                     <small className="muted">Estimated profit / item</small>

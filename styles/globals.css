@@ -1751,3 +1751,56 @@ footer > span > span {
     font-size: 14px;
   }
 }
+
+.favourites-help {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 400;
+  padding: 4px;
+}
+.favourite-ingredients {
+  flex: 0 1 380px;
+  min-width: 0;
+  font-size: 12px;
+  padding-top: 3px;
+}
+.favourite-ingredients ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+}
+.favourite-ingredients li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin: 6px 0;
+}
+.favourite-ingredients li > span:first-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.favourite-ingredients li > span:first-child small {
+  margin-left: 6px;
+}
+.favourite-ingredients .number {
+  flex-shrink: 0;
+}
+@media (min-width: 701px) and (max-width: 1050px) {
+  .favourite-row {
+    flex-wrap: wrap;
+  }
+  .favourite-identity {
+    flex-basis: calc(100% - 42px);
+  }
+  .favourite-ingredients {
+    flex: 1 1 300px;
+    margin-left: 36px;
+  }
+}
+@media (max-width: 700px) {
+  .favourite-ingredients {
+    flex-basis: 100%;
+    margin: 12px 0 0 30px;
+  }
+}

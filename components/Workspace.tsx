@@ -427,13 +427,15 @@ export function Workspace({
           <div className="page-heading">
             <div>
               <h1>{title}</h1>
-              <p className="page-description">
+              {/* Testing reduced visual clutter
+                <p className="page-description">
                 {router.pathname === "/"
                   ? "Make the most of every forge slot."
                   : router.pathname === "/planner"
                     ? "Every dependency, accounted for."
                     : "Know what’s finishing next."}
-              </p>
+                    </p>
+              */}
             </div>
             {isMarketPage && <MarketStatus />}
           </div>
@@ -517,9 +519,6 @@ export function Workspace({
           <span>
             SkyForger <span aria-hidden="true">/</span> Independent SkyBlock
             companion
-            <small className="footer-disclaimer">
-              No analytics. Estimates only: use at your own risk.
-            </small>
           </span>
           <div className="footer-controls">
             <Appearance />
