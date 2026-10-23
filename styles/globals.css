@@ -1572,3 +1572,182 @@ footer > span > span {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
+
+/* Saved recipes share the forge's flat list treatment. */
+.favourite-star {
+  display: inline-block;
+  vertical-align: -2px;
+  flex-shrink: 0;
+}
+.favourite-marker {
+  display: inline-flex;
+  margin-left: 7px;
+  color: #e8c769;
+}
+.favourite-marker svg {
+  width: 13px;
+  height: 13px;
+}
+.favourite-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  color: var(--muted);
+}
+.favourite-action.is-favourite,
+.favourite-action:hover:not(:disabled) {
+  color: #e8c769;
+}
+.favourite-action:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+.favourite-toggle {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+}
+.favourite-toggle.compact {
+  flex: 0 0 32px;
+}
+.favourite-toggle.compact button {
+  width: 32px;
+  min-height: 44px;
+  justify-content: center;
+}
+.inspector-favourites {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 12px 0 20px;
+  font-size: 13px;
+}
+.favourites-section {
+  border-top: 1px solid var(--line);
+  margin-top: 48px;
+  padding-top: 28px;
+  scroll-margin-top: 20px;
+}
+.favourites-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  margin: 0;
+}
+.favourites-section h2 > svg {
+  color: #e8c769;
+}
+.favourites-count {
+  font-size: 14px;
+  font-weight: 400;
+}
+.favourites-section .section-heading p {
+  margin: 6px 0 0;
+  font-size: 13px;
+}
+.favourites-section .section-heading {
+  align-items: baseline;
+}
+.favourites-section .market-status-bar {
+  max-width: none;
+  justify-content: flex-start;
+  margin: 16px 0;
+}
+.favourites-empty {
+  padding: 12px 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+.favourites-empty p {
+  margin: 8px 0;
+  max-width: 65ch;
+}
+.favourite-hint {
+  color: var(--text);
+}
+.favourites-progression {
+  font-size: 12px;
+}
+.favourites-list {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+}
+.favourite-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  border-top: 1px solid var(--line);
+  padding: 20px 0;
+}
+.favourite-identity {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.favourite-recipe {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+}
+.favourite-meta {
+  font-size: 12px;
+  margin: 4px 0 4px 42px;
+  overflow-wrap: anywhere;
+}
+.favourite-identity > .price-context {
+  margin-left: 42px;
+}
+.favourite-profit {
+  flex: 0 0 220px;
+  text-align: right;
+  padding-top: 3px;
+}
+.favourite-profit > small,
+.favourite-profit > strong {
+  display: block;
+}
+.favourite-profit > strong {
+  font-size: 20px;
+  margin: 4px 0 7px;
+  font-weight: 400;
+}
+.favourite-profit strong small {
+  font-size: 11px;
+  color: var(--muted);
+}
+.favourite-profit > .inline-link {
+  font-size: 12px;
+}
+@media (max-width: 700px) {
+  .favourites-section {
+    margin-top: 32px;
+    padding-top: 24px;
+  }
+  .favourite-row {
+    flex-wrap: wrap;
+    gap: 4px 10px;
+  }
+  .favourite-identity {
+    flex-basis: calc(100% - 42px);
+  }
+  .favourite-profit {
+    flex-basis: 100%;
+    padding-top: 8px;
+  }
+  .favourite-meta,
+  .favourite-identity > .price-context {
+    margin-left: 0;
+  }
+  .favourite-recipe {
+    font-size: 14px;
+  }
+}

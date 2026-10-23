@@ -1,3 +1,4 @@
+import { Favourites } from "../components/Favourites";
 import { Modal } from "../components/Modal";
 import { ItemIcon } from "../components/ItemIcon";
 import { useEffect, useState } from "react";
@@ -331,6 +332,7 @@ export default function Tracker() {
           )}
         </section>
       )}
+      <Favourites />
     </Workspace>
   );
 }

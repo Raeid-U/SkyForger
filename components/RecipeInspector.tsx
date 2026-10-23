@@ -1,3 +1,4 @@
+import { FavouriteToggle } from "./FavouriteToggle";
 import { PriceContext, AuctionAssumptions } from "./PriceContext";
 import Link from "next/link";
 import { Modal } from "./Modal";
@@ -32,6 +33,16 @@ export function RecipeInspector({
             <ItemIcon itemId={recipe.outputId} />
             {itemById.get(recipe.outputId)?.name}
           </h3>
+          <div className="inspector-favourites">
+            <FavouriteToggle recipe={recipe} />
+            <Link
+              className="inline-link"
+              href="/tracker#favourites"
+              onClick={onClose}
+            >
+              View favourites <span aria-hidden="true">↗</span>
+            </Link>
+          </div>
           <p className="muted">
             Produces {recipe.quantity} · Forge time{" "}
             <span className="number">{duration(row.seconds)}</span>

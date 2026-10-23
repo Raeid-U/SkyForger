@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { readFavouriteIds } from "../lib/favourites";
 import {
   BAZAAR_OUTDATED_MS,
   AUCTION_OUTDATED_MS,
@@ -42,6 +43,10 @@ import {
 import { trackerResultSchema, type TrackerResult } from "../lib/forge/tracker";
 
 const Context = createContext<{
+  favouriteIds: string[];
+  toggleFavourite: (recipeId: string) => void;
+  storageOpen: boolean;
+  setStorageOpen: (value: boolean) => void;
   consent: StorageConsent | null;
   setConsent: (value: StorageConsent) => void;
   sort: "profit" | "perHour" | "category";
@@ -64,8 +69,23 @@ const Context = createContext<{
 
 export function WorkspaceProvider({ children }: { children: ReactNode }) {
   const [consent, setConsentState] = useState<StorageConsent | null>(null);
+  const [favouriteIds, setFavouriteIds] = useState<string[]>([]);
+  const [storageOpen, setStorageOpen] = useState(false);
+  const toggleFavourite = (recipeId: string) => {
+    if (!readFavouriteIds([recipeId]).length) return;
+    if (consent !== "allow") {
+      setStorageOpen(true);
+      return;
+    }
+    setFavouriteIds((previous) =>
+      previous.includes(recipeId)
+        ? previous.filter((id) => id !== recipeId)
+        : [...previous, recipeId],
+    );
+  };
   const setConsent = (value: StorageConsent) => {
     chooseStorage(value);
+    if (value === "decline") setFavouriteIds([]);
     setConsentState(value);
   };
   const [sort, setSort] = useState<"profit" | "perHour" | "category">("profit");
@@ -166,6 +186,7 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
       readBrowserValue(browserKeys.settings),
     );
     if (stored.success) setPreferences(stored.data);
+    setFavouriteIds(readFavouriteIds(readBrowserValue(browserKeys.favourites)));
     const savedSort = readBrowserValue(browserKeys.sort);
     if (
       savedSort === "profit" ||
@@ -199,6 +220,7 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
   }, [loadAccount]);
   useEffect(() => {
     if (!ready || consent !== "allow") return;
+    writeBrowserValue(browserKeys.favourites, favouriteIds);
     writeBrowserValue(browserKeys.settings, preferences);
     writeBrowserValue(browserKeys.sort, sort);
     if (snapshot) writeBrowserValue(browserKeys.bazaar, snapshot);
@@ -208,7 +230,16 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
         profile: account.selectedProfileId,
         name: accountName,
       });
-  }, [preferences, sort, snapshot, account, accountName, ready, consent]);
+  }, [
+    preferences,
+    sort,
+    snapshot,
+    account,
+    accountName,
+    ready,
+    consent,
+    favouriteIds,
+  ]);
   const refreshBazaar = useCallback(async () => {
     setLoading(true);
     setError("");
@@ -245,6 +276,10 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
   return (
     <Context.Provider
       value={{
+        favouriteIds,
+        toggleFavourite,
+        storageOpen,
+        setStorageOpen,
         consent,
         setConsent,
         sort,
@@ -807,7 +842,7 @@ export function ManualPrice({ itemId }: { itemId: string }) {
   );
 }
 
-function MarketStatus() {
+export function MarketStatus() {
   const { snapshot, loading, error, refresh, refreshing, auctions } =
     useWorkspace();
   const report = auctions.response?.report;
@@ -884,8 +919,12 @@ function MarketStatus() {
 }
 
 function StorageNotice() {
-  const { consent, setConsent } = useWorkspace();
-  const [open, setOpen] = useState(false);
+  const {
+    consent,
+    setConsent,
+    storageOpen: open,
+    setStorageOpen: setOpen,
+  } = useWorkspace();
   return (
     <>
       <button className="text-button" onClick={() => setOpen(true)}>
@@ -895,8 +934,8 @@ function StorageNotice() {
         <aside className="storage-banner" aria-label="Browser storage choice">
           <p>
             Remember prices and preferences on this device? Optional local
-            storage saves your IGN/profile, sort choice, typography and price
-            settings. Materials and forge timers stay in memory.
+            storage saves your favourites, IGN/profile, sort choice, typography
+            and price settings. Materials and forge timers stay in memory.
           </p>
           <div className="price-actions">
             <button onClick={() => setConsent("allow")}>Allow storage</button>
@@ -915,11 +954,11 @@ function StorageNotice() {
         <h3>Your device</h3>
         <p>
           With permission, SkyForger uses local storage, not cookies, to
-          remember market snapshots, IGN/profile selection, sort choice,
-          typography and price settings (including manual overrides). On-hand
-          materials and forge timers are never saved. Without permission, these
-          choices last only for the current session. Your storage decision is
-          remembered.
+          remember favourites, market snapshots, IGN/profile selection, sort
+          choice, typography and price settings (including manual overrides).
+          On-hand materials and forge timers are never saved. Without
+          permission, these choices last only for the current session. Your
+          storage decision is remembered.
         </p>
         <h3>Public lookups</h3>
         <p>
@@ -937,8 +976,8 @@ function StorageNotice() {
         </p>
         <p className="muted">
           Optional storage: {consent === "allow" ? "enabled" : "disabled"}.
-          Turning it off clears saved preferences, profile selection and market
-          snapshots on this device.
+          Turning it off clears your favourites, saved preferences, profile
+          selection and market snapshots on this device.
         </p>
         <div className="price-actions">
           <button

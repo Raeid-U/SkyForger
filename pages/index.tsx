@@ -3,6 +3,7 @@ import {
   AuctionAssumptions,
   isStalePrice,
 } from "../components/PriceContext";
+import { FavouriteStar } from "../components/FavouriteToggle";
 import { ItemIcon } from "../components/ItemIcon";
 import { RecipeInspector } from "../components/RecipeInspector";
 import { useState } from "react";
@@ -17,8 +18,16 @@ import { itemMarket, matchesMarket } from "../lib/forge/markets";
 import { rankForgeRecipes } from "../lib/forge/pricing";
 
 export default function Flips() {
-  const { settings, snapshot, update, account, auctions, sort, setSort } =
-    useWorkspace();
+  const {
+    settings,
+    snapshot,
+    update,
+    account,
+    auctions,
+    sort,
+    setSort,
+    favouriteIds,
+  } = useWorkspace();
   const [search, setSearch] = useState("");
   const [eligible, setEligible] = useState(true);
   const [inspected, setInspected] = useState<string | null>(null);
@@ -210,7 +219,15 @@ export default function Flips() {
                     >
                       <ItemIcon itemId={row.recipe.outputId} />
                       <span className="recipe-label">
-                        <span>{name}</span>
+                        <span className="recipe-name">
+                          {name}
+                          {favouriteIds.includes(row.recipe.id) && (
+                            <span className="favourite-marker">
+                              <FavouriteStar filled />
+                              <span className="sr-only"> · Favourite</span>
+                            </span>
+                          )}
+                        </span>
                         {(status ||
                           (account?.progression && row.locked.length > 0)) && (
                           <small className={status ? "muted" : "warning"}>

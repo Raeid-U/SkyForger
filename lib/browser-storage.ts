@@ -2,6 +2,7 @@
 export type StorageConsent = "allow" | "decline";
 const consentKey = "skyforger:storage-consent:v1";
 export const browserKeys = {
+  favourites: "skyforger:favourites:v1",
   settings: "skyforger:settings:v1",
   account: "skyforger:account:v1",
   sort: "skyforger:sort:v1",

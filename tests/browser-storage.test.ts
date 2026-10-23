@@ -28,6 +28,10 @@ test("optional browser persistence requires permission and revocation clears onl
     chooseStorage("allow");
     writeBrowserValue(browserKeys.sort, "perHour");
     assert.equal(readBrowserValue(browserKeys.sort), "perHour");
+    writeBrowserValue(browserKeys.favourites, ["refined-mithril"]);
+    assert.deepEqual(readBrowserValue(browserKeys.favourites), [
+      "refined-mithril",
+    ]);
     values.set(browserKeys.bazaar, "corrupt");
     assert.equal(readBrowserValue(browserKeys.bazaar), null);
     values.set("unrelated", "preserve");
