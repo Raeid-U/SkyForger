@@ -8,13 +8,12 @@ import type { TrackedJob } from "../lib/forge/tracker";
 
 function timeLeft(seconds: number) {
   const value = Math.max(0, Math.ceil(seconds));
-  const days = Math.floor(value / 86400);
-  const hours = Math.floor((value % 86400) / 3600);
+  const hours = Math.floor(value / 3600);
   const minutes = Math.floor((value % 3600) / 60);
-  if (days) return `${days}d ${hours}h`;
-  if (hours) return `${hours}h ${minutes}m`;
-  if (value >= 60) return `${minutes}m`;
-  return `${value}s`;
+  const remainingSeconds = value % 60;
+  return [hours, minutes, remainingSeconds]
+    .map((part) => String(part).padStart(2, "0"))
+    .join(":");
 }
 
 function Job({
@@ -38,20 +37,27 @@ function Job({
       Math.ceil(job.baseDuration! * (1 - reduction - 0.25)) * 1000
     : null;
   const pastEstimate = latest !== null && now >= latest;
-  const possiblyReady = !pastEstimate && earliest !== null && now >= earliest;
   const name =
     (job.itemId ? itemById.get(job.itemId)?.name : null) ?? job.apiItemId;
-  const status = pastEstimate
-    ? "Past latest estimate"
-    : possiblyReady
-      ? "May already be ready"
-      : known
-        ? "Could finish sooner"
-        : "Recipe or perk data unavailable";
+  const finishTime =
+    latest === null
+      ? null
+      : new Intl.DateTimeFormat(undefined, {
+          hour: "2-digit",
+          minute: "2-digit",
+          hourCycle: "h23",
+          timeZoneName: "short",
+        }).format(latest);
+  const finishDate =
+    latest !== null &&
+    new Date(latest).toDateString() !== new Date(now).toDateString()
+      ? new Date(latest).toLocaleDateString(undefined, {
+          month: "short",
+          day: "numeric",
+        })
+      : null;
   return (
-    <li
-      className={`forge-entry ${pastEstimate || possiblyReady ? "forge-ready" : ""}`}
-    >
+    <li className="forge-entry">
       <div className="forge-job-row">
         <span className="forge-slot-id">
           <span className="sr-only">Slot </span>
@@ -83,31 +89,29 @@ function Job({
           </div>
         </div>
         <div className="forge-timing">
-          <span className="sr-only">
-            {known && !pastEstimate
-              ? "Estimated time left"
-              : "Completion estimate"}
-          </span>
-          <strong
-            className={`forge-countdown ${pastEstimate ? "ready-label" : ""}`}
-          >
-            {pastEstimate ? (
-              "Ready to check"
-            ) : latest !== null ? (
+          <span className="sr-only">Estimated time left</span>
+          <strong className="forge-countdown">
+            <span className="time-value">
+              {latest === null ? "--:--:--" : timeLeft((latest - now) / 1000)}
+            </span>
+          </strong>
+          <span className="forge-time-note">
+            Estimated finish:{" "}
+            {latest !== null ? (
               <>
-                <span className="time-prefix">Up to </span>
-                <span className="time-value">
-                  {timeLeft((latest - now) / 1000)}
-                </span>
+                <time
+                  className="forge-finish-time"
+                  dateTime={new Date(latest).toISOString()}
+                >
+                  {finishTime}
+                </time>
+                {finishDate && (
+                  <span className="forge-finish-date"> · {finishDate}</span>
+                )}
               </>
             ) : (
-              "Time unavailable"
+              "unavailable"
             )}
-          </strong>
-          <span
-            className={`forge-time-note ${possiblyReady ? "positive" : ""}`}
-          >
-            {status}
           </span>
         </div>
       </div>
@@ -272,8 +276,8 @@ export default function Tracker() {
           {jobs.length > 0 && (
             <>
               <p className="forge-estimate-note">
-                Times are estimates. Each countdown shows the latest expected
-                finish; jobs can finish sooner.
+                Countdowns use the latest completion estimate. Timing details
+                explain the assumptions.
               </p>
               <div className="forge-list-heading" aria-hidden="true">
                 <span>Slot</span>

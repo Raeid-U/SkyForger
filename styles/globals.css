@@ -1186,7 +1186,8 @@ footer > span > span {
 }
 .forge-list-heading > span:last-child {
   margin-left: auto;
-  width: 230px;
+  width: 310px;
+  text-align: right;
 }
 .forge-list {
   list-style: none;
@@ -1249,8 +1250,10 @@ footer > span > span {
   margin: 0;
 }
 .forge-timing {
-  width: 230px;
+  width: 310px;
   flex: 0 0 auto;
+  max-width: 100%;
+  text-align: right;
 }
 .forge-time-note {
   display: block;
@@ -1258,32 +1261,22 @@ footer > span > span {
   font-size: 12px;
 }
 .forge-countdown {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 4px 10px;
-  margin: 4px 0;
+  display: block;
+  margin: 2px 0 4px;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 28px;
   line-height: 1.35;
 }
-.time-prefix {
-  font-family: var(--font-ui);
-  color: var(--muted);
-  font-size: 13px;
+.forge-finish-time {
+  white-space: nowrap;
+}
+.forge-finish-date {
   white-space: nowrap;
 }
 .time-value {
   font-family: var(--font-numeric);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
-}
-.forge-countdown.ready-label {
-  font-size: 20px;
-  color: var(--accent);
-}
-.forge-time-note.positive {
-  color: var(--accent);
 }
 .forge-completion-window {
   display: flex;
@@ -1382,11 +1375,10 @@ footer > span > span {
   .forge-timing {
     width: auto;
     flex: 1 1 100%;
-    padding-left: 40px;
     margin-top: 4px;
   }
   .forge-countdown {
-    font-size: 24px;
+    font-size: 28px;
     margin: 2px 0;
   }
   .forge-completion-window {
