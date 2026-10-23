@@ -4,6 +4,10 @@ A forge companion for Hypixel SkyBlock: compare what to forge, plan a long craft
 
 SkyBlock forging combines live market prices, progression gates, nested recipes, and hours of waiting. SkyForger brings those decisions into one focused workspace instead of spreading them across spreadsheets and calculators.
 
+[![SkyForger crafting tree and remaining shopping list — watch the demo](docs/media/demo-poster.png)](docs/media/skyforger-demo.webm)
+
+[Watch the demo](docs/media/skyforger-demo.webm) · Sample profile and market data.
+
 ## The tools
 
 - **Forge flips** — rank recipes by estimated profit per item or per hour, compare Bazaar order strategies, and use current comparable Auction House BIN listings for non-Bazaar items. Price details expose sparse listings, missing data, and manual overrides.
@@ -49,6 +53,7 @@ The build includes catalog validation. `npm run test:live` runs separate network
 
 ## Reference
 
+- [Demo recording](docs/demo.md)
 - [API request controls and quota](docs/request-controls.md)
 - [Profile API](docs/profile-api.md)
 - [Bazaar API and order-book semantics](docs/bazaar-api.md)

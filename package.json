@@ -15,7 +15,8 @@
     "test:live": "tsx --test tests/integration/*.test.ts",
     "catalog:check": "tsx scripts/check-catalog.ts",
     "prebuild": "npm run catalog:check",
-    "auctions:prices": "tsx scripts/auction-prices.ts"
+    "auctions:prices": "tsx scripts/auction-prices.ts",
+    "demo:record": "node scripts/demo/record.cjs"
   },
   "dependencies": {
     "next": "^16.4.2",
@@ -25,6 +26,7 @@
     "zod": "^4.6.7"
   },
   "devDependencies": {
+    "@playwright/test": "1.64.1",
     "@types/node": "^26.6.5",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",

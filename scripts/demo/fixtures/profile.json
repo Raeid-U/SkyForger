@@ -1,0 +1,50 @@
+{
+  "uuid": "12345678901234567890123456789012",
+  "selectedProfileId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "profiles": [
+    {
+      "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "name": "Kiwi"
+    },
+    {
+      "id": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "name": "Strawberry"
+    }
+  ],
+  "jobs": [
+    {
+      "slot": 1,
+      "apiItemId": "REFINED_MITHRIL",
+      "itemId": "refined-mithril",
+      "startedAt": 1792707219965,
+      "baseDuration": 21600
+    }
+  ],
+  "availability": "available",
+  "fetchedAt": 1792710819966,
+  "progression": {
+    "settings": {
+      "hotm": 10,
+      "peak": 0,
+      "quickForge": 0,
+      "tax": 0.0125,
+      "collections": {
+        "Gemstone": 11,
+        "Tungsten": 9,
+        "Umber": 9,
+        "Glacite": 9,
+        "Hard Stone": 9
+      },
+      "unlocks": []
+    },
+    "warnings": [
+      "Mining perks are unavailable; forge times use no Quick Forge reduction."
+    ]
+  },
+  "inventory": null,
+  "environment": {
+    "mayor": null,
+    "moltenForge": false,
+    "warnings": []
+  }
+}
