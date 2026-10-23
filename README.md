@@ -2,7 +2,9 @@
 
 A forge companion for Hypixel SkyBlock: compare what to forge, plan a long crafting tree, and keep track of your forge slots.
 
-SkyBlock forging combines live market prices, progression gates, nested recipes, and hours of waiting. SkyForger brings those decisions into one focused workspace instead of spreading them across spreadsheets and calculators.
+SkyBlock forging combines live market prices, progression gates, nested recipes, and hours of waiting. SkyForger brings those decisions into one focused workspace instead of spreading them across spreadsheets and calculators. 
+
+Check out our live deployment here: https://skyforger.raeid.ca
 
 ## Demo Video
 
