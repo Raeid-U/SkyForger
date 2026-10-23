@@ -15,21 +15,37 @@ permissions:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Check out application
+        id: checkout
+        uses: actions/checkout@v7.0.1
+        timeout-minutes: 1
+      - name: Set up Node.js
+        id: node
+        uses: actions/setup-node@v7.1.0
+        timeout-minutes: 1
         with:
           node-version: '22'
-          cache: npm
-      - run: npm ci
+          package-manager-cache: false
+      - name: Install dependencies
+        id: install
+        timeout-minutes: 2
+        run: npm ci --no-audit --no-fund
       - name: Prepare data branch and reserve collection window
         id: reserve
+        timeout-minutes: 1
         shell: bash
         run: |
           set -euo pipefail
           # Isolated worktree keeps generated data out of application history.
-          if git ls-remote --exit-code --heads origin auction-data > /dev/null; then
+          if git ls-remote --heads origin auction-data > "$RUNNER_TEMP/auction-data-ref.txt"; then
+            branch_exists=$(cat "$RUNNER_TEMP/auction-data-ref.txt")
+          else
+            echo '::error::Could not inspect auction-data. Check repository access.'
+            exit 1
+          fi
+          if test -n "$branch_exists"; then
             git fetch origin auction-data
             git worktree add "$RUNNER_TEMP/auction-data" -B auction-data FETCH_HEAD
           else
@@ -42,9 +58,14 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           previous=0
           if test -f last-attempt.txt; then previous=$(cat last-attempt.txt); fi
+          if ! [[ "$previous" =~ ^[0-9]{1,11}$ ]]; then
+            echo '::error::Invalid last-attempt.txt on auction-data.'
+            exit 1
+          fi
           current=$(date +%s)
           if (( current - previous < 600 )); then
             echo 'skip=true' >> "$GITHUB_OUTPUT"
+            echo '::notice::Skipped: a collection window was reserved less than ten minutes ago.'
             exit 0
           fi
           # Persist before collecting so failed/manual runs cannot immediately rescan.
@@ -53,9 +74,23 @@ jobs:
           git commit -m 'chore: reserve auction collection window'
           git push origin HEAD:auction-data
       - name: Collect validated snapshot
+        id: collect
         if: steps.reserve.outputs.skip != 'true'
-        run: npm run --silent auctions:prices > "$RUNNER_TEMP/auction-prices.json"
+        timeout-minutes: 3
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "Starting bounded auction collection at $(date -u +%FT%TZ)"
+          if npm run --silent auctions:prices > "$RUNNER_TEMP/auction-prices.json" 2> >(tee "$RUNNER_TEMP/auction-collector.log" >&2); then
+            echo '::notice::Complete auction snapshot validated.'
+          else
+            collector_exit=$?
+            echo "::error::Auction collection failed (exit $collector_exit). See collector progress below; previous snapshot was not replaced."
+            exit "$collector_exit"
+          fi
       - name: Publish snapshot
+        id: publish
+        timeout-minutes: 1
         if: steps.reserve.outputs.skip != 'true'
         shell: bash
         run: |
@@ -65,3 +100,45 @@ jobs:
           git add auction-prices.json
           git commit -m 'chore: refresh auction snapshot'
           git push origin HEAD:auction-data
+      - name: Run summary
+        if: always()
+        timeout-minutes: 1
+        env:
+          CHECKOUT_RESULT: ${{ steps.checkout.outcome }}
+          NODE_RESULT: ${{ steps.node.outcome }}
+          INSTALL_RESULT: ${{ steps.install.outcome }}
+          RESERVE_RESULT: ${{ steps.reserve.outcome }}
+          COLLECT_RESULT: ${{ steps.collect.outcome }}
+          PUBLISH_RESULT: ${{ steps.publish.outcome }}
+          COOLDOWN_SKIP: ${{ steps.reserve.outputs.skip }}
+        shell: bash
+        run: |
+          {
+            echo '## Auction snapshot run'
+            echo
+            echo "Trigger: $GITHUB_EVENT_NAME"
+            echo
+            echo '| Stage | Outcome |'
+            echo '| --- | --- |'
+            echo "| Checkout | $CHECKOUT_RESULT |"
+            echo "| Node setup (no Actions cache) | $NODE_RESULT |"
+            echo "| Dependency installation | $INSTALL_RESULT |"
+            echo "| Collection reservation | $RESERVE_RESULT |"
+            echo "| Hypixel collection | $COLLECT_RESULT |"
+            echo "| Snapshot publication | $PUBLISH_RESULT |"
+            echo
+            if test "$COOLDOWN_SKIP" = true; then
+              echo 'Collection skipped because the previous reservation is less than ten minutes old.'
+            elif test "$PUBLISH_RESULT" = success; then
+              echo "Snapshot: https://raw.githubusercontent.com/$GITHUB_REPOSITORY/auction-data/auction-prices.json"
+            else
+              echo 'No new snapshot was published. Any previous snapshot remains intact. Inspect the first failed or cancelled stage above.'
+            fi
+            if test -f "$RUNNER_TEMP/auction-collector.log"; then
+              echo
+              echo '### Collector log (last 30 lines)'
+              echo '```text'
+              tail -n 30 "$RUNNER_TEMP/auction-collector.log"
+              echo '```'
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"

@@ -64,6 +64,7 @@ export async function collectAuctionSnapshot(options: {
   fetcher?: typeof fetch;
   now?: () => number;
   signal?: AbortSignal;
+  onProgress?: (progress: { attempt: number; page: number; totalPages: number }) => void;
 } = {}): Promise<AuctionSnapshot> {
   const fetcher = options.fetcher ?? hypixelFetch;
   const now = options.now ?? Date.now;
@@ -96,6 +97,7 @@ export async function collectAuctionSnapshot(options: {
       }
       const parsed = await readPage(response);
       if (parsed.page !== number) throw new AuctionCollectionError("invalid-data", "Hypixel returned the wrong auction page.");
+      options.onProgress?.({ attempt: attempt + 1, page: number, totalPages: parsed.totalPages });
       return parsed;
     }
     try {
