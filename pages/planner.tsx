@@ -1,3 +1,4 @@
+import { readApiResponse } from "../lib/api-response";
 import { PriceContext, AuctionAssumptions } from "../components/PriceContext";
 import { ItemIcon } from "../components/ItemIcon";
 import { useEffect, useRef, useState } from "react";
@@ -96,10 +97,14 @@ export default function Planner() {
           AbortSignal.timeout(20000),
         ]),
       });
-      const body = await response.json();
-      if (!response.ok)
-        throw new Error(body.error ?? "Could not check materials.");
-      const result = trackerResultSchema.parse(body);
+      const body = await readApiResponse(
+        response,
+        "Could not check materials. Try again shortly.",
+      );
+      const parsed = trackerResultSchema.safeParse(body);
+      if (!parsed.success)
+        throw new Error("Materials response was incomplete. Try again.");
+      const result = parsed.data;
       if (!result.inventory)
         throw new Error("Materials are unavailable for this profile.");
       if (controller.signal.aborted) return;

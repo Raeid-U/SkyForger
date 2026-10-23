@@ -1,3 +1,4 @@
+import { nextMarketChangeAt } from "../lib/market-freshness";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   browserKeys,
@@ -6,7 +7,7 @@ import {
 } from "../lib/browser-storage";
 import { auctionResponseSchema, type AuctionResponse } from "../lib/auctions";
 
-export function useAuctionPrices(remember: boolean) {
+export function useAuctionPrices(remember: boolean, bazaarUpdatedAt?: number) {
   const [response, setResponse] = useState<AuctionResponse | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -20,7 +21,7 @@ export function useAuctionPrices(remember: boolean) {
     request.current = controller;
     setLoading(true);
     setError("");
-    const timeout = setTimeout(() => controller.abort(), 190000);
+    const timeout = setTimeout(() => controller.abort(), 15000);
     try {
       const result = await fetch("/api/auctions", {
         signal: controller.signal,
@@ -64,13 +65,24 @@ export function useAuctionPrices(remember: boolean) {
   }, []);
   useEffect(() => {
     setNow(Date.now());
-    const interval = setInterval(() => setNow(Date.now()), 1000);
     return () => {
-      clearInterval(interval);
       request.current?.abort();
       request.current = null;
     };
   }, [refresh]);
+  useEffect(() => {
+    const at = Date.now();
+    const deadline = nextMarketChangeAt(
+      at,
+      response?.report.expiresAt,
+      response?.report.sourceUpdatedAt,
+      bazaarUpdatedAt,
+    );
+    if (deadline === null) return;
+    // Advance age warnings at their boundaries without polling or fetching prices.
+    const timer = setTimeout(() => setNow(Date.now()), deadline - at);
+    return () => clearTimeout(timer);
+  }, [response, bazaarUpdatedAt, now]);
   useEffect(() => {
     if (!remember) return;
     const saved = auctionResponseSchema.safeParse(
@@ -103,7 +115,6 @@ export function useAuctionPrices(remember: boolean) {
     error,
     refresh,
     retryAt,
-    canRefresh: !loading && now >= retryAt,
     now,
   };
 }

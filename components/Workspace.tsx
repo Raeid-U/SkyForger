@@ -1,3 +1,4 @@
+import { readApiResponse } from "../lib/api-response";
 import Head from "next/head";
 import { readFavouriteIds } from "../lib/favourites";
 import {
@@ -89,7 +90,8 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
     setConsentState(value);
   };
   const [sort, setSort] = useState<"profit" | "perHour" | "category">("profit");
-  const auctions = useAuctionPrices(consent === "allow");
+  const [snapshot, setSnapshot] = useState<BazaarSnapshot | null>(null);
+  const auctions = useAuctionPrices(consent === "allow", snapshot?.lastUpdated);
   const [refreshing, setRefreshing] = useState(false);
   const refreshingRef = useRef(false);
   const [preferences, setPreferences] = useState(() =>
@@ -125,9 +127,10 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
       const response = await fetch(`/api/forge?${query}`, {
         signal: controller.signal,
       });
-      const body = await response.json();
-      if (!response.ok)
-        throw new Error(body.error ?? "Could not load profile.");
+      const body = await readApiResponse(
+        response,
+        "Could not load profile. Try again shortly.",
+      );
       const parsed = trackerResultSchema.safeParse(body);
       if (!parsed.success)
         throw new Error("Profile response was incomplete. Try again.");
@@ -175,7 +178,6 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
     } catch {}
   };
   const [ready, setReady] = useState(false);
-  const [snapshot, setSnapshot] = useState<BazaarSnapshot | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   useEffect(() => {
@@ -250,10 +252,8 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
       if (!response.ok)
         throw new Error("Bazaar unavailable. Try again shortly.");
       setSnapshot(parseBazaar(await response.json()));
-    } catch (cause) {
-      setError(
-        cause instanceof Error ? cause.message : "Could not load prices.",
-      );
+    } catch {
+      setError("Bazaar prices are unavailable. Try again shortly.");
     } finally {
       setLoading(false);
     }
@@ -263,8 +263,7 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
     refreshingRef.current = true;
     setRefreshing(true);
     try {
-      await refreshBazaar();
-      await auctions.refresh();
+      await Promise.all([refreshBazaar(), auctions.refresh()]);
     } finally {
       refreshingRef.current = false;
       setRefreshing(false);
@@ -360,7 +359,7 @@ export function Workspace({
   return (
     <>
       <Head>
-        <title>{title} · SkyForger</title>
+        <title>{`${title} · SkyForger`}</title>
         <meta name="description" content={description} key="description" />
         <meta property="og:site_name" content="SkyForger" key="og:site_name" />
         <meta property="og:type" content="website" key="og:type" />
@@ -609,8 +608,7 @@ export function Workspace({
           ))}
         </ul>
         <p>
-          The pixel typography option uses the Minecraft Classic font, sourced
-          from{" "}
+          The pixel typography option uses a font downloaded from{" "}
           <a
             className="inline-link"
             href="https://classic.minecraft.net/assets/fonts/minecraftfont.woff"
@@ -619,7 +617,9 @@ export function Workspace({
           >
             Minecraft Classic
           </a>
-          .
+          . This font is not our work; ownership remains with its respective
+          rights holders. Creator credits and redistribution terms have not
+          been verified.
         </p>
       </Modal>
     </>
@@ -911,13 +911,16 @@ export function MarketStatus() {
                     })}
                   </small>
                 )}
-                {row.failed && !row.busy && (
+                {/*
+                  likely not necessary information since the updated HH:MM lets the user know
+                  from when the data they are seeing is from
+                  {row.failed && !row.busy && (
                   <small>
                     {" "}
                     · Refresh failed;{" "}
                     {row.stamp ? "previous snapshot" : "retry later"}
                   </small>
-                )}
+                )}*/}
               </span>
             </span>
           );
@@ -926,9 +929,9 @@ export function MarketStatus() {
       <button onClick={() => void refresh()} disabled={refreshing}>
         {refreshing ? "Refreshing…" : "Refresh prices"}
       </button>
-      {!refreshing && !auctions.canRefresh && (
+      {!refreshing && auctions.retryAt > 0 && (
         <small className="muted">
-          Auction retry after{" "}
+          Auction refresh available after{" "}
           {new Date(auctions.retryAt).toLocaleTimeString([], {
             hour: "2-digit",
             minute: "2-digit",
@@ -936,6 +939,7 @@ export function MarketStatus() {
           })}
         </small>
       )}
+
     </div>
   );
 }

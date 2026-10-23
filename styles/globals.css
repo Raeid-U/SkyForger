@@ -525,6 +525,8 @@ tbody tr:hover {
 }
 .recipe-label {
   min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 .recipe-label small {
   margin-top: 2px;

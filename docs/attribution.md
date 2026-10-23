@@ -12,4 +12,6 @@ The catalog records legacy and supplemental asset groups. Original download URLs
 
 Instrument Sans and IBM Plex Mono are bundled with their Open Font License notices in `public/fonts/`. Preserve those notices when redistributing them.
 
-`public/fonts/minecraftfont.woff` has an origin reference in the application attribution, but its redistribution license has not yet been recorded here. Confirm its terms or replace the font before public release; the project's MIT license does not resolve that question.
+The optional pixel typography uses `public/fonts/minecraftfont.woff`, downloaded from [Minecraft Classic](https://classic.minecraft.net/assets/fonts/minecraftfont.woff).
+
+This font is not original SkyForger work. Ownership remains with its respective rights holders; the original creator credits and redistribution terms have not been verified. The download link records where the file was obtained and does not imply permission, endorsement, or inclusion under SkyForger's MIT license.
