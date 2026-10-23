@@ -4,7 +4,7 @@ A forge companion for Hypixel SkyBlock: compare what to forge, plan a long craft
 
 SkyBlock forging combines live market prices, progression gates, nested recipes, and hours of waiting. SkyForger brings those decisions into one focused workspace instead of spreading them across spreadsheets and calculators.
 
-[![SkyForger crafting tree and remaining shopping list — watch the demo](docs/media/demo-poster.png)](docs/media/skyforger-demo.webm)
+[![SkyForger crafting tree and remaining shopping list — watch the demo](docs/media/demo-poster.png)](docs/media/skyforger-demo.gif)
 
 [Watch the demo](docs/media/skyforger-demo.webm) · Sample profile and market data.
 
