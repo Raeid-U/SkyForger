@@ -11,9 +11,9 @@
   font-display: swap;
 }
 @font-face {
-  font-family: "Pixelify Sans";
-  src: url("/fonts/pixelifysans.ttf") format("truetype");
-  font-weight: 400 700;
+  font-family: "Minecraft Classic";
+  src: url("/fonts/minecraftfont.woff") format("woff");
+  font-weight: 400;
   font-display: swap;
 }
 :root {
@@ -29,7 +29,7 @@
   --font-numeric: "IBM Plex Mono", monospace;
 }
 :root[data-type-mode="pixel"] {
-  --font-ui: "Pixelify Sans", sans-serif;
+  --font-ui: "Minecraft Classic", sans-serif;
 }
 :root[data-type-mode="pixel"] body {
   font-size: 15px;
@@ -208,13 +208,12 @@ label select {
   font-weight: 700;
 }
 .mark {
-  display: grid;
-  place-items: center;
-  background: var(--accent);
-  color: var(--bg);
+  display: block;
+  flex-shrink: 0;
   height: 30px;
   width: 30px;
-  border-radius: 3px;
+  object-fit: contain;
+  image-rendering: pixelated;
 }
 .site-header nav {
   display: flex;

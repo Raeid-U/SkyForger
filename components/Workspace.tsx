@@ -300,9 +300,14 @@ export function Workspace({
       <div className="workspace">
         <header className="site-header">
           <Link className="brand" href="/">
-            <span className="mark" aria-hidden="true">
-              S
-            </span>
+            <img
+              className="mark"
+              src="/favicon-64x64.png"
+              width={30}
+              height={30}
+              alt=""
+              aria-hidden="true"
+            />
             SkyForger
           </Link>
           <nav aria-label="Main">
@@ -499,23 +504,34 @@ export function Workspace({
         </p>
         <h3>Typography</h3>
         <p>
-          Instrument Sans, IBM Plex Mono, and Pixelify Sans are distributed
-          under the SIL Open Font License 1.1.
+          Instrument Sans and IBM Plex Mono are distributed under the SIL Open
+          Font License 1.1.
         </p>
         <ul className="license-links">
-          {["instrumentsans", "ibmplexmono", "pixelifysans"].map((font) => (
+          {["instrumentsans", "ibmplexmono"].map((font) => (
             <li key={font}>
               <a className="inline-link" href={`/fonts/${font}-OFL.txt`}>
                 {font === "instrumentsans"
                   ? "Instrument Sans"
-                  : font === "ibmplexmono"
-                    ? "IBM Plex Mono"
-                    : "Pixelify Sans"}{" "}
+                  : "IBM Plex Mono"}{" "}
                 license
               </a>
             </li>
           ))}
         </ul>
+        <p>
+          The pixel typography option uses the Minecraft Classic font, sourced
+          from{" "}
+          <a
+            className="inline-link"
+            href="https://classic.minecraft.net/assets/fonts/minecraftfont.woff"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Minecraft Classic
+          </a>
+          .
+        </p>
       </Modal>
     </>
   );
