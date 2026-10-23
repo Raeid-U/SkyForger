@@ -1,16 +1,18 @@
+import { allowClient } from "../../lib/server/request-controls";
 import type { NextApiRequest, NextApiResponse } from "next";
 import type { AuctionResponse } from "../../lib/auctions";
-import { AuctionServiceError, getAuctionPrices } from "../../lib/server/auctions/service";
+import { AuctionServiceError } from "../../lib/server/auctions/service";
 
-export const config = { maxDuration: 180 };
+import { getPublishedAuctionPrices } from "../../lib/server/auctions/published";
 
-export function createAuctionHandler(getPrices: () => Promise<AuctionResponse> = getAuctionPrices, now: () => number = Date.now) {
+export function createAuctionHandler(getPrices: () => Promise<AuctionResponse> = getPublishedAuctionPrices, now: () => number = Date.now) {
   return async function handler(req: NextApiRequest, res: NextApiResponse) {
     res.setHeader("Cache-Control", "no-store");
     if (req.method !== "GET") {
       res.setHeader("Allow", "GET");
       return res.status(405).json({ error: "Method not allowed" });
     }
+    if (!(await allowClient(req, res, "auctions"))) return;
     try {
       const result = await getPrices();
       const ttl = Math.max(0, Math.min(30, Math.floor((result.report.expiresAt - now()) / 1000), Math.floor((result.refresh.nextRefreshAt - now()) / 1000)));

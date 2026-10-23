@@ -37,7 +37,7 @@ cp .env.example .env.local
 npm run dev
 ```
 
-Set `HYPIXEL_API_KEY` for profile lookup and tracking. Bazaar and auction pricing do not require a key. Keep the key server-side. Set `NEXT_PUBLIC_SITE_URL` to the production origin to enable canonical URLs and absolute social-card links; leave it unset for local or preview builds.
+Set `HYPIXEL_API_KEY` for profile lookup and tracking. Bazaar and auction pricing do not require a key. Keep the key server-side. Public deployment uses Vercel Firewall IP limits and scheduled auction snapshots; see [request controls](docs/request-controls.md). Set `NEXT_PUBLIC_SITE_URL` to the production origin to enable canonical URLs and absolute social-card links; leave it unset for local or preview builds.
 
 ```sh
 npm test
@@ -49,6 +49,7 @@ The build includes catalog validation. `npm run test:live` runs separate network
 
 ## Reference
 
+- [API request controls and quota](docs/request-controls.md)
 - [Profile API](docs/profile-api.md)
 - [Bazaar API and order-book semantics](docs/bazaar-api.md)
 - [Auction matching, caching, and pricing policies](docs/auction-pricing.md)

@@ -21,9 +21,9 @@ The response includes `uuid`, `selectedProfileId`, selectable `profiles`, `jobs`
 | 400 | Invalid player, profile, or craft query. |
 | 404 | Player/profile not found, or player is not a member of the selected profile. |
 | 405 | Unsupported method; only GET is allowed. |
-| 429 | Hypixel rejected the request due to its rate limit. |
+| 429 | Client/application budget exhausted, or Hypixel rate limit reached. |
 | 502 | Upstream lookup failed or profile data could not be read. |
-| 503 | Server profile key is missing or rejected. |
+| 503 | Server profile key is missing/rejected, or local request protection is unavailable. |
 
 Errors contain a safe `error` message. Username resolution uses Mojang; UUIDs bypass it. Upstream requests have eight-second timeouts. Current election data is cached separately; profile responses use `Cache-Control: private, no-store`.
 
@@ -31,4 +31,4 @@ Errors contain a safe `error` message. Username resolution uses Mojang; UUIDs by
 
 Market preferences and manual unit-price overrides remain editable; progression comes from the selected profile. With optional storage consent, the browser restores account selection and fetches fresh profile data. Owned-material checks are explicit, scoped to the selected craft, and reset when craft or profile changes; there is no editable material-adjustment ledger.
 
-The route currently has no application-level client rate limiter or shared profile cache. Upstream 429 handling is not a substitute for deployment request controls. Do not publicly cache raw profile/inventory responses.
+The route has a best-effort ten-origin-request per-IP rolling minute limit within each process. Vercel Firewall supplies deployment-level IP enforcement; there is no strict shared application-wide budget. See [request controls](request-controls.md) for configuration, limitations, and remaining cache work. There is no shared profile cache. Do not publicly cache raw profile/inventory responses.

@@ -1,3 +1,4 @@
+import { allowClient, hypixelFetch, RequestLimitError } from "../../lib/server/request-controls";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { z } from "zod";
 import { extractInventory } from "../../lib/server/inventory";
@@ -41,6 +42,7 @@ export default async function handler(
     return res
       .status(503)
       .json({ error: "Profile lookup is not configured on this server." });
+  if (!(await allowClient(req, res, "forge"))) return;
   try {
     let uuid = query.data.player.replaceAll("-", "").toLowerCase();
     if (!/^[a-f0-9]{32}$/.test(uuid)) {
@@ -59,7 +61,7 @@ export default async function handler(
         .parse(await response.json())
         .id.toLowerCase();
     }
-    const response = await fetch(
+    const response = await hypixelFetch(
       `https://api.hypixel.net/v2/skyblock/profiles?uuid=${uuid}`,
       {
         headers: { "API-Key": key, Accept: "application/json" },
@@ -82,7 +84,7 @@ export default async function handler(
     const payload = await response.json();
     const result = normalizeProfiles(payload, uuid, query.data.profile);
     if (result.progression) {
-      result.environment = await currentEnvironment();
+      result.environment = await currentEnvironment(hypixelFetch);
       const selected = payload.profiles.find(
         (profile: { profile_id: string }) =>
           profile.profile_id === result.selectedProfileId,
@@ -96,6 +98,10 @@ export default async function handler(
     }
     return res.status(200).json(result);
   } catch (cause) {
+    if (cause instanceof RequestLimitError) {
+      res.setHeader("Retry-After", String(cause.retryAfter));
+      return res.status(cause.status).json({ error: cause.message });
+    }
     if (
       cause instanceof Error &&
       [
