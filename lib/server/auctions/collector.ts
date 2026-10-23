@@ -1,3 +1,4 @@
+import { hypixelFetch, RequestLimitError } from "../request-controls";
 import { z } from "zod";
 
 const integer = z.number().int().nonnegative().safe();
@@ -64,7 +65,7 @@ export async function collectAuctionSnapshot(options: {
   now?: () => number;
   signal?: AbortSignal;
 } = {}): Promise<AuctionSnapshot> {
-  const fetcher = options.fetcher ?? fetch;
+  const fetcher = options.fetcher ?? hypixelFetch;
   const now = options.now ?? Date.now;
   options.signal?.throwIfAborted();
   function assertFresh(updatedAt: number, at: number) {
@@ -83,7 +84,9 @@ export async function collectAuctionSnapshot(options: {
         response = await fetcher(`https://api.hypixel.net/v2/skyblock/auctions?page=${number}`, {
           signal, cache: "no-store", headers: { Accept: "application/json" },
         });
-      } catch {
+      } catch (error) {
+        if (error instanceof RequestLimitError && error.status === 429)
+          throw new AuctionCollectionError("rate-limited", error.message);
         throw new AuctionCollectionError("upstream", "Auction request failed or timed out.");
       }
       if (!response.ok) {

@@ -198,11 +198,11 @@ export function extractEnvironment(value: unknown): Environment {
   };
 }
 let environmentCache: { expires: number; value: Environment } | null = null;
-export async function currentEnvironment(): Promise<Environment> {
+export async function currentEnvironment(fetcher: typeof fetch = fetch): Promise<Environment> {
   if (environmentCache && environmentCache.expires > Date.now())
     return environmentCache.value;
   try {
-    const response = await fetch(
+    const response = await fetcher(
       "https://api.hypixel.net/v2/resources/skyblock/election",
       { signal: AbortSignal.timeout(5000) },
     );
