@@ -30,10 +30,16 @@ export function Modal({
       className="modal"
       aria-labelledby={titleId}
       onCancel={(event) => {
+        event.stopPropagation();
         event.preventDefault();
         onClose();
       }}
       onKeyDown={(event) => {
+        if (
+          (event.target as HTMLElement).closest("dialog") !==
+          event.currentTarget
+        )
+          return;
         if (event.key !== "Tab") return;
         const controls = Array.from(
           event.currentTarget.querySelectorAll<HTMLElement>(

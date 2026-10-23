@@ -1,7 +1,12 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import {
+  browserKeys,
+  readBrowserValue,
+  writeBrowserValue,
+} from "../lib/browser-storage";
 import { auctionResponseSchema, type AuctionResponse } from "../lib/auctions";
 
-export function useAuctionPrices() {
+export function useAuctionPrices(remember: boolean) {
   const [response, setResponse] = useState<AuctionResponse | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -60,13 +65,29 @@ export function useAuctionPrices() {
   useEffect(() => {
     setNow(Date.now());
     const interval = setInterval(() => setNow(Date.now()), 1000);
-    void refresh();
     return () => {
       clearInterval(interval);
       request.current?.abort();
       request.current = null;
     };
   }, [refresh]);
+  useEffect(() => {
+    if (!remember) return;
+    const saved = auctionResponseSchema.safeParse(
+      readBrowserValue(browserKeys.auctions),
+    );
+    if (saved.success) {
+      setResponse((current) => current ?? saved.data);
+      blockedUntil.current = Math.max(
+        blockedUntil.current,
+        saved.data.refresh.nextRefreshAt,
+      );
+      setRetryAt(blockedUntil.current);
+    }
+  }, [remember]);
+  useEffect(() => {
+    if (remember && response) writeBrowserValue(browserKeys.auctions, response);
+  }, [remember, response]);
   const context = useMemo(
     () => ({ report: response?.report ?? null, now }),
     [response, now],

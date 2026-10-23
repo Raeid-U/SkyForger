@@ -1,4 +1,4 @@
-import { priceSummary, AuctionAssumptions } from "../components/PriceContext";
+import { PriceContext, AuctionAssumptions } from "../components/PriceContext";
 import { ItemIcon } from "../components/ItemIcon";
 import { RecipeInspector } from "../components/RecipeInspector";
 import { useState } from "react";
@@ -13,12 +13,10 @@ import { itemMarket, matchesMarket } from "../lib/forge/markets";
 import { rankForgeRecipes } from "../lib/forge/pricing";
 
 export default function Flips() {
-  const { settings, snapshot, update, account, auctions } = useWorkspace();
+  const { settings, snapshot, update, account, auctions, sort, setSort } =
+    useWorkspace();
   const [search, setSearch] = useState("");
   const [eligible, setEligible] = useState(true);
-  const [sort, setSort] = useState<"perHour" | "profit" | "category">(
-    "perHour",
-  );
   const [inspected, setInspected] = useState<string | null>(null);
   const rows = rankForgeRecipes(snapshot, settings, auctions.context)
     .filter(
@@ -75,6 +73,9 @@ export default function Flips() {
           </select>
         </label>
         <div className="market-filter" role="group" aria-label="Market">
+          <span className="control-label" aria-hidden="true">
+            |
+          </span>
           {(
             [
               ["both", "All"],
@@ -90,6 +91,9 @@ export default function Flips() {
               {label}
             </button>
           ))}
+          <span className="control-label" aria-hidden="true">
+            |
+          </span>
         </div>
         <label className="check">
           <input
@@ -100,6 +104,9 @@ export default function Flips() {
           />
           Unlocked only
         </label>
+        <span className="control-label" aria-hidden="true">
+          |
+        </span>
         {hasFilters && (
           <button className="text-button" onClick={reset}>
             Reset filters
@@ -163,30 +170,23 @@ export default function Flips() {
           <tbody>
             {rows.map((row) => {
               const name = itemById.get(row.recipe.outputId)!.name;
-              const outputStatus = priceSummary(row.pricing.output);
-              const inputStatus = row.pricing.inputs
-                .map((input) => ({
-                  name: itemById.get(input.itemId)?.name,
-                  message: priceSummary(input.quote),
-                }))
-                .filter((input) => input.message);
-              const status = [
-                outputStatus,
-                ...inputStatus.map(
-                  (input) => `${input.name}: ${input.message}`,
-                ),
-                row.missing.length && !outputStatus && !inputStatus.length
-                  ? "Unpriced"
-                  : null,
-              ]
-                .filter(Boolean)
-                .join(" · ");
+              const hasPriceContext =
+                itemMarket(row.recipe.outputId) === "auction" ||
+                row.pricing.inputs.some(
+                  (input) =>
+                    itemMarket(input.itemId) === "auction" ||
+                    input.quote.source === "manual" ||
+                    input.quote.reason,
+                ) ||
+                row.pricing.output.source === "manual";
+              const status =
+                !hasPriceContext && row.missing.length ? "Unpriced" : null;
               return (
                 <tr
                   key={row.recipe.id}
                   className="recipe-row"
                   onClick={(event) => {
-                    if (!(event.target as HTMLElement).closest("button, a")) {
+                    if (!(event.target as HTMLElement).closest("button, a, dialog")) {
                       event.currentTarget.querySelector("button")?.focus();
                       setInspected(row.recipe.id);
                     }
@@ -216,6 +216,16 @@ export default function Flips() {
                         )}
                       </span>
                     </button>
+                    {hasPriceContext && (
+                      <PriceContext
+                        itemId={row.recipe.outputId}
+                        quote={row.pricing.output}
+                        related={row.pricing.inputs.map((input) => ({
+                          itemId: input.itemId,
+                          quote: input.quote,
+                        }))}
+                      />
+                    )}
                   </td>
                   <td className="category-cell">{row.recipe.category}</td>
                   <td className="secondary-column">{coins(row.cost)}</td>

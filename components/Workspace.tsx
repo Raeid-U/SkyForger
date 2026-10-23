@@ -1,4 +1,13 @@
 import Head from "next/head";
+import {
+  browserKeys,
+  chooseStorage,
+  clearOptionalStorage,
+  readBrowserValue,
+  storageConsent,
+  writeBrowserValue,
+  type StorageConsent,
+} from "../lib/browser-storage";
 import { useAuctionPrices } from "./useAuctionPrices";
 import { Modal } from "./Modal";
 import { Appearance } from "./Appearance";
@@ -29,6 +38,11 @@ import {
 import { trackerResultSchema, type TrackerResult } from "../lib/forge/tracker";
 
 const Context = createContext<{
+  consent: StorageConsent | null;
+  setConsent: (value: StorageConsent) => void;
+  sort: "profit" | "perHour" | "category";
+  setSort: (value: "profit" | "perHour" | "category") => void;
+  refreshing: boolean;
   auctions: ReturnType<typeof useAuctionPrices>;
   settings: Settings;
   update: (value: Partial<Preferences>) => void;
@@ -45,7 +59,15 @@ const Context = createContext<{
 } | null>(null);
 
 export function WorkspaceProvider({ children }: { children: ReactNode }) {
-  const auctions = useAuctionPrices();
+  const [consent, setConsentState] = useState<StorageConsent | null>(null);
+  const setConsent = (value: StorageConsent) => {
+    chooseStorage(value);
+    setConsentState(value);
+  };
+  const [sort, setSort] = useState<"profit" | "perHour" | "category">("profit");
+  const auctions = useAuctionPrices(consent === "allow");
+  const [refreshing, setRefreshing] = useState(false);
+  const refreshingRef = useRef(false);
   const [preferences, setPreferences] = useState(() =>
     preferencesSchema.parse(defaultSettings),
   );
@@ -96,14 +118,11 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
       setAccount(result);
       setAccountName(name);
       try {
-        localStorage.setItem(
-          "skyforger:account:v1",
-          JSON.stringify({
-            player: result.uuid,
-            profile: result.selectedProfileId,
-            name,
-          }),
-        );
+        writeBrowserValue(browserKeys.account, {
+          player: result.uuid,
+          profile: result.selectedProfileId,
+          name,
+        });
       } catch {}
     } catch (cause) {
       if (accountRequest.current !== controller) return;
@@ -136,28 +155,37 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   useEffect(() => {
-    try {
-      const stored = preferencesSchema.safeParse(
-        JSON.parse(localStorage.getItem("skyforger:settings:v1") ?? "null"),
+    const savedConsent = storageConsent();
+    setConsentState(savedConsent);
+    if (savedConsent !== "allow") clearOptionalStorage();
+    const stored = preferencesSchema.safeParse(
+      readBrowserValue(browserKeys.settings),
+    );
+    if (stored.success) setPreferences(stored.data);
+    const savedSort = readBrowserValue(browserKeys.sort);
+    if (
+      savedSort === "profit" ||
+      savedSort === "perHour" ||
+      savedSort === "category"
+    )
+      setSort(savedSort);
+    const saved = readBrowserValue(browserKeys.account) as {
+      player?: unknown;
+      profile?: unknown;
+      name?: unknown;
+    } | null;
+    if (typeof saved?.name === "string" && typeof saved.player === "string") {
+      identity.current = { uuid: saved.player, name: saved.name };
+      setAccountName(saved.name);
+    }
+    if (typeof saved?.player === "string")
+      void loadAccount(
+        saved.player,
+        typeof saved.profile === "string" ? saved.profile : undefined,
       );
-      if (stored.success) setPreferences(stored.data);
-    } catch {}
     try {
-      const saved = JSON.parse(
-        localStorage.getItem("skyforger:account:v1") ?? "null",
-      );
-      if (
-        typeof saved?.name === "string" &&
-        typeof saved?.player === "string"
-      ) {
-        identity.current = { uuid: saved.player, name: saved.name };
-        setAccountName(saved.name);
-      }
-      if (typeof saved?.player === "string")
-        void loadAccount(
-          saved.player,
-          typeof saved.profile === "string" ? saved.profile : undefined,
-        );
+      const cached = readBrowserValue(browserKeys.bazaar);
+      if (cached) setSnapshot(parseBazaar(cached));
     } catch {}
     setReady(true);
     return () => {
@@ -166,16 +194,18 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
     };
   }, [loadAccount]);
   useEffect(() => {
-    if (ready) {
-      try {
-        localStorage.setItem(
-          "skyforger:settings:v1",
-          JSON.stringify(preferences),
-        );
-      } catch {}
-    }
-  }, [preferences, ready]);
-  const refresh = useCallback(async () => {
+    if (!ready || consent !== "allow") return;
+    writeBrowserValue(browserKeys.settings, preferences);
+    writeBrowserValue(browserKeys.sort, sort);
+    if (snapshot) writeBrowserValue(browserKeys.bazaar, snapshot);
+    if (account)
+      writeBrowserValue(browserKeys.account, {
+        player: account.uuid,
+        profile: account.selectedProfileId,
+        name: accountName,
+      });
+  }, [preferences, sort, snapshot, account, accountName, ready, consent]);
+  const refreshBazaar = useCallback(async () => {
     setLoading(true);
     setError("");
     try {
@@ -193,12 +223,29 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
       setLoading(false);
     }
   }, []);
+  const refresh = useCallback(async () => {
+    if (refreshingRef.current) return;
+    refreshingRef.current = true;
+    setRefreshing(true);
+    try {
+      await refreshBazaar();
+      await auctions.refresh();
+    } finally {
+      refreshingRef.current = false;
+      setRefreshing(false);
+    }
+  }, [refreshBazaar, auctions.refresh]);
   useEffect(() => {
-    void refresh();
-  }, [refresh]);
+    if (ready) void refresh();
+  }, [ready, refresh]);
   return (
     <Context.Provider
       value={{
+        consent,
+        setConsent,
+        sort,
+        setSort,
+        refreshing,
         auctions,
         settings,
         update: (value) =>
@@ -248,9 +295,7 @@ export function Workspace({
   const router = useRouter();
   const {
     snapshot,
-    loading,
     error,
-    refresh,
     account,
     accountName,
     accountLoading,
@@ -261,17 +306,10 @@ export function Workspace({
   const [modal, setModal] = useState<"account" | "market" | "about" | null>(
     null,
   );
-  const [now, setNow] = useState(0);
-  useEffect(() => {
-    setNow(Date.now());
-    const interval = setInterval(() => setNow(Date.now()), 30000);
-    return () => clearInterval(interval);
-  }, []);
   const profile = account?.profiles.find(
     (profile) => profile.id === account.selectedProfileId,
   );
   const isMarketPage = router.pathname !== "/tracker";
-  const stale = snapshot && now - snapshot.lastUpdated > 180000;
   return (
     <>
       <Head>
@@ -358,22 +396,8 @@ export function Workspace({
                     : "Know what’s finishing next."}
               </p>
             </div>
-            {isMarketPage && (
-              <div className="market-bar">
-                <span role="status">
-                  {loading
-                    ? "Updating Bazaar…"
-                    : snapshot
-                      ? `Bazaar ${new Date(snapshot.lastUpdated).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", timeZoneName: "short" })}${stale ? " · stale" : ""}`
-                      : "No prices loaded"}
-                </span>
-                <button onClick={() => void refresh()} disabled={loading}>
-                  Refresh prices
-                </button>
-              </div>
-            )}
+            {isMarketPage && <MarketStatus />}
           </div>
-          {isMarketPage && <AuctionStatus />}
           <div className="context-bar">
             <button
               className="text-button"
@@ -448,20 +472,19 @@ export function Workspace({
               {snapshot && " Previous snapshot retained."}
             </p>
           )}
-          {isMarketPage && stale && (
-            <p className="notice" role="status">
-              Market snapshot is over 3 minutes old.
-            </p>
-          )}
           {children}
         </main>
         <footer>
           <span>
             SkyForger <span aria-hidden="true">/</span> Independent SkyBlock
             companion
+            <small className="footer-disclaimer">
+              No analytics. Estimates only: use at your own risk.
+            </small>
           </span>
           <div className="footer-controls">
             <Appearance />
+            <StorageNotice />
             <button className="text-button" onClick={() => setModal("about")}>
               Assets & attribution
             </button>
@@ -552,7 +575,7 @@ function AccountSettings() {
     loadAccount,
     disconnect,
   } = useWorkspace();
-  const [player, setPlayer] = useState("");
+  const [player, setPlayer] = useState(accountName);
   const submit = (event: FormEvent) => {
     event.preventDefault();
     void loadAccount(player);
@@ -779,36 +802,71 @@ export function ManualPrice({ itemId }: { itemId: string }) {
   );
 }
 
-function AuctionStatus() {
-  const { auctions } = useWorkspace();
+function MarketStatus() {
+  const { snapshot, loading, error, refresh, refreshing, auctions } =
+    useWorkspace();
   const report = auctions.response?.report;
-  const expired = report && auctions.now >= report.expiresAt;
-  const failed =
-    auctions.error || auctions.response?.refresh.state === "refresh-failed";
+  const rows = [
+    {
+      name: "Bazaar",
+      busy: loading,
+      stamp: snapshot?.lastUpdated,
+      limit: 300000,
+      failed: !!error,
+    },
+    {
+      name: "Auction House",
+      busy: auctions.loading,
+      stamp: report?.sourceUpdatedAt,
+      limit: 1200000,
+      failed:
+        !!auctions.error ||
+        auctions.response?.refresh.state === "refresh-failed",
+    },
+  ];
   return (
-    <div className="auction-status">
-      <span role="status">
-        {auctions.loading
-          ? "Loading Auction House prices… This may take a few minutes."
-          : report
-            ? `Auction House · ${expired ? "Expired · " : ""}Source ${new Date(report.sourceUpdatedAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", timeZoneName: "short" })}`
-            : "Auction House prices unavailable"}
-        {failed &&
-          report &&
-          !expired &&
-          " · Refresh failed. Showing the last available snapshot."}
-        {expired && " · Refresh prices or enter a manual override."}
-        {auctions.error && (!report || expired) && ` · ${auctions.error}`}
-      </span>
-      <button
-        disabled={!auctions.canRefresh}
-        onClick={() => void auctions.refresh()}
-      >
-        Refresh auction prices
+    <div className="market-status-bar">
+      <div className="market-statuses" role="status" aria-live="polite">
+        {rows.map((row) => {
+          const outdated = !row.stamp || auctions.now - row.stamp > row.limit;
+          const state = row.busy
+            ? "updating"
+            : outdated
+              ? "outdated"
+              : "updated";
+          return (
+            <span key={row.name} className="market-status" data-state={state}>
+              <i className="status-led" aria-hidden="true" />
+              <span>
+                {row.name}: {state}
+                {row.stamp && !row.busy && (
+                  <small>
+                    {" "}
+                    {new Date(row.stamp).toLocaleTimeString([], {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                      timeZoneName: "short",
+                    })}
+                  </small>
+                )}
+                {row.failed && !row.busy && (
+                  <small>
+                    {" "}
+                    · Refresh failed;{" "}
+                    {row.stamp ? "previous snapshot" : "retry later"}
+                  </small>
+                )}
+              </span>
+            </span>
+          );
+        })}
+      </div>
+      <button onClick={() => void refresh()} disabled={refreshing}>
+        {refreshing ? "Refreshing…" : "Refresh prices"}
       </button>
-      {!auctions.canRefresh && !auctions.loading && (
+      {!refreshing && !auctions.canRefresh && (
         <small className="muted">
-          Available after{" "}
+          Auction retry after{" "}
           {new Date(auctions.retryAt).toLocaleTimeString([], {
             hour: "2-digit",
             minute: "2-digit",
@@ -816,6 +874,91 @@ function AuctionStatus() {
           })}
         </small>
       )}
+      {report && auctions.now >= report.expiresAt && (
+        <small className="muted market-expiry">
+          Auction quotes expired; automatic estimates paused until refreshed.
+        </small>
+      )}
     </div>
+  );
+}
+
+function StorageNotice() {
+  const { consent, setConsent } = useWorkspace();
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <button className="text-button" onClick={() => setOpen(true)}>
+        Privacy & storage
+      </button>
+      {consent === null && (
+        <aside className="storage-banner" aria-label="Browser storage choice">
+          <p>
+            Remember prices and preferences on this device? Optional local
+            storage saves your IGN/profile, sort choice, typography and price
+            settings. Materials and forge timers stay in memory.
+          </p>
+          <div className="price-actions">
+            <button onClick={() => setConsent("allow")}>Allow storage</button>
+            <button onClick={() => setConsent("decline")}>
+              Use without saving
+            </button>
+            <button onClick={() => setOpen(true)}>Details</button>
+          </div>
+        </aside>
+      )}
+      <Modal
+        open={open}
+        onClose={() => setOpen(false)}
+        title="Privacy & browser storage"
+      >
+        <h3>Your device</h3>
+        <p>
+          With permission, SkyForger uses local storage, not cookies, to
+          remember market snapshots, IGN/profile selection, sort choice,
+          typography and price settings (including manual overrides). On-hand
+          materials and forge timers are never saved. Without permission, these
+          choices last only for the current session. Your storage decision is
+          remembered.
+        </p>
+        <h3>Public lookups</h3>
+        <p>
+          SkyForger has no analytics or account database. Profile lookups send
+          your IGN/UUID and profile selection through this website to public
+          Minecraft/Hypixel services. Market snapshots are cached by the server.
+          Hosting and upstream providers may retain request logs; browser
+          storage is not uploaded as a collection.
+        </p>
+        <h3>Use at your own risk</h3>
+        <p>
+          Prices and completion times are estimates. Verify listings and costs
+          in game before spending coins. Accuracy, availability, market fills
+          and profits are not guaranteed.
+        </p>
+        <p className="muted">
+          Optional storage: {consent === "allow" ? "enabled" : "disabled"}.
+          Turning it off clears saved preferences, profile selection and market
+          snapshots on this device.
+        </p>
+        <div className="price-actions">
+          <button
+            onClick={() => {
+              setConsent("allow");
+              setOpen(false);
+            }}
+          >
+            Allow storage
+          </button>
+          <button
+            onClick={() => {
+              setConsent("decline");
+              setOpen(false);
+            }}
+          >
+            Use without saving
+          </button>
+        </div>
+      </Modal>
+    </>
   );
 }

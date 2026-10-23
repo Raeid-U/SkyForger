@@ -1,10 +1,17 @@
 import { useEffect, useState } from "react";
+import {
+  browserKeys,
+  readBrowserValue,
+  writeBrowserValue,
+} from "../lib/browser-storage";
+import { useWorkspace } from "./Workspace";
 
 export function Appearance() {
+  const { consent } = useWorkspace();
   const [mode, setMode] = useState<"standard" | "pixel" | null>(null);
   useEffect(() => {
     try {
-      const saved = localStorage.getItem("skyforger:type-mode");
+      const saved = readBrowserValue(browserKeys.typography);
       setMode(saved === "pixel" ? "pixel" : "standard");
     } catch {
       setMode("standard");
@@ -13,6 +20,10 @@ export function Appearance() {
   useEffect(() => {
     if (mode) document.documentElement.dataset.typeMode = mode;
   }, [mode]);
+  useEffect(() => {
+    if (mode && consent === "allow")
+      writeBrowserValue(browserKeys.typography, mode);
+  }, [mode, consent]);
   return (
     <label className="appearance">
       Type
@@ -22,7 +33,7 @@ export function Appearance() {
         onChange={(event) => {
           setMode(event.target.value === "pixel" ? "pixel" : "standard");
           try {
-            localStorage.setItem("skyforger:type-mode", event.target.value);
+            writeBrowserValue(browserKeys.typography, event.target.value);
           } catch {}
         }}
       >

@@ -1392,15 +1392,6 @@ footer > span > span {
   }
 }
 
-.auction-status {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 4px 16px;
-  padding: 8px 0;
-  color: var(--muted);
-  font-size: 12px;
-}
 .price-context {
   font-size: 12px;
   max-width: 52ch;
@@ -1421,4 +1412,133 @@ footer > span > span {
   display: block;
   white-space: normal;
   overflow-wrap: anywhere;
+}
+
+.market-status-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px 16px;
+  font-size: 12px;
+  max-width: 540px;
+}
+.market-statuses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+}
+.market-status {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.market-status small {
+  color: var(--muted);
+}
+.status-led {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex: 0 0 7px;
+  background: #c8e99f;
+}
+[data-state="updating"] .status-led {
+  background: #e8c769;
+}
+[data-state="outdated"] .status-led {
+  background: #ee8f8f;
+}
+.market-expiry {
+  flex-basis: 100%;
+  text-align: right;
+}
+.price-context {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0 10px;
+}
+.recipe-row > td:first-child > .price-context {
+  margin-left: 44px;
+}
+.price-context > button {
+  min-height: 28px;
+  font-size: 12px;
+}
+.quote-section {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+.quote-facts {
+  margin: 16px 0;
+  font-size: 13px;
+}
+.quote-facts > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding: 7px 0;
+}
+.quote-facts dt {
+  color: var(--muted);
+  flex: 0 0 38%;
+}
+.quote-facts dd {
+  margin: 0;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+.auction-assumptions dd {
+  text-align: left;
+}
+.override-control {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.storage-banner {
+  position: fixed;
+  z-index: 4;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  max-width: 720px;
+  margin: auto;
+  padding: 16px 20px;
+  background: var(--elevated);
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 32px #0008;
+  font-size: 13px;
+}
+.storage-banner p {
+  margin: 0 0 8px;
+}
+@media (max-width: 700px) {
+  .market-status-bar {
+    justify-content: flex-start;
+    max-width: 100%;
+  }
+  .market-expiry {
+    text-align: left;
+  }
+  .recipe-row > td:first-child > .price-context {
+    margin-left: 0;
+  }
+  .quote-facts > div {
+    flex-wrap: wrap;
+  }
+  .quote-facts dd {
+    text-align: left;
+  }
+}
+
+.footer-disclaimer {
+  display: block;
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--muted);
 }
