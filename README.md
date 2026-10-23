@@ -32,6 +32,10 @@ The planner assumes free forge slots and immediate material availability. It mod
 
 Item images are served from `public/items/`. Missing images use a shared fallback. Auction House prices remain manual estimates and exclude AH fees.
 
+## Internal auction tooling
+
+`npm run --silent auctions:prices` exports current comparable BIN quotes without an API key. `/api/auctions` serves cached reports; shared pricing/planning functions accept them as an optional context. Frontend wiring is deferred. See [auction pricing](docs/auction-pricing.md).
+
 ## Checks
 
 ```sh

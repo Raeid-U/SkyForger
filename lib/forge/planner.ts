@@ -1,6 +1,7 @@
+import type { AuctionPricingContext } from "../auctions";
 import type { BazaarSnapshot } from "../bazaar";
 import { itemById, recipeByOutput } from "./catalog";
-import { marketQuote } from "./pricing";
+import { marketQuoteDetails, type MarketPriceQuote } from "./pricing";
 import {
   durationSeconds,
   forgeSlots,
@@ -15,6 +16,7 @@ export type PlanNode = {
   owned: number;
   action: "owned" | "buy" | "forge" | "crafting";
   cost: number | null;
+  pricing: MarketPriceQuote;
   children: PlanNode[];
   batches: number;
 };
@@ -45,7 +47,9 @@ export function buildPlan(
   settings: Settings,
   snapshot: BazaarSnapshot | null,
   strategy: "forge" | "cheapest" = "forge",
+  auctions?: AuctionPricingContext,
 ) {
+  if (auctions && auctions.now === undefined) auctions = { ...auctions, now: Date.now() };
   if (!Number.isSafeInteger(quantity) || quantity < 1 || quantity > 100)
     throw new Error("Choose a quantity between 1 and 100.");
   const root = recipeByOutput.get(itemId);
@@ -63,12 +67,14 @@ export function buildPlan(
     const owned = Math.min(amount, stock[id] ?? 0);
     const nextStock = { ...stock, [id]: (stock[id] ?? 0) - owned };
     const remaining = amount - owned;
+    const pricing = marketQuoteDetails(id, remaining, "buy", snapshot, settings, auctions);
     const base: PlanNode = {
       itemId: id,
       quantity: amount,
       owned,
       action: remaining ? "buy" : "owned",
-      cost: marketQuote(id, remaining, "buy", snapshot, settings),
+      cost: pricing.amount,
+      pricing,
       children: [],
       batches: 0,
     };
@@ -152,11 +158,10 @@ export function buildPlan(
     return ready;
   }
   const completionSeconds = schedule(node);
-  const shopping = [...materials].map(([id, amount]) => ({
-    itemId: id,
-    quantity: amount,
-    cost: marketQuote(id, amount, "buy", snapshot, settings),
-  }));
+  const shopping = [...materials].map(([id, amount]) => {
+    const pricing = marketQuoteDetails(id, amount, "buy", snapshot, settings, auctions);
+    return { itemId: id, quantity: amount, cost: pricing.amount, pricing };
+  });
   const cost = shopping.some((material) => material.cost === null)
     ? null
     : coins + shopping.reduce((sum, material) => sum + (material.cost ?? 0), 0);

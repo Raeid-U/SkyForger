@@ -13,7 +13,8 @@
     "test": "tsx --test tests/*.test.ts",
     "test:live": "tsx --test tests/integration/*.test.ts",
     "catalog:check": "tsx scripts/check-catalog.ts",
-    "prebuild": "npm run catalog:check"
+    "prebuild": "npm run catalog:check",
+    "auctions:prices": "tsx scripts/auction-prices.ts"
   },
   "dependencies": {
     "next": "^16.4.2",

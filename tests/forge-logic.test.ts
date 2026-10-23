@@ -403,7 +403,7 @@ test("perfect gemstone plans retain quest crystals at zero cost", () => {
   );
   assert.equal(plan.cost, 500);
   assert.deepEqual(
-    plan.materials.find((material) => material.itemId === "ruby-crystal"),
+    plan.materials.map(({ itemId, quantity, cost }) => ({ itemId, quantity, cost })).find((material) => material.itemId === "ruby-crystal"),
     { itemId: "ruby-crystal", quantity: 1, cost: 0 },
   );
 });
@@ -422,7 +422,7 @@ test("Fine is the gemstone floor even with cheap Rough and Flawed prices", () =>
   const plan = buildPlan("perfect-ruby-gemstone", 1, {}, value, null);
   assert.equal(plan.cost, 40000);
   assert.deepEqual(
-    [...plan.materials].sort((a, b) => a.itemId.localeCompare(b.itemId)),
+    plan.materials.map(({ itemId, quantity, cost }) => ({ itemId, quantity, cost })).sort((a, b) => a.itemId.localeCompare(b.itemId)),
     [
       { itemId: "fine-ruby-gemstone", quantity: 400, cost: 40000 },
       { itemId: "ruby-crystal", quantity: 1, cost: 0 },
@@ -445,7 +445,7 @@ test("unpriced Fine gemstones stay unresolved rather than using lower tiers or o
     );
     assert.equal(plan.cost, null);
     assert.deepEqual(
-      plan.materials.find(
+      plan.materials.map(({ itemId, quantity, cost }) => ({ itemId, quantity, cost })).find(
         (material) => material.itemId === "fine-ruby-gemstone",
       ),
       { itemId: "fine-ruby-gemstone", quantity: 300, cost: null },
