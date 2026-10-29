@@ -75,6 +75,7 @@ jobs:
           git push origin HEAD:auction-data
       - name: Collect validated snapshot
         id: collect
+        continue-on-error: true
         if: steps.reserve.outputs.skip != 'true'
         timeout-minutes: 3
         shell: bash
@@ -85,21 +86,17 @@ jobs:
             echo '::notice::Complete auction snapshot validated.'
           else
             collector_exit=$?
-            echo "::error::Auction collection failed (exit $collector_exit). See collector progress below; previous snapshot was not replaced."
+            echo "::warning::Auction collection failed (exit $collector_exit). Recording consecutive failure; previous snapshot was not replaced."
             exit "$collector_exit"
           fi
-      - name: Publish snapshot
+      - name: Publish snapshot or record collection failure
         id: publish
         timeout-minutes: 1
         if: steps.reserve.outputs.skip != 'true'
+        env:
+          COLLECT_RESULT: ${{ steps.collect.outcome }}
         shell: bash
-        run: |
-          set -euo pipefail
-          cp "$RUNNER_TEMP/auction-prices.json" "$RUNNER_TEMP/auction-data/auction-prices.json"
-          cd "$RUNNER_TEMP/auction-data"
-          git add auction-prices.json
-          git commit -m 'chore: refresh auction snapshot'
-          git push origin HEAD:auction-data
+        run: bash scripts/publish-auction-snapshot.sh "$RUNNER_TEMP/auction-data" "$RUNNER_TEMP/auction-prices.json" "$COLLECT_RESULT"
       - name: Run summary
         if: always()
         timeout-minutes: 1
@@ -110,6 +107,7 @@ jobs:
           RESERVE_RESULT: ${{ steps.reserve.outcome }}
           COLLECT_RESULT: ${{ steps.collect.outcome }}
           PUBLISH_RESULT: ${{ steps.publish.outcome }}
+          FAILURE_COUNT: ${{ steps.publish.outputs.failure_count }}
           COOLDOWN_SKIP: ${{ steps.reserve.outputs.skip }}
         shell: bash
         run: |
@@ -129,6 +127,9 @@ jobs:
             echo
             if test "$COOLDOWN_SKIP" = true; then
               echo 'Collection skipped because the previous reservation is less than ten minutes old.'
+            elif test "$COLLECT_RESULT" != success && test -n "$FAILURE_COUNT"; then
+              echo "Consecutive collection failures: $FAILURE_COUNT. Previous snapshot retained with its original timestamp."
+              echo 'The action fails at three consecutive collection failures and on each further failure until recovery.'
             elif test "$PUBLISH_RESULT" = success; then
               echo "Snapshot: https://raw.githubusercontent.com/$GITHUB_REPOSITORY/auction-data/auction-prices.json"
             else
