@@ -1,21 +1,35 @@
 {
   "schemaVersion": 1,
   "source": "hypixel-active-bin",
-  "sourceUpdatedAt": 1793827887658,
-  "fetchedAt": 1793827919887,
-  "evaluatedAt": 1793827919887,
-  "expiresAt": 1793828187658,
-  "totalAuctions": 42779,
+  "sourceUpdatedAt": 1793897007658,
+  "fetchedAt": 1793897037773,
+  "evaluatedAt": 1793897037773,
+  "expiresAt": 1793897307658,
+  "totalAuctions": 41958,
   "quotes": [
     {
       "itemId": "amber-necklace",
       "name": "Amber Necklace",
       "status": "priced",
-      "unitPrice": 68690000,
+      "unitPrice": 67499000,
       "activeListings": 11,
       "comparableListings": 8,
       "comparableUnits": 8,
       "lowestListings": [
+        {
+          "auctionId": "066fe3f4c12b4eebaf30226cecab13a8",
+          "quantity": 1,
+          "totalPrice": 67499000,
+          "unitPrice": 67499000,
+          "endsAt": 1795105621525
+        },
+        {
+          "auctionId": "680ebbfefb23489aae8ce4403f3cbe4e",
+          "quantity": 1,
+          "totalPrice": 68670000,
+          "unitPrice": 68670000,
+          "endsAt": 1795041805172
+        },
         {
           "auctionId": "f1a10b4b11814a2db8a1a963a8e26cb2",
           "quantity": 1,
@@ -24,25 +38,11 @@
           "endsAt": 1793993906853
         },
         {
-          "auctionId": "de3b79eb9da24d9cb7bcc6d2f4169efe",
-          "quantity": 1,
-          "totalPrice": 69000000,
-          "unitPrice": 69000000,
-          "endsAt": 1793989058804
-        },
-        {
           "auctionId": "80ccfd59c53449c49367d31a889e511d",
           "quantity": 1,
           "totalPrice": 73333333,
           "unitPrice": 73333333,
           "endsAt": 1793973704557
-        },
-        {
-          "auctionId": "98b2b24833184131b79ff556c4f755fc",
-          "quantity": 1,
-          "totalPrice": 74000000,
-          "unitPrice": 74000000,
-          "endsAt": 1793973017498
         },
         {
           "auctionId": "984c71fb6ab647579acbef47fbcb9665",
@@ -53,8 +53,8 @@
         }
       ],
       "excludedVariants": {
-        "modified-or-unreviewed:rarity_upgrades": 2,
-        "modified-or-unreviewed:modifier": 3
+        "modified-or-unreviewed:modifier": 3,
+        "modified-or-unreviewed:rarity_upgrades": 1
       },
       "warningCodes": [],
       "warnings": []
@@ -62,42 +62,74 @@
     {
       "itemId": "amber-polished-drill-engine",
       "name": "Amber-Polished Drill Engine",
-      "status": "no-active-bin",
-      "unitPrice": null,
-      "activeListings": 0,
-      "comparableListings": 0,
-      "comparableUnits": 0,
-      "lowestListings": [],
-      "excludedVariants": {},
-      "warningCodes": [
-        "no-active-bin"
+      "status": "priced",
+      "unitPrice": 348900000,
+      "activeListings": 3,
+      "comparableListings": 3,
+      "comparableUnits": 3,
+      "lowestListings": [
+        {
+          "auctionId": "3286c45bfbd6445eb924567cb011af89",
+          "quantity": 1,
+          "totalPrice": 348900000,
+          "unitPrice": 348900000,
+          "endsAt": 1794065903175
+        },
+        {
+          "auctionId": "26ac27e1c05d4fc79aa05e492257d6f4",
+          "quantity": 1,
+          "totalPrice": 349999999,
+          "unitPrice": 349999999,
+          "endsAt": 1795096399696
+        },
+        {
+          "auctionId": "ce30777067544300895cf17fb6b3c3de",
+          "quantity": 1,
+          "totalPrice": 350000000,
+          "unitPrice": 350000000,
+          "endsAt": 1794043526636
+        }
       ],
-      "warnings": [
-        "No current BIN listings found. Check historical prices elsewhere and enter a manual override."
-      ]
+      "excludedVariants": {},
+      "warningCodes": [],
+      "warnings": []
     },
     {
       "itemId": "amethyst-gauntlet",
       "name": "Amethyst Gauntlet",
       "status": "priced",
-      "unitPrice": 61000000,
-      "activeListings": 16,
-      "comparableListings": 13,
-      "comparableUnits": 13,
+      "unitPrice": 59500000,
+      "activeListings": 12,
+      "comparableListings": 10,
+      "comparableUnits": 10,
       "lowestListings": [
         {
-          "auctionId": "dadb7ace64a147f5aeda831b92b3eccb",
+          "auctionId": "4371c26d7cae4b11874a9532935e550b",
           "quantity": 1,
-          "totalPrice": 61000000,
-          "unitPrice": 61000000,
-          "endsAt": 1793867422263
+          "totalPrice": 59500000,
+          "unitPrice": 59500000,
+          "endsAt": 1794064202961
         },
         {
-          "auctionId": "a70d038ca6f343a092affb86102bf955",
+          "auctionId": "5429e0d6a3a346c7898a7d69945b1069",
           "quantity": 1,
-          "totalPrice": 62000000,
-          "unitPrice": 62000000,
-          "endsAt": 1793979856869
+          "totalPrice": 59500000,
+          "unitPrice": 59500000,
+          "endsAt": 1794064196699
+        },
+        {
+          "auctionId": "6a0a8d853377462cb2cb18511fc432b5",
+          "quantity": 1,
+          "totalPrice": 59999999,
+          "unitPrice": 59999999,
+          "endsAt": 1794059667896
+        },
+        {
+          "auctionId": "d3cd698f77d748769465bd1888872952",
+          "quantity": 1,
+          "totalPrice": 60899000,
+          "unitPrice": 60899000,
+          "endsAt": 1795041821041
         },
         {
           "auctionId": "4241b0b9ce5d4cf9915dcdeeb98cea9a",
@@ -105,25 +137,11 @@
           "totalPrice": 62222222,
           "unitPrice": 62222222,
           "endsAt": 1793973726922
-        },
-        {
-          "auctionId": "b09722611a064843b35275f5c9d84842",
-          "quantity": 1,
-          "totalPrice": 64999999,
-          "unitPrice": 64999999,
-          "endsAt": 1793875129425
-        },
-        {
-          "auctionId": "ac20cf2dc6d24f32a8a0fcff3da53d3e",
-          "quantity": 1,
-          "totalPrice": 68600000,
-          "unitPrice": 68600000,
-          "endsAt": 1793954504513
         }
       ],
       "excludedVariants": {
-        "modified-or-unreviewed:rarity_upgrades": 2,
-        "modified-or-unreviewed:modifier": 3
+        "modified-or-unreviewed:modifier": 2,
+        "modified-or-unreviewed:rarity_upgrades": 1
       },
       "warningCodes": [],
       "warnings": []
@@ -132,50 +150,51 @@
       "itemId": "ammonite",
       "name": "Ammonite",
       "status": "priced",
-      "unitPrice": 1499999,
-      "activeListings": 44,
-      "comparableListings": 24,
-      "comparableUnits": 24,
+      "unitPrice": 1000000,
+      "activeListings": 78,
+      "comparableListings": 61,
+      "comparableUnits": 61,
       "lowestListings": [
         {
-          "auctionId": "deebcf61e2b84e1f9680754c37ff3db6",
+          "auctionId": "0c983059c4f3413f9ba1e80f32a7e9b7",
           "quantity": 1,
-          "totalPrice": 1499999,
-          "unitPrice": 1499999,
-          "endsAt": 1793997320446
+          "totalPrice": 1000000,
+          "unitPrice": 1000000,
+          "endsAt": 1794069311512
         },
         {
-          "auctionId": "03616535435541408303f0d88c1287e9",
+          "auctionId": "21baa985f1d143c79de4f57ecbfe0388",
           "quantity": 1,
-          "totalPrice": 1500000,
-          "unitPrice": 1500000,
-          "endsAt": 1793836187041
+          "totalPrice": 1000000,
+          "unitPrice": 1000000,
+          "endsAt": 1794069300156
         },
         {
-          "auctionId": "07231ee2a54c480582b5976d4352493c",
+          "auctionId": "286dcc55f911419387bb307027fe24b5",
           "quantity": 1,
-          "totalPrice": 1500000,
-          "unitPrice": 1500000,
-          "endsAt": 1793836204559
+          "totalPrice": 1000000,
+          "unitPrice": 1000000,
+          "endsAt": 1794069293962
         },
         {
-          "auctionId": "183c3989f5b24eb4b263a27a4a4953cc",
+          "auctionId": "3628e5ad378348f882a276849ba8788f",
           "quantity": 1,
-          "totalPrice": 1500000,
-          "unitPrice": 1500000,
-          "endsAt": 1793836225770
+          "totalPrice": 1000000,
+          "unitPrice": 1000000,
+          "endsAt": 1794069305729
         },
         {
-          "auctionId": "20054848371845fc978f54428f506187",
+          "auctionId": "6c9214cff8744e21b95d149cb45bb55e",
           "quantity": 1,
-          "totalPrice": 1500000,
-          "unitPrice": 1500000,
-          "endsAt": 1793845226733
+          "totalPrice": 1000000,
+          "unitPrice": 1000000,
+          "endsAt": 1794069287726
         }
       ],
       "excludedVariants": {
-        "pet-above-level-1": 20,
-        "pet-held-item": 4
+        "pet-above-level-1": 17,
+        "pet-candy": 1,
+        "pet-held-item": 2
       },
       "warningCodes": [],
       "warnings": []
@@ -184,50 +203,50 @@
       "itemId": "ankylosaurus",
       "name": "Ankylosaurus",
       "status": "priced",
-      "unitPrice": 4989999,
-      "activeListings": 52,
-      "comparableListings": 36,
-      "comparableUnits": 36,
+      "unitPrice": 5000000,
+      "activeListings": 61,
+      "comparableListings": 41,
+      "comparableUnits": 41,
       "lowestListings": [
         {
-          "auctionId": "2411296eb90c46b7bbe7606f11d28741",
+          "auctionId": "3eadb212aa2b42688390ee2449cb07cb",
           "quantity": 1,
-          "totalPrice": 4989999,
-          "unitPrice": 4989999,
-          "endsAt": 1793836382178
+          "totalPrice": 5000000,
+          "unitPrice": 5000000,
+          "endsAt": 1794063898531
         },
         {
-          "auctionId": "484d5eb592804bec9990da978390e1cd",
+          "auctionId": "00478231a0c242c88afb8f585cac444a",
           "quantity": 1,
-          "totalPrice": 4989999,
-          "unitPrice": 4989999,
-          "endsAt": 1793836392183
+          "totalPrice": 5200000,
+          "unitPrice": 5200000,
+          "endsAt": 1793912386877
         },
         {
-          "auctionId": "5ea4202d8d9a4ad39c9e7fa11a0a37d3",
+          "auctionId": "0264231ae214471c8b3aca43718c17a1",
           "quantity": 1,
-          "totalPrice": 4989999,
-          "unitPrice": 4989999,
-          "endsAt": 1793836343218
+          "totalPrice": 5200000,
+          "unitPrice": 5200000,
+          "endsAt": 1793912378255
         },
         {
-          "auctionId": "4414f418c19e4039bb9995ad53883981",
+          "auctionId": "4d0cfe76be9e4198bf54bfb8bcd9a501",
           "quantity": 1,
-          "totalPrice": 4990000,
-          "unitPrice": 4990000,
-          "endsAt": 1793986911327
+          "totalPrice": 5200000,
+          "unitPrice": 5200000,
+          "endsAt": 1793912399764
         },
         {
-          "auctionId": "4a3c2619f39a40509032d003ec4d1ac3",
+          "auctionId": "6a5362b56b114b41978d29e2b5ea0cfd",
           "quantity": 1,
-          "totalPrice": 4990000,
-          "unitPrice": 4990000,
-          "endsAt": 1793986904974
+          "totalPrice": 5200000,
+          "unitPrice": 5200000,
+          "endsAt": 1793912395287
         }
       ],
       "excludedVariants": {
-        "pet-above-level-1": 16,
-        "pet-held-item": 7
+        "pet-above-level-1": 20,
+        "pet-held-item": 10
       },
       "warningCodes": [],
       "warnings": []
@@ -236,24 +255,17 @@
       "itemId": "beacon-ii",
       "name": "Beacon II",
       "status": "priced",
-      "unitPrice": 5699999,
-      "activeListings": 5,
-      "comparableListings": 5,
-      "comparableUnits": 5,
+      "unitPrice": 5500000,
+      "activeListings": 4,
+      "comparableListings": 4,
+      "comparableUnits": 4,
       "lowestListings": [
         {
-          "auctionId": "0ae3f564a9924d7fa5517491a968ee91",
+          "auctionId": "01a3b679b1f8498aa8b0f3c7bd64ea97",
           "quantity": 1,
-          "totalPrice": 5699999,
-          "unitPrice": 5699999,
-          "endsAt": 1793839309029
-        },
-        {
-          "auctionId": "38689711618f4006886a61eba1606944",
-          "quantity": 1,
-          "totalPrice": 5899999,
-          "unitPrice": 5899999,
-          "endsAt": 1794955844930
+          "totalPrice": 5500000,
+          "unitPrice": 5500000,
+          "endsAt": 1793923370588
         },
         {
           "auctionId": "437a9c5f282a4b238704156bd132eb2a",
@@ -302,18 +314,11 @@
       "itemId": "beacon-iv",
       "name": "Beacon IV",
       "status": "priced",
-      "unitPrice": 28749999,
-      "activeListings": 5,
-      "comparableListings": 5,
-      "comparableUnits": 5,
+      "unitPrice": 28800000,
+      "activeListings": 3,
+      "comparableListings": 3,
+      "comparableUnits": 3,
       "lowestListings": [
-        {
-          "auctionId": "97fcce1949004650845b19b997b697fc",
-          "quantity": 1,
-          "totalPrice": 28749999,
-          "unitPrice": 28749999,
-          "endsAt": 1793846438774
-        },
         {
           "auctionId": "4a548aaec7e54ee9aca45f88315d915d",
           "quantity": 1,
@@ -322,18 +327,11 @@
           "endsAt": 1794935370449
         },
         {
-          "auctionId": "6fe0e858229342dba3d3b4db70b0a9d5",
+          "auctionId": "8982a287e89945b3a80415ffe9618d02",
           "quantity": 1,
           "totalPrice": 28800000,
           "unitPrice": 28800000,
-          "endsAt": 1794935377737
-        },
-        {
-          "auctionId": "e31c5c8e65284c829d22efd9d9031748",
-          "quantity": 1,
-          "totalPrice": 29000000,
-          "unitPrice": 29000000,
-          "endsAt": 1793878018559
+          "endsAt": 1795103175957
         },
         {
           "auctionId": "9b9bc7c5d2d749198868c3177c0b7527",
@@ -351,45 +349,45 @@
       "itemId": "beacon-v",
       "name": "Beacon V",
       "status": "priced",
-      "unitPrice": 51400000,
-      "activeListings": 30,
-      "comparableListings": 30,
-      "comparableUnits": 30,
+      "unitPrice": 50986285,
+      "activeListings": 29,
+      "comparableListings": 29,
+      "comparableUnits": 29,
       "lowestListings": [
         {
-          "auctionId": "26db25b6771c46069f0095a4f7fc5480",
+          "auctionId": "28a77fc589ca4c318a0d80b9c415a91e",
           "quantity": 1,
-          "totalPrice": 51400000,
-          "unitPrice": 51400000,
-          "endsAt": 1793974133992
+          "totalPrice": 50986285,
+          "unitPrice": 50986285,
+          "endsAt": 1794063367920
         },
         {
-          "auctionId": "278b125342904e6a88ed13b3c0930e3c",
+          "auctionId": "956f1d7d0c804595afcf7199533c5b11",
           "quantity": 1,
-          "totalPrice": 51400000,
-          "unitPrice": 51400000,
-          "endsAt": 1793974162441
+          "totalPrice": 50986285,
+          "unitPrice": 50986285,
+          "endsAt": 1794063357440
         },
         {
-          "auctionId": "2eba0c823fc4415ab39090cdb59ebc65",
+          "auctionId": "c6b209cea24e49eea9d66892f892a009",
           "quantity": 1,
-          "totalPrice": 51400000,
-          "unitPrice": 51400000,
-          "endsAt": 1793974157403
+          "totalPrice": 50986285,
+          "unitPrice": 50986285,
+          "endsAt": 1794063351727
         },
         {
-          "auctionId": "561a76ff2f4e46e1b3cc6141cd768c19",
+          "auctionId": "97525d23dc314f0aa6343297632f7a20",
           "quantity": 1,
-          "totalPrice": 51400000,
-          "unitPrice": 51400000,
-          "endsAt": 1793974167487
+          "totalPrice": 51242499,
+          "unitPrice": 51242499,
+          "endsAt": 1794063333603
         },
         {
-          "auctionId": "7f1d7df2b8114ce3a51cf6a327261d8c",
+          "auctionId": "fd7fb58f67e54da7ba49ea07147847e6",
           "quantity": 1,
-          "totalPrice": 51400000,
-          "unitPrice": 51400000,
-          "endsAt": 1793974172673
+          "totalPrice": 51242499,
+          "unitPrice": 51242499,
+          "endsAt": 1794063339656
         }
       ],
       "excludedVariants": {},
@@ -400,45 +398,45 @@
       "itemId": "bejeweled-collar",
       "name": "Bejeweled Collar",
       "status": "priced",
-      "unitPrice": 3699997,
-      "activeListings": 15,
-      "comparableListings": 15,
-      "comparableUnits": 15,
+      "unitPrice": 3500000,
+      "activeListings": 21,
+      "comparableListings": 21,
+      "comparableUnits": 21,
       "lowestListings": [
         {
-          "auctionId": "2bc52591b9a747d8bca4e2201cbb8d92",
+          "auctionId": "0ae7c76d06b94c128d48bb67a747eb9a",
           "quantity": 1,
-          "totalPrice": 3699997,
-          "unitPrice": 3699997,
-          "endsAt": 1793846461335
+          "totalPrice": 3500000,
+          "unitPrice": 3500000,
+          "endsAt": 1795059648291
         },
         {
-          "auctionId": "fee0beb166e4459b9aad280d6f86c6bf",
+          "auctionId": "16ea4e8f21684693adef20c44b11d3af",
           "quantity": 1,
-          "totalPrice": 3699997,
-          "unitPrice": 3699997,
-          "endsAt": 1793846450647
+          "totalPrice": 3500000,
+          "unitPrice": 3500000,
+          "endsAt": 1793915347674
         },
         {
-          "auctionId": "5fbfd8216c0f4fb0925b0c8ae4d686da",
+          "auctionId": "23fe59e84446416380ba9fc00887f0c1",
           "quantity": 1,
-          "totalPrice": 3700000,
-          "unitPrice": 3700000,
-          "endsAt": 1793984280519
+          "totalPrice": 3500000,
+          "unitPrice": 3500000,
+          "endsAt": 1793915385380
         },
         {
-          "auctionId": "627042852a214336b7599357f99a391c",
+          "auctionId": "31724269cd2d4b2eaa3b245804a94a26",
           "quantity": 1,
-          "totalPrice": 3700000,
-          "unitPrice": 3700000,
-          "endsAt": 1793984325789
+          "totalPrice": 3500000,
+          "unitPrice": 3500000,
+          "endsAt": 1795059661617
         },
         {
-          "auctionId": "664acf437d744f608c49033dff09b456",
+          "auctionId": "34474240684b4c198cd80406ea2324d9",
           "quantity": 1,
-          "totalPrice": 3700000,
-          "unitPrice": 3700000,
-          "endsAt": 1793984316227
+          "totalPrice": 3500000,
+          "unitPrice": 3500000,
+          "endsAt": 1793915375187
         }
       ],
       "excludedVariants": {},
@@ -449,103 +447,87 @@
       "itemId": "blue-cheese-goblin-omelette",
       "name": "Blue Cheese Goblin Omelette",
       "status": "priced",
-      "unitPrice": 235813000,
-      "activeListings": 6,
-      "comparableListings": 6,
-      "comparableUnits": 6,
+      "unitPrice": 239999999,
+      "activeListings": 2,
+      "comparableListings": 2,
+      "comparableUnits": 2,
       "lowestListings": [
         {
-          "auctionId": "14b14e03083d4e3a9609faecc102392c",
-          "quantity": 1,
-          "totalPrice": 235813000,
-          "unitPrice": 235813000,
-          "endsAt": 1795032508022
-        },
-        {
-          "auctionId": "bbc344fca6f84ad494eba56fc36db669",
-          "quantity": 1,
-          "totalPrice": 235814999,
-          "unitPrice": 235814999,
-          "endsAt": 1793953008684
-        },
-        {
-          "auctionId": "a380f8dd53484b469115ecbd36c50041",
+          "auctionId": "c83469af8cf7499ba13bd6232785d55d",
           "quantity": 1,
           "totalPrice": 239999999,
           "unitPrice": 239999999,
-          "endsAt": 1794919082850
+          "endsAt": 1795104643217
         },
         {
-          "auctionId": "0ebd439eeb7a4e069196fb447204829a",
+          "auctionId": "4960ed5bae5c4d038d35dab37195df58",
           "quantity": 1,
-          "totalPrice": 243999999,
-          "unitPrice": 243999999,
-          "endsAt": 1794928556583
-        },
-        {
-          "auctionId": "bf06924b2ec3429f9a280ba0d48210c9",
-          "quantity": 1,
-          "totalPrice": 244999999,
-          "unitPrice": 244999999,
-          "endsAt": 1794681230842
+          "totalPrice": 240000000,
+          "unitPrice": 240000000,
+          "endsAt": 1794051568351
         }
       ],
       "excludedVariants": {},
-      "warningCodes": [],
-      "warnings": []
+      "warningCodes": [
+        "sparse-listings"
+      ],
+      "warnings": [
+        "Few comparable BIN listings are available. This asking price may be inflated and may not reflect a realizable sale price."
+      ]
     },
     {
       "itemId": "boots-of-divan",
       "name": "Boots of Divan",
       "status": "priced",
-      "unitPrice": 31400000,
-      "activeListings": 87,
-      "comparableListings": 66,
-      "comparableUnits": 66,
+      "unitPrice": 29999000,
+      "activeListings": 47,
+      "comparableListings": 19,
+      "comparableUnits": 19,
       "lowestListings": [
         {
-          "auctionId": "068e4233d44d496e9779fa21d9aaaa64",
+          "auctionId": "85819477aa3e4bf1888eaae7fb078b73",
           "quantity": 1,
-          "totalPrice": 31400000,
-          "unitPrice": 31400000,
-          "endsAt": 1793994083420
+          "totalPrice": 29999000,
+          "unitPrice": 29999000,
+          "endsAt": 1794067340428
         },
         {
-          "auctionId": "4fb2e9338f87436f8bedb127a76ae4d9",
+          "auctionId": "1615fc93fb5940c6b0e16762002d9e11",
           "quantity": 1,
-          "totalPrice": 31400000,
-          "unitPrice": 31400000,
-          "endsAt": 1793994046279
+          "totalPrice": 33399999,
+          "unitPrice": 33399999,
+          "endsAt": 1794062781711
         },
         {
-          "auctionId": "9a543298d8d545598aaf4f9cd17c822a",
+          "auctionId": "17c7765d45494f0690f31a0953dca311",
           "quantity": 1,
-          "totalPrice": 31400000,
-          "unitPrice": 31400000,
-          "endsAt": 1793994078091
+          "totalPrice": 33399999,
+          "unitPrice": 33399999,
+          "endsAt": 1794062768295
         },
         {
-          "auctionId": "a829ea2d707b4feda958db4a188ceba1",
+          "auctionId": "2eb6b22b04af44689214f26c40adaa5d",
           "quantity": 1,
-          "totalPrice": 31400000,
-          "unitPrice": 31400000,
-          "endsAt": 1793994059555
+          "totalPrice": 33399999,
+          "unitPrice": 33399999,
+          "endsAt": 1794062844031
         },
         {
-          "auctionId": "ab6d088e80fb46269c31d77e89f4c7fe",
+          "auctionId": "3015ae65a1a546218730a57c91cd148f",
           "quantity": 1,
-          "totalPrice": 31400000,
-          "unitPrice": 31400000,
-          "endsAt": 1793994064001
+          "totalPrice": 33399999,
+          "unitPrice": 33399999,
+          "endsAt": 1794062775072
         }
       ],
       "excludedVariants": {
-        "modified-or-unreviewed:rarity_upgrades": 18,
-        "modified-or-unreviewed:gems": 14,
-        "modified-or-unreviewed:modifier": 20,
-        "modified-or-unreviewed:enchantments": 12,
-        "modified-or-unreviewed:dye_item": 1,
-        "modified-or-unreviewed:hot_potato_count": 1
+        "modified-or-unreviewed:rarity_upgrades": 24,
+        "modified-or-unreviewed:gems": 19,
+        "modified-or-unreviewed:modifier": 27,
+        "modified-or-unreviewed:enchantments": 17,
+        "modified-or-unreviewed:runes": 1,
+        "modified-or-unreviewed:divan_powder_coating": 2,
+        "modified-or-unreviewed:hot_potato_count": 2
       },
       "warningCodes": [],
       "warnings": []
@@ -554,53 +536,53 @@
       "itemId": "chestplate-of-divan",
       "name": "Chestplate of Divan",
       "status": "priced",
-      "unitPrice": 47650549,
-      "activeListings": 47,
-      "comparableListings": 33,
-      "comparableUnits": 33,
+      "unitPrice": 39799999,
+      "activeListings": 79,
+      "comparableListings": 57,
+      "comparableUnits": 57,
       "lowestListings": [
         {
-          "auctionId": "8b88d480b28842f09c141b5f2f9ba11f",
+          "auctionId": "c152b20497f6496fb02ef2890be1a217",
           "quantity": 1,
-          "totalPrice": 47650549,
-          "unitPrice": 47650549,
-          "endsAt": 1793998229397
+          "totalPrice": 39799999,
+          "unitPrice": 39799999,
+          "endsAt": 1794069135985
         },
         {
-          "auctionId": "ffa5e517f3464f85b1fd0019cfb1c289",
+          "auctionId": "009d2d3b986046dba771c4beef4da135",
           "quantity": 1,
-          "totalPrice": 47650549,
-          "unitPrice": 47650549,
-          "endsAt": 1793998233136
+          "totalPrice": 40000000,
+          "unitPrice": 40000000,
+          "endsAt": 1794065727171
         },
         {
-          "auctionId": "875965917ba64504841c106d30b0c926",
+          "auctionId": "0bce08041cc94381b20ee8ead4f12b42",
           "quantity": 1,
-          "totalPrice": 47890000,
-          "unitPrice": 47890000,
-          "endsAt": 1793995465199
+          "totalPrice": 40000000,
+          "unitPrice": 40000000,
+          "endsAt": 1794065261274
         },
         {
-          "auctionId": "a9e5759b9fba423cbe99f9337ac0df85",
+          "auctionId": "2c0953c8b86d4ad39407a7721535a5b7",
           "quantity": 1,
-          "totalPrice": 47900000,
-          "unitPrice": 47900000,
-          "endsAt": 1793843424314
+          "totalPrice": 40000000,
+          "unitPrice": 40000000,
+          "endsAt": 1794065742997
         },
         {
-          "auctionId": "0bd79e7cace54fddb964113832258651",
+          "auctionId": "3c11429d7c4b4149b4a99b249c5395c9",
           "quantity": 1,
-          "totalPrice": 48000000,
-          "unitPrice": 48000000,
-          "endsAt": 1794169963806
+          "totalPrice": 40000000,
+          "unitPrice": 40000000,
+          "endsAt": 1794065732587
         }
       ],
       "excludedVariants": {
-        "modified-or-unreviewed:gems": 11,
-        "modified-or-unreviewed:modifier": 14,
-        "modified-or-unreviewed:enchantments": 9,
-        "modified-or-unreviewed:rarity_upgrades": 11,
-        "modified-or-unreviewed:hot_potato_count": 1
+        "modified-or-unreviewed:rarity_upgrades": 19,
+        "modified-or-unreviewed:gems": 12,
+        "modified-or-unreviewed:modifier": 22,
+        "modified-or-unreviewed:enchantments": 11,
+        "modified-or-unreviewed:divan_powder_coating": 1
       },
       "warningCodes": [],
       "warnings": []
@@ -610,26 +592,20 @@
       "name": "Divan's Drill",
       "status": "no-comparable-bin",
       "unitPrice": null,
-      "activeListings": 9,
+      "activeListings": 3,
       "comparableListings": 0,
       "comparableUnits": 0,
       "lowestListings": [],
       "excludedVariants": {
-        "modified-or-unreviewed:rarity_upgrades": 9,
-        "modified-or-unreviewed:gems": 9,
-        "modified-or-unreviewed:polarvoid": 7,
-        "modified-or-unreviewed:drill_fuel": 9,
-        "modified-or-unreviewed:modifier": 9,
-        "modified-or-unreviewed:compact_blocks": 9,
-        "modified-or-unreviewed:power_ability_scroll": 7,
-        "modified-or-unreviewed:enchantments": 9,
-        "modified-or-unreviewed:divan_powder_coating": 9,
-        "modified-or-unreviewed:upgrade_module": 2,
-        "modified-or-unreviewed:drill_part_upgrade_module": 2,
-        "modified-or-unreviewed:drill_part_engine": 2,
-        "modified-or-unreviewed:engine": 2,
-        "modified-or-unreviewed:drill_part_fuel_tank": 2,
-        "modified-or-unreviewed:fuel_tank": 1
+        "modified-or-unreviewed:rarity_upgrades": 3,
+        "modified-or-unreviewed:gems": 3,
+        "modified-or-unreviewed:polarvoid": 2,
+        "modified-or-unreviewed:drill_fuel": 3,
+        "modified-or-unreviewed:modifier": 3,
+        "modified-or-unreviewed:compact_blocks": 3,
+        "modified-or-unreviewed:power_ability_scroll": 2,
+        "modified-or-unreviewed:enchantments": 3,
+        "modified-or-unreviewed:divan_powder_coating": 3
       },
       "warningCodes": [
         "no-comparable-bin"
@@ -642,45 +618,45 @@
       "itemId": "dwarven-handwarmers",
       "name": "Dwarven Handwarmers",
       "status": "priced",
-      "unitPrice": 31497999,
-      "activeListings": 18,
-      "comparableListings": 18,
-      "comparableUnits": 18,
+      "unitPrice": 31800000,
+      "activeListings": 8,
+      "comparableListings": 8,
+      "comparableUnits": 8,
       "lowestListings": [
         {
-          "auctionId": "4c8d1d1ec7aa47a1b166877bbf34fecd",
+          "auctionId": "8c5b17772cbf47bf90a9b2965837d50e",
           "quantity": 1,
-          "totalPrice": 31497999,
-          "unitPrice": 31497999,
-          "endsAt": 1794000521975
+          "totalPrice": 31800000,
+          "unitPrice": 31800000,
+          "endsAt": 1795105957625
         },
         {
-          "auctionId": "a92200925849498290d716b5d9893c04",
+          "auctionId": "c380e08b259d454eb4f2217ed2a62545",
           "quantity": 1,
-          "totalPrice": 31498000,
-          "unitPrice": 31498000,
-          "endsAt": 1795028251399
+          "totalPrice": 31800000,
+          "unitPrice": 31800000,
+          "endsAt": 1795105943236
         },
         {
-          "auctionId": "aa49885c0b3d4a4390db8428ae3147a8",
+          "auctionId": "85dbdf1c718d4058a8d584b6202bc1c2",
           "quantity": 1,
-          "totalPrice": 31498000,
-          "unitPrice": 31498000,
-          "endsAt": 1795028256560
+          "totalPrice": 31899999,
+          "unitPrice": 31899999,
+          "endsAt": 1794067729176
         },
         {
-          "auctionId": "6a3eaeb7f6214c068e80134156b4b6f9",
+          "auctionId": "e2c0a54248a441d0940307edd32240b1",
           "quantity": 1,
-          "totalPrice": 31500000,
-          "unitPrice": 31500000,
-          "endsAt": 1793884730331
+          "totalPrice": 31899999,
+          "unitPrice": 31899999,
+          "endsAt": 1794067740008
         },
         {
-          "auctionId": "6c60189640934ecb909ac6d5c825d3a2",
+          "auctionId": "02a0582d9ee04840934f901d3de6c9ed",
           "quantity": 1,
-          "totalPrice": 31500000,
-          "unitPrice": 31500000,
-          "endsAt": 1794934269572
+          "totalPrice": 32000000,
+          "unitPrice": 32000000,
+          "endsAt": 1793966084632
         }
       ],
       "excludedVariants": {},
@@ -691,45 +667,45 @@
       "itemId": "dwarven-metal-talisman",
       "name": "Dwarven Metal Talisman",
       "status": "priced",
-      "unitPrice": 27990000,
-      "activeListings": 14,
-      "comparableListings": 14,
-      "comparableUnits": 14,
+      "unitPrice": 28900000,
+      "activeListings": 9,
+      "comparableListings": 9,
+      "comparableUnits": 9,
       "lowestListings": [
         {
-          "auctionId": "5a252a50dc724a5ba9ab06a244831f78",
+          "auctionId": "b8baecc1401349e780eaacf5688ef95a",
           "quantity": 1,
-          "totalPrice": 27990000,
-          "unitPrice": 27990000,
-          "endsAt": 1793994837099
+          "totalPrice": 28900000,
+          "unitPrice": 28900000,
+          "endsAt": 1794036808170
         },
         {
-          "auctionId": "a92107a9e0b1405c9b7d72ff44994f53",
+          "auctionId": "ba8439664202411fa0928e910787021a",
           "quantity": 1,
-          "totalPrice": 27999999,
-          "unitPrice": 27999999,
-          "endsAt": 1793994282129
+          "totalPrice": 28900000,
+          "unitPrice": 28900000,
+          "endsAt": 1794036798218
         },
         {
-          "auctionId": "54cd0d86ad364feaa6a32b23af377885",
+          "auctionId": "f63708412ab54d03a9cfaaf74a500eac",
           "quantity": 1,
-          "totalPrice": 28000000,
-          "unitPrice": 28000000,
-          "endsAt": 1793890161936
+          "totalPrice": 28900000,
+          "unitPrice": 28900000,
+          "endsAt": 1794036803304
         },
         {
-          "auctionId": "6af60c65c1ad41c3897fd4baae664c97",
+          "auctionId": "f1d6f13599f943dfab99288895948e8e",
           "quantity": 1,
-          "totalPrice": 28000000,
-          "unitPrice": 28000000,
-          "endsAt": 1793890200754
+          "totalPrice": 28990000,
+          "unitPrice": 28990000,
+          "endsAt": 1794840180809
         },
         {
-          "auctionId": "ac4d1c255f774fd8860794a5ac6a4c77",
+          "auctionId": "3a4615945d294d02b877f8cf3e766943",
           "quantity": 1,
-          "totalPrice": 28890000,
-          "unitPrice": 28890000,
-          "endsAt": 1793890029778
+          "totalPrice": 29900000,
+          "unitPrice": 29900000,
+          "endsAt": 1794721133900
         }
       ],
       "excludedVariants": {},
@@ -740,45 +716,45 @@
       "itemId": "gemstone-chamber",
       "name": "Gemstone Chamber",
       "status": "priced",
-      "unitPrice": 8000000,
-      "activeListings": 92,
-      "comparableListings": 92,
-      "comparableUnits": 92,
+      "unitPrice": 7799999,
+      "activeListings": 161,
+      "comparableListings": 161,
+      "comparableUnits": 161,
       "lowestListings": [
         {
-          "auctionId": "b2dedda3d6854253be98e66f49c0853f",
+          "auctionId": "39220f0290334c01bd958c820c73c9c8",
           "quantity": 1,
-          "totalPrice": 8000000,
-          "unitPrice": 8000000,
-          "endsAt": 1793849458032
+          "totalPrice": 7799999,
+          "unitPrice": 7799999,
+          "endsAt": 1794069507845
         },
         {
-          "auctionId": "08ced4e1f6de42f7b910c218de1eebdb",
+          "auctionId": "20de4a745f1c4fd286e6c16cc2693d58",
           "quantity": 1,
-          "totalPrice": 8100000,
-          "unitPrice": 8100000,
-          "endsAt": 1793914138055
+          "totalPrice": 7950000,
+          "unitPrice": 7950000,
+          "endsAt": 1793917810224
         },
         {
-          "auctionId": "6da9e479b1d24d79b5e60501b8de085f",
+          "auctionId": "78da5a9a813c435a83d276c8f4560ed3",
           "quantity": 1,
-          "totalPrice": 8100000,
-          "unitPrice": 8100000,
-          "endsAt": 1793914125663
+          "totalPrice": 7950000,
+          "unitPrice": 7950000,
+          "endsAt": 1793917804781
         },
         {
-          "auctionId": "e94a64cc1c87429085fb548891075075",
+          "auctionId": "11fd32d302024dab92db33661f52f43f",
           "quantity": 1,
-          "totalPrice": 8100000,
-          "unitPrice": 8100000,
-          "endsAt": 1793914142121
+          "totalPrice": 7989998,
+          "unitPrice": 7989998,
+          "endsAt": 1793914679122
         },
         {
-          "auctionId": "f0e3c22433ec440793a794708da4d204",
+          "auctionId": "010581c0ec06491584bd89003beaa939",
           "quantity": 1,
-          "totalPrice": 8100000,
-          "unitPrice": 8100000,
-          "endsAt": 1793914129975
+          "totalPrice": 7989999,
+          "unitPrice": 7989999,
+          "endsAt": 1793914412491
         }
       ],
       "excludedVariants": {},
@@ -788,125 +764,116 @@
     {
       "itemId": "gemstone-drill-lt-522",
       "name": "Gemstone Drill LT-522",
-      "status": "priced",
-      "unitPrice": 15500000,
-      "activeListings": 8,
-      "comparableListings": 3,
-      "comparableUnits": 3,
-      "lowestListings": [
-        {
-          "auctionId": "0f66e084dda74ca6be697960e902a4ed",
-          "quantity": 1,
-          "totalPrice": 15500000,
-          "unitPrice": 15500000,
-          "endsAt": 1793885401849
-        },
-        {
-          "auctionId": "7aa63bd23c3d4df1bd78b0b9fe442332",
-          "quantity": 1,
-          "totalPrice": 15500000,
-          "unitPrice": 15500000,
-          "endsAt": 1793885385511
-        },
-        {
-          "auctionId": "ccf9fba4adc8450d96375262b383aa42",
-          "quantity": 1,
-          "totalPrice": 15500000,
-          "unitPrice": 15500000,
-          "endsAt": 1793885391274
-        }
-      ],
+      "status": "no-comparable-bin",
+      "unitPrice": null,
+      "activeListings": 2,
+      "comparableListings": 0,
+      "comparableUnits": 0,
+      "lowestListings": [],
       "excludedVariants": {
-        "modified-or-unreviewed:drill_fuel": 4,
-        "modified-or-unreviewed:modifier": 3,
-        "modified-or-unreviewed:enchantments": 4,
-        "modified-or-unreviewed:drill_part_upgrade_module": 1
+        "modified-or-unreviewed:drill_fuel": 1,
+        "modified-or-unreviewed:enchantments": 2
       },
-      "warningCodes": [],
-      "warnings": []
+      "warningCodes": [
+        "no-comparable-bin"
+      ],
+      "warnings": [
+        "Current BIN listings exist, but none match the unmodified item or level 1 pet policy. Enter a manual override if needed."
+      ]
     },
     {
       "itemId": "gemstone-fuel-tank",
       "name": "Gemstone Fuel Tank",
       "status": "priced",
-      "unitPrice": 64000000,
-      "activeListings": 3,
-      "comparableListings": 1,
-      "comparableUnits": 1,
-      "lowestListings": [
-        {
-          "auctionId": "769ad6d99f7140fe846d464261077c7b",
-          "quantity": 1,
-          "totalPrice": 64000000,
-          "unitPrice": 64000000,
-          "endsAt": 1794745172114
-        }
-      ],
-      "excludedVariants": {
-        "modified-or-unreviewed:stored_drill_fuel": 2
-      },
-      "warningCodes": [
-        "sparse-listings"
-      ],
-      "warnings": [
-        "Few comparable BIN listings are available. This asking price may be inflated and may not reflect a realizable sale price."
-      ]
-    },
-    {
-      "itemId": "glacite-lantern",
-      "name": "Glacite Lantern",
-      "status": "priced",
-      "unitPrice": 17500000,
-      "activeListings": 2,
-      "comparableListings": 2,
-      "comparableUnits": 2,
-      "lowestListings": [
-        {
-          "auctionId": "7476fe2b4fc840c39a1459e9e836c2fd",
-          "quantity": 1,
-          "totalPrice": 17500000,
-          "unitPrice": 17500000,
-          "endsAt": 1793849023661
-        },
-        {
-          "auctionId": "d24d979d917549a0b61295418813b914",
-          "quantity": 1,
-          "totalPrice": 17500000,
-          "unitPrice": 17500000,
-          "endsAt": 1793849018250
-        }
-      ],
-      "excludedVariants": {},
-      "warningCodes": [
-        "sparse-listings"
-      ],
-      "warnings": [
-        "Few comparable BIN listings are available. This asking price may be inflated and may not reflect a realizable sale price."
-      ]
-    },
-    {
-      "itemId": "glacite-plated-chisel",
-      "name": "Glacite-Plated Chisel",
-      "status": "priced",
-      "unitPrice": 33500000,
+      "unitPrice": 59000000,
       "activeListings": 3,
       "comparableListings": 3,
       "comparableUnits": 3,
       "lowestListings": [
         {
-          "auctionId": "897cdf6a2ff6478e9a140d0d7e6e1936",
+          "auctionId": "8f4403d8947b452ca2ab5fbc93d9f5de",
           "quantity": 1,
-          "totalPrice": 33500000,
-          "unitPrice": 33500000,
-          "endsAt": 1793843268484
+          "totalPrice": 59000000,
+          "unitPrice": 59000000,
+          "endsAt": 1793937998336
         },
         {
-          "auctionId": "819f87faff244007aee31acc9e718ef9",
+          "auctionId": "c0ad62ecc4a541439c8bd6f1794653fb",
           "quantity": 1,
-          "totalPrice": 34000000,
-          "unitPrice": 34000000,
-          "endsAt": 1795021034629
+          "totalPrice": 60000000,
+          "unitPrice": 60000000,
+          "endsAt": 1793938043042
         },
+        {
+          "auctionId": "5a78832bf2f54efcaa5ef06eacf70147",
+          "quantity": 1,
+          "totalPrice": 61000000,
+          "unitPrice": 61000000,
+          "endsAt": 1793938036472
+        }
+      ],
+      "excludedVariants": {},
+      "warningCodes": [],
+      "warnings": []
+    },
+    {
+      "itemId": "glacite-lantern",
+      "name": "Glacite Lantern",
+      "status": "priced",
+      "unitPrice": 15800000,
+      "activeListings": 25,
+      "comparableListings": 25,
+      "comparableUnits": 25,
+      "lowestListings": [
+        {
+          "auctionId": "a6e0d655e4794947b4634c6e4469c13b",
+          "quantity": 1,
+          "totalPrice": 15800000,
+          "unitPrice": 15800000,
+          "endsAt": 1795106523558
+        },
+        {
+          "auctionId": "183a1b993e774775aa85ad3dca75ef1a",
+          "quantity": 1,
+          "totalPrice": 15890000,
+          "unitPrice": 15890000,
+          "endsAt": 1794061988072
+        },
+        {
+          "auctionId": "1f15445ffec14668afe55690bc322c10",
+          "quantity": 1,
+          "totalPrice": 15890000,
+          "unitPrice": 15890000,
+          "endsAt": 1794062017428
+        },
+        {
+          "auctionId": "77eb8ac2b25949c2be17117efd53071f",
+          "quantity": 1,
+          "totalPrice": 15890000,
+          "unitPrice": 15890000,
+          "endsAt": 1794061994697
+        },
+        {
+          "auctionId": "1e4ddc1c543b4662aec8e590f8ae994c",
+          "quantity": 1,
+          "totalPrice": 15999999,
+          "unitPrice": 15999999,
+          "endsAt": 1794059608871
+        }
+      ],
+      "excludedVariants": {},
+      "warningCodes": [],
+      "warnings": []
+    },
+    {
+      "itemId": "glacite-plated-chisel",
+      "name": "Glacite-Plated Chisel",
+      "status": "priced",
+      "unitPrice": 35000000,
+      "activeListings": 1,
+      "comparableListings": 1,
+      "comparableUnits": 1,
+      "lowestListings": [
         {
           "auctionId": "2b4baad55ea94089ae72eaf9341c0d6b",
           "quantity": 1,
@@ -916,57 +883,61 @@
         }
       ],
       "excludedVariants": {},
-      "warningCodes": [],
-      "warnings": []
+      "warningCodes": [
+        "sparse-listings"
+      ],
+      "warnings": [
+        "Few comparable BIN listings are available. This asking price may be inflated and may not reflect a realizable sale price."
+      ]
     },
     {
       "itemId": "goblin",
       "name": "Goblin",
       "status": "priced",
-      "unitPrice": 4000000,
-      "activeListings": 79,
-      "comparableListings": 70,
-      "comparableUnits": 70,
+      "unitPrice": 5400000,
+      "activeListings": 59,
+      "comparableListings": 48,
+      "comparableUnits": 48,
       "lowestListings": [
         {
-          "auctionId": "3edeb87f08cb48e78c542eb92c44fd7c",
+          "auctionId": "56f9d4108c9c431492986f346aff5114",
           "quantity": 1,
-          "totalPrice": 4000000,
-          "unitPrice": 4000000,
-          "endsAt": 1793909523419
+          "totalPrice": 5400000,
+          "unitPrice": 5400000,
+          "endsAt": 1794069254473
         },
         {
-          "auctionId": "6b580176b1464f47a7c0edcb51282169",
+          "auctionId": "eb5f7c9dacf64d5185a4107124188b3d",
           "quantity": 1,
-          "totalPrice": 4000000,
-          "unitPrice": 4000000,
-          "endsAt": 1793995905530
+          "totalPrice": 5400000,
+          "unitPrice": 5400000,
+          "endsAt": 1794069246835
         },
         {
-          "auctionId": "9e426fcf2608483bb911e9e22d1cfb0d",
+          "auctionId": "5e730f2f12c94f85898d7701a50986b6",
           "quantity": 1,
-          "totalPrice": 4000000,
-          "unitPrice": 4000000,
-          "endsAt": 1793909495234
+          "totalPrice": 5500000,
+          "unitPrice": 5500000,
+          "endsAt": 1793915726489
         },
         {
-          "auctionId": "a7c639a5a11945c09479052f428eb9fa",
+          "auctionId": "77a68aa72dfc4a5f951ec8f77ef24c14",
           "quantity": 1,
-          "totalPrice": 4000000,
-          "unitPrice": 4000000,
-          "endsAt": 1793995920183
+          "totalPrice": 5500000,
+          "unitPrice": 5500000,
+          "endsAt": 1794057717369
         },
         {
-          "auctionId": "b03e065cefea4542a4ed7b4bee82bd8a",
+          "auctionId": "7d640dfde0694fada2ef47305372b051",
           "quantity": 1,
-          "totalPrice": 4000000,
-          "unitPrice": 4000000,
-          "endsAt": 1793995902519
+          "totalPrice": 5500000,
+          "unitPrice": 5500000,
+          "endsAt": 1794057706369
         }
       ],
       "excludedVariants": {
-        "pet-above-level-1": 9,
-        "pet-held-item": 7
+        "pet-above-level-1": 11,
+        "pet-held-item": 9
       },
       "warningCodes": [],
       "warnings": []
@@ -975,45 +946,45 @@
       "itemId": "goblin-omelette",
       "name": "Goblin Omelette",
       "status": "priced",
-      "unitPrice": 999999,
-      "activeListings": 21,
-      "comparableListings": 21,
-      "comparableUnits": 21,
+      "unitPrice": 998998,
+      "activeListings": 77,
+      "comparableListings": 77,
+      "comparableUnits": 77,
       "lowestListings": [
         {
-          "auctionId": "0b23c7e2ea754e9daab734248a2b0665",
+          "auctionId": "0f1f27ee6b6c47e2a787b25a761d8406",
           "quantity": 1,
-          "totalPrice": 999999,
-          "unitPrice": 999999,
-          "endsAt": 1793845324163
+          "totalPrice": 998998,
+          "unitPrice": 998998,
+          "endsAt": 1793918335173
         },
         {
-          "auctionId": "16b2fe40427e457e9b06f085dc9010b9",
+          "auctionId": "5f0c4b9df8df4398848848cd0256fe80",
           "quantity": 1,
-          "totalPrice": 1000000,
-          "unitPrice": 1000000,
-          "endsAt": 1794410267645
+          "totalPrice": 998999,
+          "unitPrice": 998999,
+          "endsAt": 1794062011472
         },
         {
-          "auctionId": "1a270b788fc649bfa795964d9903262a",
+          "auctionId": "69b46db1e29e43d0a18032cf6ef34a0d",
           "quantity": 1,
-          "totalPrice": 1000000,
-          "unitPrice": 1000000,
-          "endsAt": 1793991852067
+          "totalPrice": 998999,
+          "unitPrice": 998999,
+          "endsAt": 1794062006451
         },
         {
-          "auctionId": "489ac7fd42f747f8a1b07973daeb0c20",
+          "auctionId": "7376a26f50d64e6490001625fb3bf115",
           "quantity": 1,
-          "totalPrice": 1000000,
-          "unitPrice": 1000000,
-          "endsAt": 1793840270579
+          "totalPrice": 998999,
+          "unitPrice": 998999,
+          "endsAt": 1794062016881
         },
         {
-          "auctionId": "6630d22ba0fb49e49e3b5e7481306b83",
+          "auctionId": "bbf0143eee894d5f95e78e299bd0e556",
           "quantity": 1,
-          "totalPrice": 1000000,
-          "unitPrice": 1000000,
-          "endsAt": 1793901034815
+          "totalPrice": 998999,
+          "unitPrice": 998999,
+          "endsAt": 1794061995887
         }
       ],
       "excludedVariants": {},
@@ -1024,56 +995,55 @@
       "itemId": "helmet-of-divan",
       "name": "Helmet of Divan",
       "status": "priced",
-      "unitPrice": 34397000,
-      "activeListings": 60,
-      "comparableListings": 37,
-      "comparableUnits": 37,
+      "unitPrice": 34800000,
+      "activeListings": 36,
+      "comparableListings": 14,
+      "comparableUnits": 14,
       "lowestListings": [
         {
-          "auctionId": "720b07a12b9f4a38a31442bbd193c683",
+          "auctionId": "10a2dafd54ef4fc68bacb6086370346c",
           "quantity": 1,
-          "totalPrice": 34397000,
-          "unitPrice": 34397000,
-          "endsAt": 1793988819845
+          "totalPrice": 34800000,
+          "unitPrice": 34800000,
+          "endsAt": 1794067430629
         },
         {
-          "auctionId": "ac4c61e496664e05bcc6a47af756ef9b",
+          "auctionId": "45dbebd4697d4f2e916213ccf725ecb3",
           "quantity": 1,
-          "totalPrice": 34397000,
-          "unitPrice": 34397000,
-          "endsAt": 1793988873067
+          "totalPrice": 34899999,
+          "unitPrice": 34899999,
+          "endsAt": 1794062624801
         },
         {
-          "auctionId": "1c2c591e7e4242caac1b4423e7e2a7fc",
+          "auctionId": "4312e227a289447d97de5a7c7215ab26",
           "quantity": 1,
-          "totalPrice": 34400000,
-          "unitPrice": 34400000,
-          "endsAt": 1793969140023
+          "totalPrice": 35000000,
+          "unitPrice": 35000000,
+          "endsAt": 1793955927976
         },
         {
-          "auctionId": "8eb7b8a9ab9f437082e62994ed847921",
+          "auctionId": "0de4e2a15f5e4854a32b53eeea8e6f13",
           "quantity": 1,
-          "totalPrice": 34499999,
-          "unitPrice": 34499999,
-          "endsAt": 1793966766400
+          "totalPrice": 35318597,
+          "unitPrice": 35318597,
+          "endsAt": 1793940330618
         },
         {
-          "auctionId": "99c45057548e470f81c359453b313a72",
+          "auctionId": "0cea4a70ebb14c0893ac59b7f285545d",
           "quantity": 1,
-          "totalPrice": 34499999,
-          "unitPrice": 34499999,
-          "endsAt": 1793966750650
+          "totalPrice": 36000000,
+          "unitPrice": 36000000,
+          "endsAt": 1793955910440
         }
       ],
       "excludedVariants": {
-        "modified-or-unreviewed:rarity_upgrades": 18,
-        "modified-or-unreviewed:gems": 19,
-        "modified-or-unreviewed:modifier": 23,
-        "modified-or-unreviewed:enchantments": 14,
-        "modified-or-unreviewed:divan_powder_coating": 3,
-        "modified-or-unreviewed:hot_potato_count": 4,
-        "modified-or-unreviewed:skin": 2,
-        "modified-or-unreviewed:favorite_gemstone": 1
+        "modified-or-unreviewed:rarity_upgrades": 17,
+        "modified-or-unreviewed:gems": 14,
+        "modified-or-unreviewed:modifier": 22,
+        "modified-or-unreviewed:enchantments": 12,
+        "modified-or-unreviewed:hot_potato_count": 3,
+        "modified-or-unreviewed:skin": 1,
+        "modified-or-unreviewed:divan_powder_coating": 1
       },
       "warningCodes": [],
       "warnings": []
@@ -1082,49 +1052,49 @@
       "itemId": "jade-belt",
       "name": "Jade Belt",
       "status": "priced",
-      "unitPrice": 67999994,
-      "activeListings": 28,
-      "comparableListings": 27,
-      "comparableUnits": 27,
+      "unitPrice": 70890000,
+      "activeListings": 19,
+      "comparableListings": 17,
+      "comparableUnits": 17,
       "lowestListings": [
         {
-          "auctionId": "7a64c123e1614f528c3851bac390b9bf",
+          "auctionId": "49c6f65da4ad4c4a82e15bb5d806ea63",
           "quantity": 1,
-          "totalPrice": 67999994,
-          "unitPrice": 67999994,
-          "endsAt": 1795021298308
+          "totalPrice": 70890000,
+          "unitPrice": 70890000,
+          "endsAt": 1793916181455
         },
         {
-          "auctionId": "802a218d8c9848b9b86ce86864782b61",
+          "auctionId": "62b0f2985a204e26bcb625651a42a804",
           "quantity": 1,
-          "totalPrice": 67999994,
-          "unitPrice": 67999994,
-          "endsAt": 1795021288025
+          "totalPrice": 70900000,
+          "unitPrice": 70900000,
+          "endsAt": 1795074599407
         },
         {
-          "auctionId": "30ac57c122884ef1b1a492b28e3b330a",
+          "auctionId": "16b68f5ec24f48a9869bd1ae7f446501",
           "quantity": 1,
-          "totalPrice": 67999995,
-          "unitPrice": 67999995,
-          "endsAt": 1793912628301
+          "totalPrice": 70989000,
+          "unitPrice": 70989000,
+          "endsAt": 1794857462995
         },
         {
-          "auctionId": "48fc420963854fda9233267ee9767597",
+          "auctionId": "92e53bc86b37438c8dd3bd968188210e",
           "quantity": 1,
-          "totalPrice": 67999995,
-          "unitPrice": 67999995,
-          "endsAt": 1793912654964
+          "totalPrice": 70989000,
+          "unitPrice": 70989000,
+          "endsAt": 1794857453241
         },
         {
-          "auctionId": "e632a63750cf4523ada0e581e6097295",
+          "auctionId": "ca9ff6d5fef04c239a24aee6beaa7171",
           "quantity": 1,
-          "totalPrice": 67999995,
-          "unitPrice": 67999995,
-          "endsAt": 1793912645808
+          "totalPrice": 70989000,
+          "unitPrice": 70989000,
+          "endsAt": 1794857447835
         }
       ],
       "excludedVariants": {
-        "modified-or-unreviewed:modifier": 1
+        "modified-or-unreviewed:modifier": 2
       },
       "warningCodes": [],
       "warnings": []
@@ -1133,35 +1103,148 @@
       "itemId": "jasper-drill-x",
       "name": "Jasper Drill X",
       "status": "priced",
-      "unitPrice": 56000000,
-      "activeListings": 20,
-      "comparableListings": 1,
-      "comparableUnits": 1,
+      "unitPrice": 54900000,
+      "activeListings": 37,
+      "comparableListings": 17,
+      "comparableUnits": 17,
       "lowestListings": [
         {
-          "auctionId": "58e4b59cb93748c19544a25c1bc03b23",
+          "auctionId": "02eeef1e3a3f4dff80a2ca3405b4e967",
           "quantity": 1,
-          "totalPrice": 56000000,
-          "unitPrice": 56000000,
-          "endsAt": 1795031965483
+          "totalPrice": 54900000,
+          "unitPrice": 54900000,
+          "endsAt": 1794069432695
+        },
+        {
+          "auctionId": "4e5c3a4a8c50451d9fca662bed5e4d49",
+          "quantity": 1,
+          "totalPrice": 54900000,
+          "unitPrice": 54900000,
+          "endsAt": 1794069424656
+        },
+        {
+          "auctionId": "746bf218588a455fbbba06f72de4f744",
+          "quantity": 1,
+          "totalPrice": 54900000,
+          "unitPrice": 54900000,
+          "endsAt": 1794069430121
+        },
+        {
+          "auctionId": "8addaebbfacb4f98bf49115a620e5295",
+          "quantity": 1,
+          "totalPrice": 54900000,
+          "unitPrice": 54900000,
+          "endsAt": 1794069421943
+        },
+        {
+          "auctionId": "c164f60ab9bd4271ab7f4c699f6d1170",
+          "quantity": 1,
+          "totalPrice": 54900000,
+          "unitPrice": 54900000,
+          "endsAt": 1794069427372
         }
       ],
       "excludedVariants": {
-        "modified-or-unreviewed:gems": 16,
-        "modified-or-unreviewed:drill_fuel": 19,
-        "modified-or-unreviewed:modifier": 18,
-        "modified-or-unreviewed:enchantments": 18,
-        "modified-or-unreviewed:drill_part_upgrade_module": 5,
+        "modified-or-unreviewed:gems": 15,
+        "modified-or-unreviewed:drill_fuel": 18,
+        "modified-or-unreviewed:modifier": 17,
+        "modified-or-unreviewed:compact_blocks": 9,
+        "modified-or-unreviewed:enchantments": 19,
+        "modified-or-unreviewed:drill_part_upgrade_module": 6,
         "modified-or-unreviewed:upgrade_module": 5,
-        "modified-or-unreviewed:compact_blocks": 6,
-        "modified-or-unreviewed:rarity_upgrades": 4,
-        "modified-or-unreviewed:polarvoid": 5,
+        "modified-or-unreviewed:rarity_upgrades": 5,
+        "modified-or-unreviewed:polarvoid": 4,
+        "modified-or-unreviewed:drill_part_fuel_tank": 5,
+        "modified-or-unreviewed:divan_powder_coating": 3,
         "modified-or-unreviewed:fuel_tank": 3,
-        "modified-or-unreviewed:drill_part_fuel_tank": 4,
-        "modified-or-unreviewed:power_ability_scroll": 1,
         "modified-or-unreviewed:drill_part_engine": 1,
-        "modified-or-unreviewed:engine": 1,
+        "modified-or-unreviewed:engine": 1
+      },
+      "warningCodes": [],
+      "warnings": []
+    },
+    {
+      "itemId": "leggings-of-divan",
+      "name": "Leggings of Divan",
+      "status": "priced",
+      "unitPrice": 49899000,
+      "activeListings": 32,
+      "comparableListings": 14,
+      "comparableUnits": 14,
+      "lowestListings": [
+        {
+          "auctionId": "2e8fe8e3ca7749c7ae535c865ded81c1",
+          "quantity": 1,
+          "totalPrice": 49899000,
+          "unitPrice": 49899000,
+          "endsAt": 1793939828089
+        },
+        {
+          "auctionId": "31e65834ce9341eda02b9fff64c9ac23",
+          "quantity": 1,
+          "totalPrice": 49899000,
+          "unitPrice": 49899000,
+          "endsAt": 1793939839574
+        },
+        {
+          "auctionId": "5387fb2bf19246848977ac0eb6c1ffb1",
+          "quantity": 1,
+          "totalPrice": 49899000,
+          "unitPrice": 49899000,
+          "endsAt": 1793939822333
+        },
+        {
+          "auctionId": "73e0ef4a8bc340a2bb0467b485439f25",
+          "quantity": 1,
+          "totalPrice": 49899000,
+          "unitPrice": 49899000,
+          "endsAt": 1793939833141
+        },
+        {
+          "auctionId": "641d840c679548c1af13edcf9344f7ea",
+          "quantity": 1,
+          "totalPrice": 49899999,
+          "unitPrice": 49899999,
+          "endsAt": 1793915905447
+        }
+      ],
+      "excludedVariants": {
+        "modified-or-unreviewed:rarity_upgrades": 16,
+        "modified-or-unreviewed:gems": 16,
+        "modified-or-unreviewed:modifier": 18,
+        "modified-or-unreviewed:enchantments": 7,
+        "modified-or-unreviewed:hot_potato_count": 2,
         "modified-or-unreviewed:divan_powder_coating": 1
+      },
+      "warningCodes": [],
+      "warnings": []
+    },
+    {
+      "itemId": "mammoth",
+      "name": "Mammoth",
+      "status": "priced",
+      "unitPrice": 9000000,
+      "activeListings": 3,
+      "comparableListings": 2,
+      "comparableUnits": 2,
+      "lowestListings": [
+        {
+          "auctionId": "3a6293a5c9e64fa29f112a9b67158bac",
+          "quantity": 1,
+          "totalPrice": 9000000,
+          "unitPrice": 9000000,
+          "endsAt": 1794035759968
+        },
+        {
+          "auctionId": "41b75f908c4d4499ae5840e294000215",
+          "quantity": 1,
+          "totalPrice": 9600000,
+          "unitPrice": 9600000,
+          "endsAt": 1794032648166
+        }
+      ],
+      "excludedVariants": {
+        "pet-above-level-1": 1
       },
       "warningCodes": [
         "sparse-listings"
@@ -1171,160 +1254,52 @@
       ]
     },
     {
-      "itemId": "leggings-of-divan",
-      "name": "Leggings of Divan",
-      "status": "priced",
-      "unitPrice": 41999995,
-      "activeListings": 40,
-      "comparableListings": 23,
-      "comparableUnits": 23,
-      "lowestListings": [
-        {
-          "auctionId": "3e8febb79acb4e23b0a2326e8bd2e138",
-          "quantity": 1,
-          "totalPrice": 41999995,
-          "unitPrice": 41999995,
-          "endsAt": 1794672354869
-        },
-        {
-          "auctionId": "6c4cd62718c9465db18910ccbd15dbdc",
-          "quantity": 1,
-          "totalPrice": 41999995,
-          "unitPrice": 41999995,
-          "endsAt": 1794672364899
-        },
-        {
-          "auctionId": "55f7afd773904b35adfafe52613be2e9",
-          "quantity": 1,
-          "totalPrice": 41999999,
-          "unitPrice": 41999999,
-          "endsAt": 1794483141348
-        },
-        {
-          "auctionId": "6af2d459629749d096458e88925d87d7",
-          "quantity": 1,
-          "totalPrice": 41999999,
-          "unitPrice": 41999999,
-          "endsAt": 1794483146238
-        },
-        {
-          "auctionId": "cc72385df1274477a908882e8049e38d",
-          "quantity": 1,
-          "totalPrice": 41999999,
-          "unitPrice": 41999999,
-          "endsAt": 1794483153856
-        }
-      ],
-      "excludedVariants": {
-        "modified-or-unreviewed:rarity_upgrades": 14,
-        "modified-or-unreviewed:gems": 15,
-        "modified-or-unreviewed:modifier": 16,
-        "modified-or-unreviewed:enchantments": 10,
-        "modified-or-unreviewed:hot_potato_count": 1
-      },
-      "warningCodes": [],
-      "warnings": []
-    },
-    {
-      "itemId": "mammoth",
-      "name": "Mammoth",
-      "status": "priced",
-      "unitPrice": 5000000,
-      "activeListings": 9,
-      "comparableListings": 6,
-      "comparableUnits": 6,
-      "lowestListings": [
-        {
-          "auctionId": "162d4f9d92144281a9f338f56079edc0",
-          "quantity": 1,
-          "totalPrice": 5000000,
-          "unitPrice": 5000000,
-          "endsAt": 1793908914871
-        },
-        {
-          "auctionId": "87b5bc83face4213869df323d495130c",
-          "quantity": 1,
-          "totalPrice": 5499000,
-          "unitPrice": 5499000,
-          "endsAt": 1793909178335
-        },
-        {
-          "auctionId": "3ee69f8283c842ac99ada01afdbcd464",
-          "quantity": 1,
-          "totalPrice": 5500000,
-          "unitPrice": 5500000,
-          "endsAt": 1793951809323
-        },
-        {
-          "auctionId": "520a5c48ee4641fab9881f7ad2ce3fe6",
-          "quantity": 1,
-          "totalPrice": 5500000,
-          "unitPrice": 5500000,
-          "endsAt": 1793951788425
-        },
-        {
-          "auctionId": "5ffbe838eb874f8ab12cb3e049800e5c",
-          "quantity": 1,
-          "totalPrice": 5500000,
-          "unitPrice": 5500000,
-          "endsAt": 1793951749108
-        }
-      ],
-      "excludedVariants": {
-        "pet-above-level-1": 3,
-        "pet-held-item": 1,
-        "pet-candy": 1
-      },
-      "warningCodes": [],
-      "warnings": []
-    },
-    {
       "itemId": "mithril-belt",
       "name": "Mithril Belt",
       "status": "priced",
-      "unitPrice": 197000,
-      "activeListings": 42,
-      "comparableListings": 38,
-      "comparableUnits": 38,
+      "unitPrice": 300000,
+      "activeListings": 10,
+      "comparableListings": 8,
+      "comparableUnits": 8,
       "lowestListings": [
         {
-          "auctionId": "663bad8166e44cfba16ea054d221f17b",
+          "auctionId": "298df21ea1fa469eb6984aba444bc0d3",
           "quantity": 1,
-          "totalPrice": 197000,
-          "unitPrice": 197000,
-          "endsAt": 1793997857531
+          "totalPrice": 300000,
+          "unitPrice": 300000,
+          "endsAt": 1794069191045
         },
         {
-          "auctionId": "7be963bff36744e9af259a0fc8f42c42",
+          "auctionId": "0f73cf10c8dc439cb59c65afafecce3d",
           "quantity": 1,
-          "totalPrice": 197000,
-          "unitPrice": 197000,
-          "endsAt": 1793997840744
+          "totalPrice": 400000,
+          "unitPrice": 400000,
+          "endsAt": 1794065819897
         },
         {
-          "auctionId": "adc1c68a61f74edeae1c5ddfa654326b",
+          "auctionId": "3a88609bb41e4f9db53d2d9b0979a3e2",
           "quantity": 1,
-          "totalPrice": 198999,
-          "unitPrice": 198999,
-          "endsAt": 1793835464083
+          "totalPrice": 400000,
+          "unitPrice": 400000,
+          "endsAt": 1794065812453
         },
         {
-          "auctionId": "0e918cc9eed84a8e977255372f5a1f5a",
+          "auctionId": "d18f6d5fd1964fbfae561e7d5a6225a2",
           "quantity": 1,
-          "totalPrice": 200000,
-          "unitPrice": 200000,
-          "endsAt": 1793859365171
+          "totalPrice": 400000,
+          "unitPrice": 400000,
+          "endsAt": 1794065828557
         },
         {
-          "auctionId": "1977de314bc344048ace866ece711811",
+          "auctionId": "d3098de3c4c549e493ec8a5fede063a3",
           "quantity": 1,
-          "totalPrice": 200000,
-          "unitPrice": 200000,
-          "endsAt": 1793902501927
+          "totalPrice": 400000,
+          "unitPrice": 400000,
+          "endsAt": 1793917049306
         }
       ],
       "excludedVariants": {
-        "modified-or-unreviewed:modifier": 4
+        "modified-or-unreviewed:modifier": 2
       },
       "warningCodes": [],
       "warnings": []
@@ -1333,45 +1308,45 @@
       "itemId": "mithril-cloak",
       "name": "Mithril Cloak",
       "status": "priced",
-      "unitPrice": 250000,
+      "unitPrice": 210000,
       "activeListings": 24,
       "comparableListings": 20,
       "comparableUnits": 20,
       "lowestListings": [
         {
-          "auctionId": "7c30ed08467e4e41a3e5b2223a5f9dd4",
+          "auctionId": "f86b6017fcc64847928684fa88eb797a",
+          "quantity": 1,
+          "totalPrice": 210000,
+          "unitPrice": 210000,
+          "endsAt": 1793917311317
+        },
+        {
+          "auctionId": "3e70070ce515400bab37abd5e0e9210a",
+          "quantity": 1,
+          "totalPrice": 230000,
+          "unitPrice": 230000,
+          "endsAt": 1794067907139
+        },
+        {
+          "auctionId": "5220c2ae167f453fa45fc4cd9298dabc",
+          "quantity": 1,
+          "totalPrice": 230000,
+          "unitPrice": 230000,
+          "endsAt": 1794067894639
+        },
+        {
+          "auctionId": "7eccd3999ec84f00a27b6c039f59e86c",
           "quantity": 1,
           "totalPrice": 250000,
           "unitPrice": 250000,
-          "endsAt": 1793846146190
+          "endsAt": 1793915810931
         },
         {
-          "auctionId": "5a03306c91a94855a2d3fcfdb8fa49bf",
+          "auctionId": "97b0dbb8a16941fbb6d148d12d6320e3",
           "quantity": 1,
-          "totalPrice": 298499,
-          "unitPrice": 298499,
-          "endsAt": 1793828389528
-        },
-        {
-          "auctionId": "00cb2abdb5b24bc8a66dd37f1b34f061",
-          "quantity": 1,
-          "totalPrice": 300000,
-          "unitPrice": 300000,
-          "endsAt": 1793833534804
-        },
-        {
-          "auctionId": "5436f3949ec6426aa88d7fe1ef5bd24f",
-          "quantity": 1,
-          "totalPrice": 300000,
-          "unitPrice": 300000,
-          "endsAt": 1793895704038
-        },
-        {
-          "auctionId": "753fe47ae0d64222b6eea69f9022163e",
-          "quantity": 1,
-          "totalPrice": 300000,
-          "unitPrice": 300000,
-          "endsAt": 1793994352107
+          "totalPrice": 250000,
+          "unitPrice": 250000,
+          "endsAt": 1793936319322
         }
       ],
       "excludedVariants": {
@@ -1385,53 +1360,49 @@
       "name": "Mithril Drill SX-R226",
       "status": "priced",
       "unitPrice": 7999999,
-      "activeListings": 35,
-      "comparableListings": 21,
-      "comparableUnits": 21,
+      "activeListings": 25,
+      "comparableListings": 16,
+      "comparableUnits": 16,
       "lowestListings": [
         {
-          "auctionId": "06b9cc06bf124ff8bcc13ba7a7ed787e",
+          "auctionId": "26ccad300d774141b3af8287877abbf1",
           "quantity": 1,
           "totalPrice": 7999999,
           "unitPrice": 7999999,
-          "endsAt": 1793998826401
+          "endsAt": 1794069629644
         },
         {
-          "auctionId": "17df8fabd1104992a530fe894e1d6ba5",
+          "auctionId": "60e80e3b825a449cb87caa3a82ed3d71",
           "quantity": 1,
           "totalPrice": 7999999,
           "unitPrice": 7999999,
-          "endsAt": 1793993717659
+          "endsAt": 1794055805251
         },
         {
-          "auctionId": "4d6258e5c6ca43098527802fe9514be2",
+          "auctionId": "75143bd48f3c467b92294241a5e9a3f2",
           "quantity": 1,
           "totalPrice": 7999999,
           "unitPrice": 7999999,
-          "endsAt": 1793993737181
+          "endsAt": 1794069651516
         },
         {
-          "auctionId": "515ffe2b5e654996a7f9b65b9b98ce64",
+          "auctionId": "928dfee92ac64c0983c370316a87df19",
           "quantity": 1,
           "totalPrice": 7999999,
           "unitPrice": 7999999,
-          "endsAt": 1793998862920
+          "endsAt": 1794069638529
         },
         {
-          "auctionId": "5fc33289dd8841eb97b5558bbf30a923",
+          "auctionId": "d4aee1956ccc4caeb702b5ab67a66a8c",
           "quantity": 1,
           "totalPrice": 7999999,
           "unitPrice": 7999999,
-          "endsAt": 1793993724264
+          "endsAt": 1794069644884
         }
       ],
       "excludedVariants": {
-        "modified-or-unreviewed:drill_fuel": 5,
-        "modified-or-unreviewed:modifier": 6,
-        "modified-or-unreviewed:enchantments": 14,
-        "modified-or-unreviewed:rarity_upgrades": 1,
-        "modified-or-unreviewed:drill_part_engine": 1,
-        "modified-or-unreviewed:engine": 1
+        "modified-or-unreviewed:modifier": 4,
+        "modified-or-unreviewed:enchantments": 9
       },
       "warningCodes": [],
       "warnings": []
@@ -1440,90 +1411,109 @@
       "itemId": "mithril-drill-sx-r326",
       "name": "Mithril Drill SX-R326",
       "status": "priced",
-      "unitPrice": 20000000,
-      "activeListings": 14,
-      "comparableListings": 2,
-      "comparableUnits": 2,
+      "unitPrice": 19000000,
+      "activeListings": 27,
+      "comparableListings": 11,
+      "comparableUnits": 11,
       "lowestListings": [
         {
-          "auctionId": "c5aaac09878b401ba4b30d31c7270b08",
+          "auctionId": "3d61160cc5034eef8efd299ac068d6ca",
           "quantity": 1,
-          "totalPrice": 20000000,
-          "unitPrice": 20000000,
-          "endsAt": 1793986902605
+          "totalPrice": 19000000,
+          "unitPrice": 19000000,
+          "endsAt": 1794029907328
         },
         {
-          "auctionId": "f56567f9dc744a51b585a1a4fa10350d",
+          "auctionId": "cffaa97fa31845ac88620ce037d9918d",
+          "quantity": 1,
+          "totalPrice": 19000000,
+          "unitPrice": 19000000,
+          "endsAt": 1794029899689
+        },
+        {
+          "auctionId": "fa0d07f9e99f4b06bcbedd87d2d1e77c",
+          "quantity": 1,
+          "totalPrice": 19000000,
+          "unitPrice": 19000000,
+          "endsAt": 1794029918787
+        },
+        {
+          "auctionId": "0d42a0af6f00460da09c15d1b7299a34",
           "quantity": 1,
           "totalPrice": 20000000,
           "unitPrice": 20000000,
-          "endsAt": 1793986879474
+          "endsAt": 1794014494711
+        },
+        {
+          "auctionId": "28dd2fc1b34945b193cda73adbdadb9e",
+          "quantity": 1,
+          "totalPrice": 20000000,
+          "unitPrice": 20000000,
+          "endsAt": 1794014487462
         }
       ],
       "excludedVariants": {
-        "modified-or-unreviewed:rarity_upgrades": 2,
-        "modified-or-unreviewed:drill_part_engine": 1,
-        "modified-or-unreviewed:engine": 1,
-        "modified-or-unreviewed:drill_fuel": 8,
-        "modified-or-unreviewed:modifier": 7,
-        "modified-or-unreviewed:compact_blocks": 3,
-        "modified-or-unreviewed:enchantments": 11,
-        "modified-or-unreviewed:drill_part_fuel_tank": 1,
-        "modified-or-unreviewed:fuel_tank": 1,
+        "modified-or-unreviewed:drill_fuel": 13,
+        "modified-or-unreviewed:enchantments": 15,
+        "modified-or-unreviewed:modifier": 12,
+        "modified-or-unreviewed:drill_part_engine": 3,
+        "modified-or-unreviewed:engine": 3,
+        "modified-or-unreviewed:drill_part_fuel_tank": 2,
+        "modified-or-unreviewed:fuel_tank": 2,
+        "modified-or-unreviewed:rarity_upgrades": 1,
         "modified-or-unreviewed:polarvoid": 2,
-        "modified-or-unreviewed:drill_part_upgrade_module": 2,
-        "modified-or-unreviewed:upgrade_module": 2
+        "modified-or-unreviewed:power_ability_scroll": 1,
+        "modified-or-unreviewed:divan_powder_coating": 1,
+        "modified-or-unreviewed:upgrade_module": 4,
+        "modified-or-unreviewed:drill_part_upgrade_module": 4,
+        "modified-or-unreviewed:compact_blocks": 3
       },
-      "warningCodes": [
-        "sparse-listings"
-      ],
-      "warnings": [
-        "Few comparable BIN listings are available. This asking price may be inflated and may not reflect a realizable sale price."
-      ]
+      "warningCodes": [],
+      "warnings": []
     },
     {
       "itemId": "mithril-gauntlet",
       "name": "Mithril Gauntlet",
       "status": "priced",
-      "unitPrice": 250000,
-      "activeListings": 39,
-      "comparableListings": 36,
-      "comparableUnits": 36,
+      "unitPrice": 200000,
+      "activeListings": 27,
+      "comparableListings": 24,
+      "comparableUnits": 24,
       "lowestListings": [
         {
-          "auctionId": "2599576708554c11a2be786e5a75ecdd",
+          "auctionId": "55862e06ed56472888c9b860dd59f2a9",
+          "quantity": 1,
+          "totalPrice": 200000,
+          "unitPrice": 200000,
+          "endsAt": 1794069178898
+        },
+        {
+          "auctionId": "d5550585de6f4f44a07fe3768b225614",
+          "quantity": 1,
+          "totalPrice": 230000,
+          "unitPrice": 230000,
+          "endsAt": 1793917307129
+        },
+        {
+          "auctionId": "ddbaf53d52fb409a904b2658c793ec2f",
+          "quantity": 1,
+          "totalPrice": 230000,
+          "unitPrice": 230000,
+          "endsAt": 1793917297139
+        },
+        {
+          "auctionId": "24e88d3c59f64ddbb6b749a2fac2675e",
           "quantity": 1,
           "totalPrice": 250000,
           "unitPrice": 250000,
-          "endsAt": 1793911178508
+          "endsAt": 1793915803722
         },
         {
-          "auctionId": "5d6715ef8cc8446fb6d9023c665221a3",
+          "auctionId": "29bba4b2e4eb472e85cce824db37faf7",
           "quantity": 1,
-          "totalPrice": 250000,
-          "unitPrice": 250000,
-          "endsAt": 1793847730663
-        },
-        {
-          "auctionId": "6ce57461222c4c0994fa182c80b6ab36",
-          "quantity": 1,
-          "totalPrice": 250000,
-          "unitPrice": 250000,
-          "endsAt": 1793911185179
-        },
-        {
-          "auctionId": "7ba2763869bb4cfdb5777799aaeefdc9",
-          "quantity": 1,
-          "totalPrice": 250000,
-          "unitPrice": 250000,
-          "endsAt": 1793848829459
-        },
-        {
-          "auctionId": "a68d3f0163e648288db6bc2ac4e646fa",
-          "quantity": 1,
-          "totalPrice": 270000,
-          "unitPrice": 270000,
-          "endsAt": 1793845976404
+          "totalPrice": 300000,
+          "unitPrice": 300000,
+          "endsAt": 1794060823080
         }
       ],
       "excludedVariants": {
@@ -1537,44 +1527,44 @@
       "name": "Mithril Lantern",
       "status": "priced",
       "unitPrice": 1200000,
-      "activeListings": 19,
-      "comparableListings": 19,
-      "comparableUnits": 19,
+      "activeListings": 18,
+      "comparableListings": 18,
+      "comparableUnits": 18,
       "lowestListings": [
         {
-          "auctionId": "54c7a0f04d744b1882c6643d94d5fef4",
+          "auctionId": "1db64bc4823b46929819ee12dd219c1a",
           "quantity": 1,
           "totalPrice": 1200000,
           "unitPrice": 1200000,
-          "endsAt": 1793898416151
+          "endsAt": 1794069068813
         },
         {
-          "auctionId": "12e253d7383748bb9f12d5192d2d3b16",
+          "auctionId": "b91cec2f325c448cb40a297a1037142a",
           "quantity": 1,
-          "totalPrice": 1300000,
-          "unitPrice": 1300000,
-          "endsAt": 1793951989076
+          "totalPrice": 1450000,
+          "unitPrice": 1450000,
+          "endsAt": 1794069088407
         },
         {
-          "auctionId": "14b4bed62ed5404fbe3b5a3d5a6d63aa",
+          "auctionId": "e334ad9371f2465b8193d63d3bd1de06",
           "quantity": 1,
-          "totalPrice": 1300000,
-          "unitPrice": 1300000,
-          "endsAt": 1793956747013
+          "totalPrice": 1450000,
+          "unitPrice": 1450000,
+          "endsAt": 1794069078976
         },
         {
-          "auctionId": "2009574d947048dfba61c8ffe999fe3b",
+          "auctionId": "e50e817d82074f49945f93f88a38fe33",
           "quantity": 1,
-          "totalPrice": 1300000,
-          "unitPrice": 1300000,
-          "endsAt": 1793951983326
+          "totalPrice": 1460000,
+          "unitPrice": 1460000,
+          "endsAt": 1794069102393
         },
         {
-          "auctionId": "3900dd67605b48e8a704e0d2d0331ec6",
+          "auctionId": "3aa6a50fc3154c9ab7feff9c912bccc7",
           "quantity": 1,
-          "totalPrice": 1300000,
-          "unitPrice": 1300000,
-          "endsAt": 1793952009600
+          "totalPrice": 1600000,
+          "unitPrice": 1600000,
+          "endsAt": 1793901053740
         }
       ],
       "excludedVariants": {},
@@ -1586,48 +1576,48 @@
       "name": "Mithril Necklace",
       "status": "priced",
       "unitPrice": 249000,
-      "activeListings": 23,
-      "comparableListings": 21,
-      "comparableUnits": 21,
+      "activeListings": 29,
+      "comparableListings": 26,
+      "comparableUnits": 26,
       "lowestListings": [
         {
-          "auctionId": "780c605326e34a04bef0e74e98ed121d",
+          "auctionId": "2350463de1c34561aa8fc774a006ccab",
           "quantity": 1,
           "totalPrice": 249000,
           "unitPrice": 249000,
-          "endsAt": 1793997942831
+          "endsAt": 1794067939196
         },
         {
-          "auctionId": "609bb725523542749dd5b030069ae23f",
+          "auctionId": "3d4ec8535e2b4bb98372ffb0f3605111",
           "quantity": 1,
           "totalPrice": 250000,
           "unitPrice": 250000,
-          "endsAt": 1793846224030
+          "endsAt": 1793912902400
         },
         {
-          "auctionId": "7e34c7519f6848f9ab64f8e25a1e78fb",
+          "auctionId": "41ba2bc094df49e88db9421432aaac11",
           "quantity": 1,
           "totalPrice": 250000,
           "unitPrice": 250000,
-          "endsAt": 1793846141505
+          "endsAt": 1793912860194
         },
         {
-          "auctionId": "dec9fc82347c40ce84b4b6f173374911",
+          "auctionId": "7b8a04db5ddc4391b7eaad2f0b1fddc0",
           "quantity": 1,
-          "totalPrice": 290000,
-          "unitPrice": 290000,
-          "endsAt": 1793846112706
+          "totalPrice": 250000,
+          "unitPrice": 250000,
+          "endsAt": 1793936294843
         },
         {
-          "auctionId": "afd21fb0f71147578112c4dc1eecc292",
+          "auctionId": "3a3d84960d874e19bada9d5f5ad5bd27",
           "quantity": 1,
-          "totalPrice": 300000,
-          "unitPrice": 300000,
-          "endsAt": 1793907951234
+          "totalPrice": 297000,
+          "unitPrice": 297000,
+          "endsAt": 1793910961008
         }
       ],
       "excludedVariants": {
-        "modified-or-unreviewed:modifier": 2
+        "modified-or-unreviewed:modifier": 3
       },
       "warningCodes": [],
       "warnings": []
@@ -1636,49 +1626,49 @@
       "itemId": "mithril-infused-fuel-tank",
       "name": "Mithril-Infused Fuel Tank",
       "status": "priced",
-      "unitPrice": 14200000,
-      "activeListings": 44,
-      "comparableListings": 40,
-      "comparableUnits": 40,
+      "unitPrice": 14400000,
+      "activeListings": 24,
+      "comparableListings": 22,
+      "comparableUnits": 22,
       "lowestListings": [
         {
-          "auctionId": "1cbc454227fc4734942cd486579d2fb4",
+          "auctionId": "078ef32949a64687b7e560b06f64a096",
           "quantity": 1,
-          "totalPrice": 14200000,
-          "unitPrice": 14200000,
-          "endsAt": 1793995221315
+          "totalPrice": 14400000,
+          "unitPrice": 14400000,
+          "endsAt": 1794065940604
         },
         {
-          "auctionId": "4761c348818049ae8302ad8b075d385e",
+          "auctionId": "4f1d7091a73746ba8410113b96764db6",
           "quantity": 1,
-          "totalPrice": 14200000,
-          "unitPrice": 14200000,
-          "endsAt": 1793995211007
+          "totalPrice": 14489999,
+          "unitPrice": 14489999,
+          "endsAt": 1794061996775
         },
         {
-          "auctionId": "7c461169ffe84f959c33254872ebec13",
+          "auctionId": "6017aa9d213a40b8b65f3f766f8d016a",
           "quantity": 1,
-          "totalPrice": 14200000,
-          "unitPrice": 14200000,
-          "endsAt": 1793995226944
+          "totalPrice": 14489999,
+          "unitPrice": 14489999,
+          "endsAt": 1794061971606
         },
         {
-          "auctionId": "bcc3c0bb36124888a39c962862d03db0",
+          "auctionId": "63829c84f2fa43bea82302d7aba5e443",
           "quantity": 1,
-          "totalPrice": 14200000,
-          "unitPrice": 14200000,
-          "endsAt": 1793995200039
+          "totalPrice": 14489999,
+          "unitPrice": 14489999,
+          "endsAt": 1794061963973
         },
         {
-          "auctionId": "f1ec2634317f4ceca210d6eaedf18503",
+          "auctionId": "79a2f8a569b24b3dadf376cfac8cc612",
           "quantity": 1,
-          "totalPrice": 14200000,
-          "unitPrice": 14200000,
-          "endsAt": 1793998104050
+          "totalPrice": 14489999,
+          "unitPrice": 14489999,
+          "endsAt": 1794061984543
         }
       ],
       "excludedVariants": {
-        "modified-or-unreviewed:stored_drill_fuel": 4
+        "modified-or-unreviewed:stored_drill_fuel": 2
       },
       "warningCodes": [],
       "warnings": []
@@ -1687,45 +1677,45 @@
       "itemId": "mithril-plated-drill-engine",
       "name": "Mithril-Plated Drill Engine",
       "status": "priced",
-      "unitPrice": 19809999,
-      "activeListings": 32,
-      "comparableListings": 32,
-      "comparableUnits": 32,
+      "unitPrice": 20000000,
+      "activeListings": 21,
+      "comparableListings": 21,
+      "comparableUnits": 21,
       "lowestListings": [
         {
-          "auctionId": "20f5e7d687334b93a57955638e24196e",
+          "auctionId": "02b220f0e016481daa144c7dfce47ef8",
           "quantity": 1,
-          "totalPrice": 19809999,
-          "unitPrice": 19809999,
-          "endsAt": 1793912871439
+          "totalPrice": 20000000,
+          "unitPrice": 20000000,
+          "endsAt": 1794068541234
         },
         {
-          "auctionId": "1c2a1ee2a82045c5a7fd099a150c550d",
+          "auctionId": "05f95644c517465db0eba20e07926e8c",
           "quantity": 1,
-          "totalPrice": 19810000,
-          "unitPrice": 19810000,
-          "endsAt": 1793997849303
+          "totalPrice": 20000000,
+          "unitPrice": 20000000,
+          "endsAt": 1793982760751
         },
         {
-          "auctionId": "4b51ece5ec7c413084c6c8ae383b3f35",
+          "auctionId": "3868407289af42bc97e9fad4fd125ec5",
           "quantity": 1,
-          "totalPrice": 19990000,
-          "unitPrice": 19990000,
-          "endsAt": 1795035534443
+          "totalPrice": 20000000,
+          "unitPrice": 20000000,
+          "endsAt": 1795051504672
         },
         {
-          "auctionId": "4f24e6da21114f37b2071391453d3fcc",
+          "auctionId": "54157132fb9c4785a00fab0d88100fd7",
           "quantity": 1,
-          "totalPrice": 19990000,
-          "unitPrice": 19990000,
-          "endsAt": 1795035522617
+          "totalPrice": 20000000,
+          "unitPrice": 20000000,
+          "endsAt": 1795105509838
         },
         {
-          "auctionId": "560339ca7ec64aaaaaba9f20131e6373",
+          "auctionId": "5d663d46e3864428adb17e18c76246ef",
           "quantity": 1,
-          "totalPrice": 19990000,
-          "unitPrice": 19990000,
-          "endsAt": 1795035544314
+          "totalPrice": 20000000,
+          "unitPrice": 20000000,
+          "endsAt": 1794069697699
         }
       ],
       "excludedVariants": {},
@@ -1736,51 +1726,51 @@
       "itemId": "mole",
       "name": "Mole",
       "status": "priced",
-      "unitPrice": 2600000,
-      "activeListings": 53,
-      "comparableListings": 33,
-      "comparableUnits": 33,
+      "unitPrice": 2789999,
+      "activeListings": 68,
+      "comparableListings": 39,
+      "comparableUnits": 39,
       "lowestListings": [
         {
-          "auctionId": "22338c233ae24572990107110092431f",
+          "auctionId": "0ad8cc2145f64a438f9897e6bd9bcf29",
           "quantity": 1,
-          "totalPrice": 2600000,
-          "unitPrice": 2600000,
-          "endsAt": 1793848094832
+          "totalPrice": 2789999,
+          "unitPrice": 2789999,
+          "endsAt": 1793918438460
         },
         {
-          "auctionId": "2bfbae20e94e419abfef60fd15fca076",
+          "auctionId": "8b99c5d5f471456482069748dd0084f0",
           "quantity": 1,
-          "totalPrice": 2600000,
-          "unitPrice": 2600000,
-          "endsAt": 1793848098920
+          "totalPrice": 2790000,
+          "unitPrice": 2790000,
+          "endsAt": 1794069144674
         },
         {
-          "auctionId": "a82109a86b1442e9a705ac4b5c80c1fe",
+          "auctionId": "72091e0b0f39496582c4991426acd13a",
           "quantity": 1,
-          "totalPrice": 2600000,
-          "unitPrice": 2600000,
-          "endsAt": 1793848080664
+          "totalPrice": 2799999,
+          "unitPrice": 2799999,
+          "endsAt": 1794067381320
         },
         {
-          "auctionId": "fdd7a4cad29d4f67a3f52f5152120d4d",
+          "auctionId": "9c17d3fce0f747bf912a9b7ddfb51bc0",
           "quantity": 1,
-          "totalPrice": 2600000,
-          "unitPrice": 2600000,
-          "endsAt": 1793848084738
+          "totalPrice": 2799999,
+          "unitPrice": 2799999,
+          "endsAt": 1794067388725
         },
         {
-          "auctionId": "2b3a8c44a78045e4900de03dabd56674",
+          "auctionId": "ca308ad594844788abd41d7f575670f7",
           "quantity": 1,
-          "totalPrice": 2666666,
-          "unitPrice": 2666666,
-          "endsAt": 1793996409693
+          "totalPrice": 2799999,
+          "unitPrice": 2799999,
+          "endsAt": 1794067365767
         }
       ],
       "excludedVariants": {
-        "pet-above-level-1": 20,
-        "pet-held-item": 11,
-        "pet-candy": 8
+        "pet-above-level-1": 29,
+        "pet-held-item": 19,
+        "pet-candy": 6
       },
       "warningCodes": [],
       "warnings": []
@@ -1789,51 +1779,36 @@
       "itemId": "pendant-of-divan",
       "name": "Pendant of Divan",
       "status": "priced",
-      "unitPrice": 630000000,
-      "activeListings": 15,
-      "comparableListings": 11,
-      "comparableUnits": 11,
+      "unitPrice": 643676766,
+      "activeListings": 4,
+      "comparableListings": 3,
+      "comparableUnits": 3,
       "lowestListings": [
         {
-          "auctionId": "42c5a700a6b04eb4b68c80bf90f8a5d1",
+          "auctionId": "b7f2cf9268c44577bed359f13b358c24",
           "quantity": 1,
-          "totalPrice": 630000000,
-          "unitPrice": 630000000,
-          "endsAt": 1794986811567
+          "totalPrice": 643676766,
+          "unitPrice": 643676766,
+          "endsAt": 1795106153529
         },
         {
-          "auctionId": "5567707857d443c6b187a6ad3f666e1f",
+          "auctionId": "d07d37dd17f24049ab4614fb83629ca6",
           "quantity": 1,
-          "totalPrice": 630000000,
-          "unitPrice": 630000000,
-          "endsAt": 1794986761255
+          "totalPrice": 647676766,
+          "unitPrice": 647676766,
+          "endsAt": 1795104659261
         },
         {
-          "auctionId": "cc6a1b364cf445db9f54b9801df58554",
+          "auctionId": "74802ad0789245cb929038581a99657b",
           "quantity": 1,
-          "totalPrice": 630000000,
-          "unitPrice": 630000000,
-          "endsAt": 1794986773015
-        },
-        {
-          "auctionId": "eca760e3b5194517ab7633db5b30f8cd",
-          "quantity": 1,
-          "totalPrice": 630000000,
-          "unitPrice": 630000000,
-          "endsAt": 1794986785179
-        },
-        {
-          "auctionId": "5725f79c89dc4d1fbeafd7174ff719a2",
-          "quantity": 1,
-          "totalPrice": 639900000,
-          "unitPrice": 639900000,
-          "endsAt": 1794973469024
+          "totalPrice": 666666666,
+          "unitPrice": 666666666,
+          "endsAt": 1794839977566
         }
       ],
       "excludedVariants": {
-        "modified-or-unreviewed:rarity_upgrades": 2,
-        "modified-or-unreviewed:gems": 1,
-        "modified-or-unreviewed:modifier": 4
+        "modified-or-unreviewed:rarity_upgrades": 1,
+        "modified-or-unreviewed:modifier": 1
       },
       "warningCodes": [],
       "warnings": []
@@ -1842,50 +1817,50 @@
       "itemId": "penguin",
       "name": "Penguin",
       "status": "priced",
-      "unitPrice": 4700000,
-      "activeListings": 39,
-      "comparableListings": 29,
-      "comparableUnits": 29,
+      "unitPrice": 4690000,
+      "activeListings": 38,
+      "comparableListings": 31,
+      "comparableUnits": 31,
       "lowestListings": [
         {
-          "auctionId": "dabc60a116ea446a998f3a5a08eaa5ac",
+          "auctionId": "59c0bd98e3df4e95a3f0640f20e7e0b1",
+          "quantity": 1,
+          "totalPrice": 4690000,
+          "unitPrice": 4690000,
+          "endsAt": 1794053358560
+        },
+        {
+          "auctionId": "17895d0a7d3d4c8fb8bf55172d846aee",
           "quantity": 1,
           "totalPrice": 4700000,
           "unitPrice": 4700000,
-          "endsAt": 1793902322765
+          "endsAt": 1794057389528
         },
         {
-          "auctionId": "b6221f0fa3aa49b5b5b749563e5f8fc8",
+          "auctionId": "4bc97a0a564c4248aaf3067abf4a8f87",
           "quantity": 1,
-          "totalPrice": 4800000,
-          "unitPrice": 4800000,
-          "endsAt": 1793986226403
+          "totalPrice": 4700000,
+          "unitPrice": 4700000,
+          "endsAt": 1794885209994
         },
         {
-          "auctionId": "0ec88ce456f84023ac1e9d3ac32ffc2f",
+          "auctionId": "783c77b82229489397f2af0437602ef9",
           "quantity": 1,
-          "totalPrice": 4950000,
-          "unitPrice": 4950000,
-          "endsAt": 1794158902569
+          "totalPrice": 4700000,
+          "unitPrice": 4700000,
+          "endsAt": 1794032110396
         },
         {
-          "auctionId": "1f5dd086992442a5bdfdfa1dc5c56c65",
+          "auctionId": "8a36280a131143db9bd049463c7b014c",
           "quantity": 1,
-          "totalPrice": 4950000,
-          "unitPrice": 4950000,
-          "endsAt": 1794158854001
-        },
-        {
-          "auctionId": "44fd67208ffe439094b24c306b990b7f",
-          "quantity": 1,
-          "totalPrice": 4950000,
-          "unitPrice": 4950000,
-          "endsAt": 1794158876660
+          "totalPrice": 4700000,
+          "unitPrice": 4700000,
+          "endsAt": 1794057397623
         }
       ],
       "excludedVariants": {
-        "pet-above-level-1": 10,
-        "pet-held-item": 3
+        "pet-above-level-1": 7,
+        "pet-held-item": 2
       },
       "warningCodes": [],
       "warnings": []
@@ -1894,62 +1869,59 @@
       "itemId": "perfect-chisel",
       "name": "Perfect Chisel",
       "status": "priced",
-      "unitPrice": 67999999,
-      "activeListings": 9,
-      "comparableListings": 5,
-      "comparableUnits": 5,
+      "unitPrice": 69500000,
+      "activeListings": 5,
+      "comparableListings": 1,
+      "comparableUnits": 1,
       "lowestListings": [
         {
-          "auctionId": "5cbb288ace2144ac8cd29c6cd24898ad",
+          "auctionId": "0c6d9f64e7e4430dae671825210ea93a",
           "quantity": 1,
-          "totalPrice": 67999999,
-          "unitPrice": 67999999,
-          "endsAt": 1793999217680
-        },
-        {
-          "auctionId": "778f08ca4d1b47faae0d6f8723a2f7a5",
-          "quantity": 1,
-          "totalPrice": 67999999,
-          "unitPrice": 67999999,
-          "endsAt": 1793999205997
-        },
-        {
-          "auctionId": "6ce0564e90e142799bf0e9809162e914",
-          "quantity": 1,
-          "totalPrice": 68000000,
-          "unitPrice": 68000000,
-          "endsAt": 1794251502941
-        },
-        {
-          "auctionId": "f90da156dee2499fa1af769758422df1",
-          "quantity": 1,
-          "totalPrice": 70795000,
-          "unitPrice": 70795000,
-          "endsAt": 1794757384719
-        },
-        {
-          "auctionId": "213332416e4541eebad0bb02513b5bde",
-          "quantity": 1,
-          "totalPrice": 71000000,
-          "unitPrice": 71000000,
-          "endsAt": 1794664805855
+          "totalPrice": 69500000,
+          "unitPrice": 69500000,
+          "endsAt": 1795103498455
         }
       ],
       "excludedVariants": {
         "modified-or-unreviewed:gems": 4
       },
-      "warningCodes": [],
-      "warnings": []
+      "warningCodes": [
+        "sparse-listings"
+      ],
+      "warnings": [
+        "Few comparable BIN listings are available. This asking price may be inflated and may not reflect a realizable sale price."
+      ]
     },
     {
       "itemId": "perfectly-cut-fuel-tank",
       "name": "Perfectly-Cut Fuel Tank",
       "status": "priced",
-      "unitPrice": 194000000,
-      "activeListings": 16,
-      "comparableListings": 6,
-      "comparableUnits": 6,
+      "unitPrice": 158500000,
+      "activeListings": 17,
+      "comparableListings": 9,
+      "comparableUnits": 9,
       "lowestListings": [
+        {
+          "auctionId": "8ee94136ac734e0991363538ac06bca2",
+          "quantity": 1,
+          "totalPrice": 158500000,
+          "unitPrice": 158500000,
+          "endsAt": 1794012096528
+        },
+        {
+          "auctionId": "9befd44bcb544636ae9fd8f695bdadf9",
+          "quantity": 1,
+          "totalPrice": 158500000,
+          "unitPrice": 158500000,
+          "endsAt": 1794012128160
+        },
+        {
+          "auctionId": "aa38590a814a4e66a4fbf23576b5ae3b",
+          "quantity": 1,
+          "totalPrice": 158500000,
+          "unitPrice": 158500000,
+          "endsAt": 1794012105840
+        },
         {
           "auctionId": "2d1f6fc479614a84b7555a8be37cde9b",
           "quantity": 1,
@@ -1963,78 +1935,6 @@
           "totalPrice": 199999998,
           "unitPrice": 199999998,
           "endsAt": 1794564809574
-        },
-        {
-          "auctionId": "c32815ca109449c0b0a923dab9b7013a",
-          "quantity": 1,
-          "totalPrice": 238000000,
-          "unitPrice": 238000000,
-          "endsAt": 1794569118765
-        },
-        {
-          "auctionId": "d1b1e81de0be4ed482e2efa227090bcf",
-          "quantity": 1,
-          "totalPrice": 238000000,
-          "unitPrice": 238000000,
-          "endsAt": 1794569130369
-        },
-        {
-          "auctionId": "e01ced6024f04fbdbc54490cd9d24581",
-          "quantity": 1,
-          "totalPrice": 238000000,
-          "unitPrice": 238000000,
-          "endsAt": 1794569140607
-        }
-      ],
-      "excludedVariants": {
-        "modified-or-unreviewed:stored_drill_fuel": 10
-      },
-      "warningCodes": [],
-      "warnings": []
-    },
-    {
-      "itemId": "pesto-goblin-omelette",
-      "name": "Pesto Goblin Omelette",
-      "status": "priced",
-      "unitPrice": 5500000,
-      "activeListings": 58,
-      "comparableListings": 50,
-      "comparableUnits": 50,
-      "lowestListings": [
-        {
-          "auctionId": "06cbbc57057844dfb1db7fa5de7ba72a",
-          "quantity": 1,
-          "totalPrice": 5500000,
-          "unitPrice": 5500000,
-          "endsAt": 1793994764440
-        },
-        {
-          "auctionId": "31c17bbf230c477199350bed02cbed89",
-          "quantity": 1,
-          "totalPrice": 5500000,
-          "unitPrice": 5500000,
-          "endsAt": 1793994743978
-        },
-        {
-          "auctionId": "426ad03122844291843a2710b1439795",
-          "quantity": 1,
-          "totalPrice": 5500000,
-          "unitPrice": 5500000,
-          "endsAt": 1793994748559
-        },
-        {
-          "auctionId": "6fbee8221a7f45e6847f03ff04cf7f23",
-          "quantity": 1,
-          "totalPrice": 5500000,
-          "unitPrice": 5500000,
-          "endsAt": 1793994804200
-        },
-        {
-          "auctionId": "7d85782164934858aea5ad38f1a451ec",
-          "quantity": 1,
-          "totalPrice": 5500000,
-          "unitPrice": 5500000,
-          "endsAt": 1793994814507
         }
       ],
       "excludedVariants": {
@@ -2044,48 +1944,99 @@
       "warnings": []
     },
     {
+      "itemId": "pesto-goblin-omelette",
+      "name": "Pesto Goblin Omelette",
+      "status": "priced",
+      "unitPrice": 4499999,
+      "activeListings": 53,
+      "comparableListings": 44,
+      "comparableUnits": 44,
+      "lowestListings": [
+        {
+          "auctionId": "868081779a804eea9e9ea1fddc3ae858",
+          "quantity": 1,
+          "totalPrice": 4499999,
+          "unitPrice": 4499999,
+          "endsAt": 1793911983255
+        },
+        {
+          "auctionId": "e92230ae9a2643fa832dcc3203f53e57",
+          "quantity": 1,
+          "totalPrice": 4500000,
+          "unitPrice": 4500000,
+          "endsAt": 1793974676191
+        },
+        {
+          "auctionId": "9fee7da63b4446eb91a29782c7bb70b3",
+          "quantity": 1,
+          "totalPrice": 4990000,
+          "unitPrice": 4990000,
+          "endsAt": 1793909822780
+        },
+        {
+          "auctionId": "136395917c8a4101899b27e6f58027f3",
+          "quantity": 1,
+          "totalPrice": 5200000,
+          "unitPrice": 5200000,
+          "endsAt": 1793958494668
+        },
+        {
+          "auctionId": "836450abb15b453cb72ebacf854848f3",
+          "quantity": 1,
+          "totalPrice": 5350000,
+          "unitPrice": 5350000,
+          "endsAt": 1794035789180
+        }
+      ],
+      "excludedVariants": {
+        "modified-or-unreviewed:stored_drill_fuel": 9
+      },
+      "warningCodes": [],
+      "warnings": []
+    },
+    {
       "itemId": "portable-campfire",
       "name": "Portable Campfire",
       "status": "priced",
-      "unitPrice": 2999999.9,
-      "activeListings": 22,
-      "comparableListings": 22,
-      "comparableUnits": 51,
+      "unitPrice": 3990000,
+      "activeListings": 8,
+      "comparableListings": 8,
+      "comparableUnits": 8,
       "lowestListings": [
         {
-          "auctionId": "bc28fc2ac7ee4fa6bfd5b33ebb81b290",
-          "quantity": 10,
-          "totalPrice": 29999999,
-          "unitPrice": 2999999.9,
-          "endsAt": 1793854117516
+          "auctionId": "0402f121f3e348e791d3d53c339d7008",
+          "quantity": 1,
+          "totalPrice": 3990000,
+          "unitPrice": 3990000,
+          "endsAt": 1793917812834
         },
         {
-          "auctionId": "136146ff87a5464e84dcecf131345eeb",
+          "auctionId": "2b97b733c2ba4db2833351c279089313",
           "quantity": 1,
-          "totalPrice": 3100000,
-          "unitPrice": 3100000,
-          "endsAt": 1793844021373
+          "totalPrice": 3990000,
+          "unitPrice": 3990000,
+          "endsAt": 1793917817526
         },
         {
-          "auctionId": "24cf75abffa543fbac1e0f0400f3ac4f",
+          "auctionId": "5210f4a28aa44c588a8d00c5c30aa0ac",
           "quantity": 1,
-          "totalPrice": 3100000,
-          "unitPrice": 3100000,
-          "endsAt": 1793844035796
+          "totalPrice": 3990000,
+          "unitPrice": 3990000,
+          "endsAt": 1793917808186
         },
         {
-          "auctionId": "369e28513de54df7a3072d0c2a2754b9",
+          "auctionId": "122e9b883add473a89fe7d3ac60f04ec",
           "quantity": 1,
-          "totalPrice": 3100000,
-          "unitPrice": 3100000,
-          "endsAt": 1793843855636
+          "totalPrice": 4000000,
+          "unitPrice": 4000000,
+          "endsAt": 1794063002322
         },
         {
-          "auctionId": "0636047606cf417ea38e2dfe5c27fd8e",
+          "auctionId": "2cf714a05b2b4b64b61ed406b9a4ed9a",
           "quantity": 1,
-          "totalPrice": 3200000,
-          "unitPrice": 3200000,
-          "endsAt": 1793912522704
+          "totalPrice": 4000000,
+          "unitPrice": 4000000,
+          "endsAt": 1794063007122
         }
       ],
       "excludedVariants": {},
@@ -2095,73 +2046,87 @@
     {
       "itemId": "reinforced-chisel",
       "name": "Reinforced Chisel",
-      "status": "no-comparable-bin",
-      "unitPrice": null,
-      "activeListings": 2,
-      "comparableListings": 0,
-      "comparableUnits": 0,
-      "lowestListings": [],
+      "status": "priced",
+      "unitPrice": 13500000,
+      "activeListings": 3,
+      "comparableListings": 2,
+      "comparableUnits": 2,
+      "lowestListings": [
+        {
+          "auctionId": "00de2ac27f0241c6b4ba2bf50c9bb909",
+          "quantity": 1,
+          "totalPrice": 13500000,
+          "unitPrice": 13500000,
+          "endsAt": 1794049624805
+        },
+        {
+          "auctionId": "677088b5ec664d119422fc950abcef7d",
+          "quantity": 1,
+          "totalPrice": 17777000,
+          "unitPrice": 17777000,
+          "endsAt": 1795102403814
+        }
+      ],
       "excludedVariants": {
-        "modified-or-unreviewed:gems": 2
+        "modified-or-unreviewed:gems": 1
       },
       "warningCodes": [
-        "no-comparable-bin"
+        "sparse-listings"
       ],
       "warnings": [
-        "Current BIN listings exist, but none match the unmodified item or level 1 pet policy. Enter a manual override if needed."
+        "Few comparable BIN listings are available. This asking price may be inflated and may not reflect a realizable sale price."
       ]
     },
     {
       "itemId": "ruby-drill-tx-15",
       "name": "Ruby Drill TX-15",
       "status": "priced",
-      "unitPrice": 7300000,
-      "activeListings": 41,
-      "comparableListings": 28,
-      "comparableUnits": 28,
+      "unitPrice": 6799000,
+      "activeListings": 44,
+      "comparableListings": 33,
+      "comparableUnits": 33,
       "lowestListings": [
         {
-          "auctionId": "023c3d60951a4a109bdda27fe0f83e9e",
+          "auctionId": "9a629a4d72e34f1e954bdf637d38ced8",
           "quantity": 1,
-          "totalPrice": 7300000,
-          "unitPrice": 7300000,
-          "endsAt": 1793979900900
+          "totalPrice": 6799000,
+          "unitPrice": 6799000,
+          "endsAt": 1795103634033
         },
         {
-          "auctionId": "055b188cee7e44578a4d3a2a188ce8b2",
+          "auctionId": "65ee49c1be1f48379beb4ac864cedcf0",
           "quantity": 1,
-          "totalPrice": 7300000,
-          "unitPrice": 7300000,
-          "endsAt": 1793980177997
+          "totalPrice": 7011110,
+          "unitPrice": 7011110,
+          "endsAt": 1794065999710
         },
         {
-          "auctionId": "38fea0cfb8714a01ae53792fa13892ce",
+          "auctionId": "e47b2f5797244e90b3e93b282d7771b9",
           "quantity": 1,
-          "totalPrice": 7300000,
-          "unitPrice": 7300000,
-          "endsAt": 1793980142307
+          "totalPrice": 7011110,
+          "unitPrice": 7011110,
+          "endsAt": 1794065994937
         },
         {
-          "auctionId": "4b6d4a3dc10344418675434b1172dd2b",
+          "auctionId": "ed4421513c7a40069e4f25a694fd7e6a",
           "quantity": 1,
-          "totalPrice": 7300000,
-          "unitPrice": 7300000,
-          "endsAt": 1793979909960
+          "totalPrice": 7011110,
+          "unitPrice": 7011110,
+          "endsAt": 1794066013530
         },
         {
-          "auctionId": "60beff90e40c4349b79960bbbfb6ab98",
+          "auctionId": "f0dfb9429c5d43a69baafebec386c99c",
           "quantity": 1,
-          "totalPrice": 7300000,
-          "unitPrice": 7300000,
-          "endsAt": 1793980150260
+          "totalPrice": 7011110,
+          "unitPrice": 7011110,
+          "endsAt": 1794066005899
         }
       ],
       "excludedVariants": {
-        "modified-or-unreviewed:drill_fuel": 9,
-        "modified-or-unreviewed:modifier": 8,
+        "modified-or-unreviewed:drill_fuel": 7,
         "modified-or-unreviewed:enchantments": 11,
-        "modified-or-unreviewed:drill_part_upgrade_module": 1,
-        "modified-or-unreviewed:compact_blocks": 4
+        "modified-or-unreviewed:modifier": 6,
+        "modified-or-unreviewed:compact_blocks": 3
       },
       "warningCodes": [],
       "warnings": []
@@ -2170,550 +2135,70 @@
       "itemId": "ruby-polished-drill-engine",
       "name": "Ruby-Polished Drill Engine",
       "status": "priced",
-      "unitPrice": 88890000,
-      "activeListings": 5,
-      "comparableListings": 5,
-      "comparableUnits": 5,
+      "unitPrice": 95000000,
+      "activeListings": 1,
+      "comparableListings": 1,
+      "comparableUnits": 1,
       "lowestListings": [
         {
-          "auctionId": "532393a40e804f49a538b32642cae547",
+          "auctionId": "b7af131b619a4b8aada37b8eec68d7d6",
           "quantity": 1,
-          "totalPrice": 88890000,
-          "unitPrice": 88890000,
-          "endsAt": 1795033277317
-        },
-        {
-          "auctionId": "47fc010df2404c86bf7bce9970f81269",
-          "quantity": 1,
-          "totalPrice": 89000000,
-          "unitPrice": 89000000,
-          "endsAt": 1794603836576
-        },
-        {
-          "auctionId": "d598804aa90e4668a0fbfbcb6aad39e2",
-          "quantity": 1,
-          "totalPrice": 90000000,
-          "unitPrice": 90000000,
-          "endsAt": 1794941818478
-        },
-        {
-          "auctionId": "8f181b815b914d168e123d3ae68767fd",
-          "quantity": 1,
-          "totalPrice": 92000000,
-          "unitPrice": 92000000,
-          "endsAt": 1794761090679
-        },
-        {
-          "auctionId": "25185d8719554c35a992dc10a028bae3",
-          "quantity": 1,
-          "totalPrice": 94000000,
-          "unitPrice": 94000000,
-          "endsAt": 1794747987850
+          "totalPrice": 95000000,
+          "unitPrice": 95000000,
+          "endsAt": 1795105346825
         }
       ],
       "excludedVariants": {},
-      "warningCodes": [],
-      "warnings": []
+      "warningCodes": [
+        "sparse-listings"
+      ],
+      "warnings": [
+        "Few comparable BIN listings are available. This asking price may be inflated and may not reflect a realizable sale price."
+      ]
     },
     {
       "itemId": "sapphire-cloak",
       "name": "Sapphire Cloak",
       "status": "priced",
-      "unitPrice": 68555499,
-      "activeListings": 17,
-      "comparableListings": 16,
-      "comparableUnits": 16,
-      "lowestListings": [
-        {
-          "auctionId": "3bef1f83874f43d69b0b42b00f0dacb0",
-          "quantity": 1,
-          "totalPrice": 68555499,
-          "unitPrice": 68555499,
-          "endsAt": 1793989394864
-        },
-        {
-          "auctionId": "56913301304440a38c7e584aa977ce13",
-          "quantity": 1,
-          "totalPrice": 68555499,
-          "unitPrice": 68555499,
-          "endsAt": 1793989402208
-        },
-        {
-          "auctionId": "095dde0935a942a6a61af58b282c2327",
-          "quantity": 1,
-          "totalPrice": 68900000,
-          "unitPrice": 68900000,
-          "endsAt": 1793850620003
-        },
-        {
-          "auctionId": "6879cd7f9b8341719551ff8d00f498d4",
-          "quantity": 1,
-          "totalPrice": 68900000,
-          "unitPrice": 68900000,
-          "endsAt": 1793850626866
-        },
-        {
-          "auctionId": "3139be8030404761b87b3c61afcdac1c",
-          "quantity": 1,
-          "totalPrice": 69000000,
-          "unitPrice": 69000000,
-          "endsAt": 1793833119844
-        }
-      ],
-      "excludedVariants": {
-        "modified-or-unreviewed:modifier": 1
-      },
-      "warningCodes": [],
-      "warnings": []
-    },
-    {
-      "itemId": "sapphire-polished-drill-engine",
-      "name": "Sapphire-Polished Drill Engine",
-      "status": "priced",
-      "unitPrice": 194000000,
-      "activeListings": 5,
-      "comparableListings": 5,
-      "comparableUnits": 5,
-      "lowestListings": [
-        {
-          "auctionId": "6570f8a3526e400ca6bf625a48ba4141",
-          "quantity": 1,
-          "totalPrice": 194000000,
-          "unitPrice": 194000000,
-          "endsAt": 1793847376823
-        },
-        {
-          "auctionId": "23727bd0d4e74025b473feb12972d71b",
-          "quantity": 1,
-          "totalPrice": 196000000,
-          "unitPrice": 196000000,
-          "endsAt": 1795034240675
-        },
-        {
-          "auctionId": "d444a0ee3c034f919ae0ddc955b7b250",
-          "quantity": 1,
-          "totalPrice": 212999999,
-          "unitPrice": 212999999,
-          "endsAt": 1793995268320
-        },
-        {
-          "auctionId": "de6028711e214115a86cc79a3e09ed65",
-          "quantity": 1,
-          "totalPrice": 213000000,
-          "unitPrice": 213000000,
-          "endsAt": 1794959291916
-        },
-        {
-          "auctionId": "beb0d9c6192e43ad9e43e5cac09981dc",
-          "quantity": 1,
-          "totalPrice": 213899900,
-          "unitPrice": 213899900,
-          "endsAt": 1794955558478
-        }
-      ],
-      "excludedVariants": {},
-      "warningCodes": [],
-      "warnings": []
-    },
-    {
-      "itemId": "spicy-goblin-omelette",
-      "name": "Spicy Goblin Omelette",
-      "status": "priced",
-      "unitPrice": 8100000,
-      "activeListings": 31,
-      "comparableListings": 31,
-      "comparableUnits": 31,
-      "lowestListings": [
-        {
-          "auctionId": "0a4d341318a34cba846ba0d171a1c437",
-          "quantity": 1,
-          "totalPrice": 8100000,
-          "unitPrice": 8100000,
-          "endsAt": 1794000424367
-        },
-        {
-          "auctionId": "b5eca21df6a7407ba41ebe010e08c9ba",
-          "quantity": 1,
-          "totalPrice": 8200000,
-          "unitPrice": 8200000,
-          "endsAt": 1793986021651
-        },
-        {
-          "auctionId": "50c773f52ef14deb856414c27f7f47a0",
-          "quantity": 1,
-          "totalPrice": 8300000,
-          "unitPrice": 8300000,
-          "endsAt": 1794986013170
-        },
-        {
-          "auctionId": "0330eb4031a34c128892466c72365ba3",
-          "quantity": 1,
-          "totalPrice": 8333333,
-          "unitPrice": 8333333,
-          "endsAt": 1793948273164
-        },
-        {
-          "auctionId": "13e8d318c73643f586ff06f41ba6c5af",
-          "quantity": 1,
-          "totalPrice": 8333333,
-          "unitPrice": 8333333,
-          "endsAt": 1793948306790
-        }
-      ],
-      "excludedVariants": {},
-      "warningCodes": [],
-      "warnings": []
-    },
-    {
-      "itemId": "spinosaurus",
-      "name": "Spinosaurus",
-      "status": "priced",
-      "unitPrice": 5970000,
-      "activeListings": 59,
-      "comparableListings": 26,
-      "comparableUnits": 26,
-      "lowestListings": [
-        {
-          "auctionId": "134bb1bac5cd44ca88f558b5eff88f8c",
-          "quantity": 1,
-          "totalPrice": 5970000,
-          "unitPrice": 5970000,
-          "endsAt": 1793995431087
-        },
-        {
-          "auctionId": "1cfc9c335c704f3c90a6cc2e2944de1a",
-          "quantity": 1,
-          "totalPrice": 5970000,
-          "unitPrice": 5970000,
-          "endsAt": 1793995489234
-        },
-        {
-          "auctionId": "2eb6aaf784974e41a331342368d3d806",
-          "quantity": 1,
-          "totalPrice": 5970000,
-          "unitPrice": 5970000,
-          "endsAt": 1793995442205
-        },
-        {
-          "auctionId": "55db7136309646ed8d15c05dd26e4957",
-          "quantity": 1,
-          "totalPrice": 5970000,
-          "unitPrice": 5970000,
-          "endsAt": 1793995424130
-        },
-        {
-          "auctionId": "57f22a75b3414756afb9f785775d8d16",
-          "quantity": 1,
-          "totalPrice": 5970000,
-          "unitPrice": 5970000,
-          "endsAt": 1793995495256
-        }
-      ],
-      "excludedVariants": {
-        "pet-above-level-1": 33,
-        "pet-held-item": 3
-      },
-      "warningCodes": [],
-      "warnings": []
-    },
-    {
-      "itemId": "starfall-seasoning",
-      "name": "Starfall Seasoning",
-      "status": "priced",
-      "unitPrice": 2500000,
-      "activeListings": 8,
-      "comparableListings": 8,
-      "comparableUnits": 8,
-      "lowestListings": [
-        {
-          "auctionId": "50edb2ee21334919b29e91c4d790dc91",
-          "quantity": 1,
-          "totalPrice": 2500000,
-          "unitPrice": 2500000,
-          "endsAt": 1793908359505
-        },
-        {
-          "auctionId": "591dd7a48da34be097f9a8343738c8e0",
-          "quantity": 1,
-          "totalPrice": 2500000,
-          "unitPrice": 2500000,
-          "endsAt": 1794000322900
-        },
-        {
-          "auctionId": "59e1430c53c846608cbd3f82655eb8f4",
-          "quantity": 1,
-          "totalPrice": 2500000,
-          "unitPrice": 2500000,
-          "endsAt": 1793908369042
-        },
-        {
-          "auctionId": "69811d58535c4800b2a1b3a0ff86deef",
-          "quantity": 1,
-          "totalPrice": 2500000,
-          "unitPrice": 2500000,
-          "endsAt": 1793843454885
-        },
-        {
-          "auctionId": "a4fd49f696104a0a97b121ff3a23c16c",
-          "quantity": 1,
-          "totalPrice": 2500000,
-          "unitPrice": 2500000,
-          "endsAt": 1793908341296
-        }
-      ],
-      "excludedVariants": {},
-      "warningCodes": [],
-      "warnings": []
-    },
-    {
-      "itemId": "sunny-side-goblin-omelette",
-      "name": "Sunny Side Goblin Omelette",
-      "status": "priced",
-      "unitPrice": 6699000,
-      "activeListings": 74,
-      "comparableListings": 73,
-      "comparableUnits": 73,
-      "lowestListings": [
-        {
-          "auctionId": "03d7ef2c1461403ba6e606d4e33dc688",
-          "quantity": 1,
-          "totalPrice": 6699000,
-          "unitPrice": 6699000,
-          "endsAt": 1793999139701
-        },
-        {
-          "auctionId": "7732ba9784fd45a691b9c3f38147b5f9",
-          "quantity": 1,
-          "totalPrice": 6699000,
-          "unitPrice": 6699000,
-          "endsAt": 1793999145229
-        },
-        {
-          "auctionId": "b484da0fda534b63906cc307177f1790",
-          "quantity": 1,
-          "totalPrice": 6699000,
-          "unitPrice": 6699000,
-          "endsAt": 1793999126979
-        },
-        {
-          "auctionId": "0951679154bf4d819b057cc240fe0ddc",
-          "quantity": 1,
-          "totalPrice": 6699999,
-          "unitPrice": 6699999,
-          "endsAt": 1793847201546
-        },
-        {
-          "auctionId": "f673b65cc59a4b18b486d27028e78f04",
-          "quantity": 1,
-          "totalPrice": 6699999,
-          "unitPrice": 6699999,
-          "endsAt": 1793847209802
-        }
-      ],
-      "excludedVariants": {
-        "modified-or-unreviewed:stored_drill_fuel": 1
-      },
-      "warningCodes": [],
-      "warnings": []
-    },
-    {
-      "itemId": "t-rex",
-      "name": "T-Rex",
-      "status": "priced",
-      "unitPrice": 5299997,
-      "activeListings": 53,
-      "comparableListings": 25,
-      "comparableUnits": 25,
-      "lowestListings": [
-        {
-          "auctionId": "015e85a21f9049a49b8ce4b092cfac26",
-          "quantity": 1,
-          "totalPrice": 5299997,
-          "unitPrice": 5299997,
-          "endsAt": 1793961003934
-        },
-        {
-          "auctionId": "2f28dbfe73804e0db66c4fcbbbbe97f4",
-          "quantity": 1,
-          "totalPrice": 5299997,
-          "unitPrice": 5299997,
-          "endsAt": 1793961012714
-        },
-        {
-          "auctionId": "95ffb45e4fcf486babf5d91b6d13b379",
-          "quantity": 1,
-          "totalPrice": 5299997,
-          "unitPrice": 5299997,
-          "endsAt": 1793960996183
-        },
-        {
-          "auctionId": "f34abed4cc0749379d7e19611046e142",
-          "quantity": 1,
-          "totalPrice": 5299997,
-          "unitPrice": 5299997,
-          "endsAt": 1793961008410
-        },
-        {
-          "auctionId": "665e83bf566347a4ab81f86b2cd0661d",
-          "quantity": 1,
-          "totalPrice": 5299998,
-          "unitPrice": 5299998,
-          "endsAt": 1793942509631
-        }
-      ],
-      "excludedVariants": {
-        "pet-above-level-1": 28,
-        "pet-held-item": 14,
-        "pet-candy": 15,
-        "pet-skin": 1
-      },
-      "warningCodes": [],
-      "warnings": []
-    },
-    {
-      "itemId": "titanium-artifact",
-      "name": "Titanium Artifact",
-      "status": "priced",
-      "unitPrice": 18655005,
-      "activeListings": 12,
+      "unitPrice": 68686868,
+      "activeListings": 14,
       "comparableListings": 12,
       "comparableUnits": 12,
       "lowestListings": [
         {
-          "auctionId": "3af2cf1f8eab4d458a852c9293948cd3",
+          "auctionId": "0072c8bb8c0a4566923cf1607b49e6cc",
           "quantity": 1,
-          "totalPrice": 18655005,
-          "unitPrice": 18655005,
-          "endsAt": 1793991094584
+          "totalPrice": 68686868,
+          "unitPrice": 68686868,
+          "endsAt": 1794030926438
         },
         {
-          "auctionId": "168194a2a1aa4599adf9b8f2b93b77f8",
+          "auctionId": "1e5392be2c0d45678da6601dcc3f7bd0",
           "quantity": 1,
-          "totalPrice": 18689999,
-          "unitPrice": 18689999,
-          "endsAt": 1793989784963
+          "totalPrice": 69599000,
+          "unitPrice": 69599000,
+          "endsAt": 1794857413829
         },
         {
-          "auctionId": "d316c7968f604b39805af4ae9642d3a9",
+          "auctionId": "be49201acb20417b893c33fe45de8a56",
           "quantity": 1,
-          "totalPrice": 18690000,
-          "unitPrice": 18690000,
-          "endsAt": 1793835497903
+          "totalPrice": 69599000,
+          "unitPrice": 69599000,
+          "endsAt": 1794857420514
         },
         {
-          "auctionId": "fe666437a5f74d1194f9d60b8096d634",
+          "auctionId": "c4ff740519864ede85f217c6f4110f15",
           "quantity": 1,
-          "totalPrice": 18700000,
-          "unitPrice": 18700000,
-          "endsAt": 1793979087031
+          "totalPrice": 69599000,
+          "unitPrice": 69599000,
+          "endsAt": 1794857406870
         },
         {
-          "auctionId": "1b4daab0afe647b896a1b3ee0c32938e",
+          "auctionId": "3caa11d2d6984fd882d8a68c31599a3e",
           "quantity": 1,
-          "totalPrice": 18799999,
-          "unitPrice": 18799999,
-          "endsAt": 1793915943662
-        }
-      ],
-      "excludedVariants": {},
-      "warningCodes": [],
-      "warnings": []
-    },
-    {
-      "itemId": "titanium-belt",
-      "name": "Titanium Belt",
-      "status": "priced",
-      "unitPrice": 4449999,
-      "activeListings": 25,
-      "comparableListings": 22,
-      "comparableUnits": 22,
-      "lowestListings": [
-        {
-          "auctionId": "2e930447591943439b311930153ba947",
-          "quantity": 1,
-          "totalPrice": 4449999,
-          "unitPrice": 4449999,
-          "endsAt": 1793967659548
-        },
-        {
-          "auctionId": "51018a12ec654b478b30e87076b3fe63",
-          "quantity": 1,
-          "totalPrice": 4449999,
-          "unitPrice": 4449999,
-          "endsAt": 1793967702554
-        },
-        {
-          "auctionId": "abed72cd11e942c5a0ceb56bc161393b",
-          "quantity": 1,
-          "totalPrice": 4449999,
-          "unitPrice": 4449999,
-          "endsAt": 1793967573514
-        },
-        {
-          "auctionId": "b1ac8724ce86486ba9884107576cc478",
-          "quantity": 1,
-          "totalPrice": 4449999,
-          "unitPrice": 4449999,
-          "endsAt": 1793967562936
-        },
-        {
-          "auctionId": "e0d3f67278bb49589e8748ee31dcc7fd",
-          "quantity": 1,
-          "totalPrice": 4449999,
-          "unitPrice": 4449999,
-          "endsAt": 1793967652016
-        }
-      ],
-      "excludedVariants": {
-        "modified-or-unreviewed:rarity_upgrades": 1,
-        "modified-or-unreviewed:modifier": 3
-      },
-      "warningCodes": [],
-      "warnings": []
-    },
-    {
-      "itemId": "titanium-cloak",
-      "name": "Titanium Cloak",
-      "status": "priced",
-      "unitPrice": 4000000,
-      "activeListings": 33,
-      "comparableListings": 31,
-      "comparableUnits": 31,
-      "lowestListings": [
-        {
-          "auctionId": "79c89045d12b45c683421a2054dae0d9",
-          "quantity": 1,
-          "totalPrice": 4000000,
-          "unitPrice": 4000000,
-          "endsAt": 1793997844949
-        },
-        {
-          "auctionId": "48117cac067c430b8b6a2babc5221966",
-          "quantity": 1,
-          "totalPrice": 4100000,
-          "unitPrice": 4100000,
-          "endsAt": 1793846505032
-        },
-        {
-          "auctionId": "f9ff4c932b7841938d7766136befb115",
-          "quantity": 1,
-          "totalPrice": 4129249,
-          "unitPrice": 4129249,
-          "endsAt": 1793996350438
-        },
-        {
-          "auctionId": "7c6f03306ddb4b2cb67c2fd4000859dc",
-          "quantity": 1,
-          "totalPrice": 4150000,
-          "unitPrice": 4150000,
-          "endsAt": 1793965046280
-        },
-        {
-          "auctionId": "b46cef1607e642ee9be7e9f5112504e0",
-          "quantity": 1,
-          "totalPrice": 4250000,
-          "unitPrice": 4250000,
-          "endsAt": 1793962544381
+          "totalPrice": 72000000,
+          "unitPrice": 72000000,
+          "endsAt": 1794826394786
         }
       ],
       "excludedVariants": {
@@ -2724,56 +2209,465 @@
       "warnings": []
     },
     {
-      "itemId": "titanium-drill-dr-x355",
-      "name": "Titanium Drill DR-X355",
+      "itemId": "sapphire-polished-drill-engine",
+      "name": "Sapphire-Polished Drill Engine",
       "status": "priced",
-      "unitPrice": 30999999,
-      "activeListings": 33,
-      "comparableListings": 22,
-      "comparableUnits": 22,
+      "unitPrice": 195000000,
+      "activeListings": 2,
+      "comparableListings": 2,
+      "comparableUnits": 2,
       "lowestListings": [
         {
-          "auctionId": "9cd4c8c35f074a12930981d0872a09e5",
+          "auctionId": "be741d48e29b41018e543288d0be2208",
           "quantity": 1,
-          "totalPrice": 30999999,
-          "unitPrice": 30999999,
-          "endsAt": 1793999523768
+          "totalPrice": 195000000,
+          "unitPrice": 195000000,
+          "endsAt": 1794069110223
         },
         {
-          "auctionId": "fff8c0fea75d4810bc5685765fb8f82c",
+          "auctionId": "bbaee965da3149228fa06992e724f9fe",
           "quantity": 1,
-          "totalPrice": 30999999,
-          "unitPrice": 30999999,
-          "endsAt": 1793999515618
+          "totalPrice": 249000000,
+          "unitPrice": 249000000,
+          "endsAt": 1794069099785
+        }
+      ],
+      "excludedVariants": {},
+      "warningCodes": [
+        "sparse-listings"
+      ],
+      "warnings": [
+        "Few comparable BIN listings are available. This asking price may be inflated and may not reflect a realizable sale price."
+      ]
+    },
+    {
+      "itemId": "spicy-goblin-omelette",
+      "name": "Spicy Goblin Omelette",
+      "status": "priced",
+      "unitPrice": 7600000,
+      "activeListings": 26,
+      "comparableListings": 26,
+      "comparableUnits": 26,
+      "lowestListings": [
+        {
+          "auctionId": "68ff283c07244303bb806b1cdef87893",
+          "quantity": 1,
+          "totalPrice": 7600000,
+          "unitPrice": 7600000,
+          "endsAt": 1795106223552
         },
         {
-          "auctionId": "f25f49cba6a44d0283ad61d8cc3a7e2b",
+          "auctionId": "3a768f2e8ea84911b9df4cd70b7a0607",
           "quantity": 1,
-          "totalPrice": 31900000,
-          "unitPrice": 31900000,
-          "endsAt": 1793994403145
+          "totalPrice": 8000000,
+          "unitPrice": 8000000,
+          "endsAt": 1794068514199
         },
         {
-          "auctionId": "2d31fd8e08544a67968efe176902870a",
+          "auctionId": "7b62af3af20944cbb12653998895af2e",
           "quantity": 1,
-          "totalPrice": 33798000,
-          "unitPrice": 33798000,
-          "endsAt": 1795032762414
+          "totalPrice": 8499000,
+          "unitPrice": 8499000,
+          "endsAt": 1794044517399
         },
         {
-          "auctionId": "46b4e377c11b4e68bfdf676ebbddb0f7",
+          "auctionId": "5d13b2520a1048268c48e4bb774b3959",
           "quantity": 1,
-          "totalPrice": 33798000,
-          "unitPrice": 33798000,
-          "endsAt": 1795032767412
+          "totalPrice": 8500000,
+          "unitPrice": 8500000,
+          "endsAt": 1794043574774
+        },
+        {
+          "auctionId": "1692ffd0e23844f2b83ca8d663ec5f8b",
+          "quantity": 1,
+          "totalPrice": 9555554,
+          "unitPrice": 9555554,
+          "endsAt": 1795053495894
+        }
+      ],
+      "excludedVariants": {},
+      "warningCodes": [],
+      "warnings": []
+    },
+    {
+      "itemId": "spinosaurus",
+      "name": "Spinosaurus",
+      "status": "priced",
+      "unitPrice": 5987888,
+      "activeListings": 51,
+      "comparableListings": 20,
+      "comparableUnits": 20,
+      "lowestListings": [
+        {
+          "auctionId": "3475901524bb4f9aa538fc8744d55498",
+          "quantity": 1,
+          "totalPrice": 5987888,
+          "unitPrice": 5987888,
+          "endsAt": 1794066818838
+        },
+        {
+          "auctionId": "ddcbc11abb2a447ca88ff95e412cfc5a",
+          "quantity": 1,
+          "totalPrice": 5988888,
+          "unitPrice": 5988888,
+          "endsAt": 1794065416013
+        },
+        {
+          "auctionId": "e030b78d0cc548adadbbb5eba64118d5",
+          "quantity": 1,
+          "totalPrice": 5999000,
+          "unitPrice": 5999000,
+          "endsAt": 1794043932124
+        },
+        {
+          "auctionId": "b43c910402314ea29fa25d32a71cfcef",
+          "quantity": 1,
+          "totalPrice": 5999909,
+          "unitPrice": 5999909,
+          "endsAt": 1794380605952
+        },
+        {
+          "auctionId": "f005b883e3604d74a287687bc03b2f24",
+          "quantity": 1,
+          "totalPrice": 5999999,
+          "unitPrice": 5999999,
+          "endsAt": 1793990598421
         }
       ],
       "excludedVariants": {
-        "modified-or-unreviewed:drill_fuel": 3,
-        "modified-or-unreviewed:enchantments": 11,
-        "modified-or-unreviewed:modifier": 7,
-        "modified-or-unreviewed:compact_blocks": 1,
-        "modified-or-unreviewed:drill_part_upgrade_module": 1
+        "pet-above-level-1": 31,
+        "pet-held-item": 7,
+        "pet-candy": 1
+      },
+      "warningCodes": [],
+      "warnings": []
+    },
+    {
+      "itemId": "starfall-seasoning",
+      "name": "Starfall Seasoning",
+      "status": "no-active-bin",
+      "unitPrice": null,
+      "activeListings": 0,
+      "comparableListings": 0,
+      "comparableUnits": 0,
+      "lowestListings": [],
+      "excludedVariants": {},
+      "warningCodes": [
+        "no-active-bin"
+      ],
+      "warnings": [
+        "No current BIN listings found. Check historical prices elsewhere and enter a manual override."
+      ]
+    },
+    {
+      "itemId": "sunny-side-goblin-omelette",
+      "name": "Sunny Side Goblin Omelette",
+      "status": "priced",
+      "unitPrice": 6960000,
+      "activeListings": 60,
+      "comparableListings": 60,
+      "comparableUnits": 60,
+      "lowestListings": [
+        {
+          "auctionId": "057158cdf6544d31ba89060e74b62fb7",
+          "quantity": 1,
+          "totalPrice": 6960000,
+          "unitPrice": 6960000,
+          "endsAt": 1794067788055
+        },
+        {
+          "auctionId": "2e97462349e74c7b987b8820e61f9766",
+          "quantity": 1,
+          "totalPrice": 6960000,
+          "unitPrice": 6960000,
+          "endsAt": 1794067801479
+        },
+        {
+          "auctionId": "c85f533b3b30456f8134214b6a39aad8",
+          "quantity": 1,
+          "totalPrice": 6960000,
+          "unitPrice": 6960000,
+          "endsAt": 1794067795232
+        },
+        {
+          "auctionId": "e23408f870854f5980b6e203347a1b97",
+          "quantity": 1,
+          "totalPrice": 6960000,
+          "unitPrice": 6960000,
+          "endsAt": 1794067807100
+        },
+        {
+          "auctionId": "faef845d842847978d17ab1bb3d5028b",
+          "quantity": 1,
+          "totalPrice": 6960000,
+          "unitPrice": 6960000,
+          "endsAt": 1794067780151
+        }
+      ],
+      "excludedVariants": {},
+      "warningCodes": [],
+      "warnings": []
+    },
+    {
+      "itemId": "t-rex",
+      "name": "T-Rex",
+      "status": "priced",
+      "unitPrice": 4499999,
+      "activeListings": 62,
+      "comparableListings": 38,
+      "comparableUnits": 38,
+      "lowestListings": [
+        {
+          "auctionId": "391e235532fe445ebc9c3f63f0f41d37",
+          "quantity": 1,
+          "totalPrice": 4499999,
+          "unitPrice": 4499999,
+          "endsAt": 1794065097669
+        },
+        {
+          "auctionId": "5fcbf41ca40e48f396c99a8bb710e4b7",
+          "quantity": 1,
+          "totalPrice": 4499999,
+          "unitPrice": 4499999,
+          "endsAt": 1794065103372
+        },
+        {
+          "auctionId": "14b9cbce5e69460aa5d608407c3de485",
+          "quantity": 1,
+          "totalPrice": 4500000,
+          "unitPrice": 4500000,
+          "endsAt": 1793913656469
+        },
+        {
+          "auctionId": "46486b8bf5db4e27b9c51924a56232fe",
+          "quantity": 1,
+          "totalPrice": 4600000,
+          "unitPrice": 4600000,
+          "endsAt": 1794068562885
+        },
+        {
+          "auctionId": "9f540af6df99455ab1cba7cf250132ea",
+          "quantity": 1,
+          "totalPrice": 4600000,
+          "unitPrice": 4600000,
+          "endsAt": 1794414129752
+        }
+      ],
+      "excludedVariants": {
+        "pet-above-level-1": 24,
+        "pet-held-item": 13,
+        "pet-candy": 13,
+        "pet-skin": 1
+      },
+      "warningCodes": [],
+      "warnings": []
+    },
+    {
+      "itemId": "titanium-artifact",
+      "name": "Titanium Artifact",
+      "status": "priced",
+      "unitPrice": 18390000,
+      "activeListings": 22,
+      "comparableListings": 21,
+      "comparableUnits": 21,
+      "lowestListings": [
+        {
+          "auctionId": "3ee5ef6b231844eda5658cd44f8731f7",
+          "quantity": 1,
+          "totalPrice": 18390000,
+          "unitPrice": 18390000,
+          "endsAt": 1794069308623
+        },
+        {
+          "auctionId": "8c3b3a79fd314330964b37ab4e96a2d1",
+          "quantity": 1,
+          "totalPrice": 18390000,
+          "unitPrice": 18390000,
+          "endsAt": 1794069297385
+        },
+        {
+          "auctionId": "e68020ac23cb403e9ba005eb83a465e1",
+          "quantity": 1,
+          "totalPrice": 18390000,
+          "unitPrice": 18390000,
+          "endsAt": 1794069288235
+        },
+        {
+          "auctionId": "3c3450ab329e4ab3bd090ad69f92305e",
+          "quantity": 1,
+          "totalPrice": 18400000,
+          "unitPrice": 18400000,
+          "endsAt": 1794012825608
+        },
+        {
+          "auctionId": "6f4b618019ef4d36a687308515762fac",
+          "quantity": 1,
+          "totalPrice": 18475000,
+          "unitPrice": 18475000,
+          "endsAt": 1794011370501
+        }
+      ],
+      "excludedVariants": {
+        "modified-or-unreviewed:modifier": 1
+      },
+      "warningCodes": [],
+      "warnings": []
+    },
+    {
+      "itemId": "titanium-belt",
+      "name": "Titanium Belt",
+      "status": "priced",
+      "unitPrice": 3850000,
+      "activeListings": 39,
+      "comparableListings": 34,
+      "comparableUnits": 34,
+      "lowestListings": [
+        {
+          "auctionId": "51d8f870861648f8b513f0bf232eb648",
+          "quantity": 1,
+          "totalPrice": 3850000,
+          "unitPrice": 3850000,
+          "endsAt": 1794067811914
+        },
+        {
+          "auctionId": "2c61a4461bc74eb8a69fda4a0ca0ba56",
+          "quantity": 1,
+          "totalPrice": 3880499,
+          "unitPrice": 3880499,
+          "endsAt": 1794065649188
+        },
+        {
+          "auctionId": "a4df9be374fe49e5b0ce9953a38b70a6",
+          "quantity": 1,
+          "totalPrice": 3900000,
+          "unitPrice": 3900000,
+          "endsAt": 1794069129608
+        },
+        {
+          "auctionId": "4bbe116db393487ebcf32b94e3110cb9",
+          "quantity": 1,
+          "totalPrice": 3939000,
+          "unitPrice": 3939000,
+          "endsAt": 1793976753828
+        },
+        {
+          "auctionId": "37a2f4f561e843038c43566781f35441",
+          "quantity": 1,
+          "totalPrice": 3950000,
+          "unitPrice": 3950000,
+          "endsAt": 1794062814256
+        }
+      ],
+      "excludedVariants": {
+        "modified-or-unreviewed:modifier": 5,
+        "modified-or-unreviewed:rarity_upgrades": 1
+      },
+      "warningCodes": [],
+      "warnings": []
+    },
+    {
+      "itemId": "titanium-cloak",
+      "name": "Titanium Cloak",
+      "status": "priced",
+      "unitPrice": 3380000,
+      "activeListings": 36,
+      "comparableListings": 29,
+      "comparableUnits": 29,
+      "lowestListings": [
+        {
+          "auctionId": "9d973f47af7041a1a93ee9ab30791e0b",
+          "quantity": 1,
+          "totalPrice": 3380000,
+          "unitPrice": 3380000,
+          "endsAt": 1793982704106
+        },
+        {
+          "auctionId": "437f063459d441fabc9375232bf3a504",
+          "quantity": 1,
+          "totalPrice": 3400000,
+          "unitPrice": 3400000,
+          "endsAt": 1794069060165
+        },
+        {
+          "auctionId": "5c007e50927946e8b9a68beecc77da53",
+          "quantity": 1,
+          "totalPrice": 3560000,
+          "unitPrice": 3560000,
+          "endsAt": 1794065658754
+        },
+        {
+          "auctionId": "4a17113a4fcd463f8be37405107217cc",
+          "quantity": 1,
+          "totalPrice": 4000000,
+          "unitPrice": 4000000,
+          "endsAt": 1794025946320
+        },
+        {
+          "auctionId": "7bb1671355c74b1a90fc5b7cf41f6121",
+          "quantity": 1,
+          "totalPrice": 4000000,
+          "unitPrice": 4000000,
+          "endsAt": 1794025950633
+        }
+      ],
+      "excludedVariants": {
+        "modified-or-unreviewed:modifier": 7
+      },
+      "warningCodes": [],
+      "warnings": []
+    },
+    {
+      "itemId": "titanium-drill-dr-x355",
+      "name": "Titanium Drill DR-X355",
+      "status": "priced",
+      "unitPrice": 33500000,
+      "activeListings": 30,
+      "comparableListings": 15,
+      "comparableUnits": 15,
+      "lowestListings": [
+        {
+          "auctionId": "3626c6ab1d734a7580dffee3c49144e0",
+          "quantity": 1,
+          "totalPrice": 33500000,
+          "unitPrice": 33500000,
+          "endsAt": 1794750304675
+        },
+        {
+          "auctionId": "df05c01148294b278a1a0abea27f62d4",
+          "quantity": 1,
+          "totalPrice": 33799000,
+          "unitPrice": 33799000,
+          "endsAt": 1795002814600
+        },
+        {
+          "auctionId": "5f7d9e281ccd4974aff41816af20a77d",
+          "quantity": 1,
+          "totalPrice": 33800000,
+          "unitPrice": 33800000,
+          "endsAt": 1793943597746
+        },
+        {
+          "auctionId": "6a40ed2099284baa8892ae3473ab7646",
+          "quantity": 1,
+          "totalPrice": 33999999,
+          "unitPrice": 33999999,
+          "endsAt": 1795075202772
+        },
+        {
+          "auctionId": "7e338b94137f45e38d04cdb0d28008a0",
+          "quantity": 1,
+          "totalPrice": 33999999,
+          "unitPrice": 33999999,
+          "endsAt": 1795075236660
+        }
+      ],
+      "excludedVariants": {
+        "modified-or-unreviewed:drill_fuel": 7,
+        "modified-or-unreviewed:enchantments": 14,
+        "modified-or-unreviewed:modifier": 9,
+        "modified-or-unreviewed:compact_blocks": 3,
+        "modified-or-unreviewed:drill_part_upgrade_module": 2,
+        "modified-or-unreviewed:upgrade_module": 1
       },
       "warningCodes": [],
       "warnings": []
@@ -2782,11 +2676,25 @@
       "itemId": "titanium-drill-dr-x455",
       "name": "Titanium Drill DR-X455",
       "status": "priced",
-      "unitPrice": 95000000,
-      "activeListings": 17,
-      "comparableListings": 6,
-      "comparableUnits": 6,
+      "unitPrice": 90999998,
+      "activeListings": 24,
+      "comparableListings": 7,
+      "comparableUnits": 7,
       "lowestListings": [
+        {
+          "auctionId": "047ba2614ed94e82b6e57f808df2397b",
+          "quantity": 1,
+          "totalPrice": 90999998,
+          "unitPrice": 90999998,
+          "endsAt": 1795063455978
+        },
+        {
+          "auctionId": "e0f0c5d47e564a85b35f47d57108ffce",
+          "quantity": 1,
+          "totalPrice": 93000000,
+          "unitPrice": 93000000,
+          "endsAt": 1794012415976
+        },
         {
           "auctionId": "7c65454d51a141d4bdefe3f8f3ec3ac2",
           "quantity": 1,
@@ -2807,37 +2715,21 @@
           "totalPrice": 95500000,
           "unitPrice": 95500000,
           "endsAt": 1794981108247
-        },
-        {
-          "auctionId": "ee48be276325493dbd379cad7e357d36",
-          "quantity": 1,
-          "totalPrice": 95500000,
-          "unitPrice": 95500000,
-          "endsAt": 1794981097438
-        },
-        {
-          "auctionId": "1b943b1e353e423ca8f500e9563c8bba",
-          "quantity": 1,
-          "totalPrice": 96999000,
-          "unitPrice": 96999000,
-          "endsAt": 1794890294059
         }
       ],
       "excludedVariants": {
-        "modified-or-unreviewed:drill_part_upgrade_module": 5,
-        "modified-or-unreviewed:gems": 6,
-        "modified-or-unreviewed:drill_fuel": 11,
-        "modified-or-unreviewed:modifier": 8,
-        "modified-or-unreviewed:compact_blocks": 7,
-        "modified-or-unreviewed:enchantments": 9,
-        "modified-or-unreviewed:upgrade_module": 4,
-        "modified-or-unreviewed:drill_part_fuel_tank": 3,
-        "modified-or-unreviewed:drill_part_engine": 2,
-        "modified-or-unreviewed:engine": 2,
-        "modified-or-unreviewed:fuel_tank": 2,
-        "modified-or-unreviewed:rarity_upgrades": 3,
-        "modified-or-unreviewed:divan_powder_coating": 1,
-        "modified-or-unreviewed:polarvoid": 1
+        "modified-or-unreviewed:gems": 11,
+        "modified-or-unreviewed:drill_fuel": 15,
+        "modified-or-unreviewed:modifier": 13,
+        "modified-or-unreviewed:enchantments": 16,
+        "modified-or-unreviewed:compact_blocks": 8,
+        "modified-or-unreviewed:drill_part_fuel_tank": 1,
+        "modified-or-unreviewed:fuel_tank": 1,
+        "modified-or-unreviewed:rarity_upgrades": 5,
+        "modified-or-unreviewed:polarvoid": 1,
+        "modified-or-unreviewed:power_ability_scroll": 1,
+        "modified-or-unreviewed:drill_part_upgrade_module": 2,
+        "modified-or-unreviewed:upgrade_module": 1
       },
       "warningCodes": [],
       "warnings": []
@@ -2846,24 +2738,38 @@
       "itemId": "titanium-drill-dr-x555",
       "name": "Titanium Drill DR-X555",
       "status": "priced",
-      "unitPrice": 229000000,
-      "activeListings": 13,
-      "comparableListings": 5,
-      "comparableUnits": 5,
+      "unitPrice": 230000000,
+      "activeListings": 9,
+      "comparableListings": 7,
+      "comparableUnits": 7,
       "lowestListings": [
         {
-          "auctionId": "1cd82a28de3d403db8960fbeebf6be83",
+          "auctionId": "821f2f95acae4a7cbe34fd4b1225522b",
           "quantity": 1,
-          "totalPrice": 229000000,
-          "unitPrice": 229000000,
-          "endsAt": 1794227599459
+          "totalPrice": 230000000,
+          "unitPrice": 230000000,
+          "endsAt": 1795104877882
         },
         {
-          "auctionId": "23a29a13815c46dcba36fffd6efd7cc3",
+          "auctionId": "1563c499146243a3ba9e26117f011fcc",
           "quantity": 1,
-          "totalPrice": 229500000,
-          "unitPrice": 229500000,
-          "endsAt": 1794169960333
+          "totalPrice": 231900000,
+          "unitPrice": 231900000,
+          "endsAt": 1794066260426
+        },
+        {
+          "auctionId": "3e47b8c071604b69b7c6dfefd1934cdc",
+          "quantity": 1,
+          "totalPrice": 233000000,
+          "unitPrice": 233000000,
+          "endsAt": 1794421723992
+        },
+        {
+          "auctionId": "fd4d4888530b4461b3434b5cbf33d7ba",
+          "quantity": 1,
+          "totalPrice": 233000000,
+          "unitPrice": 233000000,
+          "endsAt": 1794421713269
         },
         {
           "auctionId": "d5c7c092993c4ed5aec7b40b236fa5b2",
@@ -2871,35 +2777,15 @@
           "totalPrice": 233999999,
           "unitPrice": 233999999,
           "endsAt": 1794587323374
-        },
-        {
-          "auctionId": "cf1891c841d0401ea59497257b1d8fdd",
-          "quantity": 1,
-          "totalPrice": 243899999,
-          "unitPrice": 243899999,
-          "endsAt": 1794002923779
-        },
-        {
-          "auctionId": "758d14c4a64740358d160709660a7882",
-          "quantity": 1,
-          "totalPrice": 250000000,
-          "unitPrice": 250000000,
-          "endsAt": 1794757213665
         }
       ],
       "excludedVariants": {
-        "modified-or-unreviewed:rarity_upgrades": 3,
-        "modified-or-unreviewed:gems": 5,
-        "modified-or-unreviewed:drill_fuel": 8,
-        "modified-or-unreviewed:modifier": 7,
-        "modified-or-unreviewed:compact_blocks": 4,
-        "modified-or-unreviewed:enchantments": 8,
-        "modified-or-unreviewed:drill_part_fuel_tank": 1,
-        "modified-or-unreviewed:fuel_tank": 1,
+        "modified-or-unreviewed:gems": 2,
         "modified-or-unreviewed:polarvoid": 1,
-        "modified-or-unreviewed:divan_powder_coating": 1,
-        "modified-or-unreviewed:drill_part_upgrade_module": 2,
-        "modified-or-unreviewed:upgrade_module": 2
+        "modified-or-unreviewed:drill_fuel": 2,
+        "modified-or-unreviewed:modifier": 2,
+        "modified-or-unreviewed:compact_blocks": 2,
+        "modified-or-unreviewed:enchantments": 2
       },
       "warningCodes": [],
       "warnings": []
@@ -2908,97 +2794,101 @@
       "itemId": "titanium-drill-dr-x655",
       "name": "Titanium Drill DR-X655",
       "status": "priced",
-      "unitPrice": 429999999,
-      "activeListings": 11,
-      "comparableListings": 2,
-      "comparableUnits": 2,
+      "unitPrice": 405000000,
+      "activeListings": 15,
+      "comparableListings": 3,
+      "comparableUnits": 3,
       "lowestListings": [
         {
-          "auctionId": "65c73c75e1974c0781b4714c1c6fc8c0",
+          "auctionId": "87df4e3e275848268b73ec0cd95b9c56",
           "quantity": 1,
-          "totalPrice": 429999999,
-          "unitPrice": 429999999,
-          "endsAt": 1793999753072
+          "totalPrice": 405000000,
+          "unitPrice": 405000000,
+          "endsAt": 1794601880163
         },
         {
-          "auctionId": "527ed69d095045ea80ccfb8240032312",
+          "auctionId": "b8f5a24568874d17918476641f35b092",
           "quantity": 1,
-          "totalPrice": 439980000,
-          "unitPrice": 439980000,
-          "endsAt": 1794325351511
+          "totalPrice": 405000000,
+          "unitPrice": 405000000,
+          "endsAt": 1794045814053
+        },
+        {
+          "auctionId": "4bb364625873417daf52877ed162fd98",
+          "quantity": 1,
+          "totalPrice": 410000000,
+          "unitPrice": 410000000,
+          "endsAt": 1794253139901
         }
       ],
       "excludedVariants": {
-        "modified-or-unreviewed:rarity_upgrades": 8,
-        "modified-or-unreviewed:gems": 8,
-        "modified-or-unreviewed:polarvoid": 6,
-        "modified-or-unreviewed:drill_fuel": 9,
-        "modified-or-unreviewed:modifier": 8,
-        "modified-or-unreviewed:compact_blocks": 8,
-        "modified-or-unreviewed:enchantments": 9,
-        "modified-or-unreviewed:divan_powder_coating": 6,
-        "modified-or-unreviewed:power_ability_scroll": 4,
-        "modified-or-unreviewed:fuel_tank": 3,
+        "modified-or-unreviewed:rarity_upgrades": 12,
+        "modified-or-unreviewed:gems": 11,
+        "modified-or-unreviewed:polarvoid": 9,
+        "modified-or-unreviewed:drill_fuel": 11,
+        "modified-or-unreviewed:modifier": 11,
+        "modified-or-unreviewed:compact_blocks": 10,
+        "modified-or-unreviewed:power_ability_scroll": 7,
+        "modified-or-unreviewed:enchantments": 11,
+        "modified-or-unreviewed:divan_powder_coating": 9,
+        "modified-or-unreviewed:fuel_tank": 4,
         "modified-or-unreviewed:upgrade_module": 3,
         "modified-or-unreviewed:drill_part_upgrade_module": 3,
-        "modified-or-unreviewed:drill_part_engine": 3,
-        "modified-or-unreviewed:engine": 3,
-        "modified-or-unreviewed:drill_part_fuel_tank": 3
+        "modified-or-unreviewed:drill_part_engine": 4,
+        "modified-or-unreviewed:engine": 4,
+        "modified-or-unreviewed:drill_part_fuel_tank": 5
       },
-      "warningCodes": [
-        "sparse-listings"
-      ],
-      "warnings": [
-        "Few comparable BIN listings are available. This asking price may be inflated and may not reflect a realizable sale price."
-      ]
+      "warningCodes": [],
+      "warnings": []
     },
     {
       "itemId": "titanium-gauntlet",
       "name": "Titanium Gauntlet",
       "status": "priced",
-      "unitPrice": 4000000,
-      "activeListings": 17,
-      "comparableListings": 9,
-      "comparableUnits": 9,
+      "unitPrice": 3450000,
+      "activeListings": 44,
+      "comparableListings": 34,
+      "comparableUnits": 34,
       "lowestListings": [
         {
-          "auctionId": "482e1ee9bc0e4e43810a1d322860a2c2",
+          "auctionId": "4a65f711c83f4f45b02b6b8b23309733",
           "quantity": 1,
-          "totalPrice": 4000000,
-          "unitPrice": 4000000,
-          "endsAt": 1794000177150
+          "totalPrice": 3450000,
+          "unitPrice": 3450000,
+          "endsAt": 1793914543420
         },
         {
-          "auctionId": "4bf1f5144ab04379a677ac2d41625b7c",
+          "auctionId": "68cf231d3b2b49ea9cc9513994b97b0b",
           "quantity": 1,
-          "totalPrice": 4000000,
-          "unitPrice": 4000000,
-          "endsAt": 1794000185578
+          "totalPrice": 3450000,
+          "unitPrice": 3450000,
+          "endsAt": 1793914534124
         },
         {
-          "auctionId": "d829e926defb401081a361619ab12dca",
+          "auctionId": "9915045cd8c84079bd046a49da697a5b",
           "quantity": 1,
-          "totalPrice": 4000000,
-          "unitPrice": 4000000,
-          "endsAt": 1794000200043
+          "totalPrice": 3450000,
+          "unitPrice": 3450000,
+          "endsAt": 1793914498406
         },
         {
-          "auctionId": "7e1b39501427448abe4f39a06eb8de13",
+          "auctionId": "fb69182533944f029628d630d1f4cdd3",
           "quantity": 1,
-          "totalPrice": 4250000,
-          "unitPrice": 4250000,
-          "endsAt": 1794000457210
+          "totalPrice": 3450000,
+          "unitPrice": 3450000,
+          "endsAt": 1793914518421
         },
         {
-          "auctionId": "077c6df14df84342bae078d205732802",
+          "auctionId": "6d1d4d06a7cc4427b26273ade6b1e214",
           "quantity": 1,
-          "totalPrice": 4500000,
-          "unitPrice": 4500000,
-          "endsAt": 1794257558943
+          "totalPrice": 3710000,
+          "unitPrice": 3710000,
+          "endsAt": 1794068158460
         }
       ],
       "excludedVariants": {
-        "modified-or-unreviewed:modifier": 8
+        "modified-or-unreviewed:modifier": 10,
+        "modified-or-unreviewed:rarity_upgrades": 2
       },
       "warningCodes": [],
       "warnings": []
@@ -3007,45 +2897,45 @@
       "itemId": "titanium-lantern",
       "name": "Titanium Lantern",
       "status": "priced",
-      "unitPrice": 4477497,
-      "activeListings": 15,
-      "comparableListings": 15,
-      "comparableUnits": 15,
+      "unitPrice": 3299998,
+      "activeListings": 31,
+      "comparableListings": 31,
+      "comparableUnits": 31,
       "lowestListings": [
         {
-          "auctionId": "25c37e0bb12849dbb96f614e1c27ef18",
+          "auctionId": "62a6be3edc3e49f5b234dbf1964e467c",
           "quantity": 1,
-          "totalPrice": 4477497,
-          "unitPrice": 4477497,
-          "endsAt": 1793849065913
+          "totalPrice": 3299998,
+          "unitPrice": 3299998,
+          "endsAt": 1793914491443
         },
         {
-          "auctionId": "57615b8f4f0644c6899ecf0b59a1347b",
+          "auctionId": "67beb8912e7a484e82f7a47d72c3c511",
           "quantity": 1,
-          "totalPrice": 4477497,
-          "unitPrice": 4477497,
-          "endsAt": 1793849057712
+          "totalPrice": 3299998,
+          "unitPrice": 3299998,
+          "endsAt": 1793914454076
         },
         {
-          "auctionId": "5ac5045db63d423d8ff7ba446726ae6b",
+          "auctionId": "add2b86b3ef14ce9904407876186cc2d",
           "quantity": 1,
-          "totalPrice": 4477497,
-          "unitPrice": 4477497,
-          "endsAt": 1793849063228
+          "totalPrice": 3299998,
+          "unitPrice": 3299998,
+          "endsAt": 1793914479331
         },
         {
-          "auctionId": "9dcb0a004d684ea88b7a8f3b3772eff9",
+          "auctionId": "b188c406d82f4528bf3a6b9c4edbb8aa",
           "quantity": 1,
-          "totalPrice": 4477497,
-          "unitPrice": 4477497,
-          "endsAt": 1793849068831
+          "totalPrice": 3299998,
+          "unitPrice": 3299998,
+          "endsAt": 1793939721515
         },
         {
-          "auctionId": "a546de718c6443b2a04782a86059e882",
+          "auctionId": "bdc11a586acc4be69da17711f8791261",
           "quantity": 1,
-          "totalPrice": 4477497,
-          "unitPrice": 4477497,
-          "endsAt": 1793849074336
+          "totalPrice": 3299998,
+          "unitPrice": 3299998,
+          "endsAt": 1793914470932
         }
       ],
       "excludedVariants": {},
@@ -3056,50 +2946,50 @@
       "itemId": "titanium-necklace",
       "name": "Titanium Necklace",
       "status": "priced",
-      "unitPrice": 4499999,
-      "activeListings": 12,
-      "comparableListings": 11,
-      "comparableUnits": 11,
+      "unitPrice": 3899999,
+      "activeListings": 45,
+      "comparableListings": 39,
+      "comparableUnits": 39,
       "lowestListings": [
         {
-          "auctionId": "a077bd514a4845f0a88f138eb343b8bf",
+          "auctionId": "a75bae5ca2984613b5b9312bc3844278",
           "quantity": 1,
-          "totalPrice": 4499999,
-          "unitPrice": 4499999,
-          "endsAt": 1793847083548
+          "totalPrice": 3899999,
+          "unitPrice": 3899999,
+          "endsAt": 1793939685515
         },
         {
-          "auctionId": "0410b19bc3964a8c9480d3523562c8b9",
+          "auctionId": "3dc4f381a53548f78d59080710742334",
           "quantity": 1,
-          "totalPrice": 4500000,
-          "unitPrice": 4500000,
-          "endsAt": 1793964992904
+          "totalPrice": 3900000,
+          "unitPrice": 3900000,
+          "endsAt": 1794068059323
         },
         {
-          "auctionId": "5fe18762d8da4d3b944e166ec7ec0f44",
+          "auctionId": "aa1c8581ceae49c29693638e51ce3a22",
           "quantity": 1,
-          "totalPrice": 4500000,
-          "unitPrice": 4500000,
-          "endsAt": 1793962561090
+          "totalPrice": 3900000,
+          "unitPrice": 3900000,
+          "endsAt": 1794068982889
         },
         {
-          "auctionId": "76bed5fc06c14ca19a3fad9fa6e3458c",
+          "auctionId": "06a678aef14f4e95a1160f2e3ef0ce9b",
           "quantity": 1,
-          "totalPrice": 4600000,
-          "unitPrice": 4600000,
-          "endsAt": 1793885544110
+          "totalPrice": 3920000,
+          "unitPrice": 3920000,
+          "endsAt": 1793916105203
         },
         {
-          "auctionId": "a6b77c2ce5bf40799b1a7e5da7c038e6",
+          "auctionId": "2f27cd42867648b4b78211619c6812aa",
           "quantity": 1,
-          "totalPrice": 4699900,
-          "unitPrice": 4699900,
-          "endsAt": 1793951531577
+          "totalPrice": 3920000,
+          "unitPrice": 3920000,
+          "endsAt": 1793914567906
         }
       ],
       "excludedVariants": {
-        "modified-or-unreviewed:rarity_upgrades": 1,
-        "modified-or-unreviewed:modifier": 1
+        "modified-or-unreviewed:modifier": 6,
+        "modified-or-unreviewed:rarity_upgrades": 1
       },
       "warningCodes": [],
       "warnings": []
@@ -3108,51 +2998,50 @@
       "itemId": "titanium-relic",
       "name": "Titanium Relic",
       "status": "priced",
-      "unitPrice": 33900000,
-      "activeListings": 51,
-      "comparableListings": 44,
-      "comparableUnits": 44,
+      "unitPrice": 34725499,
+      "activeListings": 31,
+      "comparableListings": 29,
+      "comparableUnits": 29,
       "lowestListings": [
         {
-          "auctionId": "045a3f710eb34a98b47a37a3b8f65c76",
+          "auctionId": "df73d2fb8085403c9ff98c799a2f4304",
           "quantity": 1,
-          "totalPrice": 33900000,
-          "unitPrice": 33900000,
-          "endsAt": 1795037291246
+          "totalPrice": 34725499,
+          "unitPrice": 34725499,
+          "endsAt": 1794069604510
         },
         {
-          "auctionId": "0db778155349413f9fa3f129cb4f99a2",
+          "auctionId": "04d5e8beac4b42d6b1db9786113334d9",
           "quantity": 1,
-          "totalPrice": 33900000,
-          "unitPrice": 33900000,
-          "endsAt": 1795037347189
+          "totalPrice": 34900000,
+          "unitPrice": 34900000,
+          "endsAt": 1793981532455
         },
         {
-          "auctionId": "32a7872a1c61474bb948f46e5a4adc7c",
+          "auctionId": "1a3cf9b1e2934af49ffbf82bfe8365a3",
           "quantity": 1,
-          "totalPrice": 33900000,
-          "unitPrice": 33900000,
-          "endsAt": 1795037324348
+          "totalPrice": 34900000,
+          "unitPrice": 34900000,
+          "endsAt": 1794069626254
         },
         {
-          "auctionId": "34aa218ec27e4dba8401194e29fc9efb",
+          "auctionId": "6a19b5a9623b43289140255a4f65b49d",
           "quantity": 1,
-          "totalPrice": 33900000,
-          "unitPrice": 33900000,
-          "endsAt": 1795037356702
+          "totalPrice": 34900000,
+          "unitPrice": 34900000,
+          "endsAt": 1793981529282
         },
         {
-          "auctionId": "5388134d827740cf8389776fc6c7d189",
+          "auctionId": "9c28b615f93b48a281ae51d4ed1064a4",
           "quantity": 1,
-          "totalPrice": 33900000,
-          "unitPrice": 33900000,
-          "endsAt": 1795037305027
+          "totalPrice": 34900000,
+          "unitPrice": 34900000,
+          "endsAt": 1794069629108
         }
       ],
       "excludedVariants": {
-        "modified-or-unreviewed:rarity_upgrades": 5,
         "modified-or-unreviewed:modifier": 1,
-        "modified-or-unreviewed:talisman_enrichment": 1
+        "modified-or-unreviewed:rarity_upgrades": 1
       },
       "warningCodes": [],
       "warnings": []
@@ -3161,49 +3050,42 @@
       "itemId": "titanium-ring",
       "name": "Titanium Ring",
       "status": "priced",
-      "unitPrice": 5200000,
-      "activeListings": 14,
-      "comparableListings": 13,
-      "comparableUnits": 13,
+      "unitPrice": 5899998,
+      "activeListings": 5,
+      "comparableListings": 4,
+      "comparableUnits": 4,
       "lowestListings": [
         {
-          "auctionId": "49fab31595cb4e42aca580f7d9654d57",
+          "auctionId": "dee664997ad347b1ab95521b62a54e7b",
           "quantity": 1,
-          "totalPrice": 5200000,
-          "unitPrice": 5200000,
-          "endsAt": 1793865657295
+          "totalPrice": 5899998,
+          "unitPrice": 5899998,
+          "endsAt": 1793918434798
         },
         {
-          "auctionId": "62b8ec641a80441db443f62e45816628",
+          "auctionId": "707da0a085ef4fb18c60b1c33c21e3fe",
           "quantity": 1,
-          "totalPrice": 5200000,
-          "unitPrice": 5200000,
-          "endsAt": 1793998238445
+          "totalPrice": 5899999,
+          "unitPrice": 5899999,
+          "endsAt": 1793918022311
         },
         {
-          "auctionId": "787007fc84d74346bc55514d2e835855",
+          "auctionId": "5be8a4509ad641608d9b40d01deb3a6d",
           "quantity": 1,
-          "totalPrice": 5200000,
-          "unitPrice": 5200000,
-          "endsAt": 1793847029427
+          "totalPrice": 5999000,
+          "unitPrice": 5999000,
+          "endsAt": 1794069366168
         },
         {
-          "auctionId": "49880117d8c6426cb029bbe546299dec",
+          "auctionId": "418cdb528e7f432fa34eecd5a0f326b2",
           "quantity": 1,
-          "totalPrice": 5300000,
-          "unitPrice": 5300000,
-          "endsAt": 1793996291511
-        },
-        {
-          "auctionId": "aa2dafefb3f54760863c641cb78af500",
-          "quantity": 1,
-          "totalPrice": 5400000,
-          "unitPrice": 5400000,
-          "endsAt": 1793842844275
+          "totalPrice": 6000000,
+          "unitPrice": 6000000,
+          "endsAt": 1794058410568
         }
       ],
       "excludedVariants": {
-        "modified-or-unreviewed:modifier": 1
+        "modified-or-unreviewed:rarity_upgrades": 1
       },
       "warningCodes": [],
       "warnings": []
@@ -3211,172 +3093,86 @@
     {
       "itemId": "titanium-talisman",
       "name": "Titanium Talisman",
-      "status": "priced",
-      "unitPrice": 1500000,
-      "activeListings": 12,
-      "comparableListings": 12,
-      "comparableUnits": 12,
-      "lowestListings": [
-        {
-          "auctionId": "233c981fd17046e0ad9364f5d064cee1",
-          "quantity": 1,
-          "totalPrice": 1500000,
-          "unitPrice": 1500000,
-          "endsAt": 1793846205466
-        },
-        {
-          "auctionId": "fee363a5afbc44bd8f3a1eb11522e0ed",
-          "quantity": 1,
-          "totalPrice": 1500000,
-          "unitPrice": 1500000,
-          "endsAt": 1793903288021
-        },
-        {
-          "auctionId": "438462a37dba497e94d0582d253558f1",
-          "quantity": 1,
-          "totalPrice": 1850000,
-          "unitPrice": 1850000,
-          "endsAt": 1793958964121
-        },
-        {
-          "auctionId": "38fc8a24a0b8487ba56e77b52fd9372a",
-          "quantity": 1,
-          "totalPrice": 1900000,
-          "unitPrice": 1900000,
-          "endsAt": 1793940525818
-        },
-        {
-          "auctionId": "52bd5b1d65304ea2b54447bb8f5df834",
-          "quantity": 1,
-          "totalPrice": 1900000,
-          "unitPrice": 1900000,
-          "endsAt": 1793940534131
-        }
-      ],
+      "status": "no-active-bin",
+      "unitPrice": null,
+      "activeListings": 0,
+      "comparableListings": 0,
+      "comparableUnits": 0,
+      "lowestListings": [],
       "excludedVariants": {},
-      "warningCodes": [],
-      "warnings": []
+      "warningCodes": [
+        "no-active-bin"
+      ],
+      "warnings": [
+        "No current BIN listings found. Check historical prices elsewhere and enter a manual override."
+      ]
     },
     {
       "itemId": "titanium-infused-fuel-tank",
       "name": "Titanium-Infused Fuel Tank",
       "status": "priced",
-      "unitPrice": 29999999,
-      "activeListings": 21,
-      "comparableListings": 16,
-      "comparableUnits": 16,
+      "unitPrice": 32834999,
+      "activeListings": 2,
+      "comparableListings": 2,
+      "comparableUnits": 2,
       "lowestListings": [
         {
-          "auctionId": "6c1e3219e37d4cc19ada88d59d476cfc",
+          "auctionId": "9231e09149d04f86a4151bd909284a58",
           "quantity": 1,
-          "totalPrice": 29999999,
-          "unitPrice": 29999999,
-          "endsAt": 1793990985053
+          "totalPrice": 32834999,
+          "unitPrice": 32834999,
+          "endsAt": 1794068447050
         },
         {
-          "auctionId": "921179ec3ef84e85941e0dfc305901bc",
+          "auctionId": "1b245465656941799e58744f5019a7f7",
           "quantity": 1,
-          "totalPrice": 31500000,
-          "unitPrice": 31500000,
-          "endsAt": 1793895014236
-        },
-        {
-          "auctionId": "0e6cd702cbf540a08d28496292e682ff",
-          "quantity": 1,
-          "totalPrice": 32999999,
-          "unitPrice": 32999999,
-          "endsAt": 1793911203547
-        },
-        {
-          "auctionId": "c29322947cc64c7984a2cb9fe97c2671",
-          "quantity": 1,
-          "totalPrice": 32999999,
-          "unitPrice": 32999999,
-          "endsAt": 1793911239201
-        },
-        {
-          "auctionId": "c86be6f41f234a5fab1cb3017d70515c",
-          "quantity": 1,
-          "totalPrice": 32999999,
-          "unitPrice": 32999999,
-          "endsAt": 1793911222732
+          "totalPrice": 33000000,
+          "unitPrice": 33000000,
+          "endsAt": 1795007569218
         }
       ],
-      "excludedVariants": {
-        "modified-or-unreviewed:stored_drill_fuel": 5
-      },
-      "warningCodes": [],
-      "warnings": []
+      "excludedVariants": {},
+      "warningCodes": [
+        "sparse-listings"
+      ],
+      "warnings": [
+        "Few comparable BIN listings are available. This asking price may be inflated and may not reflect a realizable sale price."
+      ]
     },
     {
       "itemId": "titanium-plated-drill-engine",
       "name": "Titanium-Plated Drill Engine",
-      "status": "priced",
-      "unitPrice": 38800000,
-      "activeListings": 5,
-      "comparableListings": 5,
-      "comparableUnits": 5,
-      "lowestListings": [
-        {
-          "auctionId": "b45bec0a2b5043bba28c3b747be3e2b6",
-          "quantity": 1,
-          "totalPrice": 38800000,
-          "unitPrice": 38800000,
-          "endsAt": 1793840281211
-        },
-        {
-          "auctionId": "64929a2d7463475cab154eff0bc9f21d",
-          "quantity": 1,
-          "totalPrice": 39000000,
-          "unitPrice": 39000000,
-          "endsAt": 1793988084149
-        },
-        {
-          "auctionId": "5487373c4a324e48a900ed2f0f10881e",
-          "quantity": 1,
-          "totalPrice": 39800000,
-          "unitPrice": 39800000,
-          "endsAt": 1793982415471
-        },
-        {
-          "auctionId": "0d4886562c8e4fe69ee88bfc796a2862",
-          "quantity": 1,
-          "totalPrice": 43000000,
-          "unitPrice": 43000000,
-          "endsAt": 1794971890946
-        },
-        {
-          "auctionId": "2c91972a94644e9d805c0db221ad87b1",
-          "quantity": 1,
-          "totalPrice": 44600000,
-          "unitPrice": 44600000,
-          "endsAt": 1793936734181
-        }
-      ],
+      "status": "no-active-bin",
+      "unitPrice": null,
+      "activeListings": 0,
+      "comparableListings": 0,
+      "comparableUnits": 0,
+      "lowestListings": [],
       "excludedVariants": {},
-      "warningCodes": [],
-      "warnings": []
+      "warningCodes": [
+        "no-active-bin"
+      ],
+      "warnings": [
+        "No current BIN listings found. Check historical prices elsewhere and enter a manual override."
+      ]
     },
     {
       "itemId": "topaz-drill-kgr-12",
       "name": "Topaz Drill KGR-12",
       "status": "no-comparable-bin",
       "unitPrice": null,
-      "activeListings": 11,
+      "activeListings": 5,
       "comparableListings": 0,
       "comparableUnits": 0,
       "lowestListings": [],
       "excludedVariants": {
-        "modified-or-unreviewed:gems": 7,
-        "modified-or-unreviewed:drill_fuel": 11,
-        "modified-or-unreviewed:enchantments": 11,
-        "modified-or-unreviewed:modifier": 9,
-        "modified-or-unreviewed:compact_blocks": 2,
-        "modified-or-unreviewed:drill_part_upgrade_module": 3,
-        "modified-or-unreviewed:drill_part_fuel_tank": 2,
-        "modified-or-unreviewed:fuel_tank": 1,
-        "modified-or-unreviewed:upgrade_module": 2,
-        "modified-or-unreviewed:rarity_upgrades": 2
+        "modified-or-unreviewed:gems": 2,
+        "modified-or-unreviewed:drill_fuel": 4,
+        "modified-or-unreviewed:modifier": 3,
+        "modified-or-unreviewed:compact_blocks": 1,
+        "modified-or-unreviewed:enchantments": 5,
+        "modified-or-unreviewed:drill_part_engine": 1,
+        "modified-or-unreviewed:engine": 1
       },
       "warningCodes": [
         "no-comparable-bin"
@@ -3389,52 +3185,55 @@
       "itemId": "topaz-rod",
       "name": "Topaz Rod",
       "status": "priced",
-      "unitPrice": 8348049,
-      "activeListings": 28,
-      "comparableListings": 26,
-      "comparableUnits": 26,
+      "unitPrice": 8149999,
+      "activeListings": 35,
+      "comparableListings": 28,
+      "comparableUnits": 28,
       "lowestListings": [
         {
-          "auctionId": "40a0cd99b63544bf8059c8eb53870917",
+          "auctionId": "4ce056f70db246539f1c952535d95695",
           "quantity": 1,
-          "totalPrice": 8348049,
-          "unitPrice": 8348049,
-          "endsAt": 1793844613593
+          "totalPrice": 8149999,
+          "unitPrice": 8149999,
+          "endsAt": 1794063910771
         },
         {
-          "auctionId": "9c6b774ef9d5493f8997f7ed5e45134b",
+          "auctionId": "98168c2973274430ba83faf3c4a60fd2",
           "quantity": 1,
-          "totalPrice": 8348049,
-          "unitPrice": 8348049,
-          "endsAt": 1793844630871
+          "totalPrice": 8149999,
+          "unitPrice": 8149999,
+          "endsAt": 1794063905268
         },
         {
-          "auctionId": "dea6d11d61304f9fae0ff0394d4e8fe5",
+          "auctionId": "bbade7e78dba4af8af416315b309c1d5",
           "quantity": 1,
-          "totalPrice": 8348049,
-          "unitPrice": 8348049,
-          "endsAt": 1793844606835
+          "totalPrice": 8149999,
+          "unitPrice": 8149999,
+          "endsAt": 1794063919399
         },
         {
-          "auctionId": "1dbd617ae1e34841bb14e375cf45a9cf",
+          "auctionId": "76c256946b60405d8ab24a02aab0126c",
           "quantity": 1,
-          "totalPrice": 8390000,
-          "unitPrice": 8390000,
-          "endsAt": 1795016512115
+          "totalPrice": 8158999,
+          "unitPrice": 8158999,
+          "endsAt": 1793906830926
         },
         {
-          "auctionId": "2556312b069f4ecea4256cfcf1f7e4b3",
+          "auctionId": "6e82e8a39cd2488a8802483c2d6e4215",
           "quantity": 1,
-          "totalPrice": 8390000,
-          "unitPrice": 8390000,
-          "endsAt": 1795016627290
+          "totalPrice": 8264771,
+          "unitPrice": 8264771,
+          "endsAt": 1794055211323
         }
       ],
       "excludedVariants": {
-        "modified-or-unreviewed:enchantments": 2,
+        "modified-or-unreviewed:line": 4,
+        "modified-or-unreviewed:modifier": 6,
+        "modified-or-unreviewed:enchantments": 7,
+        "modified-or-unreviewed:stats_book": 1,
+        "modified-or-unreviewed:wet_book_count": 3,
+        "modified-or-unreviewed:gems": 4,
         "modified-or-unreviewed:hook": 1,
-        "modified-or-unreviewed:line": 1,
-        "modified-or-unreviewed:modifier": 1,
         "modified-or-unreviewed:expertise_kills": 1
       },
       "warningCodes": [],
@@ -3444,45 +3243,45 @@
       "itemId": "travel-scroll-to-the-dwarven-base-camp",
       "name": "Travel Scroll to the Dwarven Base Camp",
       "status": "priced",
-      "unitPrice": 4800000,
-      "activeListings": 26,
-      "comparableListings": 26,
-      "comparableUnits": 26,
+      "unitPrice": 4790000,
+      "activeListings": 32,
+      "comparableListings": 32,
+      "comparableUnits": 32,
       "lowestListings": [
         {
-          "auctionId": "41f79a3c5d184cf4851f9013b8b6e071",
+          "auctionId": "24124876f97940b6890d3b3a3d6e33dd",
           "quantity": 1,
-          "totalPrice": 4800000,
-          "unitPrice": 4800000,
-          "endsAt": 1793966826007
+          "totalPrice": 4790000,
+          "unitPrice": 4790000,
+          "endsAt": 1794064184032
         },
         {
-          "auctionId": "4668a49a69e143148bcbe0c0729066e4",
+          "auctionId": "25e9b69c34f7473b829c49206b010ea5",
           "quantity": 1,
-          "totalPrice": 4800000,
-          "unitPrice": 4800000,
-          "endsAt": 1793966842967
+          "totalPrice": 4790000,
+          "unitPrice": 4790000,
+          "endsAt": 1794064194793
         },
         {
-          "auctionId": "4ef777a1a2bb4c60bc76f72acfdb69b1",
+          "auctionId": "2bbec8025b8841178b255f0f4f9aa7b2",
           "quantity": 1,
-          "totalPrice": 4800000,
-          "unitPrice": 4800000,
-          "endsAt": 1793966819727
+          "totalPrice": 4790000,
+          "unitPrice": 4790000,
+          "endsAt": 1794064190253
         },
         {
-          "auctionId": "896320ea3efa40cab73a02807a26f69a",
+          "auctionId": "39be1901fc0f400197354b71d18876ce",
           "quantity": 1,
-          "totalPrice": 4800000,
-          "unitPrice": 4800000,
-          "endsAt": 1793966848189
+          "totalPrice": 4790000,
+          "unitPrice": 4790000,
+          "endsAt": 1794064227014
         },
         {
-          "auctionId": "affd82c3e77745019cca67a1f2ae5122",
+          "auctionId": "3fb5cb28684f4bfa92a57cb5eea0e6e6",
           "quantity": 1,
-          "totalPrice": 4800000,
-          "unitPrice": 4800000,
-          "endsAt": 1793966836748
+          "totalPrice": 4790000,
+          "unitPrice": 4790000,
+          "endsAt": 1794064231193
         }
       ],
       "excludedVariants": {},
@@ -3493,45 +3292,45 @@
       "itemId": "travel-scroll-to-the-dwarven-forge",
       "name": "Travel Scroll to the Dwarven Forge",
       "status": "priced",
-      "unitPrice": 399000,
-      "activeListings": 62,
-      "comparableListings": 62,
-      "comparableUnits": 62,
+      "unitPrice": 389000,
+      "activeListings": 42,
+      "comparableListings": 42,
+      "comparableUnits": 42,
       "lowestListings": [
         {
-          "auctionId": "7a404abd2cd14068a5586cf2584f96a0",
+          "auctionId": "282aba840a5f428d943a1e6fd4b88058",
           "quantity": 1,
-          "totalPrice": 399000,
-          "unitPrice": 399000,
-          "endsAt": 1794000074406
+          "totalPrice": 389000,
+          "unitPrice": 389000,
+          "endsAt": 1793982563768
         },
         {
-          "auctionId": "e48136f9f10b4fdbb5763bf223279b78",
+          "auctionId": "2c5791b27c734cc49d1afbfbb346b09d",
           "quantity": 1,
-          "totalPrice": 399000,
-          "unitPrice": 399000,
-          "endsAt": 1794000069471
+          "totalPrice": 389000,
+          "unitPrice": 389000,
+          "endsAt": 1793982554791
         },
         {
-          "auctionId": "f1fc86c38f174858b0db864ff2f174dd",
+          "auctionId": "407b60b785484f87bc8de282865904a8",
           "quantity": 1,
-          "totalPrice": 399000,
-          "unitPrice": 399000,
-          "endsAt": 1794000065768
+          "totalPrice": 389000,
+          "unitPrice": 389000,
+          "endsAt": 1793982544743
         },
         {
-          "auctionId": "5073e773717c481abd9334cca0bf7a17",
+          "auctionId": "60161da8843d4363b4dc4afadae2ada0",
           "quantity": 1,
-          "totalPrice": 400000,
-          "unitPrice": 400000,
-          "endsAt": 1793998196099
+          "totalPrice": 389000,
+          "unitPrice": 389000,
+          "endsAt": 1793982541331
         },
         {
-          "auctionId": "6116ba23cfac44aa8387186a2a713f04",
+          "auctionId": "60f67169232942ae8a40fe04cbc8c4eb",
           "quantity": 1,
-          "totalPrice": 400000,
-          "unitPrice": 400000,
-          "endsAt": 1793913310451
+          "totalPrice": 389000,
+          "unitPrice": 389000,
+          "endsAt": 1793982538425
         }
       ],
       "excludedVariants": {},
@@ -3559,17 +3358,17 @@
       "itemId": "will-o-wisp",
       "name": "Will-o'-wisp",
       "status": "priced",
-      "unitPrice": 140000000,
+      "unitPrice": 149999999,
       "activeListings": 1,
       "comparableListings": 1,
       "comparableUnits": 1,
       "lowestListings": [
         {
-          "auctionId": "16f58a8eca5e46bb921e02e622975858",
+          "auctionId": "95eebd597f6f4691ab23155d50e13a5b",
           "quantity": 1,
-          "totalPrice": 140000000,
-          "unitPrice": 140000000,
-          "endsAt": 1794995832776
+          "totalPrice": 149999999,
+          "unitPrice": 149999999,
+          "endsAt": 1793915308615
         }
       ],
       "excludedVariants": {},
